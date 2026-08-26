@@ -51,7 +51,7 @@
     <div class="secao-topo">
       <div class="secao-n">02</div>
       <div>
-        <div class="secao-fn">O conceito · são dois, e param aqui</div>
+        <div class="secao-fn">O conceito</div>
         <h2>Delegação inteligente e estruturação do pensamento</h2>
       </div>
     </div>
@@ -60,22 +60,22 @@
     aqui porque agora eles têm onde morar: é dentro do Claude que a diferença entre os
     dois muda o que você digita.</p>
 
-    <div class="grade grade-2">
-      <div class="cartao">
-        <span class="rot">Delegação inteligente</span>
-        <p><strong>Você já sabe qual é a resposta certa.</strong> O que falta é o
-        trabalho de produzir ela: ler as trinta páginas, cruzar as duas listas,
-        formatar do jeito que o financiador exige.</p>
-        <p>Você entrega a execução e recebe o resultado. O critério continua seu, e é
-        você que o escreve no pedido.</p>
-      </div>
-      <div class="cartao">
-        <span class="rot">Estruturação do pensamento</span>
-        <p><strong>Você ainda não sabe qual é a resposta certa.</strong> O que falta é
-        enxergar o que você não está vendo: o risco que ninguém levantou, a leitura
-        alternativa do mesmo dado, a pergunta que muda a decisão.</p>
-        <p>Você não entrega a decisão. Você amplia o que entra nela, e decide depois.</p>
-      </div>
+    <div class="conceito">
+      <div class="conceito-rot">Conceito 1</div>
+      <h3>Delegação inteligente: você já sabe qual é a resposta certa</h3>
+      <p>O que falta é o trabalho de produzir ela: ler as trinta páginas, cruzar as
+      duas listas, formatar do jeito que o financiador exige. Você entrega a execução e
+      recebe o resultado. <strong>O critério continua seu, e é você que o escreve no
+      pedido.</strong></p>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">Conceito 2</div>
+      <h3>Estruturação do pensamento: você ainda não sabe qual é a resposta certa</h3>
+      <p>O que falta é enxergar o que você não está vendo: o risco que ninguém
+      levantou, a leitura alternativa do mesmo dado, a pergunta que muda a decisão.
+      <strong>Você não entrega a decisão. Você amplia o que entra nela</strong>, e
+      decide depois.</p>
     </div>
 
     <p>A confusão entre os dois é o que faz a resposta vir inútil. Pedir estruturação
@@ -253,15 +253,102 @@
       não a nota de cada uma isolada.</p>
     </div>
 
-    <div class="checagem">
-      <span class="rot">Confira você mesmo</span>
-      <ul>
-        <li>A sua coluna de decisão tem pelo menos um item, e ele não é "revisar no fim"</li>
-        <li>O pedido de delegação contém o critério que você usaria se fizesse na mão</li>
-        <li>O pedido de estruturação termina em pergunta, e não em ordem</li>
-        <li>Você consegue dizer, olhando as duas respostas, qual delas você usaria primeiro na segunda de manhã</li>
-      </ul>
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O pedido de delegação, para você adaptar</span>
+        <button class="btn-copiar" data-alvo="p-delegar">copiar</button>
+      </div>
+      <pre class="prompt-txt" id="p-delegar">Anexei o material da tarefa que eu descrevi acima.
+
+O que eu preciso: o trabalho da primeira coluna feito, entregue em tabela, uma linha por item, com a situação de cada um e o que ficou pendente separado no fim.
+
+Restrições: use o critério que eu escrevi acima, e não outro. Não decida nada que eu marquei como sendo da segunda coluna.
+
+Na dúvida: se um caso não se encaixar no critério, marque para eu conferir em vez de escolher por mim. Não preencha buraco por estimativa.</pre>
     </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">O pedido de estruturação, para você adaptar</span>
+        <button class="btn-copiar" data-alvo="p-estruturar">copiar</button>
+      </div>
+      <pre class="prompt-txt" id="p-estruturar">Anexei o mesmo material, e a minha leitura dele está descrita acima.
+
+O que eu preciso: três coisas que a minha conferência não pegaria, e o que eu deveria olhar em cada uma. Não me dê a decisão, me dê o que falta entrar nela.
+
+Restrições: não repita o que eu já disse que confiro. Cada ponto precisa vir com o motivo pelo qual ele escapa do meu critério atual.
+
+Na dúvida: se faltar contexto para avaliar algum ponto, pergunte antes de supor.</pre>
+    </div>
+
+    <div class="canvas solta" data-chave="canvas-n1-duas-colunas">
+      <div class="canvas-topo">
+        <div>
+          <span class="rot">Canvas</span>
+          <h3 class="canvas-t">A tarefa da minha semana, partida em duas</h3>
+        </div>
+        <div class="canvas-estado">O rascunho fica salvo neste aparelho</div>
+      </div>
+
+      <div class="canvas-grade">
+        <div class="cv-campo">
+          <div class="cv-n">1</div>
+          <div>
+            <label class="cv-rot" for="cv-tarefa">A tarefa, em uma frase</label>
+            <div class="cv-ex">Ex: conferir as fichas de participante contra a lista de presença do curso de julho</div>
+            <textarea id="cv-tarefa" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">2</div>
+          <div>
+            <label class="cv-rot" for="cv-executa">O que dá para receber pronto</label>
+            <div class="cv-ex">Ex: cruzar as duas listas, achar quem assinou e não entregou ficha, montar a relação</div>
+            <textarea id="cv-executa" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">3</div>
+          <div>
+            <label class="cv-rot" for="cv-decide">O que exige a sua decisão</label>
+            <div class="cv-ex">Ex: o que fazer com quem assinou e não entregou: cobrar, desconsiderar, ou aceitar com justificativa</div>
+            <textarea id="cv-decide" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">4</div>
+          <div>
+            <label class="cv-rot" for="cv-criterio">O critério que você usaria na mão</label>
+            <div class="cv-ex">Ex: nome com grafia diferente só conta como a mesma pessoa se sobrenome e turma coincidirem</div>
+            <textarea id="cv-criterio" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">5</div>
+          <div>
+            <label class="cv-rot" for="cv-pergunta">A pergunta que você faria se pudesse enxergar mais</label>
+            <div class="cv-ex">Ex: que tipo de problema esta conferência não pega?</div>
+            <textarea id="cv-pergunta" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">6</div>
+          <div>
+            <label class="cv-rot" for="cv-medida">Como você vai saber que deu certo</label>
+            <div class="cv-ex">Ex: a relação sai em 10 minutos, e nenhum nome aparece nos dois lados</div>
+            <textarea id="cv-medida" rows="2"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="canvas-rodape">
+        <button class="btn-copiar" type="button" data-acao="linha">Copiar a minha linha</button>
+        <button class="btn-fantasma" type="button" data-acao="apagar">Apagar o rascunho</button>
+        <p class="cv-nota">A linha copiada cola na planilha da turma, uma coluna por
+        campo, na ordem dos números.</p>
+      </div>
+    </div>
+
   </section>
 
   <section class="secao" id="s06">
@@ -379,13 +466,17 @@
       na decisão, e a decisão continua sendo assinada por quem sempre assinou.</p>
     </div>
 
-    <div class="gancho">
-      <span class="rot">A trava que esta aula não resolve</span>
-      <p>Você já sabe qual dos dois pedidos fazer. Só que os dois vão voltar genéricos
-      enquanto o pedido não disser quem você é, com que material está trabalhando e o
-      que conta como pronto. É a próxima aula.</p>
-    </div>
   </section>
+
+  <div class="checagem">
+    <span class="rot">Confira você mesmo</span>
+    <ul>
+      <li>A sua coluna de decisão tem pelo menos um item, e ele não é "revisar no fim"</li>
+      <li>O pedido de delegação contém o critério que você usaria se fizesse na mão</li>
+      <li>O pedido de estruturação termina em pergunta, e não em ordem</li>
+      <li>Os seis campos do canvas estão preenchidos, e a linha foi copiada</li>
+    </ul>
+  </div>
 
   <div class="fecho">
     <div class="fecho-rot">Você sabe fazer isto agora</div>
@@ -397,4 +488,11 @@
       <li><strong>O artefato:</strong> a sua tarefa partida em duas colunas, com os dois pedidos escritos. Ela volta nas três aulas seguintes</li>
     </ul>
     <div class="fecho-nota">A próxima aula pega o pedido que você acabou de escrever e mostra por que ele ainda volta genérico.</div>
+  </div>
+
+  <div class="gancho">
+    <span class="rot">A trava que esta aula não resolve</span>
+    <p>Você já sabe qual dos dois pedidos fazer. Só que os dois vão voltar genéricos
+    enquanto o pedido não disser quem você é, com que material está trabalhando e o
+    que conta como pronto. É a próxima aula.</p>
   </div>

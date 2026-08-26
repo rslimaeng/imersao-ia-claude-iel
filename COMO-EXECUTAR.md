@@ -46,7 +46,7 @@ seis vezes o mesmo defeito. A leva é uma aula, do GPS até a medição.
 |---|---|---|
 | 0 | **`python3 _build/entrada.py <pasta do cliente>`** | inventaria a pasta, aponta qual versão do documento usar, e lista o que falta antes de escrever |
 | 1 | Ler `CLAUDE.md` **inteiro**, com atenção à seção 3 | é o porquê. Sem ele você aplica a regra e erra no caso que ela não previu |
-| 2 | Abrir `componentes/index.html` no navegador | **46 seções**, uma por componente — o mesmo 46 do catálogo. Você não vai lembrar deles lendo CSS |
+| 2 | Abrir `componentes/index.html` no navegador | **48 seções**, uma por componente — o mesmo 48 do catálogo. Você não vai lembrar deles lendo CSS |
 | 2b | **Abrir `aula/index.html`** | é a aula modelo: as oito seções montadas, com a peça de cada uma. Copie de `_build/conteudo/aula.html` e troque o conteúdo. É a página que evita desenhar do zero o que já existe |
 | 3 | Se houver briefing, ementa ou transcrição, aplicar a skill `leitura-de-fonte` | material-fonte tem rito próprio, e ele vem antes do entregável |
 | 4 | Propor o recorte das aulas e **esperar o OK** | recortar errado custa o curso inteiro; perguntar custa uma mensagem |
@@ -54,6 +54,8 @@ seis vezes o mesmo defeito. A leva é uma aula, do GPS até a medição.
 | 4c | Para cada aula, **escrever o `nesta-aula` antes de escrever a aula** | o contrato feito depois vira resumo do que saiu, não promessa do que ia sair. Escrito antes, ele é o filtro: o que não serve a nenhuma das três linhas não entra |
 | 4d | **Decidir se o curso tem nível de módulo** | opcional. Serve quando as aulas se agrupam por assunto que vale anunciar sozinho (primeiro a ferramenta, depois o código). Curso curto ou de páginas temáticas vai da capa direto para a aula, e fica melhor. Forçar módulo em curso que não pede deixa uma página vazia entre a pessoa e o conteúdo |
 | 4e | **Escrever o `fecho` DEPOIS de escrever a aula** | é o par do `nesta-aula`. O contrato promete, o fecho registra. Escrito antes, vira cópia do contrato e repete o que a pessoa leu quarenta minutos atrás |
+| 4f | **Fechar com os TRÊS blocos**: `.checagem`, `.fecho`, `.gancho` | são três momentos, não um. A pessoa confere sozinha, registra o que sabe, e recebe a trava que abre a próxima aula |
+| 4g | **Se o curso ensina um produto pelo nome**, declarar em `CURSO["ensina"]` no `gerar.py` | o gate G2 proíbe nome de bastidor na tela, e "Claude Code" está na lista. Num curso que VENDE Claude Code como módulo, o nome é o assunto. Declarar tira só esse termo, e o resto da lista continua valendo |
 
 ### O que o `entrada.py` faz, e o que ele não faz
 

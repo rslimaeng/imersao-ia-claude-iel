@@ -25,7 +25,23 @@ CURSO = {
     "nome":  "Imersão em IA com Claude",
     "sigla": "IC",
     "sub":   "Treinamento in-company · Rafael Lima",
+    # A valvula do G2: o curso DECLARA o que ensina, e o gate para de acusar
+    # so esses termos. Aqui o Claude Code e o Modulo 3 da ementa vendida.
+    "ensina": ["claude code"],
 }
+
+# 🔴 Existe porque toda pagina precisa terminar com um lugar para ir. Ate
+# 26/08 nenhuma das seis terminava: a classe .rodape-nav estava no base.css
+# desde o inicio e ZERO paginas usavam. O curso do IEL herdou isso, e a
+# pagina de modulo dele acabava no meio de uma secao, sem nada embaixo. Foi
+# a primeira coisa que o Rafael apontou: "nao tem um toco, um botao tipo
+# voltar pra capa".
+#
+# Isto e maior que a TRILHA de proposito: a trilha e a barra lateral e so
+# lista aula; o rodape existe em pagina que a barra nem mostra (a capa, o
+# modulo). Sao duas perguntas diferentes -- "onde eu estou no curso" e
+# "para onde eu vou agora".
+SEQUENCIA = ["index", "nivelamento", "n1-dois-modos"]
 
 # ---------------------------------------------------------------------------
 # A TRILHA · o indice do curso, e a unica lista escrita a mao neste arquivo
@@ -494,6 +510,35 @@ def trilha(slug_atual):
     return "".join(partes)
 
 
+def rodape(slug):
+    """O par anterior/proxima, tirado da SEQUENCIA. Ponta sem vizinho fica vazia.
+
+    Nunca inventa destino: se a pagina e a primeira, nao existe "anterior", e
+    o lado fica em branco em vez de apontar para a propria pagina.
+    """
+    if slug not in SEQUENCIA:
+        return ""
+    i = SEQUENCIA.index(slug)
+    # 🔴 A capa mora na RAIZ; as outras cinco moram um nivel abaixo. O caminho
+    # relativo depende de onde a pagina ATUAL esta, nao de onde o alvo esta.
+    # O gate G7 pegou isto na primeira rodada: da capa, "../modulo/" sai do site.
+    base = "" if slug == "index" else "../"
+    def href(s):
+        return base if s == "index" else base + "%s/" % s
+    lados = []
+    if i > 0:
+        alvo = SEQUENCIA[i - 1]
+        lados.append('<a href="%s">&larr; %s</a>' % (href(alvo), PAGINAS[alvo]["titulo"]))
+    else:
+        lados.append("<span></span>")
+    if i < len(SEQUENCIA) - 1:
+        alvo = SEQUENCIA[i + 1]
+        lados.append('<a href="%s">%s &rarr;</a>' % (href(alvo), PAGINAS[alvo]["titulo"]))
+    else:
+        lados.append("<span></span>")
+    return '<nav class="rodape-nav">%s</nav>' % "".join(lados)
+
+
 def secoes(fragmento):
     """A nav lateral sai das seções do fragmento, nunca de uma lista à mão."""
     padrao = re.compile(
@@ -529,7 +574,7 @@ def monta(slug, cfg, fragmento):
         sigla=CURSO["sigla"], nome=CURSO["nome"], sub=CURSO["sub"],
         migalha=migalha, kicker=cfg["kicker"], h1=cfg["h1"],
         sub_pagina=cfg["sub"], selos=selos, corpo=fragmento,
-        abre_trilha=abre, fecha_trilha=fecha,
+        abre_trilha=abre, fecha_trilha=fecha, rodape=rodape(slug),
     )
 
 
@@ -572,6 +617,7 @@ TEMPLATE = r"""<!DOCTYPE html>
   </div>
 
 %(corpo)s
+%(rodape)s
 </main>
 %(fecha_trilha)s
 

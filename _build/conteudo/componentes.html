@@ -233,6 +233,12 @@
     <p class="fig-leg"><strong>Classe <code>.contraste</code> + <code>.ctr</code>.</strong>
     Três e três é o tamanho certo. Com cinco de cada lado vira lista, e lista ninguém lê.</p>
 
+    <p class="fig-leg"><strong>Contagem par alinha o par.</strong> Com 4 ou 8 blocos a
+    grade usa <strong>metade das colunas</strong>, então a linha de cima fica toda
+    <em>é</em> e a de baixo toda <em>não é</em>. Escreva na ordem natural: todos os
+    <em>é</em> primeiro, depois os <em>não é</em>. Com contagem ímpar ficam as três
+    colunas de sempre, porque não há par para alinhar.</p>
+
     <div class="aviso">
       <div class="aviso-t">A regra prática que fecha o conceito</div>
       <p><strong>Se não muda a cada uso, vai guardado. Se muda a cada uso, vai no
@@ -2713,5 +2719,117 @@ sem me mostrar a conta.</pre>
       precisa parar o olho na entrada. O fecho tem fundo neutro e só a borda esquerda
       marcada: <strong>registro não precisa chamar atenção, precisa ser achável</strong>
       quando a pessoa voltar na aula semanas depois procurando o que ela aprendeu.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="conceito-dividido">
+    <div class="secao-topo">
+      <div class="secao-n">44</div>
+      <div>
+        <div class="secao-fn">Dentro da seção</div>
+        <h2>O sub-conceito numerado</h2>
+      </div>
+    </div>
+
+    <p>Uma seção 02 que trata de duas ideias vira <strong>dois blocos com número
+    próprio</strong>, e não três parágrafos seguidos em que a segunda ideia se
+    esconde dentro da primeira.</p>
+
+    <div class="conceito">
+      <div class="conceito-rot">Conceito 1</div>
+      <h3>O número diz quantos são, e só</h3>
+      <p>Ele existe para a pessoa saber que vem outro, e some da memória depois da
+      leitura. Por isso é texto, e não medalha.</p>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">Conceito 2</div>
+      <h3>Dois é o teto, e o teto é da aula inteira</h3>
+      <p>Se você precisou de três, a aula virou duas. O rótulo da seção declara o
+      teto na tela: <code>O conceito · são dois, só</code>.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não confunda com o passo</div>
+      <p>O <code>.passo</code> é etapa de exercício: tem ordem obrigatória, a pessoa
+      <strong>executa</strong>, e o número é medalha porque marca posição numa fila.
+      O <code>.conceito</code> é ideia. Trocar um pelo outro faz o aluno tentar
+      &ldquo;executar&rdquo; um conceito.</p>
+    </div>
+
+    <p class="fig-leg"><strong>Classes <code>.conceito</code> e
+    <code>.conceito-rot</code>.</strong> Vem das aulas 1.1, 1.2 e 2.1 do Claude na
+    Prática e do bloco 03 do M3 do Maria Pitanga, as duas entregas em que o conceito
+    aparece dividido.</p>
+  </section>
+
+  <section class="secao" id="mesa">
+    <div class="secao-topo">
+      <div class="secao-n">45</div>
+      <div>
+        <div class="secao-fn">O que enche ao longo do tempo</div>
+        <h2>A mesa</h2>
+      </div>
+    </div>
+
+    <p>A mesma barra, em três momentos, e a pessoa <strong>vê</strong> a faixa que
+    importa virar uma tirinha no meio de uma pilha. Serve para janela de contexto,
+    agenda da semana, orçamento do mês: qualquer coisa que enche.</p>
+
+    <div class="mesa">
+      <div class="mesa-linha">
+        <div class="mesa-topo">
+          <span class="mesa-quando">Mensagem 3</span>
+          <span class="mesa-nota">mesa com folga</span>
+        </div>
+        <div class="mesa-trilho">
+          <div class="mesa-faixa regra" style="width:10%">regras</div>
+          <div class="mesa-faixa dado" style="width:20%">seu dado</div>
+          <div class="mesa-faixa conversa" style="width:12%">conversa</div>
+          <div class="mesa-faixa livre" style="width:58%">espaço livre</div>
+        </div>
+      </div>
+      <div class="mesa-linha">
+        <div class="mesa-topo">
+          <span class="mesa-quando">Mensagem 20</span>
+          <span class="mesa-nota">começa a apertar</span>
+        </div>
+        <div class="mesa-trilho">
+          <div class="mesa-faixa regra" style="width:10%">regras</div>
+          <div class="mesa-faixa dado" style="width:20%">seu dado</div>
+          <div class="mesa-faixa conversa" style="width:48%">conversa até aqui</div>
+          <div class="mesa-faixa livre" style="width:22%">livre</div>
+        </div>
+      </div>
+      <div class="mesa-linha">
+        <div class="mesa-topo">
+          <span class="mesa-quando">Mensagem 40</span>
+          <span class="mesa-nota">o começo virou pilha</span>
+        </div>
+        <div class="mesa-trilho">
+          <div class="mesa-faixa regra" style="width:6%">reg</div>
+          <div class="mesa-faixa dado" style="width:13%">dado</div>
+          <div class="mesa-faixa conversa" style="width:78%">conversa até aqui</div>
+          <div class="mesa-faixa livre" style="width:3%"></div>
+        </div>
+      </div>
+      <div class="mesa-legenda">
+        <span><i class="regra"></i>o que foi combinado</span>
+        <span><i class="dado"></i>o material da tarefa</span>
+        <span><i class="conversa"></i>a conversa até aqui</span>
+        <span><i class="livre"></i>espaço livre</span>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Classe <code>.mesa</code>.</strong> As faixas são
+    percentuais e <strong>a soma de cada linha tem de dar 100</strong>. Barra que não
+    fecha 100 mente sobre a conta que ela mesma está ensinando, e o gate G36 reprova.</p>
+
+    <div class="cartao">
+      <span class="rot">Por que ela vale dois parágrafos de prosa</span>
+      <p>É a única peça de verdade nova das três entregas de referência. Explicar em
+      texto que &ldquo;a conversa inteira vai junto a cada mensagem&rdquo; custa dois
+      parágrafos e não convence ninguém. A barra convence em cinco segundos, porque a
+      faixa verde encolhendo é a própria explicação.</p>
     </div>
   </section>

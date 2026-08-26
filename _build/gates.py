@@ -149,16 +149,7 @@ def g1_travessao(rel, html):
 
 VOCAB_INTERNO = [
     r"\bonda \d", r"\bgate\b", r"\bhandoff\b", r"\bspec\b", r"\bcommit\b",
-    r"\bsubagente\b", r"\bfrontmatter\b", r"\bfio[s]? em aberto\b",
-    # 🔴 ACHADO DO PADRAO, reportado ao Rafael em 26/08 e pendente na sessao dona.
-    # \bclaude code\b saiu da lista NESTE curso, e o motivo nao e conveniencia:
-    # aqui o Claude Code e o MODULO 3 da ementa vendida, com cinco itens de
-    # conteudo. O nome esta no contrato que o cliente aprovou.
-    # E o proprio padrao exige ele na tela: o P1 manda todo nome carregar a
-    # rotina E o nome oficial do recurso. Um gate que proibe nome oficial de
-    # produto contradiz a regra de escrita do mesmo padrao.
-    # O conserto certo e do lado de la: o gate deveria acusar so quando o curso
-    # NAO ensina aquele produto. Enquanto isso nao existe, fica aqui declarado.
+    r"\bsubagente\b", r"\bclaude code\b", r"\bfrontmatter\b", r"\bfio[s]? em aberto\b",
     r"\bprompt de sistema\b", r"\bfragmento\b", r"\bbase\.css\b", r"\bgerar\.py\b",
 ]
 
@@ -171,9 +162,15 @@ def g2_vocabulario_interno(rel, html):
     """
     if e_vitrine(rel):
         return []
+    # O curso declara em CURSO["ensina"] os nomes oficiais que ele ensina, e
+    # esses saem da lista. Sem isto, um curso sobre Claude Code nao consegue
+    # escrever "Claude Code" na tela. Ver o comentario no gerar.py.
+    ensina = [t.strip().lower() for t in _gerador.CURSO.get("ensina", []) if t.strip()]
     vis = texto_visivel(html)
     falhas = []
     for termo in VOCAB_INTERNO:
+        if any(re.fullmatch(termo, e) for e in ensina):
+            continue
         for _, l in linhas_com(vis, termo):
             falhas.append("vocabulário interno {}: {}".format(termo, l))
     return falhas
@@ -1128,6 +1125,79 @@ def g34_fr_host_tem_as_frases_marcadas(rel, html):
     return falhas
 
 
+def g35_breakout_nao_sobrevive_a_shorthand(rel, html):
+    """Componente que anda com .solta nao pode declarar margin em shorthand.
+
+    O breakout do padrao e `margin-left:50%` mais `transform:translateX(-50%)`.
+    Um `margin:22px 0` na regra do proprio componente zera o margin-left e NAO
+    toca o transform: o bloco continua deslocado meia largura para a esquerda,
+    agora sem margem nenhuma para compensar, e sai pela borda da tela.
+
+    🔴 POR QUE ESTE GATE EXISTE, medido em 26/08 na .aulas-lista:
+       o cartao de aula nascia em -311px com 1265px de viewport, cortado pela
+       esquerda, SEM gerar rolagem horizontal (transform nao cria area de
+       rolagem) e SEM nenhum gate acusar. Passou em 238 checagens. So apareceu
+       porque o Rafael abriu o site e olhou.
+
+    Defeito que nao produz sintoma mecanico e o mais caro que existe: ele
+    atravessa a revisao inteira e chega no cliente.
+    """
+    css = css_da_pagina(html)
+
+    # 🔴 SO VALE PARA QUEM VEM DEPOIS DE .solta NO ARQUIVO.
+    # Especificidade igual (uma classe contra uma classe): quem ganha e a
+    # ultima escrita. Regra ANTES de .solta perde e e inofensiva -- e o caso
+    # de .contraste, .converge, .demo, .tabela e mais trinta e cinco, que
+    # declaram margin em shorthand ha meses e funcionam. Reprovar as trinta e
+    # cinco por um defeito que so existe depois da linha do .solta seria
+    # gate que grita sem ter razao, e gate que grita sem razao e desligado.
+    # A regra BASE do .solta, e nao um `.com-trilha .solta` de override: por
+    # isso o ^ de inicio de linha. Sem ele a ancora cai no primeiro override,
+    # 1800 linhas acima, e o gate reprova o arquivo inteiro.
+    m = re.search(r"(?m)^\.solta\s*\{", css)
+    if not m:
+        return ["o .solta sumiu do CSS desta pagina: este gate parou de valer"]
+    corte = m.start()
+
+    vizinhas = set()
+    for attr in re.findall(r'class="([^"]*\bsolta\b[^"]*)"', html):
+        for c in attr.split():
+            if c != "solta":
+                vizinhas.add(c)
+    falhas = []
+    for c in sorted(vizinhas):
+        for reg in re.finditer(r"(?<![\w-])\.%s\s*\{([^}]*)\}" % re.escape(c), css):
+            if reg.start() < corte:
+                continue
+            if re.search(r"(^|;)\s*margin\s*:", reg.group(1)):
+                falhas.append(
+                    "a classe .{} anda com .solta, e a regra dela vem DEPOIS do "
+                    ".solta no arquivo declarando margin em shorthand. O shorthand "
+                    "zera o margin-left do breakout e o transform sobrevive "
+                    "sozinho: use margin-top e margin-bottom.".format(c))
+    return falhas
+
+
+def g36_a_mesa_fecha_cem(rel, html):
+    """Toda linha da .mesa soma exatamente 100%.
+
+    A mesa ensina uma conta: quanto de um espaco finito cada coisa ocupa.
+    Barra que nao fecha 100 mente sobre a propria conta que esta ensinando, e
+    o aluno nao tem como perceber -- ele nao vai medir a barra com regua.
+    """
+    falhas = []
+    pedacos = html.split('<div class="mesa-linha">')[1:]
+    for i, pedaco in enumerate(pedacos, 1):
+        larguras = [float(x) for x in re.findall(
+            r'class="mesa-faixa[^"]*"\s+style="width:([\d.]+)%"', pedaco)]
+        if not larguras:
+            continue
+        soma = round(sum(larguras), 2)
+        if abs(soma - 100) > 0.01:
+            falhas.append("a mesa {} de {} soma {:g}%, e nao 100%".format(i, rel, soma))
+    return falhas
+
+
 # =========================================================================
 # A LISTA · gate, defeito injetado, página alvo do defeito
 # =========================================================================
@@ -1240,6 +1310,23 @@ GATES = [
     ("G20", "o exemplo pronto imprime sozinho", g20_exemplo_imprime_sozinho,
      lambda h: h.replace("@media print", "@media screen and (min-width:99999px)", 1),
      "exemplo/index.html"),
+    ("G35", "o breakout nao sobrevive a shorthand de margem",
+     g35_breakout_nao_sobrevive_a_shorthand,
+     lambda h: h.replace(".aulas-lista{display:flex",
+                         ".aulas-lista{margin:22px 0;display:flex", 1),
+     # 🔴 ACHADO: o alvo de calibracao estava ancorado em NOME de pagina do
+     # template ("modulo/index.html", "aula/index.html"), e nenhum curso real
+     # usa esses nomes. Aqui as paginas sao "nivelamento" e "n1-dois-modos",
+     # entao os dois gates nasceram CEGOS e a suite inteira reprovou com zero
+     # achado real. O gate continua varrendo todas as paginas: o que falhou
+     # foi o auto-teste dele.
+     # Conserto certo, do lado de la: achar o alvo por CONTEUDO (a primeira
+     # pagina que tem .aulas-lista, a primeira que tem .mesa), nao por nome.
+     "nivelamento/index.html"),
+    ("G36", "a mesa fecha 100", g36_a_mesa_fecha_cem,
+     lambda h: h.replace('class="mesa-faixa livre" style="width:58%"',
+                         'class="mesa-faixa livre" style="width:40%"', 1),
+     "componentes/index.html"),
 ]
 
 

@@ -192,6 +192,18 @@ Toda aula tem as mesmas oito seções, na mesma ordem. O rótulo em cinza diz a
 **função** da seção; o H2 diz o assunto dela. Quem abre a quinta aula já sabe
 onde as coisas estão.
 
+🔴 **O rótulo é CATEGORIA FIXA, e não frase.** `A situação`, `O conceito`,
+`Como funciona`, `Demonstração`, `Sua vez`, `Confira`, `Pegadinhas`, `A cerca`.
+São sempre essas oito palavras, em todo curso. O que muda de aula para aula é o
+H2, que é o assunto daquela aula.
+
+Até 26/08 a aula modelo fazia o contrário: o H2 carregava a categoria
+(`<h2>A situação</h2>`) e o rótulo carregava uma frase (`O reconhecimento`).
+A regra acima já estava escrita aqui e o modelo a contradizia, então quem
+copiava o modelo copiava o erro. **Corrigido no modelo em 26/08**, e as três
+entregas de referência fazem assim, todas: `01 · A SITUAÇÃO` em cima,
+`A conversa que começou boa e foi piorando` embaixo.
+
 **Antes da 01 vem um bloco que não é seção:** o `nesta-aula`. Ele não define
 nada e não conta história, então não fere a regra de não começar pela definição.
 Ele é o **contrato**: o que a pessoa vai saber fazer ao sair.
@@ -218,8 +230,18 @@ as duas: o contrato antes, o **fecho** depois. Em 25/08 esta seção dizia
 dois**, como na referência que originou o bloco. O que sobrou da regra antiga é
 o alerta, que continua valendo inteiro:
 
-**Depois da 08 vem o outro bloco que não é seção:** o `fecho`. A anatomia
-continua com oito.
+**Depois da 08 vêm TRÊS blocos que não são seção**, e cada um faz uma coisa
+diferente. A anatomia continua com oito.
+
+| bloco | o que ele faz | quem confere |
+|---|---|---|
+| `.checagem` | itens contáveis ou sim/não, que a pessoa verifica sozinha | ela |
+| `.fecho` | o que ela sabe fazer agora, e o artefato que ela tem | ela, relendo |
+| `.gancho` | a trava que ESTA aula não resolve, e que abre a próxima | ninguém: é a costura |
+
+Até 26/08 o modelo tinha só o `.fecho`, com o gancho enfiado numa nota dentro
+dele. O `.checagem` e o `.gancho` existiam no CSS e em nenhuma página. **É por
+isso que o fecho parecia raso**: três momentos comprimidos em um.
 
 ```html
 <div class="fecho">
@@ -249,11 +271,33 @@ lado, *você sabe fazer agora* do outro. Mesmo verbo, tempo diferente.
 | 07 | Pegadinhas | os erros que quase todo mundo comete ali | a pessoa descobrir sozinha, três semanas depois |
 | 08 | A cerca | o que nunca pode acontecer neste nível | ensinar a fazer sem ensinar quando não fazer |
 
-🔴 **A página modelo é `aula/index.html`.** Ela tem as oito seções montadas, com a
-peça que costuma servir em cada uma: `.contraste` na 02, `.converge` na 03, `.demo`
-na 04, `<details class="gabarito">` na 06, `.dg` na 07. **Abra antes de escrever a
-primeira aula** e copie de `_build/conteudo/aula.html`. Desenhar do zero o que já
-está montado é o desperdício que este padrão existe para evitar.
+🔴 **A página modelo é `aula/index.html`.** Abra antes de escrever a primeira
+aula e copie de `_build/conteudo/aula.html`. Desenhar do zero o que já está
+montado é o desperdício que este padrão existe para evitar.
+
+**O que é OBRIGATÓRIO em cada seção, e o que é escolha.** O modelo monta a
+coluna do meio. A da direita é o menu da vitrine: escolha UMA, não todas.
+
+| # | obrigatório, toda aula | o modelo mostra | escolha uma na vitrine |
+|---|---|---|---|
+| 01 | a dor na voz de quem faz | prosa curta | `.glosa` |
+| 02 | o conceito **dividido** se for mais de um | `.conceito` + `.contraste` | `.venn` · `.cem` · `.antes` |
+| 03 | um artefato visual, sempre | `.converge` + `.mesa` | `.ciclo` · `.escada` · `.matriz` · `.cascata` · `.linha-tempo` · mais catorze |
+| 04 | o link para a página de caso | `.demo` + link | `.tela` · `.fonte` |
+| 05 | **as três, sempre:** `.arquivo`, `.passo`, `.prompt` | as três | `.canvas` no lugar do `.arquivo`, quando o insumo é a rotina da própria pessoa |
+| 06 | o gabarito fechado | `<details class="gabarito">` | — |
+| 07 | os erros de quem parte daqui | `.dg` | `.destrave` |
+| 08 | a cerca | `.cartao` com lista | `.aviso erro` |
+
+🔴 **A seção 05 é a que mais nasce magra**, e ela tem três peças obrigatórias.
+Aula sem arquivo para baixar, sem passo numerado e sem pedido pronto para
+copiar vira "agora faça você" e ninguém faz. As três entregas de referência têm
+as três, nas oito aulas: nenhuma exceção.
+
+**Por que o modelo não mostra as 48.** Um modelo que mostra tudo deixa de ser
+modelo e vira segunda vitrine, e o curso copiado dele sai carregado. O modelo
+mostra a espinha; a vitrine mostra o acervo. Se você abriu só o modelo, você
+viu um terço do padrão.
 
 **A anatomia não é uma invenção deste padrão.** Ela é o GPS da seção 3, aberto em
 oito passos:

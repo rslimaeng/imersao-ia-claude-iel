@@ -261,15 +261,18 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
    precisar do breakout — um documento A4, uma tabela de 12 colunas — a pagina
    dele fica FORA da trilha e mantem o layout editorial de sempre.
    =========================================================================== */
-/* 🔴 PROPOSTA AO PADRAO, aplicada aqui e reportada em 26/08.
-   O layout era flex, e a folha centralizava no espaco RESIDUAL, o que sobra
-   depois de tirar os 288px da trilha. Medido em 1265px: a coluna de leitura
-   ficava com 83px de margem a esquerda e 403px a direita. A mesma aula na
-   Pouchain, que nao tem trilha, mede 243 e 243. Era isto que lia como
-   desenquadrado e torto, e nao o conteudo.
-   O grid de tres colunas resolve porque a coluna do meio e a mesma
-   independente do que existe nas laterais: a leitura fica no centro da TELA,
-   e a trilha ocupa a margem direita em vez de roubar o centro.
+/* 🔴 GRID DE TRES COLUNAS, E NAO FLEX. Corrigido em 26/08.
+   No flex a coluna de leitura se centralizava no espaco RESIDUAL -- o que
+   sobra depois de tirar os 288px da trilha. Medido a 1265px: 75px de margem
+   a esquerda contra 410px a direita, com o centro do texto 167px fora do
+   centro da tela. A mesma aula na Pouchain, que nao tem trilha, mede 235/250.
+   Era isto que o Rafael leu como "torto" e "desenquadrado" quatro vezes.
+
+   O grid resolve porque a coluna do meio nao depende do que existe nas
+   laterais: a leitura fica no centro da TELA e a trilha ocupa a margem
+   direita, em vez de roubar o centro. Medido depois: 235/250, identico a
+   Pouchain.
+
    minmax(0,1fr) nas laterais e obrigatorio: 1fr puro nao encolhe abaixo do
    conteudo da trilha e devolve o problema em tela media. */
 .com-trilha{
@@ -279,16 +282,23 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
   max-width:1536px;margin:0 auto;padding:0 24px;
 }
 .com-trilha>.folha{
-  /* min-width:0 e obrigatorio: item de grid nasce com min-width:auto e nao
+  /* min-width:0 e obrigatorio: item de flex nasce com min-width:auto e nao
      encolhe abaixo do conteudo. O .doc tem min-width:100% e esticava a coluna
      de 780 para 1140, empurrando a pagina para fora da tela. */
   grid-column:2;min-width:0;max-width:var(--col);margin:0 auto;padding:0;
 }
+/* 🔴 A MIGALHA TEM DE MEDIR PELA MESMA REGUA DO TEXTO.
+   O grid moveu a coluna de leitura para o centro da tela e deixou a migalha
+   onde ela estava: num container de 1140 centralizado. Medido a 1265px, a
+   migalha comecava em 55px e o texto em 235px -- 180px de distancia, na
+   mesma pagina. Antes do grid eram 20px, ja errados.
+   Duas reguas na mesma pagina e o que sobra do "desenquadrado" depois de
+   consertar a coluna. */
+body:has(.com-trilha) .migalha{max-width:var(--col)}
 .com-trilha .solta{width:auto;min-width:0;margin-left:0;transform:none}
 
 .trilha{
-  grid-column:3;align-self:flex-start;position:sticky;top:84px;
-  max-width:288px;
+  grid-column:3;max-width:288px;align-self:flex-start;position:sticky;top:84px;
   font-size:13px;order:2;
 }
 .trilha-cab{
@@ -434,6 +444,23 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
    baixo é o que ela não é. Funciona porque a confusão do aluno quase nunca é
    sobre a definição: é sobre a coisa parecida ao lado.                       */
 .contraste{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+
+/* O PAR EM CIMA, O CONTRARIO EMBAIXO.
+   Com contagem PAR a grade tem metade das colunas, entao a linha de cima fica
+   toda "e" e a de baixo toda "nao e" -- que e como o bloco se le. Com 3 fixas,
+   4 blocos deixavam o quarto orfao numa linha sozinha: foi o que aconteceu na
+   aula modelo, e o Rafael viu no print.
+     2 blocos -> 2 colunas    6 blocos -> 3 colunas
+     4 blocos -> 2 colunas    8 blocos -> 4 colunas
+   Contagem IMPAR mantem as 3 de sempre: nao ha par para alinhar.
+   Vai dentro de min-width porque abaixo de 720px tudo vira 1 coluna, e o
+   :has() tem especificidade maior que a regra do responsivo. */
+@media (min-width:721px){
+  .contraste:has(> .ctr:nth-child(2)):not(:has(> .ctr:nth-child(3))){grid-template-columns:repeat(2,1fr)}
+  .contraste:has(> .ctr:nth-child(4)):not(:has(> .ctr:nth-child(5))){grid-template-columns:repeat(2,1fr)}
+  .contraste:has(> .ctr:nth-child(6)):not(:has(> .ctr:nth-child(7))){grid-template-columns:repeat(3,1fr)}
+  .contraste:has(> .ctr:nth-child(8)):not(:has(> .ctr:nth-child(9))){grid-template-columns:repeat(4,1fr)}
+}
 .ctr{
   background:var(--bg-elev);border:1px solid var(--border);
   border-radius:var(--raio);padding:18px;
@@ -727,9 +754,18 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
 }
 .passo:first-child{border-top:0;padding-top:0}
 .passo-topo{display:flex;align-items:flex-start;gap:18px;margin-bottom:20px}
+/* 🔴 O NUMERO DO PASSO E MEDALHA, NAO NUMERAL.
+   Ate 26/08 isto era font-size:34px em numeral, contra os 30px do .secao-n.
+   O filho saia MAIOR que o pai, e o Rafael viu no print da secao 05: os
+   quatro passos gritavam mais alto que as oito secoes ao redor.
+   Numeral compete com numeral. Medalha nao compete: e outro objeto.
+   E como a Pouchain resolve, e por isso la o passo nunca briga com a secao. */
 .passo-n{
-  font-family:var(--font-mono);font-size:34px;font-weight:500;
-  color:var(--accent);line-height:1;flex:0 0 auto;
+  font-family:var(--font-mono);font-size:13px;font-weight:500;
+  color:var(--bg-elev);background:var(--accent);line-height:1;flex:0 0 auto;
+  min-width:26px;height:26px;margin-top:3px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:var(--raio-p);
 }
 .passo-fn{
   font-family:var(--font-mono);font-size:11px;text-transform:uppercase;
@@ -2156,19 +2192,106 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
    O custo esta declarado: pagina COM trilha nao tem figura larga. Se um curso
    precisar do breakout (um documento A4, uma tabela de 12 colunas), a pagina
    dele fica FORA da TRILHA e mantem o layout editorial de sempre. */
-/* 🔴 CORRIGIDO 26/08. Em 25/08 esta regra era width:auto e desligava o
-   breakout inteiro quando a trilha existia: toda figura larga caia de 1140px
-   para os 780px da coluna de leitura, 32% mais estreita. Foi desligado por
-   medo errado -- supus que nao sobrava espaco, sem medir.
+/* 🔴 A CONTA, FEITA TRES VEZES, E ELA NAO FECHA. Fechado em 26/08.
 
-   Sobra. Com a trilha de 288px e o gap de 32, o track de conteudo fica com
-   ~1168px num container de 1536. O que o breakout NAO pode e medir por
-   100vw, porque a viewport inclui a trilha: por isso o calc desconta os
-   400px que trilha, gap e padding ocupam. */
-.com-trilha .solta{
-  width:min(var(--col-larga),calc(100vw - 400px));
-  min-width:100%;margin-left:50%;transform:translateX(-50%);
+   25/08 -- width:auto. Desliguei o breakout por medo, sem medir. Figura
+           larga caiu de 1140 para 780. O Rafael chamou de "comprimido".
+   26/08 -- calc(100vw - 400px). Media 865px a 1265. Parecia resolvido, e
+           colidia: a borda direita do bloco caia em 1058px e a trilha
+           comeca em 1047. 11px por baixo da barra, em cinco blocos da
+           aula 1 do IEL, no ar.
+   26/08 -- a conta, agora com o grid. A coluna de leitura passou a ser
+           centralizada na TELA. Entao o limite da direita nao e mais a
+           borda da janela: e onde a trilha comeca. Meia-largura maxima =
+           1047 - 32 - 632 = 383px, o que da 766px de bloco. MENOS que os
+           780 da propria coluna.
+
+   Nao ha breakout possivel numa pagina com trilha, e a conta e a mesma em
+   qualquer largura porque coluna e trilha crescem juntas.
+
+   A ESCOLHA, ENTAO, E DECLARADA: a barra vence, e a figura larga mora nas
+   paginas que nao tem barra -- caso/ e exemplo/, que e onde a demonstracao
+   e o artefato pronto moram de qualquer jeito. As tres entregas de
+   referencia (Maria Pitanga, Longevidade, Pouchain) nao tem barra lateral
+   em aula nenhuma, e e por isso que a figura larga cabe la.
+
+   NAO "conserte" isto de novo sem medir a borda direita contra .trilha. */
+.com-trilha .solta{width:auto;min-width:0;margin-left:0;transform:none}
+
+
+/* ---------- 57 · O SUB-CONCEITO NUMERADO ---------------------------------
+   "Conceito 1 · ... / Conceito 2 · ..." dentro de UMA secao. Vem da Pouchain
+   (aulas 1.1, 1.2 e 2.1) e do bloco 03 do M3 da Maria Pitanga.
+
+   Resolve o que o Rafael pediu duas vezes: "o conceito tem que ser dividido".
+   Uma secao 02 que trata de duas ideias vira dois blocos com numero proprio,
+   em vez de tres paragrafos seguidos em que a segunda ideia se esconde.
+
+   🔴 NAO E O .passo, e a diferenca importa:
+     .passo    etapa de exercicio. Tem ordem obrigatoria, o aluno EXECUTA,
+               e o numero e medalha porque marca posicao numa fila.
+     .conceito ideia. O numero existe so para dizer QUANTAS sao, e some da
+               memoria depois da leitura. Por isso aqui ele e texto.
+   Trocar um pelo outro faz o aluno tentar "executar" um conceito.          */
+.conceito{margin:34px 0}
+.conceito:first-of-type{margin-top:26px}
+.conceito-rot{
+  font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px;
 }
+.conceito h3{font-size:21px;line-height:1.28;margin-bottom:11px}
+.conceito > p:last-child{margin-bottom:0}
+
+/* ---------- 58 · A MESA · a janela de contexto enchendo -------------------
+   A unica peca de verdade nova das tres entregas de referencia, e a mais
+   didatica delas. A Pouchain mostra a MESMA barra em tres momentos da
+   conversa (mensagem 3, 20 e 40) e a pessoa VE a faixa das regras virar uma
+   tirinha no meio de uma pilha. Explicar isso em prosa custa dois paragrafos
+   e nao convence ninguem.
+
+   Serve para qualquer coisa que ENCHE ao longo do tempo: janela de contexto,
+   agenda da semana, orcamento do mes.
+
+   🔴 As faixas sao percentuais e a soma tem de dar 100. Barra que nao fecha
+   100 mente sobre a conta que ela mesma esta ensinando -- o gate G36 confere.
+
+   Contraste medido, texto branco 11px sobre cada faixa:
+     .regra    --accent-dark  #2c4753   9,4:1
+     .dado     --accent       #3b5b6b   7,2:1
+     .conversa --text-muted   #5a6172   6,2:1
+     .livre    sem fundo, --text-dim sobre --bg-warm   4,5:1                */
+.mesa{margin-top:26px;margin-bottom:26px}
+.mesa-linha{margin-bottom:18px}
+.mesa-linha:last-child{margin-bottom:0}
+.mesa-topo{
+  display:flex;justify-content:space-between;align-items:baseline;
+  gap:14px;margin-bottom:7px;
+}
+.mesa-quando{font-weight:600;font-size:15px}
+.mesa-nota{font-family:var(--font-mono);font-size:12px;color:var(--text-dim)}
+.mesa-trilho{
+  display:flex;height:28px;border-radius:var(--raio-p);overflow:hidden;
+  background:var(--bg-warm);
+}
+.mesa-faixa{
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-mono);font-size:11px;color:var(--bg-elev);
+  white-space:nowrap;overflow:hidden;
+}
+.mesa-faixa.regra{background:var(--accent-dark)}
+.mesa-faixa.dado{background:var(--accent)}
+.mesa-faixa.conversa{background:var(--text-muted)}
+.mesa-faixa.livre{background:transparent;color:var(--text-dim)}
+.mesa-legenda{
+  display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;
+  font-family:var(--font-mono);font-size:11px;color:var(--text-dim);
+}
+.mesa-legenda span{display:inline-flex;align-items:center;gap:6px}
+.mesa-legenda i{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+.mesa-legenda i.regra{background:var(--accent-dark)}
+.mesa-legenda i.dado{background:var(--accent)}
+.mesa-legenda i.conversa{background:var(--text-muted)}
+.mesa-legenda i.livre{background:var(--bg-warm);border:1px solid var(--border-strong)}
 
 /* ---------- 56 · TELAS ESTREITAS ------------------------------------------ */
 
@@ -2197,7 +2320,17 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
   padding:4px 9px;border-radius:var(--raio-p)}
 .rec.livre{background:var(--bg-warm);color:var(--text-dim)}
 
-.aulas-lista{display:flex;flex-direction:column;gap:22px;margin:22px 0}
+/* 🔴 SEM SHORTHAND DE MARGEM AQUI, E O MOTIVO E CARO.
+   Ate 26/08 esta regra era `margin:22px 0`. O shorthand zera margin-left, e
+   `.aulas-lista` vem DEPOIS de `.solta` no arquivo com a mesma especificidade
+   -- entao ela vencia e matava o margin-left:50% do breakout.
+   O transform:translateX(-50%) NAO e margem: sobrevivia sozinho. Resultado
+   medido a 1265px: o cartao nascia em -311px, cortado pela esquerda, SEM
+   gerar rolagem horizontal e SEM nenhum gate acusar.
+   Regra que fica: componente que anda com .solta usa margin-top/margin-bottom.
+   O gate G35 confere isso em todo o arquivo. */
+.aulas-lista{display:flex;flex-direction:column;gap:22px;
+  margin-top:22px;margin-bottom:22px}
 /* 22px e o ritmo da casa: medido na capa, 7 de 7 gaps entre blocos de uma
    secao dao exatamente 22. A Pouchain usa gap:16px com margin-bottom:56px;
    eu tinha copiado o gap e largado a margem, e o cartao de explicacao ficava
@@ -2621,6 +2754,10 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
     </div>
     <p class="fig-leg"><strong>Classe <code>.contraste</code> + <code>.ctr</code>.</strong>
     Três e&nbsp;três é o&nbsp;tamanho certo. Com&nbsp;cinco de&nbsp;cada lado vira lista, e&nbsp;lista ninguém lê.</p>
+
+    <p class="fig-leg"><strong>Contagem par alinha o&nbsp;par.</strong> Com&nbsp;4 ou&nbsp;8 blocos a&nbsp;grade usa <strong>metade das&nbsp;colunas</strong>, então a&nbsp;linha de&nbsp;cima fica toda
+    <em>é</em> e&nbsp;a&nbsp;de&nbsp;baixo toda <em>não&nbsp;é</em>. Escreva na&nbsp;ordem natural: todos os&nbsp;<em>é</em> primeiro, depois os&nbsp;<em>não&nbsp;é</em>. Com&nbsp;contagem ímpar ficam as&nbsp;três
+    colunas de&nbsp;sempre, porque&nbsp;não&nbsp;há par para&nbsp;alinhar.</p>
 
     <div class="aviso">
       <div class="aviso-t">A regra prática que fecha o conceito</div>
@@ -4964,6 +5101,110 @@ sem me mostrar a conta.</pre>
       quando&nbsp;a&nbsp;pessoa voltar na&nbsp;aula semanas depois procurando o&nbsp;que&nbsp;ela aprendeu.</p>
     </div>
   </section>
+
+  <section class="secao" id="conceito-dividido">
+    <div class="secao-topo">
+      <div class="secao-n">44</div>
+      <div>
+        <div class="secao-fn">Dentro da seção</div>
+        <h2>O&nbsp;sub-conceito numerado</h2>
+      </div>
+    </div>
+
+    <p>Uma&nbsp;seção 02 que&nbsp;trata de&nbsp;duas ideias vira <strong>dois blocos com&nbsp;número
+    próprio</strong>, e&nbsp;não&nbsp;três parágrafos seguidos em&nbsp;que&nbsp;a&nbsp;segunda ideia se&nbsp;esconde dentro da&nbsp;primeira.</p>
+
+    <div class="conceito">
+      <div class="conceito-rot">Conceito 1</div>
+      <h3>O&nbsp;número diz quantos são, e&nbsp;só</h3>
+      <p>Ele existe para&nbsp;a&nbsp;pessoa saber que&nbsp;vem outro, e&nbsp;some da&nbsp;memória depois da&nbsp;leitura. Por&nbsp;isso é texto, e&nbsp;não&nbsp;medalha.</p>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">Conceito 2</div>
+      <h3>Dois é o&nbsp;teto, e&nbsp;o&nbsp;teto é da&nbsp;aula inteira</h3>
+      <p>Se&nbsp;você precisou de&nbsp;três, a&nbsp;aula virou duas. O&nbsp;rótulo da&nbsp;seção declara o&nbsp;teto na&nbsp;tela: <code>O conceito · são dois, só</code>.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Não confunda com o passo</div>
+      <p>O&nbsp;<code>.passo</code> é etapa de&nbsp;exercício: tem ordem obrigatória, a&nbsp;pessoa
+      <strong>executa</strong>, e&nbsp;o&nbsp;número é medalha porque&nbsp;marca posição numa&nbsp;fila.
+      O&nbsp;<code>.conceito</code> é ideia. Trocar um&nbsp;pelo&nbsp;outro faz o&nbsp;aluno tentar
+      &ldquo;executar&rdquo; um&nbsp;conceito.</p>
+    </div>
+
+    <p class="fig-leg"><strong>Classes <code>.conceito</code> e&nbsp;<code>.conceito-rot</code>.</strong> Vem das&nbsp;aulas 1.1, 1.2 e&nbsp;2.1 do&nbsp;Claude na&nbsp;Prática e&nbsp;do&nbsp;bloco 03 do&nbsp;M3 do&nbsp;Maria Pitanga, as&nbsp;duas entregas em&nbsp;que&nbsp;o&nbsp;conceito
+    aparece dividido.</p>
+  </section>
+
+  <section class="secao" id="mesa">
+    <div class="secao-topo">
+      <div class="secao-n">45</div>
+      <div>
+        <div class="secao-fn">O que enche ao longo do tempo</div>
+        <h2>A&nbsp;mesa</h2>
+      </div>
+    </div>
+
+    <p>A&nbsp;mesma barra, em&nbsp;três momentos, e&nbsp;a&nbsp;pessoa <strong>vê</strong> a&nbsp;faixa que&nbsp;importa virar uma&nbsp;tirinha no&nbsp;meio de&nbsp;uma&nbsp;pilha. Serve para&nbsp;janela de&nbsp;contexto,
+    agenda da&nbsp;semana, orçamento do&nbsp;mês: qualquer coisa que&nbsp;enche.</p>
+
+    <div class="mesa">
+      <div class="mesa-linha">
+        <div class="mesa-topo">
+          <span class="mesa-quando">Mensagem 3</span>
+          <span class="mesa-nota">mesa com folga</span>
+        </div>
+        <div class="mesa-trilho">
+          <div class="mesa-faixa regra" style="width:10%">regras</div>
+          <div class="mesa-faixa dado" style="width:20%">seu dado</div>
+          <div class="mesa-faixa conversa" style="width:12%">conversa</div>
+          <div class="mesa-faixa livre" style="width:58%">espaço livre</div>
+        </div>
+      </div>
+      <div class="mesa-linha">
+        <div class="mesa-topo">
+          <span class="mesa-quando">Mensagem 20</span>
+          <span class="mesa-nota">começa a apertar</span>
+        </div>
+        <div class="mesa-trilho">
+          <div class="mesa-faixa regra" style="width:10%">regras</div>
+          <div class="mesa-faixa dado" style="width:20%">seu dado</div>
+          <div class="mesa-faixa conversa" style="width:48%">conversa até aqui</div>
+          <div class="mesa-faixa livre" style="width:22%">livre</div>
+        </div>
+      </div>
+      <div class="mesa-linha">
+        <div class="mesa-topo">
+          <span class="mesa-quando">Mensagem 40</span>
+          <span class="mesa-nota">o começo virou pilha</span>
+        </div>
+        <div class="mesa-trilho">
+          <div class="mesa-faixa regra" style="width:6%">reg</div>
+          <div class="mesa-faixa dado" style="width:13%">dado</div>
+          <div class="mesa-faixa conversa" style="width:78%">conversa até aqui</div>
+          <div class="mesa-faixa livre" style="width:3%"></div>
+        </div>
+      </div>
+      <div class="mesa-legenda">
+        <span><i class="regra"></i>o que foi combinado</span>
+        <span><i class="dado"></i>o material da tarefa</span>
+        <span><i class="conversa"></i>a conversa até aqui</span>
+        <span><i class="livre"></i>espaço livre</span>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Classe <code>.mesa</code>.</strong> As&nbsp;faixas são
+    percentuais e&nbsp;<strong>a&nbsp;soma de&nbsp;cada linha tem de&nbsp;dar 100</strong>. Barra que&nbsp;não&nbsp;fecha 100 mente sobre&nbsp;a&nbsp;conta que&nbsp;ela mesma está ensinando, e&nbsp;o&nbsp;gate G36 reprova.</p>
+
+    <div class="cartao">
+      <span class="rot">Por que ela vale dois parágrafos de prosa</span>
+      <p>É a&nbsp;única peça de&nbsp;verdade nova das&nbsp;três entregas de&nbsp;referência. Explicar em&nbsp;texto que&nbsp;&ldquo;a conversa inteira vai junto a&nbsp;cada mensagem&rdquo; custa dois
+      parágrafos e&nbsp;não&nbsp;convence ninguém. A&nbsp;barra convence em&nbsp;cinco segundos, porque&nbsp;a&nbsp;faixa verde encolhendo é a&nbsp;própria explicação.</p>
+    </div>
+  </section>
+
 
 </main>
 
