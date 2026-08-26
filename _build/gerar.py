@@ -51,9 +51,16 @@ SEQUENCIA = ["index", "nivelamento", "n1-dois-modos"]
 #
 # Encontro NAO e modulo. A trilha segue o MODULO, que e o contrato da ementa;
 # o calendario dos 4 encontros mora na capa.
+# 🔴 VAZIA POR DECISAO, 27/08. A barra lateral ocupa 288px fixos da direita,
+# e com ela a coluna de leitura para em 780. A figura de dirigir/produzir/
+# conferir tem viewBox de 1160: a 780 ela renderiza a 0,67 e o rotulo de
+# 12,5px vira 8,4px, ilegivel. Os tres cursos de referencia nao tem barra
+# lateral em aula nenhuma, e e por isso que a figura grande respira la.
+# A navegacao nao se perde: a migalha volta em um clique e o rodape leva
+# para a proxima. Para trazer a barra de volta, basta repovoar esta lista.
 TRILHA = [
-    ("Nivelamento", [
-        ("n1-dois-modos", "Delegar a execução ou pensar junto"),
+    ("", [
+        # ("n1-dois-modos", "Delegar a execução ou pensar junto"),
         # As tres proximas entram na trilha quando o fragmento delas nascer.
         # Declarar antes quebra o G7: a barra vira link para pasta que nao existe.
     ]),

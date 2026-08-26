@@ -2523,7 +2523,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 
 <nav class="migalha"><a href="../">Imersão em IA com Claude</a> &rsaquo; <a href="../nivelamento/">Nivelamento</a> &rsaquo; Delegar a execução ou pensar junto</nav>
 
-<div class="com-trilha"><aside class="trilha"><div class="trilha-cab">Aula 1 de 1</div><div class="trilha-agora">Delegar a execução ou pensar junto</div><div class="trilha-grupo">Nivelamento</div><ol><li class="agora"><span class="tl"><span class="tl-n">01</span><span>Delegar a&nbsp;execução ou&nbsp;pensar junto</span></span></li></ol></aside>
+
 <main class="folha">
   <div class="heroi">
     <div class="heroi-kicker">Nivelamento · Aula 1</div>
@@ -2598,64 +2598,88 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       pontas, e&nbsp;elas são as&nbsp;que&nbsp;quase ninguém treinou.</p>
     </div>
 
-    <div class="grade grade-3">
-      <div class="cartao">
-        <span class="rot">Dirigir · quem decide é você</span>
-        <p>O&nbsp;que&nbsp;pedir, e&nbsp;para&nbsp;quê. Com&nbsp;que&nbsp;critério. O&nbsp;que&nbsp;vale a&nbsp;pena fazer, e&nbsp;o&nbsp;que&nbsp;fica de&nbsp;fora.</p>
-      </div>
-      <div class="cartao">
-        <span class="rot">Produzir · é esta parte que muda</span>
-        <p>Procurar a&nbsp;informação, rascunhar, montar, formatar, refazer para&nbsp;outro
-        público.</p>
-      </div>
-      <div class="cartao">
-        <span class="rot">Conferir · quem responde é você</span>
-        <p>Isto está bom o&nbsp;bastante? Faz sentido para&nbsp;quem lê? O&nbsp;que&nbsp;precisa mudar?
-        Isto pode sair assim?</p>
-      </div>
-    </div>
+  <!-- O envelope e .tabela porque e a UNICA classe do padrao com overflow-x:auto
+       sempre ligado. A 375px este SVG cai para 343 de largura, e o rotulo de 15px
+       vira 4,4px: ilegivel. Com o min-width ele mantem 900 e o envelope rola, que e
+       o que .raias, .gantt e .colunas ja fazem no celular.
+       🔴 ACHADO PARA O PADRAO: falta uma classe de FIGURA com esse comportamento.
+       Usar .tabela para segurar um desenho e emprestimo declarado, nao semantica. -->
+  <div class="solta tabela">
+    <svg viewBox="0 0 1160 720" width="100%" style="min-width:900px" xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-label="Três grupos de tarefa: dirigir, produzir e conferir. Em dois gráficos de barras, o tempo hoje se concentra em produzir; com a inteligência artificial no desenho, produzir encolhe e o tempo passa para dirigir e conferir.">
+      <rect width="1160" height="720" fill="var(--bg)"></rect>
 
-    <div class="mesa">
-      <div class="mesa-linha">
-        <div class="mesa-topo">
-          <span class="mesa-quando">Como o dia é hoje</span>
-          <span class="mesa-nota">o meio come tudo</span>
-        </div>
-        <div class="mesa-trilho">
-          <div class="mesa-faixa regra" style="width:14%">dirigir</div>
-          <div class="mesa-faixa conversa" style="width:70%">produzir</div>
-          <div class="mesa-faixa dado" style="width:16%">conferir</div>
-        </div>
-      </div>
-      <div class="mesa-linha">
-        <div class="mesa-topo">
-          <span class="mesa-quando">Com a IA no fim</span>
-          <span class="mesa-nota">uma etapa ficou mais rápida</span>
-        </div>
-        <div class="mesa-trilho">
-          <div class="mesa-faixa regra" style="width:14%">dirigir</div>
-          <div class="mesa-faixa conversa" style="width:54%">produzir</div>
-          <div class="mesa-faixa dado" style="width:16%">conferir</div>
-          <div class="mesa-faixa livre" style="width:16%">sobra</div>
-        </div>
-      </div>
-      <div class="mesa-linha">
-        <div class="mesa-topo">
-          <span class="mesa-quando">Com a IA no desenho</span>
-          <span class="mesa-nota">o dia vira dirigir e conferir</span>
-        </div>
-        <div class="mesa-trilho">
-          <div class="mesa-faixa regra" style="width:38%">dirigir</div>
-          <div class="mesa-faixa conversa" style="width:22%">produzir</div>
-          <div class="mesa-faixa dado" style="width:40%">conferir</div>
-        </div>
-      </div>
-    </div>
+      <rect x="40" y="32" width="340" height="180" rx="8" fill="var(--bg-elev)" stroke="var(--border-strong)"></rect>
+      <text x="64" y="64" font-family="var(--font-mono)" font-size="13" font-weight="600" letter-spacing="1.6" fill="var(--text)">DIRIGIR</text>
+      <text x="64" y="86" font-family="var(--font-mono)" font-size="11" fill="var(--text-dim)">quem decide é você</text>
+      <text x="64" y="120" font-size="15" fill="var(--text-muted)">o que pedir, e para quê</text>
+      <text x="64" y="146" font-size="15" fill="var(--text-muted)">com que critério</text>
+      <text x="64" y="172" font-size="15" fill="var(--text-muted)">o que vale a pena fazer</text>
+      <text x="64" y="198" font-size="15" fill="var(--text-muted)">o que fica de fora</text>
 
-    <p class="fig-leg"><strong>A&nbsp;figura mostra a&nbsp;forma, não&nbsp;a&nbsp;medida.</strong> As&nbsp;faixas
-    não&nbsp;vêm de&nbsp;estudo nenhum: elas existem para&nbsp;você reparar que&nbsp;a&nbsp;barra tem o&nbsp;mesmo
-    tamanho nas&nbsp;três linhas, e&nbsp;o&nbsp;que&nbsp;muda é quem ocupa o&nbsp;meio. <strong>A&nbsp;sua&nbsp;medida
-    você faz no&nbsp;exercício</strong>, com&nbsp;uma&nbsp;tarefa sua.</p>
+      <rect x="400" y="32" width="340" height="180" rx="8" fill="var(--accent-tinted)" stroke="var(--accent-line)"></rect>
+      <text x="424" y="64" font-family="var(--font-mono)" font-size="13" font-weight="600" letter-spacing="1.6" fill="var(--accent-dark)">PRODUZIR</text>
+      <text x="424" y="86" font-family="var(--font-mono)" font-size="11" fill="var(--text-dim)">é esta parte que muda</text>
+      <text x="424" y="120" font-size="15" fill="var(--text-muted)">procurar a informação</text>
+      <text x="424" y="146" font-size="15" fill="var(--text-muted)">rascunhar</text>
+      <text x="424" y="172" font-size="15" fill="var(--text-muted)">montar e formatar</text>
+      <text x="424" y="198" font-size="15" fill="var(--text-muted)">refazer para outro público</text>
+
+      <rect x="760" y="32" width="340" height="180" rx="8" fill="var(--bg-elev)" stroke="var(--border-strong)"></rect>
+      <text x="784" y="64" font-family="var(--font-mono)" font-size="13" font-weight="600" letter-spacing="1.6" fill="var(--text)">CONFERIR</text>
+      <text x="784" y="86" font-family="var(--font-mono)" font-size="11" fill="var(--text-dim)">quem responde é você</text>
+      <text x="784" y="120" font-size="15" fill="var(--text-muted)">isto está bom o bastante?</text>
+      <text x="784" y="146" font-size="15" fill="var(--text-muted)">faz sentido para quem lê?</text>
+      <text x="784" y="172" font-size="15" fill="var(--text-muted)">o que precisa mudar?</text>
+      <text x="784" y="198" font-size="15" fill="var(--text-muted)">isto pode sair assim?</text>
+
+      <text x="60" y="284" font-size="17" font-weight="600" fill="var(--text)">Como o dia é hoje</text>
+      <text x="60" y="306" font-family="var(--font-mono)" font-size="11" fill="var(--text-dim)">o meio come o dia</text>
+      <text x="620" y="284" font-size="17" font-weight="600" fill="var(--text)">Com a inteligência artificial no desenho</text>
+      <text x="620" y="306" font-family="var(--font-mono)" font-size="11" fill="var(--text-dim)">o mesmo dia, dirigindo e conferindo</text>
+
+      <text x="60" y="340" font-family="var(--font-mono)" font-size="10" letter-spacing="1.2" fill="var(--text-dim)">TEMPO NO DIA</text>
+      <text x="620" y="340" font-family="var(--font-mono)" font-size="10" letter-spacing="1.2" fill="var(--text-dim)">TEMPO NO DIA</text>
+
+      <line x1="76" y1="352" x2="76" y2="604" stroke="var(--border-strong)"></line>
+      <line x1="76" y1="604" x2="560" y2="604" stroke="var(--border-strong)"></line>
+      <line x1="636" y1="352" x2="636" y2="604" stroke="var(--border-strong)"></line>
+      <line x1="636" y1="604" x2="1120" y2="604" stroke="var(--border-strong)"></line>
+
+      <rect x="100" y="548" width="32" height="56" fill="var(--text-muted)"></rect>
+      <rect x="140" y="560" width="32" height="44" fill="var(--text-muted)"></rect>
+      <rect x="180" y="544" width="32" height="60" fill="var(--text-muted)"></rect>
+      <rect x="244" y="372" width="32" height="232" fill="var(--accent)"></rect>
+      <rect x="284" y="344" width="32" height="260" fill="var(--accent)"></rect>
+      <rect x="324" y="392" width="32" height="212" fill="var(--accent)"></rect>
+      <rect x="388" y="552" width="32" height="52" fill="var(--text-muted)"></rect>
+      <rect x="428" y="564" width="32" height="40" fill="var(--text-muted)"></rect>
+      <rect x="468" y="548" width="32" height="56" fill="var(--text-muted)"></rect>
+
+      <rect x="660" y="436" width="32" height="168" fill="var(--text-muted)"></rect>
+      <rect x="700" y="404" width="32" height="200" fill="var(--text-muted)"></rect>
+      <rect x="740" y="456" width="32" height="148" fill="var(--text-muted)"></rect>
+      <rect x="804" y="556" width="32" height="48" fill="var(--accent)"></rect>
+      <rect x="844" y="568" width="32" height="36" fill="var(--accent)"></rect>
+      <rect x="884" y="564" width="32" height="40" fill="var(--accent)"></rect>
+      <rect x="948" y="408" width="32" height="196" fill="var(--text-muted)"></rect>
+      <rect x="988" y="448" width="32" height="156" fill="var(--text-muted)"></rect>
+      <rect x="1028" y="424" width="32" height="180" fill="var(--text-muted)"></rect>
+
+      <text x="156" y="628" font-family="var(--font-mono)" font-size="11" letter-spacing="1.2" text-anchor="middle" fill="var(--text-dim)">DIRIGIR</text>
+      <text x="300" y="628" font-family="var(--font-mono)" font-size="11" font-weight="600" letter-spacing="1.2" text-anchor="middle" fill="var(--accent-dark)">PRODUZIR</text>
+      <text x="444" y="628" font-family="var(--font-mono)" font-size="11" letter-spacing="1.2" text-anchor="middle" fill="var(--text-dim)">CONFERIR</text>
+      <text x="716" y="628" font-family="var(--font-mono)" font-size="11" letter-spacing="1.2" text-anchor="middle" fill="var(--text-dim)">DIRIGIR</text>
+      <text x="860" y="628" font-family="var(--font-mono)" font-size="11" font-weight="600" letter-spacing="1.2" text-anchor="middle" fill="var(--accent-dark)">PRODUZIR</text>
+      <text x="1004" y="628" font-family="var(--font-mono)" font-size="11" letter-spacing="1.2" text-anchor="middle" fill="var(--text-dim)">CONFERIR</text>
+
+      <line x1="40" y1="664" x2="1120" y2="664" stroke="var(--border)"></line>
+      <text x="40" y="692" font-size="15" font-style="italic" fill="var(--text-muted)">A barra tem o mesmo tamanho nas duas. O que muda é quem ocupa o meio.</text>
+    </svg>
+  </div>
+
+    <p class="fig-leg"><strong>Compare a&nbsp;altura das&nbsp;barras azuis nos&nbsp;dois gráficos, e&nbsp;depois a&nbsp;das&nbsp;cinzas.</strong> A&nbsp;figura mostra a&nbsp;forma, não&nbsp;a&nbsp;medida: as&nbsp;alturas não&nbsp;vêm de&nbsp;estudo nenhum, e&nbsp;existem para&nbsp;você reparar que&nbsp;o&nbsp;dia continua do&nbsp;mesmo
+    tamanho. <strong>A&nbsp;sua&nbsp;medida você faz no&nbsp;exercício</strong>, com&nbsp;uma&nbsp;tarefa sua.</p>
 
     <div class="conceito">
       <div class="conceito-rot">Conceito 2</div>
@@ -2665,12 +2689,16 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       Você não&nbsp;entrega a&nbsp;decisão, amplia o&nbsp;que&nbsp;entra nela, e&nbsp;decide depois.</p>
     </div>
 
-    <p>Quem já fez o curso de IA para Negócios reconhece os dois nomes. Eles voltam
-    aqui porque agora eles têm onde morar: cada um serve a uma parte diferente do seu
-    dia, e trocar os dois é o que faz a resposta vir inútil. Pedir estruturação quando
-    você queria execução devolve reflexão no lugar do documento pronto. Pedir execução
-    quando você precisava pensar devolve um texto bem escrito em cima da premissa que
-    você nem conferiu.</p>
+    <div class="aviso">
+      <div class="aviso-t">De onde vêm estes dois nomes</div>
+      <p>Eles não&nbsp;são invenção deste curso. Vêm de&nbsp;um&nbsp;curso de&nbsp;gestão com&nbsp;IA, onde&nbsp;aparecem como <em>cognitive offloading</em> e&nbsp;<em>cognitive scaffolding</em>. Quem
+      fez o&nbsp;curso de&nbsp;IA para&nbsp;Negócios já&nbsp;os&nbsp;viu com&nbsp;o&nbsp;nome em&nbsp;português, e&nbsp;aqui eles
+      ganham endereço: cada um&nbsp;serve a&nbsp;uma&nbsp;parte diferente do&nbsp;seu&nbsp;dia.</p>
+    </div>
+
+    <p>Trocar os&nbsp;dois é o&nbsp;que&nbsp;faz a&nbsp;resposta vir inútil. Pedir estruturação quando&nbsp;você
+    queria execução devolve reflexão no&nbsp;lugar do&nbsp;documento pronto. Pedir execução
+    quando&nbsp;você precisava pensar devolve um&nbsp;texto bem escrito em&nbsp;cima da&nbsp;premissa que&nbsp;você nem conferiu.</p>
   </section>
 
   <section class="secao" id="s03">
@@ -2678,39 +2706,58 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       <div class="secao-n">03</div>
       <div>
         <div class="secao-fn">Como funciona</div>
-        <h2>A&nbsp;decisão não&nbsp;sai de&nbsp;você. Ela muda de&nbsp;lugar na&nbsp;fila</h2>
+        <h2>A&nbsp;inteligência artificial entra duas vezes, e&nbsp;em&nbsp;papéis diferentes</h2>
       </div>
     </div>
 
-    <p>Desenhados lado a&nbsp;lado, os&nbsp;dois modos são a&nbsp;mesma rotina com&nbsp;a&nbsp;decisão em&nbsp;posições diferentes.</p>
+    <h3>Onde&nbsp;cada um&nbsp;encosta, num&nbsp;percurso só</h3>
 
-    <div class="cadeia solta">
-      <span class="no entrada">Você decide o critério</span>
-      <span class="no-seta" aria-hidden="true">&rarr;</span>
-      <span class="no">Escreve o critério no pedido</span>
-      <span class="no-seta" aria-hidden="true">&rarr;</span>
-      <span class="no saida">Recebe executado</span>
+    <p>Desenhado do&nbsp;começo ao&nbsp;fim, o&nbsp;caminho de&nbsp;uma&nbsp;tarefa tem cinco momentos. Repare
+    em&nbsp;quantos deles continuam sendo seus.</p>
+
+    <div class="raias solta" style="--n:5">
+      <div class="ra-cab">
+        <span></span>
+        <div class="ra-etapas">
+          <span>1 · a tarefa chega</span><span>2 · decidir o critério</span>
+          <span>3 · produzir</span><span>4 · conferir</span>
+          <span>5 · sai com o seu nome</span>
+        </div>
+      </div>
+      <div class="ra">
+        <div class="ra-quem">Você</div>
+        <div class="ra-passos">
+          <div class="ra-p" style="--de:1;--ate:1">Recebe</div>
+          <div class="ra-p" style="--de:2;--ate:2">Decide o critério</div>
+          <div class="ra-p" style="--de:4;--ate:5">Confere, e assina</div>
+        </div>
+      </div>
+      <div class="ra">
+        <div class="ra-quem">IA · estruturação</div>
+        <div class="ra-passos">
+          <div class="ra-p calmo" style="--de:2;--ate:2">Amplia o que entra na decisão</div>
+        </div>
+      </div>
+      <div class="ra">
+        <div class="ra-quem">IA · delegação</div>
+        <div class="ra-passos">
+          <div class="ra-p calmo" style="--de:3;--ate:3">Produz com o critério que recebeu</div>
+        </div>
+      </div>
     </div>
 
-    <p class="fig-leg"><strong>Delegação inteligente.</strong> A&nbsp;decisão está na&nbsp;primeira caixa. Se&nbsp;ela não&nbsp;estiver escrita no&nbsp;pedido, quem decide é o&nbsp;modelo, e&nbsp;ele decide sem&nbsp;saber o&nbsp;que&nbsp;a&nbsp;sua&nbsp;casa exige.</p>
+    <p class="fig-leg"><strong>Olhe a&nbsp;coluna 3, e&nbsp;depois a&nbsp;linha de&nbsp;cima.</strong> A&nbsp;coluna 3 é a&nbsp;única em&nbsp;que&nbsp;você não&nbsp;aparece. A&nbsp;IA aparece duas vezes, em&nbsp;momentos
+    diferentes e&nbsp;com&nbsp;papéis diferentes, e&nbsp;nenhuma das&nbsp;duas está na&nbsp;coluna onde&nbsp;a&nbsp;decisão acontece.</p>
 
-    <div class="cadeia solta">
-      <span class="no entrada">Você traz o material</span>
-      <span class="no-seta" aria-hidden="true">&rarr;</span>
-      <span class="no">Recebe leituras, riscos, perguntas</span>
-      <span class="no-seta" aria-hidden="true">&rarr;</span>
-      <span class="no saida">Você decide o critério</span>
-    </div>
+    <h3>O&nbsp;mesmo percurso, nas&nbsp;três rotinas que&nbsp;existem nesta sala</h3>
 
-    <p class="fig-leg"><strong>Estruturação do&nbsp;pensamento.</strong> A&nbsp;mesma caixa
-    mudou de&nbsp;ponta. O&nbsp;que&nbsp;você recebe no&nbsp;meio não&nbsp;é a&nbsp;resposta, é o&nbsp;material com&nbsp;que&nbsp;você vai responder.</p>
+    <p>A&nbsp;coluna do&nbsp;meio é sempre delegação, e&nbsp;a&nbsp;da&nbsp;direita é sempre estruturação. Ache
+    a&nbsp;linha que&nbsp;se&nbsp;parece com&nbsp;a&nbsp;sua&nbsp;semana.</p>
 
-    <p>Nos&nbsp;dois casos a&nbsp;caixa da&nbsp;decisão é sua.&nbsp;É a&nbsp;única que&nbsp;não&nbsp;se&nbsp;delega, e&nbsp;é por&nbsp;isso que&nbsp;ela aparece nos&nbsp;dois desenhos.</p>
-
-    <div class="tabela">
+    <div class="tabela solta">
       <table>
         <thead>
-          <tr><th>A rotina</th><th>Delegação inteligente</th><th>Estruturação do pensamento</th></tr>
+          <tr><th>A rotina</th><th>Delegação · opera o produzir</th><th>Estruturação · opera o dirigir</th></tr>
         </thead>
         <tbody>
           <tr>
@@ -2733,8 +2780,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     </div>
 
     <p class="fig-leg"><strong>Leia as&nbsp;duas colunas da&nbsp;direita como pedidos, não&nbsp;como
-    exemplos.</strong> A&nbsp;da&nbsp;esquerda começa por&nbsp;um&nbsp;verbo de&nbsp;execução. A&nbsp;da&nbsp;direita
-    começa por&nbsp;um&nbsp;pedido de&nbsp;leitura, e&nbsp;termina em&nbsp;pergunta.</p>
+    exemplos.</strong> A&nbsp;do&nbsp;meio começa por&nbsp;um&nbsp;verbo de&nbsp;execução e&nbsp;carrega o&nbsp;critério. A&nbsp;da&nbsp;direita começa por&nbsp;um&nbsp;pedido de&nbsp;leitura, e&nbsp;termina em&nbsp;pergunta.</p>
   </section>
 
   <section class="secao" id="s04">
@@ -3063,7 +3109,7 @@ Na dúvida: se faltar contexto para avaliar algum ponto, pergunte antes de supor
 
 <nav class="rodape-nav"><a href="../nivelamento/">&larr; Nivelamento</a><span></span></nav>
 </main>
-</div>
+
 
 <script>
 (function(){
