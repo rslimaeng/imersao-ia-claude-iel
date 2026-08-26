@@ -167,20 +167,34 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
    precisar do breakout — um documento A4, uma tabela de 12 colunas — a pagina
    dele fica FORA da trilha e mantem o layout editorial de sempre.
    =========================================================================== */
+/* 🔴 PROPOSTA AO PADRAO, aplicada aqui e reportada em 26/08.
+   O layout era flex, e a folha centralizava no espaco RESIDUAL, o que sobra
+   depois de tirar os 288px da trilha. Medido em 1265px: a coluna de leitura
+   ficava com 83px de margem a esquerda e 403px a direita. A mesma aula na
+   Pouchain, que nao tem trilha, mede 243 e 243. Era isto que lia como
+   desenquadrado e torto, e nao o conteudo.
+   O grid de tres colunas resolve porque a coluna do meio e a mesma
+   independente do que existe nas laterais: a leitura fica no centro da TELA,
+   e a trilha ocupa a margem direita em vez de roubar o centro.
+   minmax(0,1fr) nas laterais e obrigatorio: 1fr puro nao encolhe abaixo do
+   conteudo da trilha e devolve o problema em tela media. */
 .com-trilha{
-  display:flex;gap:32px;align-items:flex-start;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,var(--col)) minmax(0,1fr);
+  gap:32px;align-items:flex-start;
   max-width:1536px;margin:0 auto;padding:0 24px;
 }
 .com-trilha>.folha{
-  /* min-width:0 e obrigatorio: item de flex nasce com min-width:auto e nao
+  /* min-width:0 e obrigatorio: item de grid nasce com min-width:auto e nao
      encolhe abaixo do conteudo. O .doc tem min-width:100% e esticava a coluna
      de 780 para 1140, empurrando a pagina para fora da tela. */
-  flex:1;min-width:0;max-width:var(--col);margin:0 auto;padding:0;
+  grid-column:2;min-width:0;max-width:var(--col);margin:0 auto;padding:0;
 }
 .com-trilha .solta{width:auto;min-width:0;margin-left:0;transform:none}
 
 .trilha{
-  flex:0 0 288px;align-self:flex-start;position:sticky;top:84px;
+  grid-column:3;align-self:flex-start;position:sticky;top:84px;
+  max-width:288px;
   font-size:13px;order:2;
 }
 .trilha-cab{

@@ -261,20 +261,34 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
    precisar do breakout — um documento A4, uma tabela de 12 colunas — a pagina
    dele fica FORA da trilha e mantem o layout editorial de sempre.
    =========================================================================== */
+/* 🔴 PROPOSTA AO PADRAO, aplicada aqui e reportada em 26/08.
+   O layout era flex, e a folha centralizava no espaco RESIDUAL, o que sobra
+   depois de tirar os 288px da trilha. Medido em 1265px: a coluna de leitura
+   ficava com 83px de margem a esquerda e 403px a direita. A mesma aula na
+   Pouchain, que nao tem trilha, mede 243 e 243. Era isto que lia como
+   desenquadrado e torto, e nao o conteudo.
+   O grid de tres colunas resolve porque a coluna do meio e a mesma
+   independente do que existe nas laterais: a leitura fica no centro da TELA,
+   e a trilha ocupa a margem direita em vez de roubar o centro.
+   minmax(0,1fr) nas laterais e obrigatorio: 1fr puro nao encolhe abaixo do
+   conteudo da trilha e devolve o problema em tela media. */
 .com-trilha{
-  display:flex;gap:32px;align-items:flex-start;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,var(--col)) minmax(0,1fr);
+  gap:32px;align-items:flex-start;
   max-width:1536px;margin:0 auto;padding:0 24px;
 }
 .com-trilha>.folha{
-  /* min-width:0 e obrigatorio: item de flex nasce com min-width:auto e nao
+  /* min-width:0 e obrigatorio: item de grid nasce com min-width:auto e nao
      encolhe abaixo do conteudo. O .doc tem min-width:100% e esticava a coluna
      de 780 para 1140, empurrando a pagina para fora da tela. */
-  flex:1;min-width:0;max-width:var(--col);margin:0 auto;padding:0;
+  grid-column:2;min-width:0;max-width:var(--col);margin:0 auto;padding:0;
 }
 .com-trilha .solta{width:auto;min-width:0;margin-left:0;transform:none}
 
 .trilha{
-  flex:0 0 288px;align-self:flex-start;position:sticky;top:84px;
+  grid-column:3;align-self:flex-start;position:sticky;top:84px;
+  max-width:288px;
   font-size:13px;order:2;
 }
 .trilha-cab{
@@ -2394,23 +2408,30 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
       </div>
     </div>
 
-    <p>Não&nbsp;é uma&nbsp;lista de&nbsp;recursos do&nbsp;Claude. É uma&nbsp;rotina da&nbsp;sua&nbsp;semana, escolhida por&nbsp;você, saindo daqui funcionando e&nbsp;com&nbsp;o&nbsp;método anotado para&nbsp;você repetir sozinho.</p>
+    <p>Não&nbsp;é uma&nbsp;lista de&nbsp;recursos do&nbsp;Claude. É a&nbsp;parte da&nbsp;sua&nbsp;semana que&nbsp;hoje come a&nbsp;tarde, saindo daqui resolvida, com&nbsp;o&nbsp;método anotado para&nbsp;você repetir sozinho.</p>
 
-    <div class="grade grade-3">
+    <div class="grade grade-3 solta">
       <div class="cartao">
-        <span class="rot">Um método de pedido</span>
-        <p>Seis partes que&nbsp;todo pedido bem feito tem, na&nbsp;mesma ordem. Você monta o&nbsp;seu&nbsp;na&nbsp;própria página e&nbsp;leva copiado.</p>
+        <span class="rot">Quem confere documento</span>
+        <p>A&nbsp;conferência de&nbsp;relatório contra&nbsp;checklist, e&nbsp;o&nbsp;cruzamento de&nbsp;ficha com&nbsp;lista de&nbsp;presença, deixam de&nbsp;ser folha por&nbsp;folha. <strong>Você passa a&nbsp;receber
+        a&nbsp;lista do&nbsp;que&nbsp;falta</strong>, e&nbsp;gasta o&nbsp;seu&nbsp;tempo decidindo o&nbsp;que&nbsp;fazer com&nbsp;ela.</p>
       </div>
       <div class="cartao">
-        <span class="rot">As suas regras, escritas uma vez</span>
-        <p>O&nbsp;texto que&nbsp;faz o&nbsp;Claude começar sabendo quem você é e&nbsp;como a&nbsp;sua&nbsp;casa
-        trabalha, em&nbsp;vez de&nbsp;você reexplicar toda vez.</p>
+        <span class="rot">Quem escreve proposta e relatório</span>
+        <p>Anotação de&nbsp;reunião vira proposta na&nbsp;estrutura que&nbsp;a&nbsp;casa usa.
+        <strong>E&nbsp;antes de&nbsp;enviar, você recebe onde&nbsp;ela é mais fácil de&nbsp;recusar</strong>,
+        enquanto&nbsp;ainda dá para&nbsp;mudar.</p>
       </div>
       <div class="cartao">
-        <span class="rot">Uma rotina rodando</span>
-        <p>Uma&nbsp;tarefa que&nbsp;hoje consome a&nbsp;sua&nbsp;tarde, saindo daqui automatizada até&nbsp;onde&nbsp;faz sentido automatizar.</p>
+        <span class="rot">Quem toca turma e trilha</span>
+        <p>Frequência, datas, comunicação e&nbsp;montagem de&nbsp;grade param de&nbsp;ser trabalho de&nbsp;digitação. <strong>Na&nbsp;segunda de&nbsp;manhã o&nbsp;quadro já&nbsp;reabre atualizado</strong>,
+        sem&nbsp;você montar de&nbsp;novo.</p>
       </div>
     </div>
+
+    <p class="fig-leg"><strong>Os&nbsp;três casos vieram do&nbsp;formulário que&nbsp;a&nbsp;turma
+    respondeu.</strong> Se&nbsp;o&nbsp;seu&nbsp;não&nbsp;está aqui, ele entra no&nbsp;primeiro encontro: a&nbsp;primeira coisa que&nbsp;a&nbsp;gente faz é você escolher a&nbsp;rotina que&nbsp;vai trabalhar durante&nbsp;as&nbsp;dezesseis horas.</p>
+
   </section>
 
   <section class="secao" id="encontros">
@@ -2424,6 +2445,12 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
 
     <p>Dezesseis horas-aula no&nbsp;total. Cada encontro fecha com&nbsp;alguma coisa funcionando,
     e&nbsp;não&nbsp;com&nbsp;um&nbsp;resumo do&nbsp;que&nbsp;foi visto.</p>
+
+    <div class="aviso">
+      <div class="aviso-t">O que cada data cobre é o plano, não a régua</div>
+      <p>A&nbsp;turma chega de&nbsp;dois lugares diferentes, e&nbsp;o&nbsp;ritmo se&nbsp;ajusta ao&nbsp;que&nbsp;a&nbsp;sala
+      pedir. Um&nbsp;assunto pode atravessar dois encontros, e&nbsp;outro pode fechar antes. O&nbsp;que&nbsp;não&nbsp;muda são as&nbsp;quatro datas e&nbsp;o&nbsp;que&nbsp;você leva no&nbsp;fim.</p>
+    </div>
 
     <div class="linha-tempo">
       <div class="lt">
