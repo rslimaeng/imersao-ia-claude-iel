@@ -41,7 +41,7 @@ CURSO = {
 # lista aula; o rodape existe em pagina que a barra nem mostra (a capa, o
 # modulo). Sao duas perguntas diferentes -- "onde eu estou no curso" e
 # "para onde eu vou agora".
-SEQUENCIA = ["index", "nivelamento", "n1-dois-modos"]
+SEQUENCIA = ["index", "nivelamento", "n1-dois-modos", "n2-generica"]
 
 # ---------------------------------------------------------------------------
 # A TRILHA · o indice do curso, e a unica lista escrita a mao neste arquivo
@@ -95,6 +95,17 @@ PAGINAS = {
         migalha=[("../", "Imersão em IA com Claude"),
                  ("../nivelamento/", "Nivelamento"),
                  (None, "Delegar a execução ou pensar junto")],
+    ),
+    "n2-generica": dict(
+        titulo="Por que a resposta vem genérica",
+        kicker="Nivelamento · Aula 2",
+        h1="Por que a resposta vem genérica",
+        sub="Os seis campos que separam um pedido que volta útil de um que volta "
+            "bonito e inútil.",
+        selos=["Nivelamento", "Traga um pedido que deu errado"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../nivelamento/", "Nivelamento"),
+                 (None, "Por que a resposta vem genérica")],
     ),
     "componentes": dict(
         titulo="As peças do padrão",
