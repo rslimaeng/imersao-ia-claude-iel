@@ -1,10 +1,10 @@
 {
-  "fechamento-semanal-exemplo": {
+  "execucao-convenio-exemplo": {
     "abas": [
       "leia-me",
-      "vendas",
+      "execucao",
       "resumo",
-      "produtos"
+      "atividades"
     ],
     "armadilhas": {
       "coluna_com_espaco_no_nome": "que o nome que ela vê não é o nome que a ferramenta lê",
@@ -15,36 +15,36 @@
       "numero_como_texto": "que soma que não soma tem causa, e a causa é achável",
       "valor_faltando": "que o buraco tem de ser declarado, nunca estimado em silêncio"
     },
-    "arquivo": "fechamento-semanal-exemplo.xlsx",
+    "arquivo": "execucao-convenio-exemplo.xlsx",
     "cabecalho_na_linha": 3,
     "caso": "caso",
     "colunas": {
-      "produtos": [
-        "Produto",
-        "Preco de tabela",
-        "Categoria"
+      "atividades": [
+        "Atividade",
+        "Valor de tabela",
+        "Eixo"
+      ],
+      "execucao": [
+        "Registro",
+        "Data",
+        "Unidade",
+        "Atividade",
+        "Horas",
+        "Valor Hora",
+        " Valor Total",
+        "Fonte do Recurso"
       ],
       "resumo": [
-        "Semana",
+        "Trimestre",
         "Periodo",
-        "Faturamento",
-        "Cupons",
-        "Ticket medio",
-        "Observacao da operacao"
-      ],
-      "vendas": [
-        "Cupom",
-        "Data",
-        "Loja",
-        "Produto",
-        "Qtd",
-        "Valor Unitario",
-        " Valor Total",
-        "Forma de Pagamento"
+        "Valor Executado",
+        "Registros",
+        "Valor medio",
+        "Observacao da execucao"
       ]
     },
     "formato": "xlsx",
     "linhas": 2829,
-    "titulo": "Fechamento semanal · 12 lojas"
+    "titulo": "Execução do convênio · 12 unidades"
   }
 }

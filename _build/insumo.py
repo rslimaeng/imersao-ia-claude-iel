@@ -69,19 +69,25 @@ ARMADILHAS = {
 #
 # Trocar o insumo de um curso é mexer aqui. Mais nada.
 # ---------------------------------------------------------------------------
+# 🔴 ADAPTACAO DE VOCABULARIO, nao de logica. O gerador do padrao nasceu para
+# varejo (loja, produto, cupom). Aqui o universo e o Instituto Farol, que executa
+# convenio. A estrutura de UMA LINHA POR REGISTRO e a mesma, e as armadilhas
+# continuam valendo: unidade escrita de dois jeitos, data em dois formatos,
+# linha duplicada. So os rotulos mudaram, e eles estao na lista `colunas` do
+# grava_xlsx, marcada com o mesmo aviso.
 INSUMOS = {
-    "fechamento-semanal-exemplo": dict(
+    "execucao-convenio-exemplo": dict(
         formato="xlsx",
         caso="caso",                       # a página que oferece o download
-        titulo="Fechamento semanal · 12 lojas",
+        titulo="Execução do convênio · 12 unidades",
         semanas=4,
-        lojas=["Centro", "Norte", "Sul", "Litoral", "Shopping", "Rodoviária",
+        lojas=["Centro", "Norte", "Sul", "Litoral", "Maracanaú", "Sobral",
                "Bairro Alto", "Praia", "Industrial", "Universidade",
                "Terminal", "Feira"],
-        produtos=[("Sorvete 2L", 34.90), ("Picolé unidade", 6.50),
-                  ("Açaí 500ml", 22.00), ("Sorvete 1L", 19.90),
-                  ("Torta gelada", 48.00), ("Milkshake", 18.50),
-                  ("Casquinha", 9.00), ("Pote família 5L", 79.90)],
+        produtos=[("Oficina de gestão", 340.00), ("Consultoria em processos", 650.00),
+                  ("Palestra técnica", 220.00), ("Curso de segurança", 199.00),
+                  ("Mentoria individual", 480.00), ("Workshop de inovação", 185.00),
+                  ("Diagnóstico inicial", 900.00), ("Trilha de liderança", 799.00)],
         armadilhas=list(ARMADILHAS),
         aviso=("Os dados deste arquivo são FICTÍCIOS. As lojas, os valores e os "
                "produtos foram inventados para o treinamento. Nenhum dado de "
@@ -117,7 +123,7 @@ def monta_vendas(spec, r):
                         "qtd": qtd,
                         "unitario": preco,
                         "total": round(qtd * preco, 2),
-                        "pagamento": r.choice(["pix", "credito", "debito", "dinheiro"]),
+                        "pagamento": r.choice(["convênio", "contrapartida", "recurso próprio", "emenda"]),
                     })
     return linhas
 
@@ -194,9 +200,9 @@ def grava_xlsx(slug, spec):
     ws.merge_cells("A3:F6")
     ws["A8"] = "O que tem em cada aba"
     ws["A8"].font = Font(bold=True)
-    guia = [("vendas", "uma linha por venda, item a item"),
+    guia = [("execucao", "uma linha por registro de execução"),
             ("resumo", "o fechamento semana a semana"),
-            ("produtos", "o cadastro, com o preço de tabela")]
+            ("atividades", "o cadastro, com o valor de tabela")]
     for i, (aba, o_que) in enumerate(guia, start=9):
         ws.cell(row=i, column=1, value=aba).font = Font(bold=True)
         ws.cell(row=i, column=2, value=o_que)
@@ -204,7 +210,7 @@ def grava_xlsx(slug, spec):
     ws.column_dimensions["B"].width = 52
 
     # ---- aba 2 · vendas, com as armadilhas
-    ws = wb.create_sheet("vendas")
+    ws = wb.create_sheet("execucao")
     # a linha em branco antes do cabeçalho: o arquivo precisa ser olhado
     primeira = 3 if "linha_em_branco_antes_do_cabecalho" in quais else 1
     if primeira == 3:
@@ -213,8 +219,9 @@ def grava_xlsx(slug, spec):
 
     # a coluna com espaço no nome: o nome que ela vê não é o que a ferramenta lê
     col_total = " Valor Total" if "coluna_com_espaco_no_nome" in quais else "Valor Total"
-    colunas = ["Cupom", "Data", "Loja", "Produto", "Qtd", "Valor Unitario",
-               col_total, "Forma de Pagamento"]
+    # 🔴 Rotulos do Instituto Farol. Ver o aviso no topo do INSUMOS.
+    colunas = ["Registro", "Data", "Unidade", "Atividade", "Horas", "Valor Hora",
+               col_total, "Fonte do Recurso"]
     for c, nome in enumerate(colunas, start=1):
         cel = ws.cell(row=primeira, column=c, value=nome)
         cel.font = Font(bold=True)
@@ -234,8 +241,8 @@ def grava_xlsx(slug, spec):
     # ---- aba 3 · resumo, e ele NÃO bate com a soma da aba vendas de propósito:
     # é a linha duplicada aparecendo. Quem confere acha; quem não confere, não.
     ws = wb.create_sheet("resumo")
-    cab = ["Semana", "Periodo", "Faturamento", "Cupons", "Ticket medio",
-           "Observacao da operacao"]
+    cab = ["Trimestre", "Periodo", "Valor Executado", "Registros", "Valor medio",
+           "Observacao da execucao"]
     for c, nome in enumerate(cab, start=1):
         cel = ws.cell(row=1, column=c, value=nome)
         cel.font = Font(bold=True)
@@ -264,15 +271,15 @@ def grava_xlsx(slug, spec):
         ws.column_dimensions[get_column_letter(c)].width = larg
 
     # ---- aba 4 · produtos
-    ws = wb.create_sheet("produtos")
-    for c, nome in enumerate(["Produto", "Preco de tabela", "Categoria"], start=1):
+    ws = wb.create_sheet("atividades")
+    for c, nome in enumerate(["Atividade", "Valor de tabela", "Eixo"], start=1):
         cel = ws.cell(row=1, column=c, value=nome)
         cel.font = Font(bold=True)
         cel.fill = CABECALHO
     for i, (nome, preco) in enumerate(spec["produtos"], start=2):
         ws.cell(row=i, column=1, value=nome)
         ws.cell(row=i, column=2, value=preco)
-        ws.cell(row=i, column=3, value="gelados")
+        ws.cell(row=i, column=3, value="capacitação")
     for c, larg in enumerate([22, 18, 14], start=1):
         ws.column_dimensions[get_column_letter(c)].width = larg
 
@@ -295,8 +302,8 @@ def grava_xlsx(slug, spec):
         "titulo": spec["titulo"],
         "linhas": len(linhas),
         "abas": [w.title for w in wb.worksheets],
-        "colunas": {"vendas": colunas, "resumo": cab,
-                    "produtos": ["Produto", "Preco de tabela", "Categoria"]},
+        "colunas": {"execucao": colunas, "resumo": cab,
+                    "atividades": ["Atividade", "Valor de tabela", "Eixo"]},
         "armadilhas": {a: ARMADILHAS[a] for a in aplicadas},
         "cabecalho_na_linha": primeira,
     }

@@ -1269,7 +1269,12 @@ GATES = [
      lambda h: h.replace('<span class="fr">', ""),
      "componentes/index.html"),
     ("G32", "a página bate com o insumo", g32_a_pagina_bate_com_o_insumo,
-     lambda h: h.replace("a coluna Loja", "a coluna Filial", 1),
+     # 🔴 MESMO ACHADO do G35/G36, agora no G32: o defeito injetado estava preso
+     # ao VOCABULARIO do template ("a coluna Loja"). Este curso nao tem loja, tem
+     # unidade, entao o gate nascia CEGO. Reapontado para uma coluna real do
+     # insumo daqui. Conserto certo do lado de la: injetar o defeito a partir do
+     # insumos.json, que ja sabe quais sao as colunas de verdade.
+     lambda h: h.replace("coluna Unidade", "coluna Filial", 1),
      "caso/index.html"),
     ("G31", "o roteiro cita classe que existe", g31_o_roteiro_cita_classe_que_existe,
      lambda h: h.replace(".diagnostico{", ".classe-que-sumiu{", 1),

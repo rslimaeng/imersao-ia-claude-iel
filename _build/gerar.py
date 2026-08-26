@@ -41,7 +41,7 @@ CURSO = {
 # lista aula; o rodape existe em pagina que a barra nem mostra (a capa, o
 # modulo). Sao duas perguntas diferentes -- "onde eu estou no curso" e
 # "para onde eu vou agora".
-SEQUENCIA = ["index", "nivelamento", "n1-dois-modos", "n2-generica"]
+SEQUENCIA = ["index", "nivelamento", "n1-dois-modos", "n2-generica", "caso", "exemplo"]
 
 # ---------------------------------------------------------------------------
 # A TRILHA · o indice do curso, e a unica lista escrita a mao neste arquivo
@@ -106,6 +106,28 @@ PAGINAS = {
         migalha=[("../", "Imersão em IA com Claude"),
                  ("../nivelamento/", "Nivelamento"),
                  (None, "Por que a resposta vem genérica")],
+    ),
+    "caso": dict(
+        titulo="A execução do convênio, conferida",
+        kicker="Caso do nivelamento · em cinco passos",
+        h1="Uma tarde de conferência, em cinco passos",
+        sub="A planilha de execução do Instituto Farol, com a sujeira que uma "
+            "exportação real tem, e o pedido que dá conta dela.",
+        selos=["Prestação de contas", "2.829 linhas", "Planilha suja"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../nivelamento/", "Nivelamento"),
+                 (None, "A execução do convênio, conferida")],
+    ),
+    "exemplo": dict(
+        titulo="O exemplo pronto",
+        kicker="O resultado do caso",
+        h1="A prestação de contas, em uma página",
+        sub="O documento inteiro, do jeito que ele sai. Imprime em A4 sem levar o "
+            "site junto.",
+        selos=["Resultado do caso", "Imprime em A4"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../caso/", "A execução do convênio, conferida"),
+                 (None, "O exemplo pronto")],
     ),
     "componentes": dict(
         titulo="As peças do padrão",
