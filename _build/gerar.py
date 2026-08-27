@@ -41,15 +41,19 @@ CURSO = {
 # lista aula; o rodape existe em pagina que a barra nem mostra (a capa, o
 # modulo). Sao duas perguntas diferentes -- "onde eu estou no curso" e
 # "para onde eu vou agora".
+# 🔴 ACHADO 27/08: esta lista estava agrupada por TIPO (as aulas, depois os
+# casos), e o rodape responde "para onde eu vou agora". O resultado e que a
+# ultima aula do nivelamento levava para a demonstracao da PRIMEIRA aula, em
+# vez de levar para o Modulo 1.
+# A sequencia e a JORNADA, e a jornada nao passa pelas paginas de caso: elas
+# sao um desvio de dentro da aula, e voltam pela migalha. Fora daqui, o
+# rodape delas fica vazio de proposito, que e o que a propria funcao ja faz
+# com quem nao esta na lista.
 SEQUENCIA = ["index", "nivelamento",
              "n1-dois-modos", "n2-generica", "n3-conferir", "n4-limite",
              "n5-configurar",
-             "caso-dois-modos", "caso", "caso-conferir", "caso-limite",
-             "caso-configurar",
              "m1", "m1a1-superficies", "m1a2-regra",
-             "m1a3-mapa", "m1a4-base",
-             "caso-superficies", "caso-regra", "caso-mapa", "caso-base",
-             "exemplo"]
+             "m1a3-mapa", "m1a4-base"]
 
 # ---------------------------------------------------------------------------
 # A TRILHA · o indice do curso, e a unica lista escrita a mao neste arquivo
