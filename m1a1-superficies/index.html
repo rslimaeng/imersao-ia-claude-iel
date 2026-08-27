@@ -2712,6 +2712,90 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       irrelevante demais piora o&nbsp;desempenho.</strong> Não&nbsp;é sobre&nbsp;dar muito, é sobre&nbsp;dar
       o&nbsp;certo. Um&nbsp;manual de&nbsp;quarenta páginas na&nbsp;mesa atrapalha mais do&nbsp;que&nbsp;ajuda; as&nbsp;três páginas que&nbsp;interessam, não.</p>
     </div>
+
+    <div class="solta" style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+      <div class="cartao">
+        <span class="rot">Você sobe 3 páginas certas</span>
+        <div class="grao">
+          <i class="gr certo"></i><i class="gr"></i><i class="gr"></i>
+        </div>
+        <p style="margin:0">Ele procura o&nbsp;trecho que&nbsp;responde à&nbsp;sua&nbsp;pergunta.
+        <strong>Só&nbsp;tem um&nbsp;candidato, e&nbsp;é o&nbsp;certo.</strong></p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Você sobe o manual de 40 páginas</span>
+        <div class="grao">
+          <i class="gr certo"></i><i class="gr parecido"></i><i class="gr"></i><i class="gr"></i>
+          <i class="gr parecido"></i><i class="gr"></i><i class="gr"></i><i class="gr"></i>
+          <i class="gr parecido"></i><i class="gr"></i><i class="gr parecido"></i><i class="gr"></i>
+          <i class="gr"></i><i class="gr"></i><i class="gr parecido"></i><i class="gr"></i>
+          <i class="gr"></i><i class="gr"></i><i class="gr"></i><i class="gr parecido"></i>
+          <i class="gr"></i><i class="gr"></i><i class="gr"></i><i class="gr parecido"></i>
+          <i class="gr"></i><i class="gr"></i><i class="gr"></i><i class="gr"></i>
+          <i class="gr parecido"></i><i class="gr"></i><i class="gr"></i><i class="gr"></i>
+          <i class="gr"></i><i class="gr parecido"></i><i class="gr"></i><i class="gr"></i>
+          <i class="gr"></i><i class="gr"></i><i class="gr"></i><i class="gr"></i>
+        </div>
+        <p style="margin:0">O&nbsp;trecho certo continua lá. <strong>Só&nbsp;que&nbsp;agora ele disputa
+        com&nbsp;oito parecidos</strong>, e&nbsp;às&nbsp;vezes perde.</p>
+      </div>
+      <div class="legenda" style="grid-column:1/-1">
+        <span><i style="background:var(--ok)"></i> o trecho que responde de verdade</span>
+        <span><i style="background:var(--atencao)"></i> trecho parecido, de outro caso</span>
+        <span><i style="background:var(--bg-warm)"></i> não tem a ver com a pergunta</span>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>O&nbsp;problema não&nbsp;são as&nbsp;páginas que&nbsp;não&nbsp;têm nada a&nbsp;ver.</strong> São as&nbsp;parecidas. Ele procura na&nbsp;mesa o&nbsp;trecho que&nbsp;responde à&nbsp;sua&nbsp;pergunta, e&nbsp;num&nbsp;material grande o&nbsp;certo disputa com&nbsp;oito quase iguais. Subir mais
+    coisa não&nbsp;aumenta a&nbsp;chance de&nbsp;acertar: aumenta a&nbsp;de&nbsp;errar perto.</p>
+
+    <h3 style="margin:40px 0 14px">Como saber se&nbsp;a&nbsp;mesa da&nbsp;sua&nbsp;conversa já&nbsp;encheu</h3>
+
+    <p>Não&nbsp;dá para&nbsp;olhar e&nbsp;ver. <strong>O&nbsp;teste é pedir que&nbsp;ela mostre o&nbsp;que&nbsp;ainda
+    enxerga do&nbsp;começo</strong>, e&nbsp;ele não&nbsp;pede trabalho novo. Cole no&nbsp;fim de&nbsp;uma&nbsp;conversa sua&nbsp;que&nbsp;já&nbsp;passou de&nbsp;vinte mensagens.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">teste da mesa &middot; cola no fim de uma conversa longa</span>
+        <button class="btn-copiar" data-alvo="p-teste-mesa">copiar</button>
+      </div>
+      <pre class="prompt-txt" id="p-teste-mesa">Antes de continuar, quero conferir o que você ainda tem desta conversa.
+
+O que eu preciso: a lista de todas as regras e restrições que eu escrevi desde a primeira mensagem, na ordem em que apareceram, e quais delas você aplicou na sua última resposta.
+
+Restrições: não invente regra que eu não escrevi, e não reformule o que eu disse com outras palavras. Se alguma coisa ficou vaga para você, diga que ficou.
+
+Na dúvida: se você não conseguir recuperar alguma parte do começo, diga isso em vez de completar pelo que faz sentido.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>A&nbsp;última linha é a&nbsp;que&nbsp;faz o&nbsp;teste funcionar.</strong>
+    Sem&nbsp;ela, o&nbsp;que&nbsp;volta é uma&nbsp;lista plausível montada a&nbsp;partir do&nbsp;fim da&nbsp;conversa, e&nbsp;você conclui que&nbsp;está tudo bem.</p>
+
+    <div class="tabela solta">
+      <table>
+        <thead><tr>
+          <th>O que voltou</th><th>Em que estado a mesa está</th><th>O que fazer</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Todas as regras, na ordem, e as aplicadas batendo</td>
+              <td>com folga</td>
+              <td>siga na mesma conversa</td></tr>
+          <tr><td>Todas as regras, mas ela aplicou só as recentes</td>
+              <td>apertando</td>
+              <td>recole as duas ou três que importam, e siga</td></tr>
+          <tr><td>Faltaram regras, ou apareceu regra que você não escreveu</td>
+              <td>cheia</td>
+              <td><strong>comece conversa nova</strong> com o contexto certo</td></tr>
+          <tr><td>Ela disse que não conseguiu recuperar o começo</td>
+              <td>cheia, e honesta</td>
+              <td>comece conversa nova, e considere virar projeto</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>A&nbsp;terceira linha é a&nbsp;mais comum, e&nbsp;a&nbsp;mais
+    perigosa.</strong> Regra que&nbsp;aparece sem&nbsp;ter sido escrita é o&nbsp;mesmo defeito da&nbsp;aula
+    3 do&nbsp;nivelamento, agora vindo do&nbsp;próprio histórico da&nbsp;conversa em&nbsp;vez do&nbsp;material.</p>
   </section>
 
   <section class="secao" id="s03">
@@ -2840,49 +2924,55 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       <div class="secao-n">04</div>
       <div>
         <div class="secao-fn">Demonstração</div>
-        <h2>A&nbsp;mesma prestação de&nbsp;contas, em&nbsp;duas superfícies</h2>
+        <h2>O&nbsp;mesmo pedido, na&nbsp;conversa e&nbsp;no&nbsp;projeto</h2>
       </div>
     </div>
 
-    <p>A&nbsp;tarefa é a&nbsp;de&nbsp;sempre: conferir a&nbsp;execução do&nbsp;convênio antes de&nbsp;assinar. O&nbsp;que&nbsp;muda é onde&nbsp;ela acontece, e&nbsp;o&nbsp;custo aparece na&nbsp;terceira semana, não&nbsp;na&nbsp;primeira.</p>
+    <p>Duas conversas. <strong>Exatamente o&nbsp;mesmo pedido</strong>, de&nbsp;uma&nbsp;frase só,&nbsp;com&nbsp;a&nbsp;mesma planilha anexada. A&nbsp;única diferença é que&nbsp;a&nbsp;segunda roda dentro de&nbsp;um&nbsp;projeto que&nbsp;já&nbsp;tem as&nbsp;regras da&nbsp;conferência escritas.</p>
 
     <div class="demo solta">
-      <div class="demo-faixa">A mesma tarefa, toda semana, durante um mês</div>
+      <div class="demo-faixa">Momento-chave &middot; o mesmo pedido, dois resultados</div>
       <div class="demo-corpo">
         <div class="demo-entrada">
-          <span class="rot">A tarefa, nas duas</span>
-          <pre>Conferir a execução do convênio e listar o que precisa de decisão</pre>
+          <span class="rot">O que foi digitado, nas duas</span>
+          <pre>Anexei a execução do trimestre. Monta o relatório.</pre>
         </div>
         <div class="demo-lados">
           <div class="demo-lado">
-            <span class="rot">Na conversa</span>
-            <p><strong>Semana 1:</strong> você cola o&nbsp;contexto, anexa a&nbsp;planilha, escreve
-            o&nbsp;pedido inteiro. Funciona bem.</p>
-            <p><strong>Semana 4:</strong> você fez isso quatro vezes. O&nbsp;contexto foi
-            colado quatro vezes, e&nbsp;na&nbsp;terceira você já&nbsp;tinha esquecido uma&nbsp;restrição que&nbsp;tinha escrito na&nbsp;primeira.</p>
+            <span class="rot">Na conversa &middot; sem projeto</span>
+            <p>Claro! Para&nbsp;montar o&nbsp;relatório, preciso de&nbsp;algumas informações:</p>
+            <p>1. Qual período você quer analisar?<br>
+            2. O&nbsp;que&nbsp;deve entrar no&nbsp;relatório?<br>
+            3. Prefere em&nbsp;tabela ou&nbsp;em&nbsp;texto?</p>
+            <p><strong>Ela não&nbsp;sabe</strong> o&nbsp;que&nbsp;é unidade na&nbsp;sua&nbsp;casa, nem que&nbsp;valor
+            faltando não&nbsp;se&nbsp;estima. Devolve a&nbsp;pergunta, e&nbsp;você digita tudo de&nbsp;novo, de&nbsp;um&nbsp;jeito um&nbsp;pouco diferente do&nbsp;de&nbsp;ontem.</p>
           </div>
           <div class="demo-lado">
-            <span class="rot">No projeto</span>
-            <p><strong>Semana 1:</strong> você escreve as&nbsp;regras uma&nbsp;vez, dentro do&nbsp;projeto, e&nbsp;sobe a&nbsp;norma do&nbsp;convênio como material de&nbsp;consulta. Leva quinze
-            minutos a&nbsp;mais.</p>
-            <p><strong>Semana 4:</strong> você anexa a&nbsp;planilha e&nbsp;escreve três linhas. A&nbsp;restrição que&nbsp;você esqueceria continua lá, porque&nbsp;ela não&nbsp;depende da&nbsp;sua&nbsp;memória.</p>
+            <span class="rot">No projeto &middot; com as regras escritas</span>
+            <p><strong>Antes de&nbsp;gerar, três conferências:</strong></p>
+            <p>a)&nbsp;763 registros lidos, <strong>61 sem&nbsp;horas</strong>, 1 repetido<br>
+            b) <strong>15 grafias</strong> de&nbsp;unidade, e&nbsp;o&nbsp;leia-me diz 12<br>
+            c) soma bateu com&nbsp;a&nbsp;aba resumo, <strong>e&nbsp;bater não&nbsp;é prova</strong>:
+            as&nbsp;duas contas ignoram as&nbsp;mesmas 422 células de&nbsp;texto</p>
+            <p><strong>Posso seguir?</strong> As&nbsp;quatro grafias de&nbsp;Centro precisam da&nbsp;sua&nbsp;decisão antes de&nbsp;qualquer número sair.</p>
           </div>
         </div>
-        <div class="demo-pe">Na semana 1 a conversa ganha. Na semana 4 a conta já
-        virou, e ela não volta mais.</div>
+        <div class="demo-pe">Você não pediu nada disso agora. Pediu uma vez, quando
+        colou o papel no campo de instruções.</div>
       </div>
     </div>
 
-    <p class="fig-leg"><strong>É por&nbsp;isso que&nbsp;a&nbsp;escolha da&nbsp;superfície não&nbsp;aparece como
-    erro.</strong> Nada quebra na&nbsp;conversa: só&nbsp;fica mais caro toda semana, e&nbsp;o&nbsp;custo
-    some dentro da&nbsp;rotina.</p>
+    <p class="fig-leg"><strong>Repare no&nbsp;que&nbsp;a&nbsp;segunda faz antes de&nbsp;obedecer.</strong>
+    Ela para,&nbsp;conta o&nbsp;que&nbsp;leu, e&nbsp;devolve a&nbsp;decisão das&nbsp;grafias. A&nbsp;resposta da&nbsp;esquerda
+    não&nbsp;está errada: ela é o&nbsp;melhor possível com&nbsp;o&nbsp;que&nbsp;estava na&nbsp;mesa. O&nbsp;trabalho desta
+    aula não&nbsp;é melhorar a&nbsp;pergunta, é escolher onde&nbsp;ela acontece.</p>
 
     <div class="arquivo">
       <div>
-        <span class="rot">O passo a passo desta demonstração</span>
-        <p style="margin:0">Como decidir a&nbsp;superfície de&nbsp;uma&nbsp;tarefa sua&nbsp;em&nbsp;quatro
-        perguntas, com&nbsp;o&nbsp;teste da&nbsp;mesa cheia e&nbsp;o&nbsp;que&nbsp;fazer quando&nbsp;a&nbsp;conversa já&nbsp;passou
-        do&nbsp;ponto.</p>
+        <span class="rot">Monte este projeto, com os arquivos prontos</span>
+        <p style="margin:0">O&nbsp;papel do&nbsp;agente em&nbsp;69 linhas, a&nbsp;planilha de&nbsp;3.442 linhas
+        e&nbsp;o&nbsp;pedido de&nbsp;uma&nbsp;frase. Quinze minutos na&nbsp;primeira vez, e&nbsp;o&nbsp;que&nbsp;o&nbsp;passo 5
+        mostra é como conferir se&nbsp;ele foi lido de&nbsp;verdade.</p>
       </div>
       <a class="btn" href="../caso-superficies/">Abrir o passo a passo</a>
     </div>

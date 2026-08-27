@@ -240,15 +240,15 @@ PAGINAS = {
                  (None, "A regra que fica, e as três gavetas")],
     ),
     "caso-superficies": dict(
-        titulo="O teste da mesa cheia",
+        titulo="O projeto do relatório de execução",
         kicker="Demonstração da aula 1.1 · em cinco passos",
-        h1="Descobrir se a conversa já passou do ponto",
-        sub="As quatro perguntas aplicadas a uma rotina sua, e o teste que mostra "
-            "quanto do começo da conversa ainda está de pé.",
-        selos=["Quatro perguntas", "Teste da mesa"],
+        h1="Montar o projeto, e rodar o fechamento dentro dele",
+        sub="O papel do agente pronto para colar, a planilha que sai suja do sistema, "
+            "e o pedido de uma frase que substitui o contexto de toda semana.",
+        selos=["Papel pronto", "15 minutos"],
         migalha=[("../", "Imersão em IA com Claude"),
                  ("../m1/", "Módulo 1"),
-                 (None, "O teste da mesa cheia")],
+                 (None, "O projeto do relatório de execução")],
     ),
     "caso-regra": dict(
         titulo="O projeto montado, gaveta por gaveta",
