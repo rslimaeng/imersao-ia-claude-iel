@@ -1,0 +1,534 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">Ao final, você será capaz de:</div>
+    <ul>
+      <li>Conferir uma resposta em quatro camadas, e saber em qual delas o erro costuma estar</li>
+      <li>Escrever a instrução que faz a resposta declarar o que ela não achou, em vez de preencher</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="s01">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">A situação</div>
+        <h2>A resposta que passou sem ninguém olhar</h2>
+      </div>
+    </div>
+
+    <div class="fr-host">
+      <p>A resposta voltou organizada, com título, com número e com conclusão.
+      Você leu, achou boa, e mandou.</p>
+
+      <p>Três semanas depois alguém pergunta de onde saiu um dos números.
+      Você abre a planilha para conferir, e ele não está lá.</p>
+    </div>
+
+    <p>O detalhe que faz esta situação ser diferente de um erro comum: <strong>não havia
+    nada de estranho na tela</strong>. A resposta errada tem a mesma cara da resposta
+    certa, e é exatamente por isso que ela passa.</p>
+
+    <div class="cartao">
+      <span class="rot">O trecho que ninguém questionou</span>
+      <p style="font-style:italic">"A unidade Sobral executou <span class="num-ruim">R$
+      182.400,00</span> no terceiro trimestre, o maior valor entre as doze unidades, o
+      que representa <span class="num-ruim">14% do total</span> do convênio."</p>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead><tr>
+          <th>O que a frase afirma</th><th>O que dá para conferir na planilha</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>O valor executado por Sobral</td><td>Sim. É soma de coluna, e ou bate ou não bate</td></tr>
+          <tr><td>Que é o maior entre as doze</td><td>Sim. Depende de as doze terem sido somadas do mesmo jeito</td></tr>
+          <tr><td>Que representa 14% do total</td><td>Só se o total estiver certo, e o total é o que tem uma linha duplicada</td></tr>
+          <tr><td>Que isso é digno de nota</td><td>Não. Isso é leitura, e a leitura é sua</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>Três das quatro afirmações são conferíveis em minutos, e
+    a quarta não é conferível de jeito nenhum.</strong> A aula inteira mora nessa
+    diferença: saber o que dá para checar, e o que só uma pessoa decide.</p>
+  </section>
+
+  <section class="secao" id="s02">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito</div>
+        <h2>As quatro camadas, e a instrução que evita metade delas</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">Conceito 1</div>
+      <h3>Você responde pelo resultado, não pelo texto</h3>
+      <p>Quando o documento sai com o seu nome, quem responde por ele é você. <em>"A IA
+      que escreveu"</em> não explica nada e não protege ninguém, e essa é a regra
+      inteira. O que muda com a prática não é a responsabilidade: é o tempo que a
+      conferência leva, quando você sabe onde olhar.</p>
+      <p>E onde olhar tem ordem. Conferir uma resposta é passar por camadas, da mais
+      barata para a mais cara.</p>
+    </div>
+
+    <div class="tabela solta">
+      <table>
+        <thead><tr>
+          <th>A camada</th><th>A pergunta que ela faz</th><th>Quem resolve</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><strong>1 &middot; está preenchido</strong></td>
+              <td>Tem data, tem assinatura, tem valor, tem o campo obrigatório?</td>
+              <td>A IA resolve sozinha, e resolve bem</td></tr>
+          <tr><td><strong>2 &middot; o número fecha</strong></td>
+              <td>A soma bate com o total declarado? As duas abas dizem a mesma coisa?</td>
+              <td>A IA resolve, se o pedido mandar conferir</td></tr>
+          <tr><td><strong>3 &middot; é o documento certo</strong></td>
+              <td>Este comprovante é desta rubrica, deste período e deste convênio?</td>
+              <td>Só você. Ela não sabe o que foi combinado</td></tr>
+          <tr><td><strong>4 &middot; a conclusão se sustenta</strong></td>
+              <td>Dá para assinar com isto? O que falta é irrelevante ou é o essencial?</td>
+              <td>Só você, e é o que ninguém delega</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>O problema quase nunca está na camada 1.</strong> A
+    conferência que a maioria faz para na primeira, porque é a que se enxerga rápido, e
+    é a única que a ferramenta já faria sozinha.</p>
+
+    <div class="aviso">
+      <div class="aviso-t">De onde vêm as camadas</div>
+      <p>Elas são uma tradução. O original é um método de avaliação em cinco lentes, de
+      um curso de fluência em IA feito com a Anthropic, escrito para quem avalia
+      software. Aqui as lentes foram reescritas para quem confere documento, e a frase
+      que fecha o original é a mesma que fecha esta tabela: os maiores problemas quase
+      nunca estão na primeira lente.</p>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">Conceito 2</div>
+      <h3>A instrução que impede a invenção</h3>
+      <p>Quando falta um dado, o comportamento padrão é preencher com o que parece
+      provável. Não é má fé nem defeito: é o que a ferramenta faz, porque ela gera o
+      texto seguinte e não busca a verdade.</p>
+      <p>A instrução que muda isso tem três partes, e cabe em duas linhas no fim de
+      qualquer pedido: <strong>não estime o que não estiver lá</strong> &middot;
+      <strong>liste o que você não encontrou</strong> &middot; <strong>pergunte antes
+      de decidir por mim</strong>.</p>
+      <p>Ela não deixa a resposta perfeita. Ela transforma erro invisível em pergunta
+      visível, e pergunta visível é coisa que você resolve em um minuto.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="s03">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>Onde a resposta erra sem parecer errada</h2>
+      </div>
+    </div>
+
+    <p>Quatro modos de errar que aparecem na conferência documental. Todos já estão
+    dentro da planilha do convênio, e todos saem plausíveis na tela.</p>
+
+    <div class="diagnostico solta">
+      <div class="dg">
+        <div class="dg-topo"><span class="dg-n">1</span> O número que não existe em
+        lugar nenhum</div>
+        <div class="dg-corpo">
+          <div class="dg-c">
+            <div class="dg-rot sintoma">O sintoma</div>
+            <p>Um valor com centavos, redondo demais para ser chute, e que não aparece
+            em nenhuma célula da planilha.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot causa">A causa</div>
+            <p>A célula estava vazia, e o buraco foi preenchido com o que combinava
+            com as outras linhas.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot conserto">O conserto</div>
+            <p>Pedir a origem de cada número: de qual aba, de qual coluna, de quantas
+            linhas somadas. O que não tiver origem cai.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dg">
+        <div class="dg-topo"><span class="dg-n">2</span> A soma fecha, e o total está
+        errado</div>
+        <div class="dg-corpo">
+          <div class="dg-c">
+            <div class="dg-rot sintoma">O sintoma</div>
+            <p>Todas as contas batem entre si, e mesmo assim o valor do convênio saiu
+            maior do que deveria.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot causa">A causa</div>
+            <p>Uma linha duplicada. Ela entra na soma duas vezes, e a aritmética
+            continua correta em cima do dado errado.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot conserto">O conserto</div>
+            <p>Conferir a soma contra o total que a própria planilha declara, e tratar
+            a diferença como pendência, nunca como arredondamento.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dg">
+        <div class="dg-topo"><span class="dg-n">3</span> A mesma unidade contada como
+        duas</div>
+        <div class="dg-corpo">
+          <div class="dg-c">
+            <div class="dg-rot sintoma">O sintoma</div>
+            <p>Uma unidade aparece com valor baixo, e o relatório sugere investigar a
+            queda de execução dela.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot causa">A causa</div>
+            <p>O nome está escrito de dois jeitos na planilha, e cada grafia virou uma
+            unidade diferente na hora de agrupar.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot conserto">O conserto</div>
+            <p>Pedir a lista de nomes exatamente como estão no arquivo, antes de
+            qualquer agrupamento. Quem decide o que é a mesma unidade é você.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dg">
+        <div class="dg-topo"><span class="dg-n">4</span> O que ela não achou, e não
+        disse que não achou</div>
+        <div class="dg-corpo">
+          <div class="dg-c">
+            <div class="dg-rot sintoma">O sintoma</div>
+            <p>A resposta cobre onze unidades e passa por cima da décima segunda, sem
+            uma linha explicando a ausência.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot causa">A causa</div>
+            <p>Silêncio custa menos que ressalva. Nada no pedido dizia que faltar é
+            informação, e não defeito.</p>
+          </div>
+          <div class="dg-c">
+            <div class="dg-rot conserto">O conserto</div>
+            <p>Exigir a lista do que não foi encontrado como parte da entrega. Sem esse
+            campo, ausência não aparece.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Repare que nenhum dos quatro é erro de conta.</strong>
+    São erros de leitura do material, e é por isso que reler a resposta procurando
+    coisa estranha não pega nenhum deles.</p>
+  </section>
+
+  <section class="secao" id="s04">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">Demonstração</div>
+        <h2>A mesma pergunta, antes e depois da instrução</h2>
+      </div>
+    </div>
+
+    <p>O anexo é o mesmo, a pergunta é a mesma, e a única diferença é o parágrafo que
+    manda declarar o que não foi encontrado.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">A mesma planilha do convênio, nas duas</div>
+      <div class="demo-corpo">
+        <div class="demo-entrada">
+          <span class="rot">A pergunta, nas duas</span>
+          <pre>Qual unidade executou mais no terceiro trimestre, e quanto isso representa do total?</pre>
+        </div>
+        <div class="demo-lados">
+          <div class="demo-lado">
+            <span class="rot">Sem a instrução</span>
+            <p><strong>O que volta:</strong> uma frase pronta, com a unidade, o valor e
+            o percentual. Três números, nenhuma ressalva, e a leitura de que aquilo
+            merece atenção.</p>
+            <p><strong>O que está escondido:</strong> um dos valores foi completado,
+            uma unidade entrou duas vezes com grafias diferentes, e o total inclui a
+            linha duplicada.</p>
+          </div>
+          <div class="demo-lado">
+            <span class="rot">Com a instrução</span>
+            <p><strong>O que volta:</strong> os mesmos números, cada um com a origem, e
+            uma lista de quatro pendências antes da conclusão.</p>
+            <p><strong>O que aparece:</strong> a célula vazia declarada como vazia, as
+            duas grafias listadas com a pergunta de quais são a mesma, e a diferença
+            entre a soma e o total apontada em número.</p>
+          </div>
+        </div>
+        <div class="demo-pe">A segunda resposta é mais longa e menos elegante. Ela é a
+        que dá para assinar.</div>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>A primeira resposta não está mentindo.</strong> Ela está
+    respondendo exatamente o que foi perguntado, e o que foi perguntado não pedia para
+    ela contar o que faltou.</p>
+
+    <div class="arquivo">
+      <div>
+        <span class="rot">O passo a passo desta demonstração</span>
+        <p style="margin:0">Os cinco passos para você achar as pendências na planilha do
+        Instituto Farol: a pergunta, o contexto, o arquivo, o pedido com a instrução de
+        conferência e a lista do que deve aparecer.</p>
+      </div>
+      <a class="btn" href="../caso-conferir/">Abrir o passo a passo</a>
+    </div>
+  </section>
+
+  <section class="secao" id="s05">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">Sua vez</div>
+        <h2>O promptlet de conferência, no seu pedido da aula anterior</h2>
+      </div>
+    </div>
+
+    <p>Você já tem um pedido escrito nos seis campos. Agora ele ganha o fim que faltava,
+    e o mesmo fim serve para todos os pedidos que vierem depois.</p>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">01</div>
+        <div>
+          <div class="passo-fn">Passo 1</div>
+          <h3>Abra o pedido que você escreveu na aula anterior</h3>
+        </div>
+      </div>
+      <p>Ele já tem papel, contexto, tarefa, formato, limitação e critério de sucesso.
+      Não mexa em nenhum deles.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">02</div>
+        <div>
+          <div class="passo-fn">Passo 2</div>
+          <h3>Cole o promptlet no fim, sem adaptar nada</h3>
+        </div>
+      </div>
+      <p>Ele é genérico de propósito. O que muda de tarefa para tarefa é o pedido; a
+      conferência é sempre a mesma.</p>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">promptlet de conferência &middot; cola no fim de qualquer pedido</span>
+        <button class="btn-copiar" data-alvo="p-n3-promptlet">copiar</button>
+      </div>
+      <pre class="prompt-txt" id="p-n3-promptlet">Antes de me dar a resposta final, faça a conferência abaixo e me mostre o resultado dela.
+
+O que eu preciso: para cada número que aparecer, de onde ele saiu, com a aba, a coluna e quantas linhas foram somadas. E a lista do que você procurou e não encontrou no material.
+
+Restrições: não complete dado que estiver faltando, e não arredonde diferença. Se dois registros parecem a mesma coisa escrita de jeitos diferentes, mostre os dois como estão e não junte.
+
+Na dúvida: pergunte antes de decidir por mim. Deixar um item em aberto é o resultado certo quando a informação não está no material.</pre>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">03</div>
+        <div>
+          <div class="passo-fn">Passo 3</div>
+          <h3>Rode, e preencha o canvas com o que voltou</h3>
+        </div>
+      </div>
+      <p>O objetivo não é achar erro. É descobrir em qual das quatro camadas a sua
+      tarefa costuma falhar, porque essa é a que vai precisar de você para sempre.</p>
+    </div>
+
+    <div class="canvas solta" data-chave="canvas-n3-conferencia">
+      <div class="canvas-topo">
+        <div>
+          <span class="rot">Canvas</span>
+          <h3 class="canvas-t">Onde a minha tarefa falha</h3>
+        </div>
+        <div class="canvas-estado">O rascunho fica salvo neste aparelho</div>
+      </div>
+
+      <div class="canvas-grade">
+        <div class="cv-campo">
+          <div class="cv-n">1</div>
+          <div>
+            <label class="cv-rot" for="cv-n3-pendencias">O que a conferência trouxe de pendência</label>
+            <div class="cv-ex">Ex: três fichas sem data de assinatura, e dois nomes que podem ser a mesma pessoa</div>
+            <textarea id="cv-n3-pendencias" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">2</div>
+          <div>
+            <label class="cv-rot" for="cv-n3-camada">Em qual camada elas caem</label>
+            <div class="cv-ex">Ex: as fichas são camada 1, os nomes são camada 3, porque só eu sei se é a mesma pessoa</div>
+            <textarea id="cv-n3-camada" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">3</div>
+          <div>
+            <label class="cv-rot" for="cv-n3-inventado">O que apareceu sem estar no material</label>
+            <div class="cv-ex">Ex: um total que não bate com nenhuma soma, e uma data que não existe em documento nenhum</div>
+            <textarea id="cv-n3-inventado" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">4</div>
+          <div>
+            <label class="cv-rot" for="cv-n3-sempre">O que vai continuar sendo meu, mesmo daqui a um ano</label>
+            <div class="cv-ex">Ex: decidir se um comprovante fora do período entra ou não na prestação</div>
+            <textarea id="cv-n3-sempre" rows="2"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-rodape">
+        <button class="btn-copiar" type="button" data-acao="linha">Copiar a minha linha</button>
+        <button class="btn-fantasma" type="button" data-acao="apagar">Apagar o rascunho</button>
+        <p class="cv-nota">A linha copiada cola na planilha da turma, uma coluna por
+        campo, na ordem dos números.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="s06">
+    <div class="secao-topo">
+      <div class="secao-n">06</div>
+      <div>
+        <div class="secao-fn">Confira</div>
+        <h2>Uma versão de referência</h2>
+      </div>
+    </div>
+
+    <details class="gabarito">
+      <summary>Confira &middot; uma versão de referência</summary>
+      <div class="gabarito-corpo">
+        <p><em>O seu vai ser diferente do meu, e tudo bem. Compare a estrutura, não o
+        conteúdo.</em></p>
+        <p><strong>A tarefa:</strong> conferir as fichas de participante contra a lista
+        de presença de um curso com três turmas.</p>
+        <p><strong>As pendências que voltaram:</strong> quatro fichas sem data de
+        assinatura, dois nomes com grafia diferente que podem ser a mesma pessoa, e uma
+        turma com mais presenças registradas do que fichas entregues.</p>
+        <p><strong>Em que camada cada uma cai:</strong> as fichas sem data são camada 1,
+        e a conferência resolveu sozinha. A turma com número desencontrado é camada 2,
+        e resolveu porque o pedido mandou comparar as duas listas. Os dois nomes são
+        camada 3, e ninguém além de quem conhece a turma decide.</p>
+        <p><strong>O que apareceu sem estar no material:</strong> nada, na segunda
+        rodada. Na primeira, sem o promptlet, tinha voltado um total de participantes
+        que não correspondia a nenhuma contagem.</p>
+        <p><strong>O que separa uma resposta boa de uma rasa aqui:</strong> a resposta
+        rasa lista as pendências. A boa diz <em>quais delas ela não tem como resolver</em>,
+        e por quê. É essa segunda lista que vira o seu roteiro de trabalho.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="secao" id="s07">
+    <div class="secao-topo">
+      <div class="secao-n">07</div>
+      <div>
+        <div class="secao-fn">Pegadinhas</div>
+        <h2>Onde quase todo mundo tropeça na primeira vez</h2>
+      </div>
+    </div>
+
+    <div class="aviso erro">
+      <div class="aviso-t">Perguntar para ela mesma se a resposta está certa</div>
+      <p>Pedir <em>"isso está correto?"</em> logo depois da resposta costuma render uma
+      confirmação educada. Quem faz não confere, e isso vale para pessoa e vale para
+      ferramenta. A conferência tem que pedir <strong>a origem do número</strong>, que é
+      verificável, e não uma opinião sobre o próprio trabalho.</p>
+    </div>
+
+    <div class="aviso erro">
+      <div class="aviso-t">Conferir só a camada 1 e achar que conferiu</div>
+      <p>Ver que os campos estão preenchidos dá a sensação de conferência feita, e é a
+      única camada que ela já resolveria sozinha. O documento errado, com todos os
+      campos preenchidos, passa por essa checagem sem um arranhão.</p>
+    </div>
+
+    <div class="aviso erro">
+      <div class="aviso-t">Tratar a lista de pendências como defeito da resposta</div>
+      <p>Resposta que volta com dez pendências parece pior que a que volta redonda, e é
+      melhor. A redonda tem as mesmas dez, e não contou. <strong>Pendência declarada é
+      trabalho que apareceu</strong>, não trabalho que nasceu ali.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="s08">
+    <div class="secao-topo">
+      <div class="secao-n">08</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>O que não sai sem uma pessoa ter olhado</h2>
+      </div>
+    </div>
+
+    <p>A conferência bem feita encolhe o trabalho, e não encolhe até zero. Quatro coisas
+    continuam pedindo assinatura de gente, e nenhuma delas depende de a ferramenta
+    melhorar.</p>
+
+    <div class="cartao">
+      <span class="rot">As quatro que não saem sozinhas</span>
+      <p><strong>O que vai para fora da casa.</strong> Prestação de contas, relatório
+      para financiador, documento com valor: alguém lê inteiro antes de sair, sempre.</p>
+      <p><strong>O que decide sobre pessoa.</strong> Frequência que reprova, avaliação
+      que classifica, seleção que corta. A conferência ajuda a chegar; a decisão não
+      se delega.</p>
+      <p><strong>O que é a mesma coisa escrita de dois jeitos.</strong> Só quem conhece
+      a operação sabe se duas grafias são a mesma unidade, ou duas de verdade.</p>
+      <p><strong>O que não estava no material.</strong> Nenhuma conferência inventa a
+      regra que só existe na cabeça de alguém, e nenhuma instrução substitui escrever
+      essa regra.</p>
+    </div>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">O que nunca acontece neste nível</div>
+      <p>Um número não sai do seu documento sem você saber de qual aba e de qual coluna
+      ele veio. Se a origem não dá para reconstruir, o número não entra, mesmo que
+      esteja certo.</p>
+    </div>
+  </section>
+
+  <div class="checagem">
+    <span class="rot">Confira você mesmo</span>
+    <ul>
+      <li>O seu pedido da aula anterior agora termina com o promptlet de conferência</li>
+      <li>Você rodou e sabe dizer qual pendência caiu em cada uma das quatro camadas</li>
+      <li>Você achou pelo menos uma coisa que a resposta anterior tinha passado em silêncio</li>
+      <li>Você consegue apontar, na sua rotina, a camada que vai continuar sendo sua</li>
+    </ul>
+  </div>
+
+  <div class="fecho">
+    <div class="fecho-rot">Você sabe fazer isto agora</div>
+    <div class="fecho-sub">Confira sozinho: se algum item não estiver de pé, volte na seção que o cobre.</div>
+    <ul>
+      <li><strong>Você confere</strong> em quatro camadas, e não para na primeira</li>
+      <li><strong>Você escreve</strong> a instrução que transforma erro invisível em pendência declarada</li>
+      <li><strong>Você reconhece</strong> os quatro modos de errar que saem plausíveis na tela</li>
+      <li><strong>O artefato:</strong> o promptlet de conferência, que passa a viver no fim de todo pedido seu</li>
+    </ul>
+    <div class="fecho-nota">A próxima aula fecha o nivelamento com a pergunta que vem antes de todas: o que pode ser anexado, e o que não pode.</div>
+  </div>
+
+  <div class="gancho">
+    <span class="rot">A trava que esta aula não resolve</span>
+    <p>Você sabe conferir o que voltou. Falta a decisão que vem antes de qualquer
+    resposta existir: <strong>este documento pode ser anexado?</strong> Ele tem nome de
+    pessoa, tem valor de contrato, tem dado que não é seu para compartilhar. É por aí
+    que o nivelamento termina.</p>
+  </div>

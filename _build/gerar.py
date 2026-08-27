@@ -41,8 +41,10 @@ CURSO = {
 # lista aula; o rodape existe em pagina que a barra nem mostra (a capa, o
 # modulo). Sao duas perguntas diferentes -- "onde eu estou no curso" e
 # "para onde eu vou agora".
-SEQUENCIA = ["index", "nivelamento", "n1-dois-modos", "n2-generica",
-             "caso-dois-modos", "caso", "exemplo"]
+SEQUENCIA = ["index", "nivelamento",
+             "n1-dois-modos", "n2-generica", "n3-conferir", "n4-limite",
+             "caso-dois-modos", "caso", "caso-conferir", "caso-limite",
+             "exemplo"]
 
 # ---------------------------------------------------------------------------
 # A TRILHA · o indice do curso, e a unica lista escrita a mao neste arquivo
@@ -129,6 +131,50 @@ PAGINAS = {
         migalha=[("../", "Imersão em IA com Claude"),
                  ("../nivelamento/", "Nivelamento"),
                  (None, "A execução do convênio, conferida")],
+    ),
+    "n3-conferir": dict(
+        titulo="Como saber se a resposta está certa",
+        kicker="Nivelamento · aula 3 de 4",
+        h1="Como saber se a resposta está certa",
+        sub="A resposta errada tem a mesma cara da certa. Quatro camadas de "
+            "conferência, e a instrução que transforma erro invisível em pendência.",
+        selos=["Quatro camadas", "Promptlet de conferência"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../nivelamento/", "Nivelamento"),
+                 (None, "Como saber se a resposta está certa")],
+    ),
+    "n4-limite": dict(
+        titulo="O que não entra no chat",
+        kicker="Nivelamento · aula 4 de 4",
+        h1="O que não entra no chat",
+        sub="Três caixas para classificar qualquer material, e o caminho que o "
+            "arquivo faz quando você anexa.",
+        selos=["Três caixas", "O caminho do dado"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../nivelamento/", "Nivelamento"),
+                 (None, "O que não entra no chat")],
+    ),
+    "caso-conferir": dict(
+        titulo="A prestação conferida antes de assinar",
+        kicker="Demonstração da aula 3 · em cinco passos",
+        h1="Achar as sete pendências antes que o financiador ache",
+        sub="A mesma planilha do convênio, agora como gabarito: sete problemas "
+            "plantados, e a conferência que precisa pegar cinco sozinha.",
+        selos=["Sete armadilhas", "Origem obrigatória"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../nivelamento/", "Nivelamento"),
+                 (None, "A prestação conferida antes de assinar")],
+    ),
+    "caso-limite": dict(
+        titulo="O arquivo preparado antes de anexar",
+        kicker="Demonstração da aula 4 · em cinco passos",
+        h1="Dois minutos que movem o arquivo de caixa",
+        sub="A triagem coluna a coluna da planilha do convênio, e o pedido que "
+            "impede a resposta de reconstruir o que foi anonimizado.",
+        selos=["Triagem por coluna", "Dados fictícios"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../nivelamento/", "Nivelamento"),
+                 (None, "O arquivo preparado antes de anexar")],
     ),
     "exemplo": dict(
         titulo="O exemplo pronto",

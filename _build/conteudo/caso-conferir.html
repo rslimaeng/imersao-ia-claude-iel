@@ -1,0 +1,192 @@
+  <section class="passo" id="p1">
+    <div class="passo-topo">
+      <div class="passo-n">01</div>
+      <div>
+        <div class="passo-fn">Passo 1</div>
+        <h2>Descreva a tarefa</h2>
+      </div>
+    </div>
+
+    <p>A prestação de contas do convênio já foi montada, e agora o trabalho é outro:
+    <strong>descobrir o que ela está afirmando sem ter como provar</strong>. Não é
+    refazer a análise. É conferir a que existe.</p>
+
+    <p>Feito na mão, isso é reabrir a planilha e refazer cada conta que aparece no
+    relatório. É a parte que quase nunca é feita, porque leva o mesmo tempo que montar
+    do zero.</p>
+
+    <div class="grade grade-3">
+      <div class="cartao">
+        <span class="rot">Quem faz na rotina</span>
+        <p>Quem assina prestação de contas, e quem revisa o relatório de outra pessoa
+        antes de ele sair.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">O que se procura</span>
+        <p>Número sem origem, soma que fecha em cima de dado duplicado, nome contado
+        duas vezes, e o que faltou sem ninguém dizer que faltou.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">O modo do pedido</span>
+        <p>Delegação inteligente. O critério da conferência é conhecido; o que falta é
+        aplicar ele em 2.829 linhas sem pular nenhuma.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="passo" id="p2">
+    <div class="passo-topo">
+      <div class="passo-n">02</div>
+      <div>
+        <div class="passo-fn">Passo 2</div>
+        <h2>Dê o contexto que a IA precisa</h2>
+      </div>
+    </div>
+
+    <p>Conferência tem um contexto que um pedido comum não tem: <strong>o que conta como
+    erro aqui</strong>. Sem isso, o que volta é uma revisão de texto.</p>
+
+    <div class="grade grade-2">
+      <div class="cartao">
+        <span class="rot">O papel</span>
+        <p>Quem revisa a prestação antes da assinatura, e responde pelo que passar.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">A situação</span>
+        <p>O relatório está pronto, o prazo é esta semana, e o financiador confere por
+        amostragem.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">O que conta como erro</span>
+        <p>Número sem origem rastreável, total que não bate com a soma, e agrupamento
+        feito por semelhança de nome.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">O critério de sucesso</span>
+        <p>Cada pendência vem com o lugar exato onde ela está, para dar para conferir
+        sem procurar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="passo" id="p3">
+    <div class="passo-topo">
+      <div class="passo-n">03</div>
+      <div>
+        <div class="passo-fn">Passo 3</div>
+        <h2>Baixe o insumo</h2>
+      </div>
+    </div>
+
+    <p>A mesma planilha das outras demonstrações. Aqui ela muda de papel: <strong>deixa
+    de ser o material do trabalho e vira o gabarito da conferência</strong>.</p>
+
+    <div class="arquivo solta">
+      <div>
+        <div class="arq-fn">A execução do convênio</div>
+        <div class="arq-nome">
+          <span class="arq-tipo">xls</span>
+          <code>execucao-convenio-exemplo.xlsx</code>
+        </div>
+        <p>12 unidades &middot; 4 trimestres &middot; 2.829 linhas registro a registro &middot; 4 abas (leia-me, execucao, resumo, atividades)</p>
+      </div>
+      <a class="btn" href="../_arquivos/execucao-convenio-exemplo.xlsx">Baixar &darr;</a>
+    </div>
+
+    <p class="fig-leg"><strong>São sete problemas plantados no arquivo, e você já sabe
+    quais.</strong> É isso que faz esta demonstração funcionar: dá para medir se a
+    conferência pegou, em vez de torcer.</p>
+  </section>
+
+  <section class="passo" id="p4">
+    <div class="passo-topo">
+      <div class="passo-n">04</div>
+      <div>
+        <div class="passo-fn">Passo 4</div>
+        <h2>Cole o prompt no chat</h2>
+      </div>
+    </div>
+
+    <p>O pedido é curto porque a conferência é a mesma sempre. O que ele tem de
+    diferente está no terceiro e no quarto parágrafo.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">prompt &middot; conferência com origem obrigatória</span>
+        <button class="btn-copiar" data-alvo="p-caso-conferir">copiar</button>
+      </div>
+      <pre class="prompt-txt" id="p-caso-conferir">Anexei a planilha de execução de um convênio do Instituto Farol, com 4 abas: leia-me, execucao, resumo e atividades. Preciso conferir esta planilha antes de assinar a prestação de contas.
+
+O que eu preciso: o total executado por unidade e por trimestre, e para cada número a origem dele, com a aba, a coluna e quantas linhas entraram na soma. Depois disso, a lista de tudo que precisa de decisão minha, com o lugar exato onde está.
+
+Restrições: não complete valor que estiver em branco, e não arredonde diferença entre a aba resumo e a soma da coluna Valor Total. Se a mesma unidade aparecer escrita de dois jeitos na coluna Unidade, mostre as duas como estão e não junte.
+
+Na dúvida: liste e pergunte antes de decidir por mim. Item em aberto é o resultado certo quando a informação não está no arquivo.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>O terceiro parágrafo nomeia as três armadilhas que mais
+    passam.</strong> Nomear não é desconfiança: é o que dá à resposta um lugar para
+    procurar, em vez de deixar ela decidir o que é relevante.</p>
+  </section>
+
+  <section class="passo" id="p5">
+    <div class="passo-topo">
+      <div class="passo-n">05</div>
+      <div>
+        <div class="passo-fn">Passo 5</div>
+        <h2>O que esperar</h2>
+      </div>
+    </div>
+
+    <p>Sete problemas estão no arquivo. Esta é a lista, com o que conta como conferência
+    boa em cada um.</p>
+
+    <div class="tabela solta">
+      <table>
+        <thead><tr>
+          <th>O que está lá</th>
+          <th>A conferência pegou quando ela</th>
+          <th>Camada</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Linha em branco antes do cabeçalho</td>
+              <td>diz em qual linha o cabeçalho começa de verdade</td><td>1</td></tr>
+          <tr><td>Uma coluna com espaço no nome</td>
+              <td>cita o nome exato, com o espaço, em vez do nome que se lê na tela</td><td>1</td></tr>
+          <tr><td>Número guardado como texto</td>
+              <td>aponta quantas células ficaram de fora da soma, e quais</td><td>2</td></tr>
+          <tr><td>Uma linha duplicada</td>
+              <td>mostra a diferença entre a aba resumo e a soma, em número</td><td>2</td></tr>
+          <tr><td>Um valor faltando no meio</td>
+              <td>declara a célula vazia e não entrega valor no lugar dela</td><td>2</td></tr>
+          <tr><td>Data em dois formatos</td>
+              <td>avisa que a ordenação por data não é confiável até padronizar</td><td>3</td></tr>
+          <tr><td>A mesma unidade escrita de dois jeitos</td>
+              <td>lista as duas grafias e devolve a decisão para você</td><td>3</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>Cinco das sete são das camadas 1 e 2, e a conferência
+    resolve.</strong> As duas de camada 3 voltam como pergunta, e é assim que elas têm
+    que voltar: quem sabe se duas grafias são a mesma unidade é quem conhece a
+    operação.</p>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">O sinal de que a conferência não foi feita</div>
+      <p>Se a resposta trouxer os totais e nenhuma pendência, ela passou por cima das
+      sete sem avisar. Nesse caso o pedido volta com uma frase só: <em>"você conferiu o
+      total da aba resumo contra a soma da aba execucao? Me mostre a diferença, se
+      houver."</em></p>
+    </div>
+
+    <div class="aviso">
+      <div class="aviso-t">Depois de gerar &middot; como refinar</div>
+      <p>Se vier sem a origem dos números: <em>"para cada número, diga a aba, a coluna e
+      quantas linhas você somou. Sem isso eu não consigo conferir."</em></p>
+      <p>Se juntar unidades por conta própria: <em>"desfaça o agrupamento, liste os nomes
+      exatamente como estão, e me pergunte quais são a mesma."</em></p>
+      <p>Se vier longo demais: <em>"deixe no topo só o que exige decisão minha, e o resto
+      abaixo."</em></p>
+    </div>
+  </section>

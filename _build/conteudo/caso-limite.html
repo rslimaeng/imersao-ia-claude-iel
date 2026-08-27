@@ -1,0 +1,185 @@
+  <section class="passo" id="p1">
+    <div class="passo-topo">
+      <div class="passo-n">01</div>
+      <div>
+        <div class="passo-fn">Passo 1</div>
+        <h2>Descreva a tarefa</h2>
+      </div>
+    </div>
+
+    <p>A tarefa aqui acontece <strong>antes</strong> de qualquer pedido: preparar o
+    arquivo para que ele possa ser anexado. É o passo que quase ninguém tem no
+    procedimento, e é o que decide se a tarefa vai poder ser feita.</p>
+
+    <p>Feito na mão, leva de dois a cinco minutos por arquivo, e o mesmo trabalho serve
+    para todos os arquivos daquele tipo que vierem depois.</p>
+
+    <div class="grade grade-3">
+      <div class="cartao">
+        <span class="rot">Quem faz na rotina</span>
+        <p>Quem trabalha com documento de terceiro: prestação de contas, proposta de
+        fornecedor, ficha de participante, folha de turma.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">O que se decide aqui</span>
+        <p>Em qual das três caixas o arquivo cai, e o que precisa sair dele se ele cair
+        na do meio.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">O que não se decide aqui</span>
+        <p>Se existe norma da casa sobre aquele documento. A norma vem antes, e ganha
+        de qualquer critério deste material.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="passo" id="p2">
+    <div class="passo-topo">
+      <div class="passo-n">02</div>
+      <div>
+        <div class="passo-fn">Passo 2</div>
+        <h2>Dê o contexto que a IA precisa</h2>
+      </div>
+    </div>
+
+    <p>Neste caso o contexto vem depois de uma decisão sua, coluna a coluna. A planilha
+    do convênio tem oito colunas na aba de execução, e só uma delas identifica alguém.</p>
+
+    <div class="tabela solta">
+      <table>
+        <thead><tr>
+          <th>A coluna</th><th>Identifica?</th><th>A análise muda sem ela?</th><th>Decisão</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Registro, Data, Horas</td><td>Não</td><td>Sim, muda muito</td><td>fica como está</td></tr>
+          <tr><td>Valor Hora, Valor Total</td><td>Não</td><td>Sim, é o objeto da análise</td><td>fica como está</td></tr>
+          <tr><td>Atividade</td><td>Não</td><td>Sim, é o que se compara</td><td>fica como está</td></tr>
+          <tr><td><strong>Unidade</strong></td><td><strong>Sim, nomeia um local real</strong></td><td><strong>Não, se virar código</strong></td><td><strong>troca por código</strong></td></tr>
+          <tr><td>Fonte do Recurso</td><td>Depende de quem é</td><td>Não, se virar rótulo genérico</td><td>avalie no seu caso</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>Quatro linhas de "fica como está" para uma de
+    troca.</strong> É a proporção normal, e é por isso que a caixa do meio resolve tanto:
+    o que trava o arquivo inteiro costuma ser uma coluna só.</p>
+
+    <div class="grade grade-2">
+      <div class="cartao">
+        <span class="rot">O que fica com você</span>
+        <p>A tabela de correspondência entre o código e o nome real. Sem ela você não
+        lê o resultado; com ela na sua máquina, ninguém mais lê.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">O que o pedido precisa declarar</span>
+        <p>Que os nomes foram substituídos por código de propósito, para a resposta não
+        tentar adivinhar quem é quem nem pedir os nomes de volta.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="passo" id="p3">
+    <div class="passo-topo">
+      <div class="passo-n">03</div>
+      <div>
+        <div class="passo-fn">Passo 3</div>
+        <h2>Baixe o insumo</h2>
+      </div>
+    </div>
+
+    <p>A mesma planilha das outras demonstrações, e aqui ela tem uma vantagem: <strong>os
+    dados são fictícios</strong>, então dá para praticar a troca sem risco nenhum. O
+    aviso de dado fictício está dentro do próprio arquivo, na aba leia-me.</p>
+
+    <div class="arquivo solta">
+      <div>
+        <div class="arq-fn">A execução do convênio</div>
+        <div class="arq-nome">
+          <span class="arq-tipo">xls</span>
+          <code>execucao-convenio-exemplo.xlsx</code>
+        </div>
+        <p>12 unidades &middot; 4 trimestres &middot; 2.829 linhas registro a registro &middot; 4 abas (leia-me, execucao, resumo, atividades)</p>
+      </div>
+      <a class="btn" href="../_arquivos/execucao-convenio-exemplo.xlsx">Baixar &darr;</a>
+    </div>
+
+    <p class="fig-leg"><strong>O exercício é trocar os doze nomes por Unidade 1 a Unidade
+    12</strong>, com localizar e substituir, e guardar a correspondência num arquivo à
+    parte. Leva menos tempo que ler este parágrafo três vezes.</p>
+  </section>
+
+  <section class="passo" id="p4">
+    <div class="passo-topo">
+      <div class="passo-n">04</div>
+      <div>
+        <div class="passo-fn">Passo 4</div>
+        <h2>Cole o prompt no chat</h2>
+      </div>
+    </div>
+
+    <p>O pedido é o mesmo que você faria com os nomes. O que muda é o primeiro parágrafo,
+    que avisa o que foi trocado, e o terceiro, que impede a resposta de tentar
+    reconstruir.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">prompt &middot; com o arquivo já preparado</span>
+        <button class="btn-copiar" data-alvo="p-caso-limite">copiar</button>
+      </div>
+      <pre class="prompt-txt" id="p-caso-limite">Anexei a planilha de execução de um convênio, com 4 abas: leia-me, execucao, resumo e atividades. Os nomes reais na coluna Unidade foram substituídos por códigos de propósito, e a correspondência não está no arquivo.
+
+O que eu preciso: o total executado por código de unidade e por trimestre, as três que ficaram mais fora da faixa, e a lista do que precisa de decisão minha antes do fechamento.
+
+Restrições: trate cada código como uma unidade distinta e não tente inferir qual local é qual. Não peça os nomes reais, e não use a região ou o volume executado para adivinhar identidade.
+
+Na dúvida: se algum código parecer duplicado ou inconsistente, liste o que encontrou e me pergunte. Não junte por conta própria.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>O terceiro parágrafo parece exagero e não é.</strong> Sem
+    ele, é comum a resposta tentar ser útil chutando qual unidade é qual pelo padrão dos
+    números, e aí o trabalho de anonimizar foi desfeito na conversa.</p>
+  </section>
+
+  <section class="passo" id="p5">
+    <div class="passo-topo">
+      <div class="passo-n">05</div>
+      <div>
+        <div class="passo-fn">Passo 5</div>
+        <h2>O que esperar</h2>
+      </div>
+    </div>
+
+    <p>A resposta certa aqui é indistinguível da resposta que você teria com os nomes,
+    com uma diferença: ela fala em códigos do começo ao fim.</p>
+
+    <div class="tabela solta">
+      <table>
+        <thead><tr>
+          <th>O sinal</th><th>O que ele significa</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>A análise inteira em código, sem uma vez sequer pedir os nomes</td>
+              <td>O pedido funcionou, e a preparação valeu</td></tr>
+          <tr><td>As mesmas pendências que apareceriam com os nomes</td>
+              <td>A identificação não era necessária, e agora está provado</td></tr>
+          <tr><td>Uma frase sugerindo qual código é qual local</td>
+              <td>Falta o terceiro parágrafo, ou ele veio fraco. Reescreva e rode de novo</td></tr>
+          <tr><td>Um pedido para você enviar a tabela de correspondência</td>
+              <td>Responda que não, e siga. A tabela é o que mantém o arquivo na caixa do meio</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>A terceira linha é a que aparece de verdade.</strong> Não
+    é falha da ferramenta: ela está tentando ser útil com o que tem, e o pedido é que
+    precisa dizer que aquela ajuda não é bem-vinda.</p>
+
+    <div class="aviso">
+      <div class="aviso-t">Depois de gerar &middot; como ler o resultado</div>
+      <p>Abra a sua tabela de correspondência ao lado e traduza só o que virou decisão.
+      Na maior parte das vezes são três ou quatro linhas, e não as doze.</p>
+      <p>Se precisar continuar a conversa amanhã, o arquivo preparado continua servindo.
+      É por isso que este trabalho se faz uma vez por tipo de documento, e não uma vez
+      por tarefa.</p>
+    </div>
+  </section>

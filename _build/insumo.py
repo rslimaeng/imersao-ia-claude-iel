@@ -82,7 +82,7 @@ INSUMOS = {
         # a aula 1 pede nos dois modos, a aula 2 pede com os seis campos.
         # Com string aqui, o G32 conferia UMA e deixava a outra sem gate --
         # justo o buraco por onde entra prompt citando coluna que nao existe.
-        caso=["caso-dois-modos", "caso"],  # as páginas que oferecem o download
+        caso=["caso-dois-modos", "caso", "caso-conferir", "caso-limite"],
         titulo="Execução do convênio · 12 unidades",
         semanas=4,
         lojas=["Centro", "Norte", "Sul", "Litoral", "Maracanaú", "Sobral",

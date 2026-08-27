@@ -19,7 +19,9 @@
     "cabecalho_na_linha": 3,
     "caso": [
       "caso-dois-modos",
-      "caso"
+      "caso",
+      "caso-conferir",
+      "caso-limite"
     ],
     "colunas": {
       "atividades": [
