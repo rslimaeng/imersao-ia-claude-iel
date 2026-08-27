@@ -243,16 +243,42 @@
     <p>Você tem todas as peças do módulo montadas. Falta a decisão de negócio: quais das
     suas tarefas merecem base, e quais ficam na conversa para sempre.</p>
 
+    <div class="aviso">
+      <div class="aviso-t">Como saber que a sua resposta está pronta</div>
+      <p>Use esta régua em toda escolha desta página: <strong>ela tem um número ou um
+      motivo de critério escrito ao lado?</strong> Escolha sem isso é palpite, e palpite
+      aqui custa duas semanas montando base para uma tarefa que volta duas vezes por
+      ano.</p>
+      <p>Cada passo abaixo traz <strong>três perguntas menores</strong> para destravar, e
+      um exemplo do que <strong>não</strong> conta como resposta. A
+      <a href="#s06">seção 06</a> traz a conta inteira feita, para você ver o nível de
+      detalhe que se espera.</p>
+    </div>
+
     <div class="passo">
       <div class="passo-topo">
         <div class="passo-n">01</div>
         <div>
           <div class="passo-fn">Passo 1</div>
-          <h3>Pegue a tarefa que virou projeto na aula 1.2</h3>
+          <h3>Pegue a tarefa que você escolheu na aula 1.1 e equipou na 1.2</h3>
         </div>
       </div>
       <p>Ela já rodou pelo menos uma vez com base. Compare o pedido de hoje com o que
-      você teria escrito no começo do curso.</p>
+      você teria escrito no começo do curso: são os <strong>campos 1 e 2</strong>.</p>
+      <div class="destrave">
+        <div class="destrave-rot">Se travar, responda estas três</div>
+        <ul>
+          <li>Abra o canvas da aula 1.1, campo 5. É o nome dela que está escrito lá.</li>
+          <li>Que pedido você teria mandado no primeiro dia do curso, com tudo explicado
+          dentro? Vale reconstruir de memória.</li>
+          <li>Que pedido você manda hoje, com o projeto pronto? A diferença entre os dois
+          é a medida do módulo inteiro.</li>
+        </ul>
+        <div class="destrave-nao"><strong>Não conta como resposta:</strong> escrever os
+        dois pedidos parecidos. Se o de hoje ainda carrega o contexto todo dentro, isso
+        não é empate: é sinal de que você continua explicando o que já está escrito nas
+        instruções do projeto.</div>
+      </div>
     </div>
 
     <div class="passo">
@@ -260,11 +286,27 @@
         <div class="passo-n">02</div>
         <div>
           <div class="passo-fn">Passo 2</div>
-          <h3>Conte quantas vezes ela volta por mês</h3>
+          <h3>Conte quantas vezes ela volta por mês, e veja se a base já se pagou</h3>
         </div>
       </div>
-      <p>Sem estimar por cima. Se você não souber, é sinal de que ela volta pouco, e a
-      resposta já apareceu.</p>
+      <p>Sem estimar por cima. A conta é a da seção 02, repetida aqui: <strong>a base
+      custa uma vez e devolve toda vez que a tarefa volta, então ela se paga por volta da
+      terceira repetição.</strong> Da terceira em diante, o que vem é lucro. O número e o
+      veredito vão no <strong>campo 3</strong>.</p>
+      <div class="destrave">
+        <div class="destrave-rot">Se travar, responda estas três</div>
+        <ul>
+          <li>Olhe o calendário dos últimos três meses e <strong>conte</strong> as vezes,
+          em vez de estimar de cabeça.</li>
+          <li>Quantas vezes essa tarefa já rodou desde que você montou o projeto? Passou
+          da terceira, já se pagou.</li>
+          <li>Se você não souber quantas vezes ela volta, é sinal de que ela volta pouco,
+          e a resposta já apareceu.</li>
+        </ul>
+        <div class="destrave-nao"><strong>Não conta como resposta:</strong> "volta
+        bastante". Diga o número. É o número que decide, e é o "bastante" que faz a
+        pessoa montar base para tudo.</div>
+      </div>
     </div>
 
     <div class="passo">
@@ -277,7 +319,22 @@
       </div>
       <p>As que ficam de fora importam tanto quanto as que entram. <strong>Base para
       tudo é o mesmo erro de encher as instruções</strong>, agora no tamanho do seu
-      mês.</p>
+      mês. As duas listas são os <strong>campos 4 e 5</strong>.</p>
+      <div class="destrave">
+        <div class="destrave-rot">Se travar, responda estas três</div>
+        <ul>
+          <li>Das cinco tarefas que você listou na aula 1.1, quais voltam mais vezes por
+          mês? Comece por elas.</li>
+          <li>Dessas, em quais o critério é sempre o mesmo? Tarefa que volta muito com
+          critério que muda toda vez não paga base.</li>
+          <li>Para as de fora, o motivo é "acontece pouco" ou "é sempre diferente"? Os
+          dois valem, e são motivos diferentes.</li>
+        </ul>
+        <div class="destrave-nao"><strong>Não conta como resposta:</strong> deixar de
+        fora só o que você não gosta de fazer. As duas de fora precisam de um motivo de
+        frequência ou de critério, e é esse motivo que impede você de sair daqui montando
+        base para tudo e abandonar em duas semanas.</div>
+      </div>
     </div>
 
     <div class="canvas solta" data-chave="canvas-m1a4-base">
@@ -309,13 +366,21 @@
         <div class="cv-campo">
           <div class="cv-n">3</div>
           <div>
+            <label class="cv-rot" for="cv-m4-conta">Quantas vezes ela volta por mês, e se a base já se pagou</label>
+            <div class="cv-ex">Ex: volta 4 vezes por mês e já rodou 5 vezes com o projeto. Passou da terceira, então já se pagou</div>
+            <textarea id="cv-m4-conta" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">4</div>
+          <div>
             <label class="cv-rot" for="cv-m4-proximas">As duas próximas tarefas que merecem base, e quantas vezes voltam por mês</label>
             <div class="cv-ex">Ex: triagem de proposta, 6 vezes. Conferência de lista de presença, 4 vezes</div>
             <textarea id="cv-m4-proximas" rows="2"></textarea>
           </div>
         </div>
         <div class="cv-campo">
-          <div class="cv-n">4</div>
+          <div class="cv-n">5</div>
           <div>
             <label class="cv-rot" for="cv-m4-fora">As duas que ficam de fora, e por quê</label>
             <div class="cv-ex">Ex: o relatório anual, porque acontece uma vez. O ofício de resposta, porque é sempre diferente</div>
@@ -331,7 +396,7 @@
       </div>
     </div>
 
-    <p class="fig-leg"><strong>O campo 4 é o que impede o efeito colateral desta
+    <p class="fig-leg"><strong>O campo 5 é o que impede o efeito colateral desta
     aula.</strong> Quem sai daqui empolgado tenta montar base para tudo, gasta duas
     semanas e abandona. Escolher o que fica de fora é parte do método.</p>
   </section>
@@ -365,6 +430,22 @@
 
     <p class="fig-leg"><strong>Nenhuma informação foi perdida entre os dois.</strong> Ela
     só mudou de lugar, e saiu do teclado.</p>
+    <h3 style="margin:34px 0 14px">A conta do campo 3</h3>
+
+    <div class="cartao">
+      <span class="rot">Quantas vezes ela volta, e se a base já se pagou</span>
+      <p><strong>Volta 4 vezes por mês, e já rodou 6 vezes dentro do projeto.</strong>
+      Passou da terceira ainda na segunda semana, então a base já se pagou e o que vem
+      daqui em diante é lucro. A conta é essa, e ela cabe em duas linhas.</p>
+      <p>O que fez a conta virar foi a frequência, não o tamanho do trabalho. O
+      fechamento do trimestre é uma tarefa muito maior e roda 4 vezes <em>por ano</em>:
+      ele também paga base, mas leva nove meses para pagar.</p>
+    </div>
+
+    <p class="fig-leg"><strong>Repare que as duas tarefas do parágrafo acima pagam
+    base, e por caminhos diferentes.</strong> Uma paga em duas semanas, a outra em nove
+    meses. Quem não faz a conta trata as duas como se fossem a mesma decisão.</p>
+
 
     <div class="grade grade-2 solta">
       <div class="cartao">
