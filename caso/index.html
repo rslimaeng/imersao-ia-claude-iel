@@ -2695,9 +2695,9 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         <span class="prompt-rot">depois · o mesmo pedido, em 4 parágrafos</span>
         <button class="btn-copiar" data-alvo="p-caso-convenio">copiar</button>
       </div>
-      <pre class="prompt-txt" id="p-caso-convenio">Anexei a planilha de execução de um convênio do Instituto Farol, com 4 abas: leia-me, execucao, resumo e atividades. A aba execucao tem uma linha por registro, com as colunas Registro, Data, Unidade, Atividade, Horas, Valor Hora, Valor Total e Fonte do Recurso.
+      <pre class="prompt-txt" id="p-caso-convenio">Sou analista de prestação de contas de convênio, e confiro execução contra o que foi contratado. Anexei a planilha de execução de um convênio do Instituto Farol, com 4 abas: leia-me, execucao, resumo e atividades. A aba execucao tem uma linha por registro, com as colunas Registro, Data, Unidade, Atividade, Horas, Valor Hora, Valor Total e Fonte do Recurso. São quatro trimestres executados em doze unidades, e o relatório vai ao financiador na semana que vem.
 
-O que eu preciso: uma página com o total executado por Unidade e por trimestre, as três unidades mais fora da curva no topo, e a lista do que precisa de decisão antes de eu fechar a prestação. As demais unidades em uma linha só no fim.
+O que eu preciso: uma página com o total executado por Unidade e por trimestre, as três unidades mais fora da curva no topo, e a lista do que precisa de decisão antes de eu fechar a prestação. As demais unidades em uma linha só no fim. Está bom quando o coordenador consegue decidir o que fazer com as pendências lendo só essa primeira página, sem abrir a planilha.
 
 Restrições: use apenas o que está na planilha. Não estime valor que estiver faltando, não junte nomes parecidos na coluna Unidade por conta própria, e confira o total da aba resumo contra a soma da coluna Valor Total antes de afirmar qualquer número.
 
@@ -2706,6 +2706,35 @@ Na dúvida: se encontrar registro duplicado, valor em branco, data em formato di
 
     <p class="fig-leg"><strong>Repare que&nbsp;o&nbsp;prompt nomeia as&nbsp;colunas.</strong> Isso não&nbsp;é formalidade: é o&nbsp;que&nbsp;impede a&nbsp;resposta de&nbsp;falar sobre&nbsp;uma&nbsp;coluna que&nbsp;não&nbsp;existe,
     o&nbsp;que&nbsp;sai plausível e&nbsp;errado.</p>
+
+    <h3 style="margin:40px 0 14px">Onde&nbsp;cada um&nbsp;dos&nbsp;seis campos caiu</h3>
+
+    <p>Os&nbsp;quatro campos que&nbsp;você separou no&nbsp;passo 2 estão todos ali dentro, e&nbsp;mais os&nbsp;dois da&nbsp;tarefa. <strong>Nenhum ganhou um&nbsp;parágrafo próprio</strong>, e&nbsp;é assim que&nbsp;se&nbsp;escreve na&nbsp;prática.</p>
+
+    <div class="tabela solta">
+      <table>
+        <thead>
+          <tr><th>O campo</th><th>Onde ele está no prompt</th><th>A frase</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Papel</strong></td><td>abre o 1º parágrafo</td>
+              <td>"Sou analista de prestação de contas de convênio"</td></tr>
+          <tr><td><strong>Contexto</strong></td><td>fecha o 1º parágrafo</td>
+              <td>as 4 abas, as colunas, e "quatro trimestres em doze unidades"</td></tr>
+          <tr><td><strong>Tarefa</strong></td><td>abre o 2º parágrafo</td>
+              <td>"uma página com o total executado por Unidade e por trimestre"</td></tr>
+          <tr><td><strong>Formato</strong></td><td>meio do 2º parágrafo</td>
+              <td>"as três mais fora da curva no topo... as demais em uma linha só"</td></tr>
+          <tr><td><strong>Limitações</strong></td><td>o 3º parágrafo inteiro</td>
+              <td>"não estime... não junte... confira antes de afirmar"</td></tr>
+          <tr><td><strong>Critério de sucesso</strong></td><td>fecha o 2º parágrafo</td>
+              <td>"está bom quando o coordenador decide sem abrir a planilha"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>O&nbsp;quarto parágrafo não&nbsp;está na&nbsp;tabela, e&nbsp;é de&nbsp;propósito.</strong> O&nbsp;"na&nbsp;dúvida" não&nbsp;é um&nbsp;campo: é o&nbsp;critério de&nbsp;sucesso virando
+    procedimento, dizendo o&nbsp;que&nbsp;fazer quando&nbsp;ele não&nbsp;decide sozinho.</p>
   </section>
 
   <section class="passo" id="p5">

@@ -150,9 +150,9 @@
         <span class="prompt-rot">depois · o mesmo pedido, em 4 parágrafos</span>
         <button class="btn-copiar" data-alvo="p-caso-convenio">copiar</button>
       </div>
-      <pre class="prompt-txt" id="p-caso-convenio">Anexei a planilha de execução de um convênio do Instituto Farol, com 4 abas: leia-me, execucao, resumo e atividades. A aba execucao tem uma linha por registro, com as colunas Registro, Data, Unidade, Atividade, Horas, Valor Hora, Valor Total e Fonte do Recurso.
+      <pre class="prompt-txt" id="p-caso-convenio">Sou analista de prestação de contas de convênio, e confiro execução contra o que foi contratado. Anexei a planilha de execução de um convênio do Instituto Farol, com 4 abas: leia-me, execucao, resumo e atividades. A aba execucao tem uma linha por registro, com as colunas Registro, Data, Unidade, Atividade, Horas, Valor Hora, Valor Total e Fonte do Recurso. São quatro trimestres executados em doze unidades, e o relatório vai ao financiador na semana que vem.
 
-O que eu preciso: uma página com o total executado por Unidade e por trimestre, as três unidades mais fora da curva no topo, e a lista do que precisa de decisão antes de eu fechar a prestação. As demais unidades em uma linha só no fim.
+O que eu preciso: uma página com o total executado por Unidade e por trimestre, as três unidades mais fora da curva no topo, e a lista do que precisa de decisão antes de eu fechar a prestação. As demais unidades em uma linha só no fim. Está bom quando o coordenador consegue decidir o que fazer com as pendências lendo só essa primeira página, sem abrir a planilha.
 
 Restrições: use apenas o que está na planilha. Não estime valor que estiver faltando, não junte nomes parecidos na coluna Unidade por conta própria, e confira o total da aba resumo contra a soma da coluna Valor Total antes de afirmar qualquer número.
 
@@ -162,6 +162,38 @@ Na dúvida: se encontrar registro duplicado, valor em branco, data em formato di
     <p class="fig-leg"><strong>Repare que o prompt nomeia as colunas.</strong> Isso não
     é formalidade: é o que impede a resposta de falar sobre uma coluna que não existe,
     o que sai plausível e errado.</p>
+
+    <h3 style="margin:40px 0 14px">Onde cada um dos seis campos caiu</h3>
+
+    <p>Os quatro campos que você separou no passo 2 estão todos ali dentro, e mais os
+    dois da tarefa. <strong>Nenhum ganhou um parágrafo próprio</strong>, e é assim que
+    se escreve na prática.</p>
+
+    <div class="tabela solta">
+      <table>
+        <thead>
+          <tr><th>O campo</th><th>Onde ele está no prompt</th><th>A frase</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Papel</strong></td><td>abre o 1º parágrafo</td>
+              <td>"Sou analista de prestação de contas de convênio"</td></tr>
+          <tr><td><strong>Contexto</strong></td><td>fecha o 1º parágrafo</td>
+              <td>as 4 abas, as colunas, e "quatro trimestres em doze unidades"</td></tr>
+          <tr><td><strong>Tarefa</strong></td><td>abre o 2º parágrafo</td>
+              <td>"uma página com o total executado por Unidade e por trimestre"</td></tr>
+          <tr><td><strong>Formato</strong></td><td>meio do 2º parágrafo</td>
+              <td>"as três mais fora da curva no topo... as demais em uma linha só"</td></tr>
+          <tr><td><strong>Limitações</strong></td><td>o 3º parágrafo inteiro</td>
+              <td>"não estime... não junte... confira antes de afirmar"</td></tr>
+          <tr><td><strong>Critério de sucesso</strong></td><td>fecha o 2º parágrafo</td>
+              <td>"está bom quando o coordenador decide sem abrir a planilha"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>O quarto parágrafo não está na tabela, e é de
+    propósito.</strong> O "na dúvida" não é um campo: é o critério de sucesso virando
+    procedimento, dizendo o que fazer quando ele não decide sozinho.</p>
   </section>
 
   <section class="passo" id="p5">
