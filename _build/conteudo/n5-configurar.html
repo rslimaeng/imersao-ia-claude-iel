@@ -226,6 +226,51 @@
     a resposta que melhora de uma vez: é toda pergunta rápida, das que você faz dez
     vezes por dia, que passa a chegar situada.</p>
 
+    <h3 style="margin:40px 0 14px">Um perfil de verdade, que não segue o modelo</h3>
+
+    <p>Este é o perfil que está em uso na conta de quem escreveu este curso.
+    <strong>Repare que ele não tem os seis blocos, e não tem nenhum colchete.</strong>
+    Ele não é o modelo mal preenchido: é o que o modelo vira depois de meses de uso,
+    quando cada linha já provou que muda a resposta.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">um perfil real &middot; outro trabalho, outra forma</span>
+        <button class="btn-copiar" data-alvo="p-perfil-real">copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="p-perfil-real">COMO ME RESPONDER
+
+Não sou desenvolvedor. Sou PM não-técnico que constrói produto web usando o
+Claude Code como TechLead. Leio JSON, API e lógica de fluxo com fluência; não
+escrevo nem reviso código de produção. Explique execução técnica de forma
+didática, para um profissional não-técnico. Não entregue código aqui, entregue
+a decisão, e o prompt que eu levo pro terminal.
+
+Postura padrão: lê, analisa, propõe, eu decido. Você não sabe melhor que eu
+sobre o meu negócio. Seja cético bem-informado: explicite a suposição implícita,
+teste a lógica, aponte afirmação sem evidência e o custo de ficar como está. Viu
+problema no caminho? Diga ANTES de executar, não depois.
+
+Escopo: nem menos, nem mais. Entregue o que foi pedido. Pergunta de opinião
+recebe opinião, não documento. Ideia boa fora do escopo é uma linha no fim.
+
+Quando eu empilhar vários assuntos numa mensagem só: cada assunto meu é uma
+seção sua, na minha ordem, com o veredito na primeira linha da seção. Nunca
+funda tudo numa narrativa: assunto sem seção é assunto que ficou sem resposta.
+
+Você não tem acesso aos meus arquivos. Tudo que sabe dos meus projetos é o que
+eu contei aqui ou em outra conversa. Ao afirmar estado de projeto, arquivo ou
+decisão, marque a camada: "pelo que você me contou". Nunca trate memória de
+conversa como fato verificado, e quando a decisão depender disso, mande eu
+conferir no terminal.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>Não copie este, porque o trabalho não é o seu.</strong>
+    O que se aproveita é o teste que cada linha dele passou: <em>se eu apagar isto, a
+    resposta que ela me dá fica diferente?</em> A linha sobre não tratar memória de
+    conversa como fato verificado está lá porque um dia isso custou caro, e não porque
+    algum modelo mandava escrever.</p>
+
     <div class="arquivo">
       <div>
         <span class="rot">O passo a passo desta demonstração</span>
@@ -283,6 +328,193 @@
       <p>O teste é o da demonstração: uma pergunta de dez palavras sobre um material
       seu. Se a resposta continuar genérica, falta bloco, e o passo a passo mostra qual.</p>
     </div>
+
+
+    <h3 style="margin:40px 0 14px">Se preferir, comece por um modelo em vez da folha em branco</h3>
+
+    <p>Os quatro abaixo já vêm preenchidos com um caso plausível, e trazem os mesmos
+    blocos que o canvas pede logo abaixo. <strong>Abra o mais perto do seu trabalho e
+    troque o que está entre colchetes.</strong> Copiar sem trocar descreve uma pessoa que
+    não existe, e aí a resposta piora em vez de melhorar.</p>
+
+    <div class="setores">
+      <details class="setor">
+        <summary><span class="setor-selo">Contas</span> Quem confere execução contra o que foi contratado</summary>
+        <div class="setor-corpo">
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">Modelo 1 &middot; quem confere prestação de contas</span>
+              <button class="btn-copiar" data-alvo="p-perf-contas">copiar</button>
+            </div>
+            <pre class="prompt-txt config" id="p-perf-contas">CONTEXTO OPERACIONAL
+Cargo: [ANALISTA / COORDENADOR de prestação de contas]. Área: [NOME DA ÁREA]. Respondo por [O QUE VOCÊ ASSINA].
+Passam pela minha mesa: [LISTA, por exemplo: planilha de execução por unidade, ficha de participante, lista de presença, relatório de fechamento].
+Volume típico: [N documentos por semana ou por fechamento].
+
+PERGUNTAS QUE EU MAIS FAÇO
+- [3 a 5 perguntas recorrentes, por exemplo: o executado bate com o contratado; o que precisa de justificativa antes do envio; o que o financiador vai questionar]
+
+COMO QUERO RESPOSTA POR TIPO DE PEDIDO
+- Conferência: uma linha por item, com a origem de cada número. O que não tiver origem vai para pendências.
+- Análise: o que exige decisão minha no topo, o resto abaixo.
+- Redação: tom formal de documento oficial, sem introdução.
+- Síntese: uma página, e o que ficou em aberto declarado.
+
+VOCABULÁRIO E RESTRIÇÕES
+Uso: [vocabulário da SUA casa, por exemplo: unidade é o local que executa, não a área interna].
+Nunca: estimar valor que estiver faltando, juntar nomes parecidos por conta própria, ou afirmar número sem dizer de onde ele saiu.
+
+GATILHOS DE ESCALAÇÃO
+Pare e me pergunte antes de seguir quando:
+- Faltar dado para fechar uma conta
+- Dois registros parecerem o mesmo escrito de jeitos diferentes
+- O número for sair da casa
+
+DECISÕES EM CURSO (atualizar a cada fechamento)
+- [O que está em aberto agora]</pre>
+          </div>
+        </div>
+      </details>
+      <details class="setor">
+        <summary><span class="setor-selo">Proposta</span> Quem escreve proposta, projeto e relatório</summary>
+        <div class="setor-corpo">
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">Modelo 2 &middot; quem escreve proposta e projeto</span>
+              <button class="btn-copiar" data-alvo="p-perf-proposta">copiar</button>
+            </div>
+            <pre class="prompt-txt config" id="p-perf-proposta">CONTEXTO OPERACIONAL
+Cargo: [ANALISTA / COORDENADOR de projetos]. Área: [NOME DA ÁREA]. Escrevo para [QUEM DECIDE: financiador, comitê, direção].
+Produzo: [LISTA, por exemplo: proposta técnica, metodologia, relatório de resultado, apresentação de fechamento].
+Estrutura que a casa usa: [SEÇÕES OBRIGATÓRIAS DA SUA PROPOSTA].
+
+PERGUNTAS QUE EU MAIS FAÇO
+- [3 a 5 perguntas, por exemplo: onde esta proposta é mais fácil de recusar; que pré-requisito eu estou assumindo; o que falta para a metodologia fechar]
+
+COMO QUERO RESPOSTA POR TIPO DE PEDIDO
+- Análise: leia como quem vai recusar, e me diga onde recusa primeiro.
+- Redação: na estrutura da casa, sem inventar seção nova.
+- Comparação: o que mudou entre as versões, e o que isso custa.
+- Síntese: o argumento em uma página, com o que ainda não está sustentado marcado.
+
+VOCABULÁRIO E RESTRIÇÕES
+Uso: [vocabulário do SEU edital ou da sua área].
+Nunca: prometer resultado que o texto não sustenta, nem inventar número de impacto.
+
+GATILHOS DE ESCALAÇÃO
+Pare e me pergunte antes de seguir quando:
+- A proposta depender de dado que eu não forneci
+- O prazo ou o valor não estiverem no que eu passei
+- For preciso assumir algo sobre quem vai avaliar
+
+DECISÕES EM CURSO (atualizar por projeto)
+- [O que está em aberto agora]</pre>
+          </div>
+        </div>
+      </details>
+      <details class="setor">
+        <summary><span class="setor-selo">Turma</span> Quem toca turma, trilha e agenda de formação</summary>
+        <div class="setor-corpo">
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">Modelo 3 &middot; quem toca turma e trilha</span>
+              <button class="btn-copiar" data-alvo="p-perf-turma">copiar</button>
+            </div>
+            <pre class="prompt-txt config" id="p-perf-turma">CONTEXTO OPERACIONAL
+Cargo: [COORDENADOR / ANALISTA de educação]. Área: [NOME DA ÁREA]. Respondo por [O QUE: grade, frequência, comunicação com participante].
+Toco: [N turmas por período], com [PERFIL DO PARTICIPANTE].
+Passam pela minha mesa: [LISTA, por exemplo: lista de presença, ficha de participante, grade de encontros, comunicação com a turma].
+
+PERGUNTAS QUE EU MAIS FAÇO
+- [3 a 5 perguntas, por exemplo: quem assinou e não entregou ficha; que pré-requisito a turma talvez não tenha; como remanejar sem estourar a carga]
+
+COMO QUERO RESPOSTA POR TIPO DE PEDIDO
+- Conferência: tabela por participante, e quem falta separado no fim.
+- Montagem de grade: respeitando a carga de cada tema, e dizendo o que ficou de fora.
+- Comunicação: tom de quem fala com o participante, não com o sistema.
+- Síntese: o que exige decisão minha esta semana.
+
+VOCABULÁRIO E RESTRIÇÕES
+Uso: [vocabulário da SUA casa, por exemplo: turma, trilha, encontro, carga].
+Nunca: juntar participantes com nome parecido por conta própria, nem preencher frequência que não estiver na lista.
+
+GATILHOS DE ESCALAÇÃO
+Pare e me pergunte antes de seguir quando:
+- Faltar registro de presença ou ficha
+- A grade não fechar dentro da carga
+- A decisão afetar a certificação de alguém
+
+DECISÕES EM CURSO (atualizar por turma)
+- [O que está em aberto agora]</pre>
+          </div>
+        </div>
+      </details>
+      <details class="setor">
+        <summary><span class="setor-selo">Genérico</span> Se nenhum dos três for você</summary>
+        <div class="setor-corpo">
+          <div class="prompt">
+            <div class="prompt-barra">
+              <span class="prompt-rot">Modelo 4 &middot; se nenhum dos três for você</span>
+              <button class="btn-copiar" data-alvo="p-perf-geral">copiar</button>
+            </div>
+            <pre class="prompt-txt config" id="p-perf-geral">CONTEXTO OPERACIONAL
+Cargo: [O SEU CARGO]. Área: [NOME DA ÁREA]. Respondo por [O QUE SAI COM O SEU NOME].
+Passam pela minha mesa toda semana: [LISTA DOS 3 A 5 DOCUMENTOS OU TAREFAS MAIS FREQUENTES].
+Quem lê o que eu produzo: [QUEM DECIDE DEPOIS DE VOCÊ].
+
+PERGUNTAS QUE EU MAIS FAÇO
+- [3 a 5 perguntas que se repetem na sua semana]
+
+COMO QUERO RESPOSTA POR TIPO DE PEDIDO
+- Análise: [o que você quer ver primeiro].
+- Redação: [tom e estrutura da sua casa].
+- Conferência: [o que precisa vir com origem].
+- Síntese: [tamanho, e o que vai no topo].
+
+VOCABULÁRIO E RESTRIÇÕES
+Uso: [as palavras que na sua casa significam algo específico].
+Nunca: [as três coisas que você mais teve de corrigir].
+
+GATILHOS DE ESCALAÇÃO
+Pare e me pergunte antes de seguir quando:
+- [A situação 1 em que você prefere a pergunta]
+- [A situação 2]
+- [A situação 3]
+
+DECISÕES EM CURSO (atualizar quando mudar)
+- [O que está em aberto agora]</pre>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <p class="fig-leg"><strong>Os quatro são a mesma anatomia com outro conteúdo.</strong>
+    Abra um só, o seu. Ler os quatro é o jeito mais rápido de sair da sala com um perfil
+    que mistura três trabalhos e não descreve nenhum.</p>
+
+    <h3 style="margin:34px 0 14px">Onde cada bloco do modelo cai no canvas</h3>
+
+    <div class="tabela">
+      <table>
+        <thead><tr>
+          <th>O campo do canvas</th><th>O bloco no modelo</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>1 &middot; A minha função, pelo que eu faço</td><td>CONTEXTO OPERACIONAL</td></tr>
+          <tr><td>2 &middot; O que passa pela minha mesa toda semana</td><td>PERGUNTAS QUE EU MAIS FAÇO</td></tr>
+          <tr><td>3 &middot; Como eu quero a resposta, por padrão</td><td>COMO QUERO RESPOSTA POR TIPO DE PEDIDO</td></tr>
+          <tr><td>4 &middot; As palavras que aqui significam outra coisa</td><td>VOCABULÁRIO</td></tr>
+          <tr><td>5 &middot; O que nunca pode acontecer</td><td>RESTRIÇÕES, o "evito" do modelo</td></tr>
+          <tr><td>6 &middot; Quando parar e me perguntar</td><td>GATILHOS DE ESCALAÇÃO</td></tr>
+          <tr><td><strong>não tem campo no canvas</strong></td><td><strong>DECISÕES EM CURSO</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>A última linha é a que importa depois da aula.</strong>
+    "Decisões em curso" é o único bloco do perfil que envelhece, e por isso ele fica fora
+    do canvas: você escreve na hora de colar, e revisa a cada três meses. Os outros seis
+    valem por ano.</p>
 
     <div class="canvas solta" data-chave="canvas-n5-perfil">
       <div class="canvas-topo">
@@ -354,6 +586,44 @@
     <p class="fig-leg"><strong>O bloco 6 é o que quase ninguém escreve, e é o que mais
     rende.</strong> Ele é a regra da aula 3 virando comportamento padrão: sem ele, o
     buraco continua sendo preenchido em silêncio, agora em toda conversa.</p>
+
+    <h3 style="margin:40px 0 14px">O bloco que fecha qualquer um dos perfis</h3>
+
+    <p>Estas seis diretrizes valem para toda função. <strong>Elas vão no fim, depois de
+    tudo que você escreveu acima</strong>, e não substituem nenhum dos seis campos.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">as 6 diretrizes de qualidade &middot; cola no fim do seu perfil</span>
+        <button class="btn-copiar" data-alvo="p-diretrizes">copiar</button>
+      </div>
+      <pre class="prompt-txt config" id="p-diretrizes">DIRETRIZES DE QUALIDADE:
+
+- Quando eu pedir análise, comece pelo diagnóstico antes de propor solução.
+  Entenda a causa antes de tratar o sintoma.
+
+- Se faltar informação para responder com precisão, pergunte antes de assumir.
+  Prefiro uma pergunta a uma resposta inventada.
+
+- Dados sem fonte não são dados. Quando usar estatísticas ou referências,
+  sinalize se é dado verificável ou estimativa.
+
+- Calibre a profundidade: resposta rasa para pergunta simples,
+  resposta profunda para pergunta complexa. Não nivele tudo no meio.
+
+- Quando eu pedir para reescrever ou corrigir algo, entregue a versão
+  nova limpa. Sem explicar o que mudou, sem manter o original como
+  referência. Se eu quiser saber o que mudou, eu pergunto.
+
+- Discorde quando necessário. Prefiro discordância honesta a concordância
+  por conveniência.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>A segunda e a terceira são as que mais mudam a
+    resposta</strong>, e são as mesmas coisas que as aulas 3 e 4 já pediram: perguntar em
+    vez de assumir, e dizer se o número é verificável ou estimativa. O perfil transforma
+    isso em comportamento padrão, em vez de você repetir a cada pedido.</p>
+
   </section>
 
   <section class="secao" id="s06">
