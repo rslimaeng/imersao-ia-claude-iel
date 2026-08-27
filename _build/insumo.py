@@ -38,6 +38,16 @@ DESTINO = os.path.join(RAIZ, "_arquivos")
 # A semente é o que garante que a planilha de hoje é a planilha de amanhã.
 SEMENTE = 20260820
 
+# Os quatro trimestres do convênio. Ele é de 2025 e já está encerrado: a
+# prestação de contas de um exercício acontece no exercício seguinte, e é isso
+# que põe o aluno na situação certa, com o convênio fechado na mesa dele.
+TRIMESTRES = [
+    (datetime.date(2025, 1, 1), datetime.date(2025, 3, 31)),
+    (datetime.date(2025, 4, 1), datetime.date(2025, 6, 30)),
+    (datetime.date(2025, 7, 1), datetime.date(2025, 9, 30)),
+    (datetime.date(2025, 10, 1), datetime.date(2025, 12, 31)),
+]
+
 
 # ---------------------------------------------------------------------------
 # O CATÁLOGO DE ARMADILHAS
@@ -86,7 +96,12 @@ INSUMOS = {
               "caso-configurar", "caso-regra",
               "caso-base"],
         titulo="Execução do convênio · 12 unidades",
-        semanas=4,
+        # 🔴 ACHADO 27/08: a coluna se chamava "Trimestre" e os periodos eram de
+        # SETE DIAS, herdados do gerador de varejo. O material inteiro vende
+        # "convenio de quatro trimestres", e o aluno abria uma planilha com
+        # quatro semanas de julho. Agora sao os quatro trimestres de 2025, de um
+        # convenio ja encerrado, cuja prestacao de contas acontece em 2026.
+        trimestres=4,
         lojas=["Centro", "Norte", "Sul", "Litoral", "Maracanaú", "Sobral",
                "Bairro Alto", "Praia", "Industrial", "Universidade",
                "Terminal", "Feira"],
@@ -95,9 +110,12 @@ INSUMOS = {
                   ("Mentoria individual", 480.00), ("Workshop de inovação", 185.00),
                   ("Diagnóstico inicial", 900.00), ("Trilha de liderança", 799.00)],
         armadilhas=list(ARMADILHAS),
-        aviso=("Os dados deste arquivo são FICTÍCIOS. As lojas, os valores e os "
-               "produtos foram inventados para o treinamento. Nenhum dado de "
-               "cliente real foi usado."),
+        # 🔴 ACHADO 27/08: dizia "as lojas, os valores e os produtos", que e o
+        # vocabulario do gerador de varejo. O aluno abria o arquivo de um
+        # convenio e lia sobre loja.
+        aviso=("Os dados deste arquivo são FICTÍCIOS. As unidades, os valores e "
+               "as atividades foram inventados para o treinamento. Nenhum dado "
+               "de organização real foi usado."),
     ),
 }
 
@@ -108,15 +126,19 @@ INSUMOS = {
 def monta_vendas(spec, r):
     """Uma linha por venda. É o volume que faz a demonstração ter argumento:
     numa planilha de 15 linhas alguém pensa 'isso eu fazia na mão'."""
-    inicio = datetime.date(2026, 7, 6)
     linhas = []
     cupom = 0
-    for semana in range(spec["semanas"]):
+    for t in range(spec["trimestres"]):
+        d0, _ = TRIMESTRES[t]
+        # sete datas de execução espalhadas dentro do trimestre. O volume por
+        # linha continua o mesmo; o que muda é a data cair no trimestre certo.
         for dia in range(7):
-            data = inicio + datetime.timedelta(days=semana * 7 + dia)
+            data = d0 + datetime.timedelta(days=dia * 13)
             for loja in spec["lojas"]:
-                # fim de semana vende mais; é o que faz a leitura ter o que achar
-                n = r.randint(9, 14) if data.weekday() >= 5 else r.randint(5, 9)
+                # em convênio a execução se concentra em dia útil, e é isso que
+                # faz a leitura ter o que achar. No gerador de varejo era o
+                # contrário, porque lá o fim de semana vendia mais.
+                n = r.randint(5, 9) if data.weekday() >= 5 else r.randint(9, 14)
                 for _ in range(n):
                     produto, preco = r.choice(spec["produtos"])
                     qtd = r.randint(1, 6)
@@ -207,7 +229,7 @@ def grava_xlsx(slug, spec):
     ws["A8"] = "O que tem em cada aba"
     ws["A8"].font = Font(bold=True)
     guia = [("execucao", "uma linha por registro de execução"),
-            ("resumo", "o fechamento semana a semana"),
+            ("resumo", "o fechamento trimestre a trimestre"),
             ("atividades", "o cadastro, com o valor de tabela")]
     for i, (aba, o_que) in enumerate(guia, start=9):
         ws.cell(row=i, column=1, value=aba).font = Font(bold=True)
@@ -244,8 +266,17 @@ def grava_xlsx(slug, spec):
     for c, larg in enumerate([11, 13, 15, 18, 7, 15, 13, 19], start=1):
         ws.column_dimensions[get_column_letter(c)].width = larg
 
-    # ---- aba 3 · resumo, e ele NÃO bate com a soma da aba vendas de propósito:
-    # é a linha duplicada aparecendo. Quem confere acha; quem não confere, não.
+    # ---- aba 3 · resumo.
+    # 🔴 CORRIGIDO 27/08. O comentário aqui dizia que o resumo não bate com a
+    # soma da aba de execução, e que a diferença era a linha duplicada. O código
+    # nunca fez isso: ele soma só as linhas com total NUMÉRICO, exatamente como
+    # o SUM() do Excel faz. Os dois lados ignoram as mesmas 352 linhas, então o
+    # resumo BATE, com precisão de centavo.
+    # Isso é melhor do que a armadilha planejada, e é a lição mais forte do
+    # arquivo: uma conferência que fecha não prova que está certa, prova que os
+    # dois números foram feitos do mesmo jeito. Está explicado no passo 5 de
+    # caso-dois-modos, que é o que a regra "toda armadilha aparece no material"
+    # exige.
     ws = wb.create_sheet("resumo")
     cab = ["Trimestre", "Periodo", "Valor Executado", "Registros", "Valor medio",
            "Observacao da execucao"]
@@ -253,22 +284,25 @@ def grava_xlsx(slug, spec):
         cel = ws.cell(row=1, column=c, value=nome)
         cel.font = Font(bold=True)
         cel.fill = CABECALHO
-    obs = ["semana de referencia", "produto novo chegou dia 15",
-           "sabado com recorde de fluxo", "duas lojas sem produto na quarta"]
-    inicio = datetime.date(2026, 7, 6)
-    for s in range(spec["semanas"]):
-        d0 = inicio + datetime.timedelta(days=s * 7)
-        d1 = d0 + datetime.timedelta(days=6)
+    # 🔴 ACHADO 27/08: estas quatro frases eram de varejo ("produto novo chegou
+    # dia 15", "sabado com recorde de fluxo", "duas lojas sem produto"). Elas
+    # ficam DENTRO do arquivo que o aluno abre na sala, num convênio.
+    obs = ["trimestre de referencia",
+           "duas unidades entraram no meio do trimestre",
+           "concentracao de atividade no fechamento do semestre",
+           "atividade remanejada da unidade Norte"]
+    for s in range(spec["trimestres"]):
+        d0, d1 = TRIMESTRES[s]
         # só as linhas com total numérico entram: as que viraram texto ficam de
         # fora, e é essa a diferença que o aluno vai caçar
         do_periodo = [l for l in linhas
-                      if _na_semana(l["data"], d0, d1)
+                      if _no_trimestre(l["data"], d0, d1)
                       and isinstance(l["total"], (int, float))]
         fat = round(sum(l["total"] for l in do_periodo), 2)
         cupons = len(do_periodo)
-        ws.cell(row=s + 2, column=1, value="S%d" % (s + 1))
-        ws.cell(row=s + 2, column=2, value="%s a %s" % (d0.strftime("%d/%m"),
-                                                        d1.strftime("%d/%m")))
+        ws.cell(row=s + 2, column=1, value="T%d" % (s + 1))
+        ws.cell(row=s + 2, column=2, value="%s a %s" % (d0.strftime("%d/%m/%Y"),
+                                                        d1.strftime("%d/%m/%Y")))
         ws.cell(row=s + 2, column=3, value=fat)
         ws.cell(row=s + 2, column=4, value=cupons)
         ws.cell(row=s + 2, column=5, value=round(fat / cupons, 2) if cupons else 0)
@@ -351,7 +385,7 @@ def _congela_o_zip(caminho):
             z.writestr(novo, dados)
 
 
-def _na_semana(data, d0, d1):
+def _no_trimestre(data, d0, d1):
     if isinstance(data, str):
         data = datetime.datetime.strptime(data, "%d/%m/%Y").date()
     return d0 <= data <= d1
