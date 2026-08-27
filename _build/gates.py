@@ -997,7 +997,10 @@ def g32_a_pagina_bate_com_o_insumo(rel, html):
         return []
     falhas = []
     for slug, info in manifesto.items():
-        if rel != info["caso"] + "/index.html":
+        casos = info["caso"]
+        if isinstance(casos, str):
+            casos = [casos]
+        if rel not in [c + "/index.html" for c in casos]:
             continue
         rot = "{} de {}".format(info["arquivo"], rel)
 

@@ -1,0 +1,200 @@
+  <section class="passo" id="p1">
+    <div class="passo-topo">
+      <div class="passo-n">01</div>
+      <div>
+        <div class="passo-fn">Passo 1</div>
+        <h2>Descreva a tarefa</h2>
+      </div>
+    </div>
+
+    <p>O Instituto Farol vai fechar o convênio, e a pergunta que chega na sua mesa não
+    é <em>"os números batem"</em>. É outra, e mais difícil: <strong>dá para assinar
+    isto?</strong></p>
+
+    <p>São duas tarefas dentro de uma, e elas não se resolvem do mesmo jeito. Uma parte
+    você já sabe fazer, e o que falta é o trabalho. A outra você ainda não sabe, e o
+    que falta é enxergar.</p>
+
+    <div class="grade grade-3">
+      <div class="cartao">
+        <span class="rot">O que você já sabe fazer</span>
+        <p>Somar por unidade, conferir contra a aba resumo, separar o que está fora da
+        curva. O critério já está na sua cabeça; o que falta é aplicar ele em 2.829
+        linhas.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">O que você ainda não enxerga</span>
+        <p>O que o financiador vai perguntar e a sua conferência não pega, porque o seu
+        critério nasceu da prestação anterior, não desta.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Por que a ordem importa</span>
+        <p>Conferir primeiro fixa o critério antigo em 2.829 linhas. Enxergar primeiro
+        custa cinco minutos e muda o que vai ser conferido.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="passo" id="p2">
+    <div class="passo-topo">
+      <div class="passo-n">02</div>
+      <div>
+        <div class="passo-fn">Passo 2</div>
+        <h2>Dê o contexto que a IA precisa</h2>
+      </div>
+    </div>
+
+    <p>Aqui entra um campo que um pedido comum não tem. Para o modo que amplia a sua
+    visão, o contexto não é só a situação: é <strong>a sua leitura da situação</strong>.
+    Sem ela, volta o que você já sabia, escrito um pouco melhor.</p>
+
+    <div class="grade grade-2">
+      <div class="cartao">
+        <span class="rot">O papel</span>
+        <p>Analista de prestação de contas de convênio, acostumada a conferir execução
+        contra o que foi contratado.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">A situação</span>
+        <p>Quatro trimestres executados, doze unidades, e a assinatura do fechamento sai
+        esta semana.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">A sua leitura atual &middot; só o modo que amplia exige</span>
+        <p>O que você já concluiu e como confere hoje. É este campo que impede a
+        resposta de devolver a sua própria conferência de volta.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">O critério de sucesso</span>
+        <p>Assinar sabendo o que foi conferido, e sabendo o que ficou de fora por
+        decisão sua, e não por descuido.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="passo" id="p3">
+    <div class="passo-topo">
+      <div class="passo-n">03</div>
+      <div>
+        <div class="passo-fn">Passo 3</div>
+        <h2>Baixe o insumo</h2>
+      </div>
+    </div>
+
+    <p><strong>É a mesma planilha da outra demonstração, e isso é de propósito.</strong>
+    O conceito desta aula é o mesmo material com dois pedidos diferentes. Trocar de
+    arquivo aqui esconderia justamente o que se quer ver.</p>
+
+    <div class="arquivo solta">
+      <div>
+        <div class="arq-fn">A execução do convênio</div>
+        <div class="arq-nome">
+          <span class="arq-tipo">xls</span>
+          <code>execucao-convenio-exemplo.xlsx</code>
+        </div>
+        <p>12 unidades &middot; 4 trimestres &middot; 2.829 linhas registro a registro &middot; 4 abas (leia-me, execucao, resumo, atividades)</p>
+      </div>
+      <a class="btn" href="../_arquivos/execucao-convenio-exemplo.xlsx">Baixar &darr;</a>
+    </div>
+
+    <p class="fig-leg">O arquivo é fictício e sujo de propósito. Quem já baixou na
+    outra demonstração não precisa baixar de novo.</p>
+  </section>
+
+  <section class="passo" id="p4">
+    <div class="passo-topo">
+      <div class="passo-n">04</div>
+      <div>
+        <div class="passo-fn">Passo 4</div>
+        <h2>Cole o prompt no chat</h2>
+      </div>
+    </div>
+
+    <p>Dois pedidos, nesta ordem, na mesma conversa. O primeiro amplia o que entra na
+    decisão. O segundo executa o que a decisão definiu.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">1 &middot; estruturação do pensamento</span>
+        <button class="btn-copiar" data-alvo="p-dm-estruturar">copiar</button>
+      </div>
+      <pre class="prompt-txt" id="p-dm-estruturar">Anexei a planilha de execução de um convênio do Instituto Farol, com 4 abas: leia-me, execucao, resumo e atividades.
+
+A minha leitura: a execução parece dentro do previsto, e a conferência que eu faço sempre é somar a coluna Valor Total por unidade e comparar com a aba resumo.
+
+O que eu preciso: três coisas que essa conferência não pegaria, e o motivo de cada uma escapar do meu critério. Não me dê a decisão, e não me dê um resumo da planilha. Me dê o que está faltando entrar na minha análise antes de eu assinar.
+
+Restrições: não repita o que eu já disse que confiro, e não traga ponto genérico sobre prestação de contas. Cada ponto tem de vir amarrado a algo que está nesta planilha.
+
+Na dúvida: se faltar contexto para avaliar algum ponto, pergunte antes de supor.</pre>
+    </div>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">2 &middot; delegação inteligente</span>
+        <button class="btn-copiar" data-alvo="p-dm-delegar">copiar</button>
+      </div>
+      <pre class="prompt-txt" id="p-dm-delegar">Anexei a mesma planilha, e agora o critério está fechado.
+
+O que eu preciso: a conferência feita, em tabela, uma linha por unidade, com o total de cada trimestre e a soma conferida contra a aba resumo. O que não se encaixar no critério vai para uma lista de pendências no fim.
+
+Restrições: use apenas o que está na planilha, e o critério que está acima e nenhum outro. Não estime valor que estiver faltando, e não junte nomes parecidos na coluna Unidade por conta própria.
+
+Na dúvida: liste o que encontrou e me pergunte antes de decidir. Não conserte por conta própria.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>Repare no que muda entre os dois.</strong> O primeiro
+    conta o que você já pensou e pede o que falta. O segundo cala o que você pensou,
+    porque já virou critério, e pede o trabalho feito.</p>
+  </section>
+
+  <section class="passo" id="p5">
+    <div class="passo-topo">
+      <div class="passo-n">05</div>
+      <div>
+        <div class="passo-fn">Passo 5</div>
+        <h2>O que esperar</h2>
+      </div>
+    </div>
+
+    <p>As duas respostas têm formatos diferentes. Se as duas vierem parecidas, um dos
+    dois pedidos não foi entendido, e vale reescrever antes de seguir.</p>
+
+    <div class="tabela solta">
+      <table>
+        <thead><tr>
+          <th></th>
+          <th>1 &middot; o pedido que amplia</th>
+          <th>2 &middot; o pedido que executa</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><strong>A forma</strong></td>
+              <td>Três pontos em prosa, cada um com o motivo de escapar</td>
+              <td>Uma tabela por unidade, mais a lista de pendências</td></tr>
+          <tr><td><strong>O tamanho</strong></td>
+              <td>Meia página. Mais que isso costuma ser enrolação</td>
+              <td>O que a planilha pedir, com as pendências separadas</td></tr>
+          <tr><td><strong>Quem decide</strong></td>
+              <td>Você, depois de ler. Nada vem decidido</td>
+              <td>Você já decidiu. O que voltou é execução do seu critério</td></tr>
+          <tr><td><strong>Quando deu errado</strong></td>
+              <td>Voltou a sua própria conferência com outras palavras</td>
+              <td>Voltou reflexão sobre o convênio, e nenhuma tabela</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>A última linha é a que mais acontece.</strong> Ela é o
+    sinal de que os dois modos foram trocados de lugar, e a cura é sempre a mesma:
+    dizer no pedido se o critério já existe ou se ainda está sendo formado.</p>
+
+    <div class="aviso">
+      <div class="aviso-t">Depois de gerar &middot; como refinar</div>
+      <p>Se o primeiro devolver resumo: <em>"não descreva a planilha. Aponte só o que
+      a minha conferência deixaria passar, e por quê."</em></p>
+      <p>Se o primeiro devolver o óbvio: <em>"os três pontos que você trouxe já estão
+      no meu critério. Me dê três que não estejam."</em></p>
+      <p>Se o segundo trouxer opinião: <em>"tire as recomendações. O critério já está
+      decidido; o que eu preciso é a conferência feita."</em></p>
+    </div>
+  </section>

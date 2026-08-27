@@ -41,7 +41,8 @@ CURSO = {
 # lista aula; o rodape existe em pagina que a barra nem mostra (a capa, o
 # modulo). Sao duas perguntas diferentes -- "onde eu estou no curso" e
 # "para onde eu vou agora".
-SEQUENCIA = ["index", "nivelamento", "n1-dois-modos", "n2-generica", "caso", "exemplo"]
+SEQUENCIA = ["index", "nivelamento", "n1-dois-modos", "n2-generica",
+             "caso-dois-modos", "caso", "exemplo"]
 
 # ---------------------------------------------------------------------------
 # A TRILHA · o indice do curso, e a unica lista escrita a mao neste arquivo
@@ -107,9 +108,20 @@ PAGINAS = {
                  ("../nivelamento/", "Nivelamento"),
                  (None, "Por que a resposta vem genérica")],
     ),
+    "caso-dois-modos": dict(
+        titulo="O mesmo convênio, pedido de dois jeitos",
+        kicker="Demonstração da aula 1 · em cinco passos",
+        h1="Uma planilha, dois pedidos, duas respostas",
+        sub="O fechamento do convênio do Instituto Farol pedido nos dois modos: "
+            "primeiro o que amplia a decisão, depois o que executa ela.",
+        selos=["Prestação de contas", "2.829 linhas", "Dois pedidos"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../nivelamento/", "Nivelamento"),
+                 (None, "O mesmo convênio, pedido de dois jeitos")],
+    ),
     "caso": dict(
         titulo="A execução do convênio, conferida",
-        kicker="Caso do nivelamento · em cinco passos",
+        kicker="Demonstração da aula 2 · em cinco passos",
         h1="Uma tarde de conferência, em cinco passos",
         sub="A planilha de execução do Instituto Farol, com a sujeira que uma "
             "exportação real tem, e o pedido que dá conta dela.",

@@ -17,7 +17,10 @@
     },
     "arquivo": "execucao-convenio-exemplo.xlsx",
     "cabecalho_na_linha": 3,
-    "caso": "caso",
+    "caso": [
+      "caso-dois-modos",
+      "caso"
+    ],
     "colunas": {
       "atividades": [
         "Atividade",
