@@ -47,7 +47,8 @@ SEQUENCIA = ["index", "nivelamento",
              "caso-dois-modos", "caso", "caso-conferir", "caso-limite",
              "caso-configurar",
              "m1", "m1a1-superficies", "m1a2-regra",
-             "caso-superficies", "caso-regra",
+             "m1a3-mapa", "m1a4-base",
+             "caso-superficies", "caso-regra", "caso-mapa", "caso-base",
              "exemplo"]
 
 # ---------------------------------------------------------------------------
@@ -255,6 +256,50 @@ PAGINAS = {
         migalha=[("../", "Imersão em IA com Claude"),
                  ("../m1/", "Módulo 1"),
                  (None, "O projeto montado, gaveta por gaveta")],
+    ),
+    "m1a3-mapa": dict(
+        titulo="O mapa: onde cada regra mora",
+        kicker="Módulo 1 · aula 1.3",
+        h1="O mapa: onde cada regra mora",
+        sub="Uma pergunta escolhe o lugar de qualquer regra sua, e o mecanismo que "
+            "faz quarenta procedimentos guardados custarem quase nada.",
+        selos=["Sempre, às vezes, nunca", "Leitura por partes"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../m1/", "Módulo 1"),
+                 (None, "O mapa: onde cada regra mora")],
+    ),
+    "m1a4-base": dict(
+        titulo="Por que a base multiplica",
+        kicker="Módulo 1 · aula 1.4",
+        h1="Por que a base multiplica",
+        sub="O teto do pedido bem escrito, e a conta que decide em quais tarefas "
+            "vale a pena investir base.",
+        selos=["O teto do pedido", "A conta da repetição"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../m1/", "Módulo 1"),
+                 (None, "Por que a base multiplica")],
+    ),
+    "caso-mapa": dict(
+        titulo="A norma da casa vira procedimento",
+        kicker="Demonstração da aula 1.3 · em cinco passos",
+        h1="Transformar o que já está escrito em algo que ele lê sozinho",
+        sub="A pergunta única aplicada antes de tudo, e o pedido que transforma a "
+            "norma da sua área sem misturar boa prática de fora.",
+        selos=["Etiqueta e conteúdo", "Sem inventar norma"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../m1/", "Módulo 1"),
+                 (None, "A norma da casa vira procedimento")],
+    ),
+    "caso-base": dict(
+        titulo="A medição que fecha o módulo",
+        kicker="Demonstração da aula 1.4 · em cinco passos",
+        h1="Para onde foi cada informação do pedido antigo",
+        sub="A conferência que mostra o que a base já cobre, o que se perdeu pelo "
+            "caminho e o que está escrito duas vezes.",
+        selos=["Quatro textos", "Três listas"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../m1/", "Módulo 1"),
+                 (None, "A medição que fecha o módulo")],
     ),
     "exemplo": dict(
         titulo="O exemplo pronto",

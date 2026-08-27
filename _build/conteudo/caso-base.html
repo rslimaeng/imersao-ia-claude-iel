@@ -1,0 +1,178 @@
+  <section class="passo" id="p1">
+    <div class="passo-topo">
+      <div class="passo-n">01</div>
+      <div>
+        <div class="passo-fn">Passo 1</div>
+        <h2>Descreva a tarefa</h2>
+      </div>
+    </div>
+
+    <p>Medir, na sua própria tarefa, <strong>quanto do pedido a base já cobre</strong>.
+    É a última decisão do módulo, e ela é de negócio, não de ferramenta: onde investir o
+    tempo do mês que vem.</p>
+
+    <p>Leva dez minutos, e é o que impede o efeito colateral mais comum de um curso
+    assim, que é sair querendo montar base para tudo e abandonar na segunda semana.</p>
+
+    <div class="grade grade-3">
+      <div class="cartao">
+        <span class="rot">O que se mede</span>
+        <p>O tamanho do pedido antes e depois, e quantas vezes aquela tarefa volta por
+        mês. Duas medidas, e nenhuma delas precisa de precisão.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">O que não se mede</span>
+        <p>Tempo economizado em minutos. Ninguém cronometra a própria semana, e número
+        estimado vira promessa que não se sustenta.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">O que decide</span>
+        <p>Repetição, e não importância. É a conta que a aula acabou de mostrar, e é
+        onde quase todo mundo erra.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="passo" id="p2">
+    <div class="passo-topo">
+      <div class="passo-n">02</div>
+      <div>
+        <div class="passo-fn">Passo 2</div>
+        <h2>Dê o contexto que a IA precisa</h2>
+      </div>
+    </div>
+
+    <p>Você vai pedir uma comparação, e para isso ela precisa dos dois lados. O contexto
+    aqui é literalmente o material do módulo inteiro.</p>
+
+    <div class="tabela solta">
+      <table>
+        <thead><tr>
+          <th>O que reunir</th><th>Onde está</th><th>Para que serve na medição</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>O pedido longo do começo</td><td>o canvas da aula 2 do nivelamento</td><td>é o ponto de partida</td></tr>
+          <tr><td>O perfil da conta</td><td>o canvas da aula 5</td><td>mostra o que saiu do pedido primeiro</td></tr>
+          <tr><td>As instruções do projeto</td><td>o canvas da aula 1.2</td><td>mostra o que saiu depois</td></tr>
+          <tr><td>O pedido curto de hoje</td><td>a conversa do projeto</td><td>é o ponto de chegada</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>Se algum dos quatro estiver faltando, a medição não
+    funciona</strong>, e isso já é a resposta: aquela camada não foi montada, e é onde
+    está o próximo ganho.</p>
+  </section>
+
+  <section class="passo" id="p3">
+    <div class="passo-topo">
+      <div class="passo-n">03</div>
+      <div>
+        <div class="passo-fn">Passo 3</div>
+        <h2>Baixe o insumo</h2>
+      </div>
+    </div>
+
+    <p>Se você quiser fazer a medição com um caso neutro antes de fazer com o seu, a
+    planilha do convênio serve: ela atravessou o curso inteiro e você já sabe como a
+    resposta certa se parece.</p>
+
+    <div class="arquivo solta">
+      <div>
+        <div class="arq-fn">A execução do convênio</div>
+        <div class="arq-nome">
+          <span class="arq-tipo">xls</span>
+          <code>execucao-convenio-exemplo.xlsx</code>
+        </div>
+        <p>12 unidades &middot; 4 trimestres &middot; 2.829 linhas registro a registro &middot; 4 abas (leia-me, execucao, resumo, atividades)</p>
+      </div>
+      <a class="btn" href="../_arquivos/execucao-convenio-exemplo.xlsx">Baixar &darr;</a>
+    </div>
+
+    <p class="fig-leg"><strong>O insumo de verdade desta página é o seu material.</strong>
+    A planilha serve para praticar a medição, e a medição que vale é a da sua tarefa,
+    com os seus quatro textos.</p>
+  </section>
+
+  <section class="passo" id="p4">
+    <div class="passo-topo">
+      <div class="passo-n">04</div>
+      <div>
+        <div class="passo-fn">Passo 4</div>
+        <h2>Cole o prompt no chat</h2>
+      </div>
+    </div>
+
+    <p>Este pedido vai numa conversa <strong>fora</strong> do seu projeto, e isso é
+    proposital: você quer que ela olhe os textos como material, e não que ela já esteja
+    operando debaixo deles.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">prompt &middot; medir o que a base já cobre</span>
+        <button class="btn-copiar" data-alvo="p-caso-base">copiar</button>
+      </div>
+      <pre class="prompt-txt" id="p-caso-base">Vou colar quatro textos: o pedido longo que eu escrevia antes, o meu perfil da conta, as instruções do projeto e o pedido curto que eu escrevo hoje na mesma tarefa.
+
+O que eu preciso: para cada informação que estava no pedido longo, em qual dos outros textos ela passou a morar, e quais informações do pedido longo não estão em lugar nenhum hoje.
+
+Restrições: trabalhe só com o que está nos quatro textos. Não sugira melhoria nos textos, e não escreva versão nova de nada. Esta é uma conferência, não uma reescrita.
+
+Na dúvida: se uma informação aparecer em dois lugares ao mesmo tempo, aponte a duplicação em vez de escolher uma.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>A última linha acha um problema real.</strong> Informação
+    repetida entre o perfil e as instruções do projeto ocupa mesa duas vezes, e é o
+    resíduo mais comum de quem montou as camadas em semanas diferentes.</p>
+  </section>
+
+  <section class="passo" id="p5">
+    <div class="passo-topo">
+      <div class="passo-n">05</div>
+      <div>
+        <div class="passo-fn">Passo 5</div>
+        <h2>O que esperar</h2>
+      </div>
+    </div>
+
+    <p>Três listas, e cada uma leva a uma decisão diferente para o mês que vem.</p>
+
+    <div class="tabela solta">
+      <table>
+        <thead><tr>
+          <th>A lista que volta</th><th>O que ela significa</th><th>A decisão</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>O que migrou para o perfil ou para as instruções</td>
+              <td>a base está fazendo o trabalho</td>
+              <td>nada a fazer, e é o resultado esperado</td></tr>
+          <tr><td>O que não está em lugar nenhum</td>
+              <td>você parou de escrever e ninguém assumiu</td>
+              <td><strong>é a próxima linha a escrever</strong>, e costuma explicar respostas piores</td></tr>
+          <tr><td>O que aparece duplicado</td>
+              <td>a mesma coisa ocupa mesa duas vezes</td>
+              <td>apague do lugar mais específico, e deixe no mais amplo</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>A segunda linha é a razão de esta página existir.</strong>
+    Quem encolhe o pedido sem conferir para onde as coisas foram acaba perdendo
+    restrição pelo caminho, e o sintoma é uma resposta que piorou sem motivo aparente.</p>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">A conta que fecha o módulo</div>
+      <p>Com as duas medidas na mão, o tamanho do pedido e o número de repetições por
+      mês, a decisão é direta: <strong>tarefa que volta quatro ou mais vezes por mês,
+      com critério estável, paga a base rápido.</strong> Tarefa que volta uma vez por
+      mês ou menos raramente paga, por mais importante que ela seja.</p>
+    </div>
+
+    <div class="aviso">
+      <div class="aviso-t">Depois de gerar &middot; como refinar</div>
+      <p>Se vier vago: <em>"vá informação por informação do pedido longo, sem agrupar, e
+      diga o destino de cada uma."</em></p>
+      <p>Se ela começar a sugerir melhorias: <em>"não reescreva nada. Eu só quero saber
+      onde cada informação está hoje."</em></p>
+    </div>
+  </section>

@@ -1,0 +1,193 @@
+  <section class="passo" id="p1">
+    <div class="passo-topo">
+      <div class="passo-n">01</div>
+      <div>
+        <div class="passo-fn">Passo 1</div>
+        <h2>Descreva a tarefa</h2>
+      </div>
+    </div>
+
+    <p>Transformar um procedimento que a sua casa já tem escrito em algo que ele lê
+    sozinho quando a tarefa aparece. <strong>Você não escreve o procedimento: ele já
+    existe.</strong> O trabalho é dar a ele um nome e uma etiqueta.</p>
+
+    <p>Feito na mão, isso é reler a norma e ir reescrevendo. Feito com ajuda, são dois
+    pedidos e uma revisão sua, que é a parte que não se delega.</p>
+
+    <div class="grade grade-3">
+      <div class="cartao">
+        <span class="rot">O melhor candidato</span>
+        <p>O procedimento que já está escrito num documento da casa, e que já foi
+        discutido por quem entende do assunto.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">O pior candidato</span>
+        <p>O procedimento que só existe na sua cabeça. Ele precisa virar texto primeiro,
+        e isso é conversa com gente, não com ferramenta.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">O que se decide aqui</span>
+        <p>Só a etiqueta, que é a frase que diz <em>quando</em> usar. O conteúdo vem
+        pronto da norma.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="passo" id="p2">
+    <div class="passo-topo">
+      <div class="passo-n">02</div>
+      <div>
+        <div class="passo-fn">Passo 2</div>
+        <h2>Dê o contexto que a IA precisa</h2>
+      </div>
+    </div>
+
+    <p>A pergunta única, aplicada antes de qualquer coisa. Se a resposta não for
+    <em>às vezes</em>, o procedimento não é o caso e o trabalho para aqui.</p>
+
+    <div class="tabela solta">
+      <table>
+        <thead><tr>
+          <th>Se a resposta for</th><th>Então</th><th>E o lugar é</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><strong>Sempre</strong></td><td>vale para toda conversa daquele trabalho</td>
+              <td>as instruções do projeto, que a aula 1.2 já montou</td></tr>
+          <tr><td><strong>Às vezes</strong></td><td>vale quando aquele tipo de tarefa aparece</td>
+              <td><strong>procedimento guardado, e é o caso desta página</strong></td></tr>
+          <tr><td><strong>Nunca</strong></td><td>envelhece antes de ser útil</td>
+              <td>uma porta para onde o dado vive, no encontro 3</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>O teste que resolve as dúvidas de fronteira:</strong> se
+    o procedimento fosse lido em toda conversa daquele projeto, ele atrapalharia? Se
+    sim, é <em>às vezes</em>. Se não faria diferença, provavelmente é <em>sempre</em> e
+    já deveria estar nas instruções.</p>
+  </section>
+
+  <section class="passo" id="p3">
+    <div class="passo-topo">
+      <div class="passo-n">03</div>
+      <div>
+        <div class="passo-fn">Passo 3</div>
+        <h2>Baixe o insumo</h2>
+      </div>
+    </div>
+
+    <p><strong>Este insumo não se baixa daqui: ele está na sua casa.</strong> Pegue o
+    documento em que o procedimento está escrito, do jeito que ele estiver.</p>
+
+    <div class="cartao">
+      <span class="rot">Serve como está, e é de propósito</span>
+      <p>Norma em PDF, procedimento numa apresentação antiga, passo a passo num e-mail
+      que alguém mandou, checklist impresso e digitado de novo. <strong>Nenhum precisa
+      estar bonito</strong>: o que importa é que ele tenha sido acordado por quem
+      responde pela área.</p>
+      <p>Se o que existe estiver desatualizado, essa é a informação mais valiosa do dia,
+      e ela não é problema desta aula: é assunto para quem responde pela norma.</p>
+    </div>
+
+    <p class="fig-leg">Se você não tiver nenhum documento assim, o exercício muda: em
+    vez de transformar, o trabalho é escrever o primeiro rascunho e levar para quem
+    valida. Isso é útil, e não é o mesmo exercício.</p>
+  </section>
+
+  <section class="passo" id="p4">
+    <div class="passo-topo">
+      <div class="passo-n">04</div>
+      <div>
+        <div class="passo-fn">Passo 4</div>
+        <h2>Cole o prompt no chat</h2>
+      </div>
+    </div>
+
+    <p>Um pedido só, com o documento anexado. Repare que ele pede a etiqueta
+    <strong>separada</strong> do conteúdo: são duas coisas com funções diferentes.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">prompt &middot; transformar norma em procedimento</span>
+        <button class="btn-copiar" data-alvo="p-caso-mapa">copiar</button>
+      </div>
+      <pre class="prompt-txt" id="p-caso-mapa">Anexei o documento em que está escrito como a minha área faz esta tarefa. Quero transformar ele num procedimento que possa ser reaproveitado sempre que este tipo de trabalho aparecer.
+
+O que eu preciso: primeiro um nome curto e uma frase de uma linha dizendo em que situação este procedimento deve ser usado. Depois o passo a passo, na ordem, com as decisões que exigem uma pessoa marcadas como tal.
+
+Restrições: use apenas o que está no documento, e não acrescente boa prática que você conhece de fora. Se o documento não disser algo, deixe a lacuna visível em vez de completar.
+
+Na dúvida: liste o que ficou ambíguo no documento e me pergunte. Passo que depende de julgamento não vira instrução automática.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>O terceiro parágrafo é o que protege a norma da casa.</strong>
+    Sem ele, o que volta é a sua norma misturada com o que a ferramenta acha que é boa
+    prática, e ninguém consegue mais separar as duas.</p>
+  </section>
+
+  <section class="passo" id="p5">
+    <div class="passo-topo">
+      <div class="passo-n">05</div>
+      <div>
+        <div class="passo-fn">Passo 5</div>
+        <h2>O que esperar</h2>
+      </div>
+    </div>
+
+    <p>Duas partes bem diferentes, e a primeira é a que decide se o resto vai ser usado
+    algum dia.</p>
+
+    <div class="previa solta">
+      <div class="previa-mini">
+        <h4>fechar-prestacao</h4>
+        <div class="previa-meta">usar quando o pedido for fechar um trimestre de convênio para envio ao financiador</div>
+        <p style="font-weight:600;margin-bottom:16px">Doze passos, três deles marcados
+        como decisão de pessoa.</p>
+        <div class="previa-nums">
+          <div class="previa-num">
+            <div class="previa-num-v">12</div>
+            <div class="previa-num-r">Passos</div>
+          </div>
+          <div class="previa-num">
+            <div class="previa-num-v">3</div>
+            <div class="previa-num-r">Decisões suas</div>
+          </div>
+          <div class="previa-num">
+            <div class="previa-num-v">2</div>
+            <div class="previa-num-r">Lacunas na norma</div>
+          </div>
+        </div>
+      </div>
+      <div class="previa-txt">
+        <span class="rot">Como conferir cada parte</span>
+        <ul>
+          <li><strong>A etiqueta diz quando, não o que.</strong> Se ela descreve a peça, reescreva antes de qualquer outra coisa</li>
+          <li><strong>Os passos são os da norma</strong>, na ordem dela, sem passo novo que você não reconheça</li>
+          <li><strong>As decisões de pessoa estão marcadas</strong>, e são as que exigem julgamento de quem responde</li>
+          <li><strong>As lacunas aparecem como lacunas</strong>, e não preenchidas com o que soa razoável</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>As duas lacunas são o achado mais valioso do dia.</strong>
+    Elas são pontos em que a norma da casa não diz o que fazer, e alguém vem resolvendo
+    de cabeça há anos. Isso vale uma conversa com a área, independentemente de
+    ferramenta.</p>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">O sinal de que a etiqueta ficou ruim</div>
+      <p>Peça pronta que nunca entra em uso quase sempre tem etiqueta descritiva. Teste
+      assim: leia a etiqueta e a sua pergunta típica lado a lado. Se você mesmo não
+      ligaria uma à outra, ele também não vai.</p>
+    </div>
+
+    <div class="aviso">
+      <div class="aviso-t">Depois de gerar &middot; como refinar</div>
+      <p>Se a etiqueta vier descritiva: <em>"reescreva a frase começando por 'usar
+      quando', e descrevendo a situação em que eu estaria."</em></p>
+      <p>Se aparecer passo que você não reconhece: <em>"em que página do documento está
+      esse passo? Se não estiver, tire."</em></p>
+      <p>Se tudo virar instrução automática: <em>"quais destes passos exigem julgamento
+      de quem responde pela área? Marque esses."</em></p>
+    </div>
+  </section>
