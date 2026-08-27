@@ -236,10 +236,18 @@ def g5_prompt_tem_os_quatro_paragrafos(rel, html):
     # tem por que ter os quatro parágrafos de um pedido.
     copiaveis = set(re.findall(r'data-alvo="([^"]+)"', html))
     falhas = []
-    for i, (ident, corpo) in enumerate(re.findall(
-            r'<pre class="prompt-txt"[^>]*id="([^"]+)"[^>]*>(.*?)</pre>',
+    for i, (classes, ident, corpo) in enumerate(re.findall(
+            r'<pre class="prompt-txt([^"]*)"[^>]*id="([^"]+)"[^>]*>(.*?)</pre>',
             html, flags=re.S), 1):
         if ident not in copiaveis:
+            continue
+        # 🔴 A EXCECAO QUE O COMENTARIO ACIMA JA DECLARAVA e o codigo nao tinha.
+        # Um TRECHO DE CONFIGURACAO copiavel (o perfil da conta, um arquivo de
+        # regras) nao e um pedido, e nao tem por que ter "O que eu preciso" nem
+        # "Na duvida": ele nao pede nada, ele descreve quem pergunta.
+        # A marca e estrutural, nao caso a caso: quem quiser a excecao escreve
+        # .config na classe, e o gate continua conferindo todo o resto.
+        if "config" in classes.split():
             continue
         texto = corpo.replace("&nbsp;", " ")
         for peca in ("O que eu preciso:", "Restrições:", "Na dúvida:"):
