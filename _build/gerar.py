@@ -43,7 +43,9 @@ CURSO = {
 # "para onde eu vou agora".
 SEQUENCIA = ["index", "nivelamento",
              "n1-dois-modos", "n2-generica", "n3-conferir", "n4-limite",
+             "n5-configurar",
              "caso-dois-modos", "caso", "caso-conferir", "caso-limite",
+             "caso-configurar",
              "exemplo"]
 
 # ---------------------------------------------------------------------------
@@ -175,6 +177,28 @@ PAGINAS = {
         migalha=[("../", "Imersão em IA com Claude"),
                  ("../nivelamento/", "Nivelamento"),
                  (None, "O arquivo preparado antes de anexar")],
+    ),
+    "n5-configurar": dict(
+        titulo="A primeira configuração",
+        kicker="Nivelamento · aula 5 de 5",
+        h1="A primeira configuração",
+        sub="O que se repete em todo pedido seu sai do teclado e vira perfil da "
+            "conta. Seis blocos, escritos uma vez.",
+        selos=["Seis blocos", "Sai funcionando"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../nivelamento/", "Nivelamento"),
+                 (None, "A primeira configuração")],
+    ),
+    "caso-configurar": dict(
+        titulo="O perfil escrito e testado",
+        kicker="Demonstração da aula 5 · em cinco passos",
+        h1="Quinze minutos que encurtam todo pedido seu",
+        sub="Onde fica o campo, o que escrever em cada um dos seis blocos, e o "
+            "teste de doze palavras que prova se ele está sendo lido.",
+        selos=["Seis blocos", "Teste de 12 palavras"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../nivelamento/", "Nivelamento"),
+                 (None, "O perfil escrito e testado")],
     ),
     "exemplo": dict(
         titulo="O exemplo pronto",
