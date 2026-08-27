@@ -22,7 +22,8 @@
       "caso",
       "caso-conferir",
       "caso-limite",
-      "caso-configurar"
+      "caso-configurar",
+      "caso-regra"
     ],
     "colunas": {
       "atividades": [

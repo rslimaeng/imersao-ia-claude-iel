@@ -83,7 +83,7 @@ INSUMOS = {
         # Com string aqui, o G32 conferia UMA e deixava a outra sem gate --
         # justo o buraco por onde entra prompt citando coluna que nao existe.
         caso=["caso-dois-modos", "caso", "caso-conferir", "caso-limite",
-              "caso-configurar"],
+              "caso-configurar", "caso-regra"],
         titulo="Execução do convênio · 12 unidades",
         semanas=4,
         lojas=["Centro", "Norte", "Sul", "Litoral", "Maracanaú", "Sobral",

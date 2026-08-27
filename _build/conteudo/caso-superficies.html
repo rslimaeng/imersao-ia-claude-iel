@@ -1,0 +1,178 @@
+  <section class="passo" id="p1">
+    <div class="passo-topo">
+      <div class="passo-n">01</div>
+      <div>
+        <div class="passo-fn">Passo 1</div>
+        <h2>Descreva a tarefa</h2>
+      </div>
+    </div>
+
+    <p>A tarefa aqui é uma decisão, e ela leva dois minutos por rotina: <strong>descobrir
+    em qual superfície cada trabalho seu mora</strong>, e reconhecer quando uma conversa
+    já passou do ponto.</p>
+
+    <p>Feito uma vez por rotina, vale para sempre. O que muda com o tempo é a lista de
+    rotinas, não o critério.</p>
+
+    <div class="grade grade-3">
+      <div class="cartao">
+        <span class="rot">Quem ganha mais com isso</span>
+        <p>Quem hoje faz tudo na primeira aba, porque foi onde começou, e não sabe que
+        existe outro lugar para o que se repete.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">O sintoma que denuncia</span>
+        <p>Colar o mesmo parágrafo de contexto toda semana, e a conversa que fica boa no
+        começo e vai piorando sem motivo aparente.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">O que não se decide aqui</span>
+        <p>Se o material pode ser anexado. Isso é a aula 4 do nivelamento, e ela vem
+        antes de qualquer escolha de superfície.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="passo" id="p2">
+    <div class="passo-topo">
+      <div class="passo-n">02</div>
+      <div>
+        <div class="passo-fn">Passo 2</div>
+        <h2>Dê o contexto que a IA precisa</h2>
+      </div>
+    </div>
+
+    <p>Neste caso o contexto é para você, não para ela: são as quatro perguntas, na
+    ordem, e a regra de parar na primeira que der sim.</p>
+
+    <div class="tabela solta">
+      <table>
+        <thead><tr>
+          <th>A pergunta</th><th>Se sim</th><th>O sinal de que você errou</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>O trabalho está dentro da conversa?</td><td>Conversa</td>
+              <td>você cola o mesmo contexto pela terceira vez</td></tr>
+          <tr><td>A conversa se repete com as mesmas regras?</td><td><strong>Projeto</strong></td>
+              <td>montou projeto para algo que acontece uma vez só</td></tr>
+          <tr><td>O trabalho está em arquivo, numa pasta?</td><td>Pasta</td>
+              <td>está copiando arquivo por arquivo para dentro da conversa</td></tr>
+          <tr><td>Você quer que continue rodando sem você?</td><td>Bancada</td>
+              <td>criou rotina automática para algo que você faz uma vez por trimestre</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>A coluna da direita é a que mais ensina.</strong> Ela
+    mostra que errar para cima custa configuração jogada fora, e errar para baixo custa
+    todo dia, um pouco.</p>
+  </section>
+
+  <section class="passo" id="p3">
+    <div class="passo-topo">
+      <div class="passo-n">03</div>
+      <div>
+        <div class="passo-fn">Passo 3</div>
+        <h2>Baixe o insumo</h2>
+      </div>
+    </div>
+
+    <p><strong>Aqui o insumo não se baixa: ele já está na sua conta.</strong> Abra uma
+    conversa sua que passou de vinte mensagens, de preferência uma em que você sentiu
+    que a resposta foi piorando.</p>
+
+    <div class="cartao">
+      <span class="rot">Se você não tiver uma</span>
+      <p>Use a conversa da demonstração da aula 3 do nivelamento, a da conferência da
+      planilha do convênio. Ela costuma passar de vinte mensagens quando a pessoa refina
+      o pedido algumas vezes, que é justamente o caso interessante.</p>
+    </div>
+
+    <p class="fig-leg">Uma conversa curta não serve para este teste. O que se quer ver é
+    a mesa cheia, e mesa vazia não ensina nada sobre mesa cheia.</p>
+  </section>
+
+  <section class="passo" id="p4">
+    <div class="passo-topo">
+      <div class="passo-n">04</div>
+      <div>
+        <div class="passo-fn">Passo 4</div>
+        <h2>Cole o prompt no chat</h2>
+      </div>
+    </div>
+
+    <p>Este é o teste da mesa. Ele não pede trabalho novo: pede que ela mostre o que
+    ainda enxerga do começo da conversa.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">teste da mesa &middot; cola no fim de uma conversa longa</span>
+        <button class="btn-copiar" data-alvo="p-caso-superficies">copiar</button>
+      </div>
+      <pre class="prompt-txt" id="p-caso-superficies">Antes de continuar, quero conferir o que você ainda tem desta conversa.
+
+O que eu preciso: a lista de todas as regras e restrições que eu escrevi desde a primeira mensagem, na ordem em que apareceram, e quais delas você aplicou na sua última resposta.
+
+Restrições: não invente regra que eu não escrevi, e não reformule o que eu disse com outras palavras. Se alguma coisa ficou vaga para você, diga que ficou.
+
+Na dúvida: se você não conseguir recuperar alguma parte do começo, diga isso em vez de completar pelo que faz sentido.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>A última linha é a que faz o teste funcionar.</strong> Sem
+    ela, o que vem de volta é uma lista plausível montada a partir do fim da conversa, e
+    você conclui que está tudo bem.</p>
+  </section>
+
+  <section class="passo" id="p5">
+    <div class="passo-topo">
+      <div class="passo-n">05</div>
+      <div>
+        <div class="passo-fn">Passo 5</div>
+        <h2>O que esperar</h2>
+      </div>
+    </div>
+
+    <p>A resposta diz em qual dos três estados a sua conversa está, e cada estado tem
+    uma decisão diferente.</p>
+
+    <div class="tabela solta">
+      <table>
+        <thead><tr>
+          <th>O que voltou</th><th>Em que estado a mesa está</th><th>O que fazer</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Todas as regras, na ordem, e as aplicadas batendo</td>
+              <td>com folga</td>
+              <td>siga na mesma conversa</td></tr>
+          <tr><td>Todas as regras, mas ela aplicou só as recentes</td>
+              <td>apertando</td>
+              <td>recole as duas ou três que importam, e siga</td></tr>
+          <tr><td>Faltaram regras, ou apareceu regra que você não escreveu</td>
+              <td>cheia</td>
+              <td><strong>comece conversa nova</strong> com o contexto certo</td></tr>
+          <tr><td>Ela disse que não conseguiu recuperar o começo</td>
+              <td>cheia, e honesta</td>
+              <td>comece conversa nova, e considere virar projeto</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>A terceira linha é a mais comum, e a mais perigosa.</strong>
+    Regra que aparece sem ter sido escrita é o mesmo defeito da aula 3 do nivelamento,
+    agora vindo do próprio histórico da conversa em vez do material.</p>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">O sinal de que aquela tarefa deveria ser projeto</div>
+      <p>Se você precisou recolar as mesmas regras em duas conversas diferentes, a
+      resposta já não é <em>"começar de novo"</em>. É <strong>parar de recolar</strong>,
+      e a aula 1.2 mostra onde escrever isso de uma vez.</p>
+    </div>
+
+    <div class="aviso">
+      <div class="aviso-t">Depois de gerar &middot; como refinar</div>
+      <p>Se a lista vier resumida demais: <em>"liste uma por uma, com a frase que eu
+      usei, sem agrupar."</em></p>
+      <p>Se você suspeitar que ela completou: <em>"quais dessas você tirou do que eu
+      escrevi, e quais você deduziu?"</em></p>
+    </div>
+  </section>

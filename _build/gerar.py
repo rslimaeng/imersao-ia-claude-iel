@@ -46,6 +46,8 @@ SEQUENCIA = ["index", "nivelamento",
              "n5-configurar",
              "caso-dois-modos", "caso", "caso-conferir", "caso-limite",
              "caso-configurar",
+             "m1", "m1a1-superficies", "m1a2-regra",
+             "caso-superficies", "caso-regra",
              "exemplo"]
 
 # ---------------------------------------------------------------------------
@@ -199,6 +201,60 @@ PAGINAS = {
         migalha=[("../", "Imersão em IA com Claude"),
                  ("../nivelamento/", "Nivelamento"),
                  (None, "O perfil escrito e testado")],
+    ),
+    "m1": dict(
+        titulo="Módulo 1",
+        kicker="Encontro 2 de 4 · 3 de setembro",
+        h1="A regra sai do teclado",
+        sub="O método do nivelamento vira base escrita: o que você repetia em todo "
+            "pedido passa a morar onde a ferramenta lê sozinha.",
+        selos=["4 aulas", "Claude Desktop"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 (None, "Módulo 1")],
+    ),
+    "m1a1-superficies": dict(
+        titulo="Quatro superfícies, e a mesa que todas dividem",
+        kicker="Módulo 1 · aula 1.1",
+        h1="Quatro superfícies, e a mesa que todas dividem",
+        sub="Onde cada tarefa sua mora, decidido em quatro perguntas, e por que a "
+            "conversa longa piora sem ninguém mexer em nada.",
+        selos=["Quatro perguntas", "A janela de contexto"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../m1/", "Módulo 1"),
+                 (None, "Quatro superfícies, e a mesa que todas dividem")],
+    ),
+    "m1a2-regra": dict(
+        titulo="A regra que fica, e as três gavetas",
+        kicker="Módulo 1 · aula 1.2",
+        h1="A regra que fica, e as três gavetas",
+        sub="O critério que decide o que vira texto fixo, e os três lugares de um "
+            "projeto que ninguém deve trocar entre si.",
+        selos=["A regra do 2×", "Três gavetas"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../m1/", "Módulo 1"),
+                 (None, "A regra que fica, e as três gavetas")],
+    ),
+    "caso-superficies": dict(
+        titulo="O teste da mesa cheia",
+        kicker="Demonstração da aula 1.1 · em cinco passos",
+        h1="Descobrir se a conversa já passou do ponto",
+        sub="As quatro perguntas aplicadas a uma rotina sua, e o teste que mostra "
+            "quanto do começo da conversa ainda está de pé.",
+        selos=["Quatro perguntas", "Teste da mesa"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../m1/", "Módulo 1"),
+                 (None, "O teste da mesa cheia")],
+    ),
+    "caso-regra": dict(
+        titulo="O projeto montado, gaveta por gaveta",
+        kicker="Demonstração da aula 1.2 · em cinco passos",
+        h1="Vinte minutos que a tarefa devolve toda semana",
+        sub="O que vai em cada uma das três gavetas, o texto das instruções em "
+            "quatro trechos, e o sinal de cada trecho na resposta.",
+        selos=["Três gavetas", "Quatro trechos"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../m1/", "Módulo 1"),
+                 (None, "O projeto montado, gaveta por gaveta")],
     ),
     "exemplo": dict(
         titulo="O exemplo pronto",
