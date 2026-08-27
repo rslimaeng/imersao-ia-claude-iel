@@ -62,10 +62,14 @@
     <div class="conceito">
       <div class="conceito-rot">Conceito 1</div>
       <h3>Todo trabalho tem três partes, e só uma delas fica barata</h3>
-      <p>Dirigir é decidir o que fazer e com que critério. Produzir é procurar,
-      rascunhar, montar e formatar. Conferir é responder se aquilo pode sair com o seu
-      nome. <strong>A IA barateia o produzir.</strong> Ela não decide por você e não
-      responde por você.</p>
+      <ul class="lista">
+        <li><strong>Dirigir:</strong> decidir o que fazer, e com que critério. Quem
+        decide é você.</li>
+        <li><strong>Produzir:</strong> procurar, rascunhar, montar e formatar.
+        <strong>É esta parte que a IA barateia.</strong></li>
+        <li><strong>Conferir:</strong> responder se aquilo pode sair com o seu nome.
+        Quem responde é você.</li>
+      </ul>
       <p>O que muda no seu dia não é o total de horas: é <strong>qual das três come o
       dia</strong>. Quando o meio encolhe, o valor do seu trabalho migra para as duas
       pontas, e elas são as que quase ninguém treinou.</p>
@@ -77,10 +81,9 @@
        o que .raias, .gantt e .colunas ja fazem no celular.
        🔴 ACHADO PARA O PADRAO: falta uma classe de FIGURA com esse comportamento.
        Usar .tabela para segurar um desenho e emprestimo declarado, nao semantica. -->
-  <div class="solta tabela">
-    <svg viewBox="0 0 1160 720" width="100%" style="min-width:900px" xmlns="http://www.w3.org/2000/svg" role="img"
+  <div class="solta tabela" style="background:var(--bg)">
+    <svg viewBox="0 0 1160 720" width="100%" style="min-width:900px;display:block" xmlns="http://www.w3.org/2000/svg" role="img"
          aria-label="Três grupos de tarefa: dirigir, produzir e conferir. Em dois gráficos de barras, o tempo hoje se concentra em produzir; com a inteligência artificial no desenho, produzir encolhe e o tempo passa para dirigir e conferir.">
-      <rect width="1160" height="720" fill="var(--bg)"></rect>
 
       <rect x="40" y="32" width="340" height="180" rx="8" fill="var(--bg-elev)" stroke="var(--border-strong)"></rect>
       <text x="64" y="64" font-family="var(--font-mono)" font-size="13" font-weight="600" letter-spacing="1.6" fill="var(--text)">DIRIGIR</text>
@@ -119,25 +122,25 @@
       <line x1="636" y1="352" x2="636" y2="604" stroke="var(--border-strong)"></line>
       <line x1="636" y1="604" x2="1120" y2="604" stroke="var(--border-strong)"></line>
 
-      <rect x="100" y="548" width="32" height="56" fill="var(--text-muted)"></rect>
-      <rect x="140" y="560" width="32" height="44" fill="var(--text-muted)"></rect>
-      <rect x="180" y="544" width="32" height="60" fill="var(--text-muted)"></rect>
+      <rect x="100" y="548" width="32" height="56" fill="var(--border-strong)"></rect>
+      <rect x="140" y="560" width="32" height="44" fill="var(--border-strong)"></rect>
+      <rect x="180" y="544" width="32" height="60" fill="var(--border-strong)"></rect>
       <rect x="244" y="372" width="32" height="232" fill="var(--accent)"></rect>
       <rect x="284" y="344" width="32" height="260" fill="var(--accent)"></rect>
       <rect x="324" y="392" width="32" height="212" fill="var(--accent)"></rect>
-      <rect x="388" y="552" width="32" height="52" fill="var(--text-muted)"></rect>
-      <rect x="428" y="564" width="32" height="40" fill="var(--text-muted)"></rect>
-      <rect x="468" y="548" width="32" height="56" fill="var(--text-muted)"></rect>
+      <rect x="388" y="552" width="32" height="52" fill="var(--border-strong)"></rect>
+      <rect x="428" y="564" width="32" height="40" fill="var(--border-strong)"></rect>
+      <rect x="468" y="548" width="32" height="56" fill="var(--border-strong)"></rect>
 
-      <rect x="660" y="436" width="32" height="168" fill="var(--text-muted)"></rect>
-      <rect x="700" y="404" width="32" height="200" fill="var(--text-muted)"></rect>
-      <rect x="740" y="456" width="32" height="148" fill="var(--text-muted)"></rect>
+      <rect x="660" y="436" width="32" height="168" fill="var(--border-strong)"></rect>
+      <rect x="700" y="404" width="32" height="200" fill="var(--border-strong)"></rect>
+      <rect x="740" y="456" width="32" height="148" fill="var(--border-strong)"></rect>
       <rect x="804" y="556" width="32" height="48" fill="var(--accent)"></rect>
       <rect x="844" y="568" width="32" height="36" fill="var(--accent)"></rect>
       <rect x="884" y="564" width="32" height="40" fill="var(--accent)"></rect>
-      <rect x="948" y="408" width="32" height="196" fill="var(--text-muted)"></rect>
-      <rect x="988" y="448" width="32" height="156" fill="var(--text-muted)"></rect>
-      <rect x="1028" y="424" width="32" height="180" fill="var(--text-muted)"></rect>
+      <rect x="948" y="408" width="32" height="196" fill="var(--border-strong)"></rect>
+      <rect x="988" y="448" width="32" height="156" fill="var(--border-strong)"></rect>
+      <rect x="1028" y="424" width="32" height="180" fill="var(--border-strong)"></rect>
 
       <text x="156" y="628" font-family="var(--font-mono)" font-size="11" letter-spacing="1.2" text-anchor="middle" fill="var(--text-dim)">DIRIGIR</text>
       <text x="300" y="628" font-family="var(--font-mono)" font-size="11" font-weight="600" letter-spacing="1.2" text-anchor="middle" fill="var(--accent-dark)">PRODUZIR</text>
@@ -159,13 +162,44 @@
     <div class="conceito">
       <div class="conceito-rot">Conceito 2</div>
       <h3>Duas formas de pedir, uma para cada ponta</h3>
-      <p><strong>Delegação inteligente</strong> opera o produzir: você já sabe qual é a
-      resposta certa, e o que falta é o trabalho de produzir ela. Você escreve o
-      critério no pedido e recebe executado.</p>
-      <p><strong>Estruturação do pensamento</strong> opera o dirigir: você ainda não
-      sabe qual é a resposta certa, e o que falta é enxergar o que você não está vendo.
-      Você não entrega a decisão, amplia o que entra nela, e decide depois.</p>
+      <p>As duas usam a mesma ferramenta, a mesma tela e o mesmo anexo. O que muda é o
+      que você já sabe antes de escrever o pedido.</p>
     </div>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">Modo 1 &middot; opera o produzir</span>
+        <h4>Delegação inteligente</h4>
+        <ul class="lista">
+          <li><strong>Quando usar:</strong> você já sabe qual é a resposta certa, e o
+          que falta é o trabalho de produzir ela.</li>
+          <li><strong>O que você escreve:</strong> o critério que usaria se fizesse na
+          mão, dentro do próprio pedido.</li>
+          <li><strong>O que volta:</strong> a tarefa executada, no formato que você
+          pediu. Nada para decidir.</li>
+          <li><strong>O pedido começa por</strong> um verbo de execução: confira,
+          compare, monte, liste.</li>
+        </ul>
+      </div>
+      <div class="cartao">
+        <span class="rot">Modo 2 &middot; opera o dirigir</span>
+        <h4>Estruturação do pensamento</h4>
+        <ul class="lista">
+          <li><strong>Quando usar:</strong> você ainda não sabe qual é a resposta
+          certa, e o que falta é enxergar o que não está vendo.</li>
+          <li><strong>O que você escreve:</strong> o que já sabe, e o que já confere
+          hoje. A pergunta vem depois disso.</li>
+          <li><strong>O que volta:</strong> o que faltava entrar na decisão. A decisão
+          continua sendo sua.</li>
+          <li><strong>O pedido termina em</strong> pergunta: o que escapa, o que eu não
+          estou vendo, onde isto quebra.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Compare a última linha dos dois cartões.</strong> Um
+    começa por ordem e o outro termina em pergunta, e é só nisso que a sua mão precisa
+    reparar na hora de escrever.</p>
 
     <div class="aviso">
       <div class="aviso-t">De onde vêm estes dois nomes</div>
@@ -175,10 +209,14 @@
       ganham endereço: cada um serve a uma parte diferente do seu dia.</p>
     </div>
 
-    <p>Trocar os dois é o que faz a resposta vir inútil. Pedir estruturação quando você
-    queria execução devolve reflexão no lugar do documento pronto. Pedir execução
-    quando você precisava pensar devolve um texto bem escrito em cima da premissa que
-    você nem conferiu.</p>
+    <p>Trocar os dois é o que faz a resposta vir inútil:</p>
+
+    <ul class="lista">
+      <li><strong>Pedir estruturação quando você queria execução</strong> devolve
+      reflexão no lugar do documento pronto.</li>
+      <li><strong>Pedir execução quando você precisava pensar</strong> devolve um texto
+      bem escrito em cima de uma premissa que você nem conferiu.</li>
+    </ul>
   </section>
 
   <section class="secao" id="s03">
@@ -357,19 +395,26 @@
     <div class="passo">
       <div class="passo-topo"><span class="passo-n">02</span>
         <div class="passo-fn">Divida em dirigir, produzir e conferir</div></div>
-      <p>Dirigir é o que você decide antes de começar. Produzir é ler, cruzar, montar,
-      formatar. Conferir é o que você olha antes de deixar sair com o seu nome.
-      <strong>Estime quanto do seu tempo cada faixa leva hoje.</strong> Estimativa
-      grosseira serve: o que importa é qual das três é a maior.</p>
+      <ul class="lista">
+        <li><strong>Dirigir:</strong> o que você decide antes de começar</li>
+        <li><strong>Produzir:</strong> ler, cruzar, montar, formatar</li>
+        <li><strong>Conferir:</strong> o que você olha antes de deixar sair com o seu
+        nome</li>
+      </ul>
+      <p style="margin-bottom:0"><strong>Estime quanto do seu tempo cada faixa leva
+      hoje.</strong> Estimativa grosseira serve: o que importa é qual das três é a
+      maior.</p>
     </div>
 
     <div class="passo">
       <div class="passo-topo"><span class="passo-n">03</span>
         <div class="passo-fn">Escreva um pedido para cada ponta</div></div>
-      <p>Um de delegação para a faixa do <strong>produzir</strong>, começando por um
-      verbo de execução e trazendo o seu critério escrito. Um de estruturação para a
-      faixa do <strong>dirigir</strong>, dizendo o que você já sabe e perguntando o que
-      está faltando enxergar.</p>
+      <ul class="lista">
+        <li><strong>Para a faixa do produzir,</strong> um pedido de delegação: começa
+        por um verbo de execução, e traz o seu critério escrito.</li>
+        <li><strong>Para a faixa do dirigir,</strong> um pedido de estruturação: diz o
+        que você já sabe, e pergunta o que está faltando enxergar.</li>
+      </ul>
     </div>
 
     <div class="passo">
@@ -486,33 +531,62 @@ Na dúvida: se faltar contexto para avaliar algum ponto, pergunte antes de supor
       </div>
     </div>
 
-    <details class="gabarito">
-      <summary>Confira · uma versão de referência</summary>
-      <div class="gabarito-corpo">
-        <p><em>O seu vai ser diferente do meu, e tudo bem. Compare a estrutura, não o
-        conteúdo.</em></p>
-        <p><strong>A tarefa:</strong> conferir as fichas de participante de um curso
-        contra a lista de presença, e apontar quem assinou e não entregou ficha.</p>
-        <p><strong>Coluna de execução:</strong> ler as duas listas, cruzar nome por
-        nome, montar a relação de faltantes, formatar do jeito que vai para o
-        processo.</p>
-        <p><strong>Coluna de decisão:</strong> o que fazer com quem assinou e não
-        entregou. Cobrar, desconsiderar a presença, ou aceitar com justificativa. Isso
-        depende do que o convênio permite, e quem responde por isso é você.</p>
-        <p><strong>Pedido de delegação:</strong> "Cruze a lista de presença com as
-        fichas anexadas. Devolva em tabela: nome, assinou presença, entregou ficha.
-        Liste separadamente quem assinou e não entregou. Considere nomes com grafia
-        diferente como a mesma pessoa apenas se sobrenome e turma coincidirem, e
-        marque esses casos para eu conferir."</p>
-        <p><strong>Pedido de estruturação:</strong> "Nesta lista de faltantes, quais
-        situações eu deveria tratar de forma diferente entre si, e por quê? Não me dê
-        a decisão, me dê os grupos e o que muda em cada um."</p>
-        <p><strong>O que separa um gabarito bom de um raso:</strong> o pedido de
-        delegação acima já antecipa a armadilha da grafia, e manda marcar em vez de
-        decidir sozinho. Esse "marque para eu conferir" é a parte que quase todo mundo
-        esquece na primeira tentativa.</p>
+    <p><em>O seu vai ser diferente do meu, e tudo bem. Compare a estrutura, não o
+    conteúdo.</em></p>
+
+    <div class="cartao">
+      <span class="rot">A tarefa deste gabarito</span>
+      <p style="margin:0">Conferir as fichas de participante de um curso contra a lista
+      de presença, e apontar quem assinou e não entregou ficha.</p>
+    </div>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">O que dá para receber pronto</span>
+        <h4>A faixa do produzir</h4>
+        <ul class="lista">
+          <li>Ler as duas listas, e cruzar nome por nome</li>
+          <li>Montar a relação de quem falta</li>
+          <li>Formatar do jeito que vai para o processo</li>
+        </ul>
       </div>
-    </details>
+      <div class="cartao">
+        <span class="rot">O que continua seu</span>
+        <h4>A faixa do dirigir e do conferir</h4>
+        <ul class="lista">
+          <li>O que fazer com quem assinou e não entregou</li>
+          <li>Cobrar, desconsiderar a presença, ou aceitar com justificativa</li>
+          <li>Depende do que o convênio permite, e quem responde por isso é você</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Repare que a coluna da direita é a menor, e é a que
+    ninguém consegue delegar.</strong> É ela que sobra quando a da esquerda sai do seu
+    caminho.</p>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">Pedido de delegação</span>
+        <p>"Cruze a lista de presença com as fichas anexadas. Devolva em tabela: nome,
+        assinou presença, entregou ficha. Liste separadamente quem assinou e não
+        entregou. Considere nomes com grafia diferente como a mesma pessoa apenas se
+        sobrenome e turma coincidirem, e marque esses casos para eu conferir."</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Pedido de estruturação</span>
+        <p>"Nesta lista de faltantes, quais situações eu deveria tratar de forma
+        diferente entre si, e por quê? Não me dê a decisão, me dê os grupos e o que
+        muda em cada um."</p>
+      </div>
+    </div>
+
+    <div class="aviso">
+      <div class="aviso-t">O que separa um gabarito bom de um raso</div>
+      <p>O pedido de delegação acima já antecipa a armadilha da grafia, e manda
+      <strong>marcar em vez de decidir sozinho</strong>. Esse "marque para eu conferir"
+      é a parte que quase todo mundo esquece na primeira tentativa.</p>
+    </div>
   </section>
 
   <section class="secao" id="s07">
@@ -608,10 +682,10 @@ Na dúvida: se faltar contexto para avaliar algum ponto, pergunte antes de supor
     <div class="fecho-rot">Você sabe fazer isto agora</div>
     <div class="fecho-sub">Confira sozinho: se algum item não estiver de pé, volte na seção que o cobre.</div>
     <ul>
-      <li><strong>Você dividiu</strong> uma tarefa real em dirigir, produzir e conferir, e sabe qual das três come o seu dia</li>
-      <li><strong>Você escreveu</strong> os dois pedidos e rodou os dois, e sabe dizer pela resposta qual dos dois modos usou</li>
-      <li><strong>Você reconhece</strong> o pedido que entregou a decisão junto com a execução, que é o erro da seção 07</li>
-      <li><strong>O artefato:</strong> a sua tarefa nas três faixas, com os dois pedidos escritos. Ela volta nas três aulas seguintes</li>
+      <li><span><strong>Você dividiu</strong> uma tarefa real em dirigir, produzir e conferir, e sabe qual das três come o seu dia</span></li>
+      <li><span><strong>Você escreveu</strong> os dois pedidos e rodou os dois, e sabe dizer pela resposta qual dos dois modos usou</span></li>
+      <li><span><strong>Você reconhece</strong> o pedido que entregou a decisão junto com a execução, que é o erro da seção 07</span></li>
+      <li><span><strong>O artefato:</strong> a sua tarefa nas três faixas, com os dois pedidos escritos. Ela volta nas três aulas seguintes</span></li>
     </ul>
     <div class="fecho-nota">A próxima aula pega o pedido que você acabou de escrever e mostra por que ele ainda volta genérico.</div>
   </div>

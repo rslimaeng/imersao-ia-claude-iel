@@ -160,6 +160,27 @@ h1,h2,h3,h4{text-wrap:balance}
 
 h1,h2,h3,h4{margin:0;font-weight:600;letter-spacing:-.01em;line-height:1.2}
 p{margin:0 0 18px}
+
+/* Lista em prosa.
+   🔴 ACHADO PARA O PADRAO, 27/08. O base.css tem 48 componentes e nenhuma
+   lista NEUTRA: toda regra de ul/li mora dentro de um componente com
+   envelope proprio (.checagem, .fecho, .destrave, .ad, .quad). <ul> solto
+   numa .secao cai no default do navegador, com marcador preto e recuo de
+   40px que destoa da pagina.
+   O efeito colateral e que quem escreve nao tem para onde levar a prosa, e
+   ela vira paragrafo. Foi a reclamacao do cliente em 27/08, em 3 paginas
+   seguidas: "sempre que possivel, use bullet points".
+   Nasce SEM envelope de proposito: so o marcador, o respiro e o negrito de
+   abertura. Herda os 18,5px/1,68 do body, entao ela le como a prosa em volta
+   e nao como um bloco a parte.                                             */
+.lista{margin:18px 0;padding:0;list-style:none}
+.lista li{position:relative;padding-left:21px;margin-bottom:11px}
+.lista li:last-child{margin-bottom:0}
+.lista li::before{
+  content:"";position:absolute;left:4px;top:.66em;
+  width:6px;height:6px;border-radius:50%;background:var(--accent);
+}
+.lista li strong{color:var(--text)}
 a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-line)}
 a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
 
@@ -3013,10 +3034,10 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <div class="fecho-rot">Você sabe fazer isto agora</div>
     <div class="fecho-sub">Confira sozinho: se algum item não estiver de pé, volte na seção que o cobre.</div>
     <ul>
-      <li><strong>Você escolhe</strong> a&nbsp;superfície de&nbsp;uma&nbsp;tarefa com&nbsp;quatro perguntas, e&nbsp;para&nbsp;no&nbsp;primeiro sim</li>
-      <li><strong>Você entende</strong> por&nbsp;que&nbsp;a&nbsp;conversa longa piora, e&nbsp;que&nbsp;não&nbsp;é a&nbsp;ferramenta cansando</li>
-      <li><strong>Você reconhece</strong> o&nbsp;momento de&nbsp;começar de&nbsp;novo em&nbsp;vez de&nbsp;insistir</li>
-      <li><strong>O&nbsp;artefato:</strong> as&nbsp;tarefas da&nbsp;sua&nbsp;semana classificadas, e&nbsp;uma&nbsp;escolhida para&nbsp;virar projeto</li>
+      <li><span><strong>Você escolhe</strong> a&nbsp;superfície de&nbsp;uma&nbsp;tarefa com&nbsp;quatro perguntas, e&nbsp;para&nbsp;no&nbsp;primeiro sim</span></li>
+      <li><span><strong>Você entende</strong> por&nbsp;que&nbsp;a&nbsp;conversa longa piora, e&nbsp;que&nbsp;não&nbsp;é a&nbsp;ferramenta cansando</span></li>
+      <li><span><strong>Você reconhece</strong> o&nbsp;momento de&nbsp;começar de&nbsp;novo em&nbsp;vez de&nbsp;insistir</span></li>
+      <li><span><strong>O&nbsp;artefato:</strong> as&nbsp;tarefas da&nbsp;sua&nbsp;semana classificadas, e&nbsp;uma&nbsp;escolhida para&nbsp;virar projeto</span></li>
     </ul>
     <div class="fecho-nota">A próxima aula pega a tarefa que você escolheu e monta o projeto dela, com as regras que hoje moram na sua cabeça.</div>
   </div>

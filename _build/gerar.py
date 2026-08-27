@@ -88,9 +88,9 @@ PAGINAS = {
         titulo="Nivelamento",
         kicker="Encontro 1 de 4 · 27 de agosto",
         h1="Onde a IA entra no seu trabalho",
-        sub="Quatro aulas para a turma inteira partir do mesmo lugar, sem repetir "
+        sub="Cinco aulas para a turma inteira partir do mesmo lugar, sem repetir "
             "para quem já sabe e sem pular etapa para quem está começando.",
-        selos=["4 aulas", "Sem instalação"],
+        selos=["5 aulas", "Sem instalação"],
         migalha=[("../", "Imersão em IA com Claude"), (None, "Nivelamento")],
     ),
     "n1-dois-modos": dict(

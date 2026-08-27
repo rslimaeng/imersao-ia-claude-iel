@@ -160,6 +160,27 @@ h1,h2,h3,h4{text-wrap:balance}
 
 h1,h2,h3,h4{margin:0;font-weight:600;letter-spacing:-.01em;line-height:1.2}
 p{margin:0 0 18px}
+
+/* Lista em prosa.
+   🔴 ACHADO PARA O PADRAO, 27/08. O base.css tem 48 componentes e nenhuma
+   lista NEUTRA: toda regra de ul/li mora dentro de um componente com
+   envelope proprio (.checagem, .fecho, .destrave, .ad, .quad). <ul> solto
+   numa .secao cai no default do navegador, com marcador preto e recuo de
+   40px que destoa da pagina.
+   O efeito colateral e que quem escreve nao tem para onde levar a prosa, e
+   ela vira paragrafo. Foi a reclamacao do cliente em 27/08, em 3 paginas
+   seguidas: "sempre que possivel, use bullet points".
+   Nasce SEM envelope de proposito: so o marcador, o respiro e o negrito de
+   abertura. Herda os 18,5px/1,68 do body, entao ela le como a prosa em volta
+   e nao como um bloco a parte.                                             */
+.lista{margin:18px 0;padding:0;list-style:none}
+.lista li{position:relative;padding-left:21px;margin-bottom:11px}
+.lista li:last-child{margin-bottom:0}
+.lista li::before{
+  content:"";position:absolute;left:4px;top:.66em;
+  width:6px;height:6px;border-radius:50%;background:var(--accent);
+}
+.lista li strong{color:var(--text)}
 a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-line)}
 a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
 
@@ -2528,8 +2549,8 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   <div class="heroi">
     <div class="heroi-kicker">Encontro 1 de 4 · 27 de agosto</div>
     <h1>Onde&nbsp;a&nbsp;IA entra no&nbsp;seu&nbsp;trabalho</h1>
-    <p class="heroi-sub">Quatro aulas para&nbsp;a&nbsp;turma inteira partir do&nbsp;mesmo lugar, sem&nbsp;repetir para&nbsp;quem já&nbsp;sabe e&nbsp;sem&nbsp;pular etapa para&nbsp;quem está começando.</p>
-    <div><span class="selo">4 aulas</span><span class="selo">Sem instalação</span></div>
+    <p class="heroi-sub">Cinco aulas para&nbsp;a&nbsp;turma inteira partir do&nbsp;mesmo lugar, sem&nbsp;repetir para&nbsp;quem já&nbsp;sabe e&nbsp;sem&nbsp;pular etapa para&nbsp;quem está começando.</p>
+    <div><span class="selo">5 aulas</span><span class="selo">Sem instalação</span></div>
   </div>
 
   <section class="secao" id="aulas">
@@ -2541,9 +2562,23 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       </div>
     </div>
 
-    <p>Este bloco existe porque&nbsp;a&nbsp;turma chega de&nbsp;dois lugares diferentes. Parte fez o&nbsp;curso de&nbsp;IA para&nbsp;Negócios e&nbsp;já&nbsp;tem o&nbsp;vocabulário de&nbsp;prompt; parte está começando
-    agora. As&nbsp;cinco aulas nivelam sem&nbsp;repetir: quem já&nbsp;viu reconhece e&nbsp;usa como
-    âncora, quem não&nbsp;viu recebe pela&nbsp;primeira vez.</p>
+    <p>Este bloco existe porque&nbsp;a&nbsp;turma chega de&nbsp;dois lugares diferentes: parte fez o&nbsp;curso de&nbsp;IA para&nbsp;Negócios e&nbsp;já&nbsp;tem o&nbsp;vocabulário de&nbsp;prompt, parte está começando
+    agora. As&nbsp;cinco aulas nivelam sem&nbsp;repetir, então quem já&nbsp;viu reconhece e&nbsp;usa como
+    âncora, e&nbsp;quem não&nbsp;viu recebe pela&nbsp;primeira vez.</p>
+
+    <h3 style="margin:34px 0 14px">O&nbsp;que&nbsp;você leva das&nbsp;cinco</h3>
+
+    <ul class="lista">
+      <li><strong>Uma&nbsp;tarefa sua,&nbsp;partida em&nbsp;três faixas:</strong> o&nbsp;que&nbsp;dá para&nbsp;receber pronto, o&nbsp;que&nbsp;exige a&nbsp;sua&nbsp;decisão, e&nbsp;o&nbsp;que&nbsp;você confere antes de&nbsp;assinar.</li>
+      <li><strong>O&nbsp;pedido que&nbsp;volta usável já&nbsp;na&nbsp;primeira tentativa:</strong> os&nbsp;seis
+      campos que&nbsp;separam a&nbsp;resposta genérica da&nbsp;que&nbsp;serve.</li>
+      <li><strong>Um&nbsp;jeito de&nbsp;conferir sem&nbsp;refazer o&nbsp;trabalho:</strong> a&nbsp;resposta
+      errada tem a&nbsp;mesma cara da&nbsp;certa, e&nbsp;é por&nbsp;isso que&nbsp;ela passa.</li>
+      <li><strong>A&nbsp;sua&nbsp;régua do&nbsp;que&nbsp;pode ser colado:</strong> o&nbsp;que&nbsp;entra, o&nbsp;que&nbsp;entra
+      sem&nbsp;identificação, e&nbsp;o&nbsp;que&nbsp;não&nbsp;entra.</li>
+      <li><strong>O&nbsp;seu&nbsp;perfil salvo e&nbsp;funcionando:</strong> escrito uma&nbsp;vez, valendo
+      em&nbsp;toda conversa que&nbsp;vier depois.</li>
+    </ul>
 
     <div class="cartao">
       <span class="rot">Nenhuma delas pede instalação</span>
@@ -2600,9 +2635,9 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
           <div class="detalhe">encontro 4</div>
         </div>
         <div class="degrau-corpo">
-          <h4>A&nbsp;mesma chave, mais as&nbsp;ferramentas</h4>
-          <p>Aí ele não&nbsp;monta só&nbsp;documento: monta a&nbsp;ferramenta que&nbsp;continua
-          funcionando depois que&nbsp;ele sai.</p>
+          <h4>A&nbsp;mesma chave, e&nbsp;uma&nbsp;bancada ao&nbsp;lado</h4>
+          <p>Bancada é onde&nbsp;se&nbsp;monta coisa, não&nbsp;onde&nbsp;se&nbsp;guarda papel. Aqui ele deixa de&nbsp;entregar só&nbsp;documento e&nbsp;passa a&nbsp;montar a&nbsp;ferramenta, que&nbsp;continua funcionando
+          depois que&nbsp;a&nbsp;conversa fecha.</p>
         </div>
       </div>
     </div>
@@ -2622,6 +2657,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
           <span class="aula-status ok">Pronta</span>
         </div>
         <div class="aula-title">Delegar a execução ou pensar junto</div>
+        <div class="aula-hook">A conferência e a decisão vivem no mesmo bloco de tempo, e a conferência sempre vem primeiro.</div>
         <div class="aula-body">
           <div class="aula-bloco">
             <div class="aula-bloco-label">O que você faz</div>
@@ -2636,7 +2672,6 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
             volta nas&nbsp;três aulas seguintes, e&nbsp;é a&nbsp;base do&nbsp;que&nbsp;você vai automatizar no&nbsp;terceiro encontro.</p>
           </div>
         </div>
-        <div class="aula-hook">A conferência e a decisão vivem no mesmo bloco de tempo, e a conferência sempre vem primeiro.</div>
         <div class="aula-cta">Abrir a aula</div>
       </a>
 
@@ -2648,6 +2683,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
           <span class="aula-status ok">Pronta</span>
         </div>
         <div class="aula-title">Por que a resposta vem genérica</div>
+        <div class="aula-hook">O pedido parece completo, volta genérico, e não dá para saber qual campo faltou.</div>
         <div class="aula-body">
           <div class="aula-bloco">
             <div class="aula-bloco-label">O que você faz</div>
@@ -2662,7 +2698,6 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
             regra fixa no&nbsp;segundo encontro.</p>
           </div>
         </div>
-        <div class="aula-hook">O sexto campo quase ninguém escreve, e é ele que faz você conseguir conferir.</div>
         <div class="aula-cta">Abrir a aula</div>
       </a>
 
@@ -2674,6 +2709,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
           <span class="aula-status ok">Pronta</span>
         </div>
         <div class="aula-title">Como saber se a resposta está certa</div>
+        <div class="aula-hook">A resposta errada tem a mesma cara da certa, e é por isso que ela passa.</div>
         <div class="aula-body">
           <div class="aula-bloco">
             <div class="aula-bloco-label">O que você faz</div>
@@ -2688,7 +2724,6 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
             buraco por&nbsp;estimativa.</p>
           </div>
         </div>
-        <div class="aula-hook">A resposta errada tem a mesma cara da certa, e é por isso que ela passa.</div>
         <div class="aula-cta">Abrir a aula</div>
       </a>
 
@@ -2700,6 +2735,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
           <span class="aula-status ok">Pronta</span>
         </div>
         <div class="aula-title">O que não entra no chat</div>
+        <div class="aula-hook">Na dúvida entre colar e não colar, quase todo mundo escolhe não usar a ferramenta.</div>
         <div class="aula-body">
           <div class="aula-bloco">
             <div class="aula-bloco-label">O que você faz</div>
@@ -2714,7 +2750,6 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
             caso.</p>
           </div>
         </div>
-        <div class="aula-hook">A caixa do meio resolve quase tudo, e é a que quase ninguém usa.</div>
         <div class="aula-cta">Abrir a aula</div>
       </a>
       <a class="aula-card ready" href="../n5-configurar/">
@@ -2725,6 +2760,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
           <span class="aula-status ok">Pronta</span>
         </div>
         <div class="aula-title">A primeira configuração</div>
+        <div class="aula-hook">Quatro quintos do que você digita em todo pedido nunca mudam.</div>
         <div class="aula-body">
           <div class="aula-bloco">
             <div class="aula-bloco-label">O que você faz</div>
@@ -2739,7 +2775,6 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
             de&nbsp;configuração, e&nbsp;as&nbsp;outras duas são os&nbsp;próximos encontros.</p>
           </div>
         </div>
-        <div class="aula-hook">Quatro quintos do que você digita em todo pedido nunca mudam.</div>
         <div class="aula-cta">Abrir a aula</div>
       </a>
 
@@ -2755,26 +2790,47 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       </div>
     </div>
 
-    <p>Cada aula abre com&nbsp;a&nbsp;trava que&nbsp;a&nbsp;anterior deixou de&nbsp;pé.</p>
+    <p>Cada aula abre com&nbsp;a&nbsp;trava que&nbsp;a&nbsp;anterior deixou de&nbsp;pé. Leia de&nbsp;cima para&nbsp;baixo:
+    a&nbsp;linha de&nbsp;cima é o&nbsp;que&nbsp;você passa a&nbsp;saber, e&nbsp;a&nbsp;de&nbsp;baixo é o&nbsp;que&nbsp;ainda falta.</p>
 
-    <div class="cadeia">
-      <span class="no entrada">Onde ela entra</span>
-      <span class="no-seta" aria-hidden="true">&rarr;</span>
-      <span class="no">Como pedir</span>
-      <span class="no-seta" aria-hidden="true">&rarr;</span>
-      <span class="no">Como conferir</span>
-      <span class="no-seta" aria-hidden="true">&rarr;</span>
-      <span class="no saida">O que pode entrar</span>
+    <div class="fluxo solta">
+      <div class="fl">
+        <div class="fl-n">Aula 1</div>
+        <h4>Onde&nbsp;ela entra</h4>
+        <p>Mas&nbsp;o&nbsp;pedido volta genérico.</p>
+      </div>
+      <div class="fl-seta" aria-hidden="true">&rarr;</div>
+      <div class="fl">
+        <div class="fl-n">Aula 2</div>
+        <h4>Como pedir</h4>
+        <p>Mas&nbsp;não&nbsp;dá para&nbsp;saber se&nbsp;a&nbsp;resposta está certa.</p>
+      </div>
+      <div class="fl-seta" aria-hidden="true">&rarr;</div>
+      <div class="fl">
+        <div class="fl-n">Aula 3</div>
+        <h4>Como conferir</h4>
+        <p>Mas&nbsp;o&nbsp;que&nbsp;pode ser colado ali dentro?</p>
+      </div>
+      <div class="fl-seta" aria-hidden="true">&rarr;</div>
+      <div class="fl">
+        <div class="fl-n">Aula 4</div>
+        <h4>O&nbsp;que&nbsp;pode entrar</h4>
+        <p>Mas&nbsp;você reescreve quem é a&nbsp;cada conversa.</p>
+      </div>
+      <div class="fl-seta" aria-hidden="true">&rarr;</div>
+      <div class="fl">
+        <div class="fl-n">Aula 5</div>
+        <h4>O&nbsp;que&nbsp;para&nbsp;de&nbsp;ser digitado</h4>
+        <p>E&nbsp;a&nbsp;trava seguinte abre o&nbsp;encontro 2.</p>
+      </div>
     </div>
 
-    <p class="fig-leg"><strong>A&nbsp;ordem não&nbsp;é do&nbsp;mais fácil para&nbsp;o&nbsp;mais difícil.</strong>
-    Ela segue a&nbsp;pergunta que&nbsp;aparece depois que&nbsp;a&nbsp;anterior foi respondida: sei onde&nbsp;usar,
-    mas&nbsp;vem genérico; melhorei o&nbsp;pedido, mas&nbsp;não&nbsp;sei se&nbsp;está certo; sei conferir, mas&nbsp;o&nbsp;que&nbsp;eu posso colar aí dentro?</p>
+    <p class="fig-leg"><strong>Repare que&nbsp;a&nbsp;linha de&nbsp;baixo é sempre uma&nbsp;pergunta que&nbsp;a&nbsp;de&nbsp;cima criou.</strong> A&nbsp;ordem não&nbsp;vai do&nbsp;mais fácil para&nbsp;o&nbsp;mais difícil: ela segue
+    a&nbsp;dúvida que&nbsp;só&nbsp;aparece depois que&nbsp;a&nbsp;anterior foi resolvida.</p>
 
     <div class="cartao">
       <span class="rot">A trava que fica para o próximo encontro</span>
-      <p>No&nbsp;fim das&nbsp;quatro, você pede bem, confere e&nbsp;sabe o&nbsp;que&nbsp;pode entrar. E&nbsp;continua
-      dizendo quem você é e&nbsp;como a&nbsp;casa funciona em&nbsp;toda conversa nova. É o&nbsp;que&nbsp;o&nbsp;arquivo de&nbsp;regras resolve, no&nbsp;encontro seguinte.</p>
+      <p>No&nbsp;fim das&nbsp;cinco, você pede bem, confere, sabe o&nbsp;que&nbsp;pode entrar e&nbsp;tem o&nbsp;seu&nbsp;perfil salvo. O&nbsp;que&nbsp;ainda não&nbsp;existe é a&nbsp;regra do&nbsp;<strong>trabalho</strong>, que&nbsp;muda de&nbsp;um&nbsp;projeto para&nbsp;o&nbsp;outro. É o&nbsp;que&nbsp;o&nbsp;encontro seguinte resolve.</p>
     </div>
   </section>
 

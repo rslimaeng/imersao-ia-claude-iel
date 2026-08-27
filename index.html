@@ -160,6 +160,27 @@ h1,h2,h3,h4{text-wrap:balance}
 
 h1,h2,h3,h4{margin:0;font-weight:600;letter-spacing:-.01em;line-height:1.2}
 p{margin:0 0 18px}
+
+/* Lista em prosa.
+   🔴 ACHADO PARA O PADRAO, 27/08. O base.css tem 48 componentes e nenhuma
+   lista NEUTRA: toda regra de ul/li mora dentro de um componente com
+   envelope proprio (.checagem, .fecho, .destrave, .ad, .quad). <ul> solto
+   numa .secao cai no default do navegador, com marcador preto e recuo de
+   40px que destoa da pagina.
+   O efeito colateral e que quem escreve nao tem para onde levar a prosa, e
+   ela vira paragrafo. Foi a reclamacao do cliente em 27/08, em 3 paginas
+   seguidas: "sempre que possivel, use bullet points".
+   Nasce SEM envelope de proposito: so o marcador, o respiro e o negrito de
+   abertura. Herda os 18,5px/1,68 do body, entao ela le como a prosa em volta
+   e nao como um bloco a parte.                                             */
+.lista{margin:18px 0;padding:0;list-style:none}
+.lista li{position:relative;padding-left:21px;margin-bottom:11px}
+.lista li:last-child{margin-bottom:0}
+.lista li::before{
+  content:"";position:absolute;left:4px;top:.66em;
+  width:6px;height:6px;border-radius:50%;background:var(--accent);
+}
+.lista li strong{color:var(--text)}
 a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-line)}
 a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
 
@@ -2546,19 +2567,30 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <div class="grade grade-3 solta">
       <div class="cartao">
         <span class="rot">Quem confere documento</span>
-        <p>A&nbsp;conferência de&nbsp;relatório contra&nbsp;checklist, e&nbsp;o&nbsp;cruzamento de&nbsp;ficha com&nbsp;lista de&nbsp;presença, deixam de&nbsp;ser folha por&nbsp;folha. <strong>Você passa a&nbsp;receber
-        a&nbsp;lista do&nbsp;que&nbsp;falta</strong>, e&nbsp;gasta o&nbsp;seu&nbsp;tempo decidindo o&nbsp;que&nbsp;fazer com&nbsp;ela.</p>
+        <h4>Você recebe a&nbsp;lista do&nbsp;que&nbsp;falta</h4>
+        <ul class="lista">
+          <li>A&nbsp;conferência de&nbsp;relatório contra&nbsp;checklist deixa de&nbsp;ser folha por&nbsp;folha</li>
+          <li>O&nbsp;cruzamento de&nbsp;ficha com&nbsp;lista de&nbsp;presença volta pronto</li>
+          <li>O&nbsp;seu&nbsp;tempo passa a&nbsp;ser gasto decidindo o&nbsp;que&nbsp;fazer com&nbsp;a&nbsp;lista</li>
+        </ul>
       </div>
       <div class="cartao">
         <span class="rot">Quem escreve proposta e relatório</span>
-        <p>Anotação de&nbsp;reunião vira proposta na&nbsp;estrutura que&nbsp;a&nbsp;casa usa.
-        <strong>E&nbsp;antes de&nbsp;enviar, você recebe onde&nbsp;ela é mais fácil de&nbsp;recusar</strong>,
-        enquanto&nbsp;ainda dá para&nbsp;mudar.</p>
+        <h4>Você vê onde&nbsp;ela é recusada, antes de&nbsp;enviar</h4>
+        <ul class="lista">
+          <li>Anotação de&nbsp;reunião vira proposta na&nbsp;estrutura que&nbsp;a&nbsp;casa usa</li>
+          <li>Os&nbsp;pontos mais fáceis de&nbsp;recusar chegam apontados</li>
+          <li>Chegam enquanto&nbsp;ainda dá para&nbsp;mudar, e&nbsp;não&nbsp;depois</li>
+        </ul>
       </div>
       <div class="cartao">
         <span class="rot">Quem toca turma e trilha</span>
-        <p>Frequência, datas, comunicação e&nbsp;montagem de&nbsp;grade param de&nbsp;ser trabalho de&nbsp;digitação. <strong>Na&nbsp;segunda de&nbsp;manhã o&nbsp;quadro já&nbsp;reabre atualizado</strong>,
-        sem&nbsp;você montar de&nbsp;novo.</p>
+        <h4>Na&nbsp;segunda de&nbsp;manhã o&nbsp;quadro já&nbsp;reabre atualizado</h4>
+        <ul class="lista">
+          <li>Frequência, datas e&nbsp;comunicação saem do&nbsp;trabalho de&nbsp;digitação</li>
+          <li>A&nbsp;montagem de&nbsp;grade deixa de&nbsp;tomar a&nbsp;tarde</li>
+          <li>O&nbsp;quadro não&nbsp;precisa ser montado de&nbsp;novo a&nbsp;cada semana</li>
+        </ul>
       </div>
     </div>
 
@@ -2710,7 +2742,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         </div>
       </div>
       <div class="ver asvezes">
-        <div class="ver-topo">O curso encosta</div>
+        <div class="ver-topo">Você vê acontecer</div>
         <div class="ver-corpo">
           <h4>Você vê um&nbsp;sistema local nascer</h4>
           <p>No&nbsp;último encontro, um&nbsp;painel que&nbsp;abre no&nbsp;seu&nbsp;notebook e&nbsp;se&nbsp;atualiza

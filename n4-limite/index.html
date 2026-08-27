@@ -160,6 +160,27 @@ h1,h2,h3,h4{text-wrap:balance}
 
 h1,h2,h3,h4{margin:0;font-weight:600;letter-spacing:-.01em;line-height:1.2}
 p{margin:0 0 18px}
+
+/* Lista em prosa.
+   🔴 ACHADO PARA O PADRAO, 27/08. O base.css tem 48 componentes e nenhuma
+   lista NEUTRA: toda regra de ul/li mora dentro de um componente com
+   envelope proprio (.checagem, .fecho, .destrave, .ad, .quad). <ul> solto
+   numa .secao cai no default do navegador, com marcador preto e recuo de
+   40px que destoa da pagina.
+   O efeito colateral e que quem escreve nao tem para onde levar a prosa, e
+   ela vira paragrafo. Foi a reclamacao do cliente em 27/08, em 3 paginas
+   seguidas: "sempre que possivel, use bullet points".
+   Nasce SEM envelope de proposito: so o marcador, o respiro e o negrito de
+   abertura. Herda os 18,5px/1,68 do body, entao ela le como a prosa em volta
+   e nao como um bloco a parte.                                             */
+.lista{margin:18px 0;padding:0;list-style:none}
+.lista li{position:relative;padding-left:21px;margin-bottom:11px}
+.lista li:last-child{margin-bottom:0}
+.lista li::before{
+  content:"";position:absolute;left:4px;top:.66em;
+  width:6px;height:6px;border-radius:50%;background:var(--accent);
+}
+.lista li strong{color:var(--text)}
 a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-line)}
 a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
 
@@ -2923,10 +2944,10 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <div class="fecho-rot">Você sabe fazer isto agora</div>
     <div class="fecho-sub">Confira sozinho: se algum item não estiver de pé, volte na seção que o cobre.</div>
     <ul>
-      <li><strong>Você classifica</strong> qualquer material em&nbsp;três caixas, com&nbsp;as&nbsp;duas perguntas do&nbsp;conceito 2</li>
-      <li><strong>Você tira</strong> a&nbsp;identificação de&nbsp;um&nbsp;documento sem&nbsp;perder a&nbsp;análise</li>
-      <li><strong>Você sabe</strong> onde&nbsp;o&nbsp;arquivo é processado, e&nbsp;decide com&nbsp;isso na&nbsp;mão</li>
-      <li><strong>O&nbsp;artefato:</strong> a&nbsp;classificação do&nbsp;seu&nbsp;material, que&nbsp;é o&nbsp;rascunho da&nbsp;regra da&nbsp;sua&nbsp;área</li>
+      <li><span><strong>Você classifica</strong> qualquer material em&nbsp;três caixas, com&nbsp;as&nbsp;duas perguntas do&nbsp;conceito 2</span></li>
+      <li><span><strong>Você tira</strong> a&nbsp;identificação de&nbsp;um&nbsp;documento sem&nbsp;perder a&nbsp;análise</span></li>
+      <li><span><strong>Você sabe</strong> onde&nbsp;o&nbsp;arquivo é processado, e&nbsp;decide com&nbsp;isso na&nbsp;mão</span></li>
+      <li><span><strong>O&nbsp;artefato:</strong> a&nbsp;classificação do&nbsp;seu&nbsp;material, que&nbsp;é o&nbsp;rascunho da&nbsp;regra da&nbsp;sua&nbsp;área</span></li>
     </ul>
     <div class="fecho-nota">A última aula do nivelamento pega esta classificação e tudo que você escreveu antes, e tira do seu teclado a parte que se repete.</div>
   </div>

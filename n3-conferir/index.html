@@ -160,6 +160,27 @@ h1,h2,h3,h4{text-wrap:balance}
 
 h1,h2,h3,h4{margin:0;font-weight:600;letter-spacing:-.01em;line-height:1.2}
 p{margin:0 0 18px}
+
+/* Lista em prosa.
+   🔴 ACHADO PARA O PADRAO, 27/08. O base.css tem 48 componentes e nenhuma
+   lista NEUTRA: toda regra de ul/li mora dentro de um componente com
+   envelope proprio (.checagem, .fecho, .destrave, .ad, .quad). <ul> solto
+   numa .secao cai no default do navegador, com marcador preto e recuo de
+   40px que destoa da pagina.
+   O efeito colateral e que quem escreve nao tem para onde levar a prosa, e
+   ela vira paragrafo. Foi a reclamacao do cliente em 27/08, em 3 paginas
+   seguidas: "sempre que possivel, use bullet points".
+   Nasce SEM envelope de proposito: so o marcador, o respiro e o negrito de
+   abertura. Herda os 18,5px/1,68 do body, entao ela le como a prosa em volta
+   e nao como um bloco a parte.                                             */
+.lista{margin:18px 0;padding:0;list-style:none}
+.lista li{position:relative;padding-left:21px;margin-bottom:11px}
+.lista li:last-child{margin-bottom:0}
+.lista li::before{
+  content:"";position:absolute;left:4px;top:.66em;
+  width:6px;height:6px;border-radius:50%;background:var(--accent);
+}
+.lista li strong{color:var(--text)}
 a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-line)}
 a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
 
@@ -3018,10 +3039,10 @@ Na dúvida: pergunte antes de decidir por mim. Deixar um item em aberto é o res
     <div class="fecho-rot">Você sabe fazer isto agora</div>
     <div class="fecho-sub">Confira sozinho: se algum item não estiver de pé, volte na seção que o cobre.</div>
     <ul>
-      <li><strong>Você confere</strong> em&nbsp;quatro camadas, e&nbsp;não&nbsp;para&nbsp;na&nbsp;primeira</li>
-      <li><strong>Você escreve</strong> a&nbsp;instrução que&nbsp;transforma erro invisível em&nbsp;pendência declarada</li>
-      <li><strong>Você reconhece</strong> os&nbsp;quatro modos de&nbsp;errar que&nbsp;saem plausíveis na&nbsp;tela</li>
-      <li><strong>O&nbsp;artefato:</strong> o&nbsp;promptlet de&nbsp;conferência, que&nbsp;passa a&nbsp;viver no&nbsp;fim de&nbsp;todo pedido seu</li>
+      <li><span><strong>Você confere</strong> em&nbsp;quatro camadas, e&nbsp;não&nbsp;para&nbsp;na&nbsp;primeira</span></li>
+      <li><span><strong>Você escreve</strong> a&nbsp;instrução que&nbsp;transforma erro invisível em&nbsp;pendência declarada</span></li>
+      <li><span><strong>Você reconhece</strong> os&nbsp;quatro modos de&nbsp;errar que&nbsp;saem plausíveis na&nbsp;tela</span></li>
+      <li><span><strong>O&nbsp;artefato:</strong> o&nbsp;promptlet de&nbsp;conferência, que&nbsp;passa a&nbsp;viver no&nbsp;fim de&nbsp;todo pedido seu</span></li>
     </ul>
     <div class="fecho-nota">A próxima aula fecha o nivelamento com a pergunta que vem antes de todas: o que pode ser anexado, e o que não pode.</div>
   </div>
