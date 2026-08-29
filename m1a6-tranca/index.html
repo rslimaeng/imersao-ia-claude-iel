@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Por que a base multiplica</title>
+<title>A regra que não mora em texto nenhum</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -388,6 +388,12 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    FUNÇÃO da seção, e o H2 diz o assunto dela. O aluno que abre a quinta aula
    já sabe onde as coisas estão.                                             */
 .secao{margin-bottom:64px;scroll-margin-top:80px}
+/* h3 SOLTO, fora de componente. O reset zera a margem de todo titulo e cada
+   componente devolve a sua; o h3 direto na secao ficava sem nenhuma, colado
+   no bloco de cima e no de baixo. Achado no piloto IEL.
+   Filho direto so: h3 dentro de componente continua com a margem dele.      */
+.secao > h3{margin:32px 0 12px}
+.secao > h3:first-child{margin-top:0}
 .secao-topo{display:flex;align-items:flex-start;gap:16px;margin-bottom:22px}
 .secao-n{
   font-family:var(--font-mono);font-size:30px;font-weight:500;
@@ -565,6 +571,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   padding:18px;margin:0;font-family:var(--font-mono);font-size:14px;
   line-height:1.7;color:var(--text);white-space:pre-wrap;
 }
+
 /* Trecho de CONFIGURACAO, nao de pedido. O perfil da conta e o arquivo de
    regras sao copiaveis e nao tem os quatro paragrafos de um prompt, porque
    nao pedem nada: descrevem quem pergunta. A borda a esquerda separa os dois
@@ -752,6 +759,33 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   border-radius:var(--raio);padding:20px;margin:30px 0;
 }
 .gancho p:last-child{margin-bottom:0}
+
+/* ---------- O DIVISOR · A AULA ACABA AQUI --------------------------------
+   HERDADO. A peca vem de "Claude para Lideres", de Adriano Couto, onde se
+   chama o divisor da bandeirada. Herdamos a FORMA -- a aula com dois
+   comprimentos declarados -- e nada do texto dele.
+
+   O que vem ANTES e a aula: situacao, conceito, figura, demonstracao,
+   pratica, gabarito. O que vem DEPOIS e aprofundamento, e o aluno escolhe.
+   Resolve a tensao entre "a aula tem que caber no encontro" e "quem quer
+   profundidade fica sem".
+
+   Medido na aula n1 do piloto IEL, 27/08: 2.349 palavras antes do divisor e
+   1.118 depois. Sem ele, as 3.467 chegam como se fossem todas obrigatorias
+   -- e foi a sensacao de sala parada que o autor relatou no encontro 1.   */
+.ate-aqui{display:flex;align-items:center;gap:16px;margin:46px 0 22px}
+.ate-aqui::before,.ate-aqui::after{
+  content:"";flex:1;height:1px;background:var(--border-strong);
+}
+.ate-aqui-rot{
+  font-family:var(--font-mono);font-size:11px;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--text-dim);white-space:nowrap;
+}
+.ate-aqui-nota{
+  font-size:15px;line-height:1.55;color:var(--text-dim);
+  text-align:center;max-width:560px;margin:0 auto 34px;
+}
+.ate-aqui-nota strong{color:var(--text)}
 
 .rodape-nav{
   display:flex;justify-content:space-between;gap:16px;
@@ -1202,6 +1236,16 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    estrutura; só o do meio ganha o selo e o fundo. E embaixo vem o resumo de uma
    linha por opção, que é o que a pessoa leva na cabeça.                       */
 .opcoes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0}
+
+/* MESMA CURA DO .contraste (commit 738b55b), que o .opcoes nao recebeu.
+   Com 3 colunas fixas, 4 opcoes deixam a quarta sozinha ocupando um terco da
+   largura. Medido no piloto IEL, m1a1-superficies secao 03.
+   Vai dentro de min-width porque abaixo de 720px tudo vira 1 coluna, e o
+   :has() tem especificidade maior que a regra do responsivo.                */
+@media (min-width:721px){
+  .opcoes:has(> .opc:nth-child(2)):not(:has(> .opc:nth-child(3))){grid-template-columns:repeat(2,1fr)}
+  .opcoes:has(> .opc:nth-child(4)):not(:has(> .opc:nth-child(5))){grid-template-columns:repeat(2,1fr)}
+}
 .opc{
   background:var(--bg-elev);border:1px solid var(--border);
   border-radius:var(--raio);display:flex;flex-direction:column;overflow:hidden;
@@ -2259,6 +2303,47 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
      .conceito ideia. O numero existe so para dizer QUANTAS sao, e some da
                memoria depois da leitura. Por isso aqui ele e texto.
    Trocar um pelo outro faz o aluno tentar "executar" um conceito.          */
+/* ---------- A ANALOGIA · o filminho na cabeca ----------------------------
+   HERDADA. A forma vem da formula AIDEN, de Adriano de Marqui (curso Didatica
+   Lendaria, no vault de Alan Nicolas). Herdamos a forma; o texto e nosso.
+
+   A regra que a peca serve: "as pessoas nao entendem o que voce fala, mas o
+   que elas veem ou o que elas sentem quando voce fala" -- e "a imagem vem
+   primeiro, para depois processar o entendimento".
+
+   AIDEN tem cinco partes. O padrao ja tinha duas:
+     A abstrato       -> .conceito, e agora ele cabe em UMA frase
+     I imagem         -> .analogia, o corpo
+     D detalhamento   -> .analogia-mapa, o de-para entre a analogia e a coisa
+     E extensao       -> .analogia-mais, onde mais isso aparece
+     N negacao        -> .contraste, que ja existia
+   Medido no piloto IEL: a secao de conceito tinha 632 palavras e a primeira
+   figura so chegava na secao seguinte, com 312. Seiscentas palavras de
+   abstracao antes de qualquer imagem foi o que travou a sala em 27/08.     */
+.analogia{
+  background:var(--bg-warm);border-left:3px solid var(--accent);
+  border-radius:0 var(--raio) var(--raio) 0;padding:18px 20px;margin:20px 0;
+}
+.analogia-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--accent-dark);margin-bottom:9px;
+}
+.analogia > p{margin:0 0 14px}
+.analogia > p:last-child{margin-bottom:0}
+.analogia-mapa{list-style:none;margin:0 0 14px;padding:0}
+.analogia-mapa li{
+  position:relative;padding-left:19px;margin-bottom:8px;font-size:16px;
+}
+.analogia-mapa li:last-child{margin-bottom:0}
+.analogia-mapa li::before{
+  content:"\2192";position:absolute;left:0;top:0;color:var(--accent);
+}
+.analogia-mapa li strong{color:var(--text)}
+.analogia-mais{
+  font-size:15px;color:var(--text-dim);border-top:1px solid var(--border);
+  padding-top:12px;margin:0;
+}
+
 .conceito{margin:34px 0}
 .conceito:first-of-type{margin-top:26px}
 .conceito-rot{
@@ -2429,8 +2514,20 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .fecho-sub{font-size:13px;color:var(--text-muted);margin-bottom:12px}
 .fecho ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-.fecho li{display:flex;gap:10px;align-items:baseline;font-size:15px;line-height:1.45}
-.fecho li::before{content:"\2713";color:var(--accent);flex:0 0 auto;font-size:13px}
+/* 🔴 O li NAO pode ser flex container.
+   Era display:flex, e entao <li><strong>Abertura</strong> resto do texto</li>
+   virava DUAS colunas: o negrito espremido numa faixa estreita e o texto ao
+   lado, desalinhado. Achado no piloto IEL: 36 itens em 9 aulas, e nenhum gate
+   pegou. E a armadilha n2 da secao 9 do CLAUDE.md, cometida pelo padrao.
+   O marcador agora e absoluto, entao o conteudo do li volta a ser texto
+   corrido e o negrito de abertura fica na mesma linha.
+   O line-height do ::before e 21,75/13 para a baseline do simbolo cair na
+   mesma linha da primeira linha do texto.                                   */
+.fecho li{position:relative;padding-left:23px;font-size:15px;line-height:1.45}
+.fecho li::before{
+  content:"\2713";position:absolute;left:0;top:0;
+  color:var(--accent);font-size:13px;line-height:1.673;
+}
 .fecho li strong{font-weight:600}
 .fecho-nota{
   font-size:13px;color:var(--text-muted);line-height:1.5;
@@ -2547,23 +2644,23 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">Imersão em IA com Claude</a> &rsaquo; <a href="../m1/">Módulo 1</a> &rsaquo; Por que a base multiplica</nav>
+<nav class="migalha"><a href="../">Imersão em IA com Claude</a> &rsaquo; <a href="../m1/">Módulo 1</a> &rsaquo; A regra que não mora em texto nenhum</nav>
 
 
 <main class="folha">
   <div class="heroi">
-    <div class="heroi-kicker">Módulo 1 · aula 1.4</div>
-    <h1>Por&nbsp;que&nbsp;a&nbsp;base multiplica</h1>
-    <p class="heroi-sub">O&nbsp;teto do&nbsp;pedido bem escrito, e&nbsp;a&nbsp;conta que&nbsp;decide em&nbsp;quais tarefas vale a&nbsp;pena investir base.</p>
-    <div><span class="selo">O teto do pedido</span><span class="selo">A conta da repetição</span></div>
+    <div class="heroi-kicker">Módulo 1 · aula 1.6</div>
+    <h1>A&nbsp;regra que&nbsp;não&nbsp;mora em&nbsp;texto nenhum</h1>
+    <p class="heroi-sub">A&nbsp;pergunta que&nbsp;separa regra comum de&nbsp;regra crítica, e&nbsp;por&nbsp;que&nbsp;escrever em&nbsp;caixa alta não&nbsp;muda o&nbsp;mecanismo.</p>
+    <div><span class="selo">Uma vez em cem</span><span class="selo">A tranca</span></div>
   </div>
 
   <div class="nesta-aula">
     <div class="nesta-aula-rot">Nesta aula</div>
     <div class="nesta-aula-sub">Ao final, você será capaz de:</div>
     <ul>
-      <li>Reconhecer quando&nbsp;o&nbsp;problema não&nbsp;é mais o&nbsp;pedido, e&nbsp;sim o&nbsp;que&nbsp;está por&nbsp;baixo dele</li>
-      <li>Calcular, no&nbsp;seu&nbsp;caso, a&nbsp;partir de&nbsp;quantas repetições montar a&nbsp;base se&nbsp;paga</li>
+      <li>Separar a&nbsp;regra que&nbsp;pode ser texto da&nbsp;que&nbsp;precisa de&nbsp;uma&nbsp;trava fora da&nbsp;conversa</li>
+      <li>Apontar, na&nbsp;sua&nbsp;área, a&nbsp;regra que&nbsp;hoje está protegida só&nbsp;por&nbsp;confiança</li>
     </ul>
   </div>
 
@@ -2572,39 +2669,30 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       <div class="secao-n">01</div>
       <div>
         <div class="secao-fn">A situação</div>
-        <h2>O&nbsp;pedido melhorou três vezes, e&nbsp;na&nbsp;quarta parou de&nbsp;melhorar</h2>
+        <h2>A&nbsp;regra estava escrita, em&nbsp;negrito, e&nbsp;mesmo assim passou</h2>
       </div>
     </div>
 
     <div class="fr-host">
-      <p><span class="fr">Você reescreveu o&nbsp;pedido e&nbsp;a&nbsp;resposta melhorou muito.</span> <span class="fr">Reescreveu de&nbsp;novo, e&nbsp;melhorou um&nbsp;pouco.</span></p>
+      <p><span class="fr">Você escreveu a&nbsp;regra mais importante de&nbsp;todas.</span> <span class="fr">Escreveu em&nbsp;caixa alta, com&nbsp;"obrigatório" na&nbsp;frente, e&nbsp;ainda pôs em&nbsp;negrito.</span></p>
 
-      <p><span class="fr">Na&nbsp;terceira, mudou quase nada.</span> <span class="fr">Na&nbsp;quarta, você percebeu que&nbsp;estava mexendo em&nbsp;palavras.</span></p>
+      <p><span class="fr">Na&nbsp;quadragésima vez, ela não&nbsp;foi seguida.</span> <span class="fr">E&nbsp;o&nbsp;número já&nbsp;tinha saído.</span></p>
     </div>
 
-    <p>Esse é o&nbsp;teto do&nbsp;pedido, e&nbsp;ele existe em&nbsp;toda tarefa. Chegar nele não&nbsp;é sinal de&nbsp;que&nbsp;você escreve mal: é sinal de&nbsp;que&nbsp;<strong>o&nbsp;que&nbsp;falta não&nbsp;está no&nbsp;pedido</strong>,
-    e&nbsp;nenhuma palavra melhor vai resolver.</p>
+    <p>A&nbsp;reação natural é reescrever com&nbsp;mais ênfase. É a&nbsp;reação errada, e&nbsp;esta aula
+    existe para&nbsp;mostrar por&nbsp;quê: <strong>o&nbsp;problema não&nbsp;está no&nbsp;texto, está no&nbsp;mecanismo</strong>. Nenhuma quantidade de&nbsp;negrito muda o&nbsp;que&nbsp;acontece quando&nbsp;alguém
+    lê uma&nbsp;regra e&nbsp;decide.</p>
 
-    <p>O&nbsp;módulo inteiro foi sobre&nbsp;o&nbsp;que&nbsp;fica por&nbsp;baixo. Esta aula fecha a&nbsp;conta: quanto
-    isso vale, e&nbsp;a&nbsp;partir de&nbsp;quando&nbsp;vale a&nbsp;pena.</p>
+    <p>É o&nbsp;conceito mais caro do&nbsp;módulo. <strong>A&nbsp;maior parte dos&nbsp;problemas de&nbsp;IA em&nbsp;organização não&nbsp;vem de&nbsp;resposta errada</strong>: vem de&nbsp;regra crítica escrita no&nbsp;lugar
+    de&nbsp;regra comum, e&nbsp;de&nbsp;alguém confiando que&nbsp;ela vai ser cumprida cem por&nbsp;cento das&nbsp;vezes
+    porque&nbsp;está escrita.</p>
 
-    <div class="tabela">
-      <table>
-        <thead><tr>
-          <th>O que você mexeu</th><th>O que melhorou</th><th>O que ficou igual</th>
-        </tr></thead>
-        <tbody>
-          <tr><td>Primeira reescrita: acrescentou o papel e o contexto</td><td>muito</td><td></td></tr>
-          <tr><td>Segunda: acrescentou o formato e o critério</td><td>bastante</td><td></td></tr>
-          <tr><td>Terceira: trocou palavras por sinônimos melhores</td><td>quase nada</td><td>ela continua sem saber o que a sua casa sabe</td></tr>
-          <tr><td>Quarta: escreveu mais uma restrição</td><td>nada</td><td>a restrição já estava dita de outro jeito</td></tr>
-        </tbody>
-      </table>
+    <div class="aviso">
+      <div class="aviso-t">A pergunta que não separa nada</div>
+      <p><em>"Essa regra é importante?"</em></p>
+      <p>A&nbsp;resposta é sempre sim. <strong>Ninguém escreve regra que&nbsp;considera
+      dispensável</strong>, e&nbsp;é por&nbsp;isso que&nbsp;essa pergunta não&nbsp;ajuda a&nbsp;decidir nada. A&nbsp;pergunta que&nbsp;separa é outra, e&nbsp;ela aparece na&nbsp;seção 03.</p>
     </div>
-
-    <p class="fig-leg"><strong>A&nbsp;coluna da&nbsp;direita é a&nbsp;mesma nas&nbsp;duas últimas
-    linhas.</strong> Quando&nbsp;duas tentativas seguidas esbarram no&nbsp;mesmo limite, o&nbsp;limite
-    não&nbsp;é o&nbsp;pedido.</p>
   </section>
 
   <section class="secao" id="s02">
@@ -2612,77 +2700,51 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       <div class="secao-n">02</div>
       <div>
         <div class="secao-fn">O conceito</div>
-        <h2>O&nbsp;pedido multiplica o&nbsp;que&nbsp;já&nbsp;existe, e&nbsp;a&nbsp;conta que&nbsp;decide investir</h2>
+        <h2>A&nbsp;regra que&nbsp;não&nbsp;mora em&nbsp;texto nenhum</h2>
       </div>
     </div>
 
     <div class="conceito">
-      <div class="conceito-rot">Conceito 1</div>
-      <h3>Prompt bom multiplica, mas&nbsp;multiplica a&nbsp;base que&nbsp;estiver lá</h3>
-      <p>Um&nbsp;pedido bem escrito não&nbsp;cria conhecimento sobre&nbsp;a&nbsp;sua&nbsp;casa. Ele
-      <strong>aproveita melhor o&nbsp;que&nbsp;já&nbsp;está na&nbsp;mesa</strong>, e&nbsp;nada mais. Se&nbsp;a&nbsp;mesa
-      tem só&nbsp;a&nbsp;pergunta, o&nbsp;melhor pedido do&nbsp;mundo devolve o&nbsp;melhor genérico do&nbsp;mundo.</p>
-      <p>É por&nbsp;isso que&nbsp;o&nbsp;mesmo pedido, escrito exatamente igual, devolve coisas
-      diferentes em&nbsp;contas diferentes: o&nbsp;pedido é o&nbsp;mesmo, a&nbsp;base não&nbsp;é. E&nbsp;é por&nbsp;isso
-      que&nbsp;o&nbsp;esforço de&nbsp;escrever pedido tem retorno decrescente, enquanto&nbsp;o&nbsp;esforço de&nbsp;escrever base tem retorno que&nbsp;se&nbsp;acumula.</p>
-    </div>
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>Instrução escrita é forte, e&nbsp;não&nbsp;é uma&nbsp;tranca</h3>
+      <p>Ela é <strong>um&nbsp;analista muito bom que&nbsp;leu o&nbsp;manual</strong>. A&nbsp;diferença entre&nbsp;as&nbsp;duas coisas está no&nbsp;mecanismo, e&nbsp;não&nbsp;na&nbsp;força: o&nbsp;que&nbsp;lê e&nbsp;decide erra em&nbsp;alguma
+      frequência, por&nbsp;melhor que&nbsp;a&nbsp;regra esteja escrita.</p>
 
-    <div class="barra">
-      <div class="barra-topo"><span class="barra-nome">Sem base</span>
-        <span class="barra-nota">todo esforço vai para o pedido, toda vez</span></div>
-      <div class="barra-trilho">
-        <div class="seg" style="width:70%;background:var(--accent)">escrever o pedido</div>
-        <div class="seg fraco" style="width:20%;background:var(--accent-soft)">conferir</div>
-        <div class="seg vazio" style="width:10%">decidir</div>
-      </div>
-    </div>
-    <div class="barra">
-      <div class="barra-topo"><span class="barra-nome">Com perfil</span>
-        <span class="barra-nota">o que é seu já está escrito</span></div>
-      <div class="barra-trilho">
-        <div class="seg" style="width:45%;background:var(--accent)">escrever o pedido</div>
-        <div class="seg fraco" style="width:35%;background:var(--accent-soft)">conferir</div>
-        <div class="seg vazio" style="width:20%">decidir</div>
-      </div>
-    </div>
-    <div class="barra">
-      <div class="barra-topo"><span class="barra-nome">Com perfil, projeto e procedimento</span>
-        <span class="barra-nota">o pedido vira três linhas</span></div>
-      <div class="barra-trilho">
-        <div class="seg" style="width:15%;background:var(--accent)">pedido</div>
-        <div class="seg fraco" style="width:45%;background:var(--accent-soft)">conferir</div>
-        <div class="seg vazio" style="width:40%">decidir</div>
+      <div class="analogia">
+        <div class="analogia-rot">É como o porteiro e a catraca</div>
+        <p>O&nbsp;porteiro leu o&nbsp;regulamento inteiro, conhece todo mundo pelo&nbsp;nome e&nbsp;é
+        excelente no&nbsp;que&nbsp;faz. Uma&nbsp;vez ou&nbsp;outra ele deixa passar quem não&nbsp;devia, porque&nbsp;estava chovendo, porque&nbsp;a&nbsp;pessoa parecia da&nbsp;casa, porque&nbsp;o&nbsp;interfone tocou na&nbsp;mesma hora. A&nbsp;catraca não&nbsp;leu regulamento nenhum, e&nbsp;nunca deixou.</p>
+        <ul class="analogia-mapa">
+          <li><strong>O&nbsp;porteiro que&nbsp;decorou o&nbsp;regulamento</strong> é a&nbsp;instrução escrita:
+          ele lê, entende e&nbsp;decide</li>
+          <li><strong>A&nbsp;vez em&nbsp;que&nbsp;ele deixa passar</strong> é a&nbsp;falha em&nbsp;cem, que&nbsp;existe
+          por&nbsp;melhor que&nbsp;o&nbsp;regulamento esteja redigido</li>
+          <li><strong>A&nbsp;catraca</strong> é a&nbsp;tranca: não&nbsp;lê, não&nbsp;decide, e&nbsp;não&nbsp;tem
+          "às&nbsp;vezes"</li>
+          <li><strong>Escrever o&nbsp;regulamento em&nbsp;caixa alta</strong> é pedir para&nbsp;o&nbsp;porteiro caprichar. Muda a&nbsp;sua&nbsp;confiança, não&nbsp;o&nbsp;mecanismo</li>
+        </ul>
+        <p class="analogia-mais">É o&nbsp;mesmo mecanismo do&nbsp;cofre que&nbsp;precisa de&nbsp;duas chaves,
+        da&nbsp;dupla assinatura no&nbsp;cheque acima de&nbsp;um&nbsp;valor e&nbsp;do&nbsp;freio de&nbsp;mão que&nbsp;trava a&nbsp;roda. Em&nbsp;nenhum dos&nbsp;três alguém está sendo desconfiado das&nbsp;pessoas: está sendo
+        reconhecido que&nbsp;decisão humana tem uma&nbsp;taxa de&nbsp;erro, e&nbsp;que&nbsp;em&nbsp;certos lugares essa
+        taxa não&nbsp;pode existir.</p>
       </div>
     </div>
 
-    <p class="fig-leg"><strong>A&nbsp;figura mostra a&nbsp;forma, não&nbsp;a&nbsp;medida.</strong> As&nbsp;larguras não&nbsp;vêm de&nbsp;estudo nenhum, e&nbsp;existem para&nbsp;você reparar em&nbsp;duas coisas: o&nbsp;total é sempre o&nbsp;mesmo dia, e&nbsp;o&nbsp;que&nbsp;cresce é a&nbsp;parte que&nbsp;só&nbsp;você faz. É o&nbsp;mesmo
-    desenho da&nbsp;primeira aula do&nbsp;nivelamento, agora do&nbsp;lado de&nbsp;dentro de&nbsp;uma&nbsp;tarefa só.</p>
-
-    <div class="conceito">
-      <div class="conceito-rot">Conceito 2</div>
-      <h3>A&nbsp;base se&nbsp;paga por&nbsp;repetição, não&nbsp;por&nbsp;importância</h3>
-      <p>Montar base custa uma&nbsp;vez e&nbsp;devolve toda vez que&nbsp;a&nbsp;tarefa volta. Então a&nbsp;conta
-      não&nbsp;é <em>"esta tarefa é importante?"</em>. É <strong>"quantas vezes ela
-      volta?"</strong></p>
-      <p>Uma&nbsp;tarefa importantíssima que&nbsp;acontece uma&nbsp;vez por&nbsp;ano não&nbsp;paga base nenhuma.
-      Uma&nbsp;tarefa chata que&nbsp;volta toda quinta paga na&nbsp;terceira semana, e&nbsp;depois disso o&nbsp;ganho é todo lucro.</p>
+    <div class="contraste solta">
+      <div class="ctr e"><span class="ctr-selo">É</span>
+        <h4>Uma&nbsp;proteção que&nbsp;existe fora dele</h4>
+        <p>Uma&nbsp;etapa de&nbsp;conferência que&nbsp;alguém assina, um&nbsp;aceite no&nbsp;sistema que&nbsp;de&nbsp;fato
+        envia, uma&nbsp;regra de&nbsp;que&nbsp;aquele arquivo nunca é anexado. Não&nbsp;depende de&nbsp;ele
+        lembrar, porque&nbsp;não&nbsp;passa por&nbsp;ele.</p></div>
+      <div class="ctr nao"><span class="ctr-selo">Não é</span>
+        <h4>Uma&nbsp;instrução mais enfática</h4>
+        <p>Caixa alta, negrito e&nbsp;"obrigatório" na&nbsp;frente não&nbsp;mudam quem decide. A&nbsp;regra
+        continua sendo lida e&nbsp;interpretada, e&nbsp;continua tendo uma&nbsp;taxa de&nbsp;falha.</p></div>
     </div>
 
-    <div class="tabela solta">
-      <table>
-        <thead><tr>
-          <th>A tarefa</th><th>Volta com que frequência</th><th>Base vale a pena?</th><th>Onde ela mora</th>
-        </tr></thead>
-        <tbody>
-          <tr><td>Fechar a prestação do trimestre</td><td>4 vezes por ano, sempre igual</td><td><strong>sim</strong></td><td>projeto e procedimento</td></tr>
-          <tr><td>Conferir lista de presença de turma</td><td>toda semana</td><td><strong>sim, e é a mais rentável</strong></td><td>projeto</td></tr>
-          <tr><td>Redigir o ofício de uma situação nova</td><td>sempre diferente</td><td>não</td><td>conversa, com pedido bem escrito</td></tr>
-          <tr><td>Montar o relatório anual</td><td>uma vez, e muito importante</td><td>não</td><td>conversa, e conferência dobrada</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p class="fig-leg"><strong>A&nbsp;última linha é a&nbsp;que&nbsp;mais gera discussão.</strong> A&nbsp;tarefa mais importante do&nbsp;ano é justamente a&nbsp;que&nbsp;não&nbsp;paga base, e&nbsp;é onde&nbsp;a&nbsp;tentação de&nbsp;investir é maior.</p>
+    <p class="fig-leg"><strong>Está escrita não&nbsp;é o&nbsp;mesmo que&nbsp;está garantida.</strong>
+    Essa frase é o&nbsp;conceito inteiro, e&nbsp;ela é desconfortável justamente porque&nbsp;a&nbsp;maior
+    parte das&nbsp;organizações opera como se&nbsp;as&nbsp;duas coisas fossem a&nbsp;mesma.</p>
   </section>
 
   <section class="secao" id="s03">
@@ -2690,38 +2752,95 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       <div class="secao-n">03</div>
       <div>
         <div class="secao-fn">Como funciona</div>
-        <h2>O&nbsp;que&nbsp;cada camada tira do&nbsp;seu&nbsp;teclado</h2>
+        <h2>A&nbsp;pergunta que&nbsp;separa, e&nbsp;a&nbsp;conta que&nbsp;ela abre</h2>
       </div>
     </div>
-
-    <p>As&nbsp;quatro coisas que&nbsp;você montou no&nbsp;curso até&nbsp;aqui não&nbsp;competem entre&nbsp;si. Cada
-    uma&nbsp;tira uma&nbsp;parte diferente do&nbsp;pedido, e&nbsp;o&nbsp;que&nbsp;sobra é cada vez menor.</p>
 
     <div class="tabela solta">
       <table>
         <thead><tr>
-          <th>A camada</th><th>O que ela tira do pedido</th><th>Sobra escrever</th><th>Onde foi montada</th>
+          <th></th><th>Lê a regra?</th><th>Decide?</th><th>O que acontece quando falha</th>
         </tr></thead>
         <tbody>
-          <tr><td>Nenhuma</td><td>nada</td><td>papel, contexto, tarefa, formato, limitações, critério</td><td></td></tr>
-          <tr><td><strong>Perfil</strong></td><td>papel, contexto da casa, formato, limitações</td><td>tarefa e critério</td><td>nivelamento, aula 5</td></tr>
-          <tr><td><strong>Instruções do projeto</strong></td><td>a regra daquele trabalho e o vocabulário dele</td><td>a tarefa do dia</td><td>aula 1.2</td></tr>
-          <tr><td><strong>Skill</strong>, o procedimento guardado</td><td>o passo a passo de como aquilo se faz</td><td>o pedido de uma linha</td><td>aula 1.3</td></tr>
+          <tr><td><strong>Um analista muito bom</strong></td>
+              <td>sim</td><td>sim</td>
+              <td>Às vezes ele decide errado, e você costuma descobrir depois</td></tr>
+          <tr><td><strong>Uma tranca</strong></td>
+              <td>não</td><td>não</td>
+              <td>Não existe "às vezes". Não passa, e ninguém precisa lembrar</td></tr>
         </tbody>
       </table>
     </div>
 
-    <p class="fig-leg"><strong>Leia a&nbsp;terceira coluna de&nbsp;cima para&nbsp;baixo.</strong> Ela
-    encolhe a&nbsp;cada linha, e&nbsp;é essa a&nbsp;resposta da&nbsp;pergunta que&nbsp;abre a&nbsp;aula: o&nbsp;pedido não&nbsp;precisa ficar melhor, precisa ficar menor.</p>
+    <p class="fig-leg"><strong>A&nbsp;diferença não&nbsp;está na&nbsp;primeira coluna, está nas&nbsp;duas do&nbsp;meio.</strong> O&nbsp;que&nbsp;lê e&nbsp;decide erra em&nbsp;alguma frequência. Escrever em&nbsp;CAIXA ALTA,
+    em&nbsp;negrito, com&nbsp;"obrigatório" na&nbsp;frente não&nbsp;muda nenhuma linha desta tabela: só&nbsp;deixa
+    você mais confiante, o&nbsp;que&nbsp;é pior.</p>
 
-    <div class="cartao">
-      <span class="rot">O que não encolhe, em nenhuma linha</span>
-      <p><strong>O&nbsp;critério de&nbsp;sucesso.</strong> Ele muda de&nbsp;tarefa para&nbsp;tarefa, e&nbsp;é o&nbsp;campo que&nbsp;a&nbsp;aula 2 do&nbsp;nivelamento mostrou ser o&nbsp;que&nbsp;mais rende. Nenhuma camada
-      pode escrevê-lo por&nbsp;você, porque&nbsp;só&nbsp;você sabe o&nbsp;que&nbsp;vai fazer com&nbsp;a&nbsp;resposta.</p>
-      <p><strong>A&nbsp;conferência.</strong> Quanto menor o&nbsp;pedido, maior a&nbsp;parte que&nbsp;veio
-      de&nbsp;coisa escrita antes, e&nbsp;menos você viu o&nbsp;que&nbsp;entrou. As&nbsp;quatro camadas da&nbsp;aula 3
-      ficam mais importantes conforme&nbsp;a&nbsp;base cresce, e&nbsp;não&nbsp;menos.</p>
+    <h3 style="margin:40px 0 14px">A&nbsp;pergunta que&nbsp;separa</h3>
+
+    <p style="font-size:20px;font-weight:600;margin:18px 0"><strong>Se&nbsp;ele esquecer isso
+    uma&nbsp;vez em&nbsp;cem, qual o&nbsp;tamanho do&nbsp;estrago?</strong></p>
+
+    <p>Repare no&nbsp;que&nbsp;a&nbsp;pergunta faz: ela tira o&nbsp;foco da&nbsp;regra e&nbsp;põe na&nbsp;<strong>consequência</strong>. Não&nbsp;interessa o&nbsp;quanto você valoriza aquela linha.
+    Interessa o&nbsp;que&nbsp;sobra depois da&nbsp;vez em&nbsp;que&nbsp;ela não&nbsp;for cumprida.</p>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Uma falha em cem já é um analista excelente</div>
+      <p>Só&nbsp;que&nbsp;o&nbsp;relatório de&nbsp;execução que&nbsp;você baixou nas&nbsp;demonstrações tem
+      <strong>3.442 registros</strong>. Uma&nbsp;falha em&nbsp;cem, ali dentro, são <strong>34
+      linhas erradas no&nbsp;mesmo documento</strong>. Para&nbsp;o&nbsp;formato do&nbsp;cabeçalho, tudo bem.
+      Para&nbsp;o&nbsp;valor que&nbsp;vai ao&nbsp;financiador, não.</p>
+      <p>É a&nbsp;mesma taxa de&nbsp;acerto nos&nbsp;dois casos. O&nbsp;que&nbsp;muda é o&nbsp;tamanho do&nbsp;que&nbsp;cai do&nbsp;outro lado.</p>
     </div>
+
+    <div class="contraste solta">
+      <div class="ctr e"><span class="ctr-selo">Resposta A</span>
+        <h4>Dá para&nbsp;consertar na&nbsp;hora</h4>
+        <ul class="lista">
+          <li>A&nbsp;tabela fica feia</li>
+          <li>A&nbsp;reunião fica ruim</li>
+          <li>Preciso pedir de&nbsp;novo</li>
+        </ul>
+        <p>Isso <strong>pode ser texto</strong>: instrução, skill ou&nbsp;comando. Ele acerta
+        quase sempre, e&nbsp;o&nbsp;"quase" custa cinco minutos seus.</p>
+      </div>
+      <div class="ctr nao"><span class="ctr-selo">Resposta B</span>
+        <h4>Não&nbsp;dá para&nbsp;desfazer</h4>
+        <ul class="lista">
+          <li>O&nbsp;número errado já&nbsp;foi ao&nbsp;financiador</li>
+          <li>Vira diligência</li>
+          <li>Vaza dado de&nbsp;participante</li>
+        </ul>
+        <p>Isso <strong>não&nbsp;é texto. É tranca</strong>, e&nbsp;ela vive fora dele: conferência
+        que&nbsp;alguém assina, aprovação antes do&nbsp;envio, arquivo que&nbsp;nunca é anexado.</p>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>As&nbsp;duas colunas nascem da&nbsp;mesma pergunta.</strong> O&nbsp;que&nbsp;decide não&nbsp;é a&nbsp;importância da&nbsp;regra, é o&nbsp;tamanho do&nbsp;estrago quando&nbsp;ela falha uma&nbsp;vez
+    em&nbsp;cem.</p>
+
+    <h3 style="margin:40px 0 14px">Onde&nbsp;uma&nbsp;tranca costuma morar</h3>
+
+    <p>Tranca quase nunca é tecnologia nova. Na&nbsp;maior parte dos&nbsp;casos ela já&nbsp;existe na&nbsp;sua&nbsp;casa, e&nbsp;o&nbsp;trabalho é não&nbsp;deixar a&nbsp;novidade passar por&nbsp;cima dela.</p>
+
+    <div class="grade grade-3 solta">
+      <div class="cartao">
+        <span class="rot">Uma etapa que alguém assina</span>
+        <p>A&nbsp;conferência antes do&nbsp;envio, com&nbsp;nome de&nbsp;quem conferiu. O&nbsp;documento não&nbsp;sai
+        sem&nbsp;essa linha preenchida.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Um aceite no sistema que de fato envia</span>
+        <p>Quem aperta o&nbsp;botão é uma&nbsp;pessoa com&nbsp;alçada, e&nbsp;o&nbsp;botão fica num&nbsp;sistema em&nbsp;que&nbsp;a&nbsp;IA não&nbsp;entra.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Um arquivo que nunca é anexado</span>
+        <p>A&nbsp;regra não&nbsp;é "tome cuidado com&nbsp;esse arquivo". É que&nbsp;ele não&nbsp;está na&nbsp;pasta que&nbsp;a&nbsp;ferramenta alcança.</p>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Repare que&nbsp;nenhuma das&nbsp;três é uma&nbsp;frase escrita para&nbsp;ele.</strong> Todas mudam o&nbsp;caminho, e&nbsp;não&nbsp;a&nbsp;instrução: é isso que&nbsp;faz delas trancas.
+    A&nbsp;terceira é a&nbsp;mais barata das&nbsp;três, e&nbsp;quase sempre é a&nbsp;esquecida.</p>
   </section>
 
   <section class="secao" id="s04">
@@ -2729,53 +2848,42 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       <div class="secao-n">04</div>
       <div>
         <div class="secao-fn">Demonstração</div>
-        <h2>O&nbsp;mesmo trabalho, na&nbsp;primeira semana e&nbsp;na&nbsp;sexta</h2>
+        <h2>A&nbsp;mesma regra, como texto e&nbsp;como tranca</h2>
       </div>
     </div>
 
-    <p>Duas pessoas com&nbsp;a&nbsp;mesma tarefa, o&nbsp;mesmo material e&nbsp;o&nbsp;mesmo tempo. Uma&nbsp;investe
-    quarenta minutos na&nbsp;primeira semana, a&nbsp;outra não&nbsp;investe nenhum.</p>
+    <p>A&nbsp;regra é a&nbsp;mesma nos&nbsp;dois lados: <em>nenhum valor vai ao&nbsp;financiador sem&nbsp;conferência</em>. Do&nbsp;lado esquerdo ela está escrita nas&nbsp;instruções do&nbsp;projeto, com&nbsp;ênfase. Do&nbsp;lado direito ela virou uma&nbsp;etapa fora da&nbsp;conversa.</p>
 
     <div class="demo solta">
-      <div class="demo-faixa">Conferência de execução, uma vez por semana, seis semanas</div>
+      <div class="demo-faixa">Momento-chave &middot; a centésima rodada do fechamento</div>
       <div class="demo-corpo">
         <div class="demo-entrada">
-          <span class="rot">A tarefa, nas duas</span>
-          <pre>Conferir a execução da semana e listar o que precisa de decisão</pre>
+          <span class="rot">O pedido, nos dois</span>
+          <pre>Fecha o trimestre e me manda o resumo pronto para enviar.</pre>
         </div>
         <div class="demo-lados">
           <div class="demo-lado">
-            <span class="rot">Só melhorando o pedido</span>
-            <p><strong>Semana 1 a&nbsp;3:</strong> o&nbsp;pedido fica cada vez melhor, e&nbsp;o&nbsp;resultado acompanha. É a&nbsp;fase em&nbsp;que&nbsp;parece que&nbsp;o&nbsp;caminho está certo.</p>
-            <p><strong>Semana 4 a&nbsp;6:</strong> o&nbsp;pedido para&nbsp;de&nbsp;melhorar. Cada semana
-            custa o&nbsp;mesmo tempo da&nbsp;primeira, e&nbsp;três correções antigas já&nbsp;se&nbsp;perderam,
-            porque&nbsp;moravam em&nbsp;conversas que&nbsp;terminaram.</p>
+            <span class="rot">A regra como texto, em negrito</span>
+            <p>Nas&nbsp;noventa e&nbsp;nove primeiras vezes veio o&nbsp;resumo com&nbsp;a&nbsp;frase
+            <em>"confira antes de&nbsp;enviar"</em> no&nbsp;rodapé.</p>
+            <p>Na&nbsp;centésima, o&nbsp;pedido foi mais longo e&nbsp;mais específico, o&nbsp;rodapé não&nbsp;veio,
+            e&nbsp;<strong>o&nbsp;resumo saiu com&nbsp;cara de&nbsp;pronto</strong>. Quem recebeu entendeu que&nbsp;estava pronto, porque&nbsp;nas&nbsp;outras 99 vezes o&nbsp;aviso estava lá.</p>
           </div>
           <div class="demo-lado">
-            <span class="rot">Montando a base na semana 1</span>
-            <p><strong>Semana 1:</strong> quarenta minutos a&nbsp;mais, e&nbsp;o&nbsp;resultado é
-            igual ao&nbsp;da&nbsp;outra pessoa. Nada aconteceu ainda.</p>
-            <p><strong>Semana 4 a&nbsp;6:</strong> o&nbsp;pedido são três linhas, as&nbsp;correções
-            antigas continuam valendo porque&nbsp;viraram texto, e&nbsp;o&nbsp;tempo que&nbsp;sobrou foi
-            para&nbsp;conferir melhor.</p>
+            <span class="rot">A regra como tranca</span>
+            <p>O&nbsp;resumo sai com&nbsp;um&nbsp;campo em&nbsp;branco no&nbsp;topo: <strong>"conferido por"</strong>,
+            e&nbsp;o&nbsp;modelo do&nbsp;documento não&nbsp;fecha sem&nbsp;ele.</p>
+            <p>Na&nbsp;centésima vez, o&nbsp;campo continuou em&nbsp;branco. O&nbsp;documento não&nbsp;foi enviado,
+            e&nbsp;ninguém precisou lembrar de&nbsp;nada.</p>
           </div>
         </div>
-        <div class="demo-pe">Nas três primeiras semanas as duas estão empatadas, e uma
-        delas gastou quarenta minutos a mais. É por isso que quase ninguém investe.</div>
+        <div class="demo-pe">A regra do lado esquerdo estava escrita, e foi seguida em
+        99% das vezes. O problema é o que aconteceu na que sobrou.</div>
       </div>
     </div>
 
-    <p class="fig-leg"><strong>O&nbsp;ganho verdadeiro não&nbsp;é o&nbsp;tempo, é a&nbsp;terceira
-    correção.</strong> Ela se&nbsp;perdeu na&nbsp;conversa que&nbsp;acabou, e&nbsp;a&nbsp;pessoa vai errar de&nbsp;novo a&nbsp;mesma coisa sem&nbsp;lembrar que&nbsp;já&nbsp;tinha corrigido.</p>
-
-    <div class="arquivo">
-      <div>
-        <span class="rot">O passo a passo desta demonstração</span>
-        <p style="margin:0">Como medir, na&nbsp;sua&nbsp;tarefa, quanto do&nbsp;pedido já&nbsp;está coberto
-        pela&nbsp;base que&nbsp;você montou, e&nbsp;a&nbsp;partir de&nbsp;quantas repetições cada camada se&nbsp;paga.</p>
-      </div>
-      <a class="btn" href="../caso-base/">Abrir o passo a passo</a>
-    </div>
+    <p class="fig-leg"><strong>Repare que&nbsp;o&nbsp;lado esquerdo funciona quase sempre, e&nbsp;é isso
+    que&nbsp;o&nbsp;torna perigoso.</strong> Noventa e&nbsp;nove acertos seguidos constroem confiança, e&nbsp;a&nbsp;confiança é o&nbsp;que&nbsp;faz ninguém conferir na&nbsp;centésima. Tranca não&nbsp;é desconfiança da&nbsp;ferramenta: é o&nbsp;reconhecimento de&nbsp;que&nbsp;99% não&nbsp;é 100%.</p>
   </section>
 
   <section class="secao" id="s05">
@@ -2783,17 +2891,19 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       <div class="secao-n">05</div>
       <div>
         <div class="secao-fn">Sua vez</div>
-        <h2>A&nbsp;conta do&nbsp;seu&nbsp;caso</h2>
+        <h2>Ache a&nbsp;regra da&nbsp;sua&nbsp;área que&nbsp;não&nbsp;é texto</h2>
       </div>
     </div>
 
-    <p>Você tem todas as&nbsp;peças do&nbsp;módulo montadas. Falta a&nbsp;decisão de&nbsp;negócio: quais das&nbsp;suas&nbsp;tarefas merecem base, e&nbsp;quais ficam na&nbsp;conversa para&nbsp;sempre.</p>
+    <p>Você tem três listas do&nbsp;mapa da&nbsp;aula passada, e&nbsp;todas são de&nbsp;texto. Este exercício
+    procura o&nbsp;item que&nbsp;<strong>não&nbsp;deveria estar em&nbsp;nenhuma das&nbsp;três</strong>.</p>
 
     <div class="aviso">
       <div class="aviso-t">Como saber que a sua resposta está pronta</div>
-      <p>Use esta régua em&nbsp;toda escolha desta página: <strong>ela tem um&nbsp;número ou&nbsp;um&nbsp;motivo de&nbsp;critério escrito ao&nbsp;lado?</strong> Escolha sem&nbsp;isso é palpite, e&nbsp;palpite
-      aqui custa duas semanas montando base para&nbsp;uma&nbsp;tarefa que&nbsp;volta duas vezes por&nbsp;ano.</p>
-      <p>Cada passo abaixo traz <strong>três perguntas menores</strong> para&nbsp;destravar, e&nbsp;um&nbsp;exemplo do&nbsp;que&nbsp;<strong>não</strong>&nbsp;conta como resposta. A&nbsp;<a href="#s06">seção 06</a> traz a&nbsp;conta inteira feita, para&nbsp;você ver o&nbsp;nível de&nbsp;detalhe que&nbsp;se&nbsp;espera.</p>
+      <p>A&nbsp;régua: <strong>você consegue dizer o&nbsp;que&nbsp;acontece no&nbsp;dia em&nbsp;que&nbsp;a&nbsp;regra falha,
+      com&nbsp;um&nbsp;exemplo concreto?</strong> Se&nbsp;a&nbsp;resposta for "seria ruim", ainda não&nbsp;está
+      pronta. Se&nbsp;for "o&nbsp;número errado já&nbsp;foi ao&nbsp;financiador e&nbsp;vira diligência", está.</p>
+      <p>Cada passo traz <strong>três perguntas menores</strong> para&nbsp;destravar, e&nbsp;um&nbsp;exemplo do&nbsp;que&nbsp;<strong>não</strong>&nbsp;conta como resposta.</p>
     </div>
 
     <div class="passo">
@@ -2801,23 +2911,23 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         <div class="passo-n">01</div>
         <div>
           <div class="passo-fn">Passo 1</div>
-          <h3>Pegue a&nbsp;tarefa que&nbsp;você escolheu na&nbsp;aula 1.1 e&nbsp;equipou na&nbsp;1.2</h3>
+          <h3>Passe as&nbsp;suas&nbsp;regras pela&nbsp;pergunta do&nbsp;estrago</h3>
         </div>
       </div>
-      <p>Ela já&nbsp;rodou pelo&nbsp;menos uma&nbsp;vez com&nbsp;base. Compare o&nbsp;pedido de&nbsp;hoje com&nbsp;o&nbsp;que&nbsp;você teria escrito no&nbsp;começo do&nbsp;curso: são os&nbsp;<strong>campos 1 e&nbsp;2</strong>.</p>
+      <p>Abra o&nbsp;campo 1 do&nbsp;canvas da&nbsp;aula 1.5, o&nbsp;das&nbsp;regras que&nbsp;valem sempre. Passe cada
+      uma&nbsp;pela&nbsp;pergunta: <em>se&nbsp;ele esquecer isso uma&nbsp;vez em&nbsp;cem, qual o&nbsp;tamanho do&nbsp;estrago?</em> A&nbsp;que&nbsp;tiver a&nbsp;pior resposta vai no&nbsp;<strong>campo 1</strong>.</p>
       <div class="destrave">
         <div class="destrave-rot">Se travar, responda estas três</div>
         <ul>
-          <li>Abra o&nbsp;canvas da&nbsp;aula 1.1, campo 5. É o&nbsp;nome dela que&nbsp;está escrito lá.</li>
-          <li>Que&nbsp;pedido você teria mandado no&nbsp;primeiro dia do&nbsp;curso, com&nbsp;tudo explicado
-          dentro? Vale reconstruir de&nbsp;memória.</li>
-          <li>Que&nbsp;pedido você manda hoje, com&nbsp;o&nbsp;projeto pronto? A&nbsp;diferença entre&nbsp;os&nbsp;dois
-          é a&nbsp;medida do&nbsp;módulo inteiro.</li>
+          <li>Qual das&nbsp;suas&nbsp;regras, se&nbsp;descumprida, faria alguém de&nbsp;fora da&nbsp;sua&nbsp;casa ficar
+          sabendo?</li>
+          <li>Qual delas gera documento que&nbsp;sai da&nbsp;instituição, ou&nbsp;número que&nbsp;vira
+          prestação?</li>
+          <li>Qual delas envolve dado de&nbsp;pessoa: nome, documento, informação de&nbsp;saúde?</li>
         </ul>
-        <div class="destrave-nao"><strong>Não conta como resposta:</strong> escrever os
-        dois pedidos parecidos. Se o de hoje ainda carrega o contexto todo dentro, isso
-        não é empate: é sinal de que você continua explicando o que já está escrito nas
-        instruções do projeto.</div>
+        <div class="destrave-nao"><strong>Não conta como resposta:</strong> "todas são
+        críticas". Se todas forem, nenhuma é, e você vai acabar sem tranca nenhuma. Escolha
+        uma, e depois volte para as outras.</div>
       </div>
     </div>
 
@@ -2826,24 +2936,22 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         <div class="passo-n">02</div>
         <div>
           <div class="passo-fn">Passo 2</div>
-          <h3>Conte quantas vezes ela volta por&nbsp;mês, e&nbsp;veja se&nbsp;a&nbsp;base já&nbsp;se&nbsp;pagou</h3>
+          <h3>Escreva o&nbsp;estrago, com&nbsp;um&nbsp;caso concreto</h3>
         </div>
       </div>
-      <p>Sem&nbsp;estimar por&nbsp;cima. A&nbsp;conta é a&nbsp;da&nbsp;seção 02, repetida aqui: <strong>a&nbsp;base
-      custa uma&nbsp;vez e&nbsp;devolve toda vez que&nbsp;a&nbsp;tarefa volta, então ela se&nbsp;paga por&nbsp;volta da&nbsp;terceira repetição.</strong> Da&nbsp;terceira em&nbsp;diante, o&nbsp;que&nbsp;vem é lucro. O&nbsp;número e&nbsp;o&nbsp;veredito vão no&nbsp;<strong>campo 3</strong>.</p>
+      <p>No&nbsp;<strong>campo 2</strong>, e&nbsp;com&nbsp;nome e&nbsp;sobrenome do&nbsp;prejuízo. Este passo
+      existe para&nbsp;separar o&nbsp;que&nbsp;é crítico de&nbsp;verdade do&nbsp;que&nbsp;é capricho seu,&nbsp;e&nbsp;a&nbsp;maior
+      parte das&nbsp;regras não&nbsp;sobrevive a&nbsp;ele.</p>
       <div class="destrave">
         <div class="destrave-rot">Se travar, responda estas três</div>
         <ul>
-          <li>Olhe o&nbsp;calendário dos&nbsp;últimos três meses e&nbsp;<strong>conte</strong> as&nbsp;vezes,
-          em&nbsp;vez de&nbsp;estimar de&nbsp;cabeça.</li>
-          <li>Quantas vezes essa tarefa já&nbsp;rodou desde&nbsp;que&nbsp;você montou o&nbsp;projeto? Passou
-          da&nbsp;terceira, já&nbsp;se&nbsp;pagou.</li>
-          <li>Se&nbsp;você não&nbsp;souber quantas vezes ela volta, é sinal de&nbsp;que&nbsp;ela volta pouco,
-          e&nbsp;a&nbsp;resposta já&nbsp;apareceu.</li>
+          <li>Quem descobre o&nbsp;erro, e&nbsp;quanto tempo depois?</li>
+          <li>Dá para&nbsp;consertar antes de&nbsp;alguém de&nbsp;fora ver? Se&nbsp;dá, provavelmente é
+          texto.</li>
+          <li>Já&nbsp;aconteceu alguma vez? O&nbsp;que&nbsp;foi preciso fazer para&nbsp;resolver?</li>
         </ul>
-        <div class="destrave-nao"><strong>Não conta como resposta:</strong> "volta
-        bastante". Diga o número. É o número que decide, e é o "bastante" que faz a
-        pessoa montar base para tudo.</div>
+        <div class="destrave-nao"><strong>Não conta como resposta:</strong> "dá problema".
+        Diga qual: quem reclama, o que se perde, e o que a casa precisa fazer depois.</div>
       </div>
     </div>
 
@@ -2852,29 +2960,30 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         <div class="passo-n">03</div>
         <div>
           <div class="passo-fn">Passo 3</div>
-          <h3>Escolha as&nbsp;duas próximas, e&nbsp;as&nbsp;duas que&nbsp;ficam de&nbsp;fora</h3>
+          <h3>Diga onde&nbsp;a&nbsp;tranca vive, fora da&nbsp;conversa</h3>
         </div>
       </div>
-      <p>As&nbsp;que&nbsp;ficam de&nbsp;fora importam tanto quanto as&nbsp;que&nbsp;entram. <strong>Base para&nbsp;tudo é o&nbsp;mesmo erro de&nbsp;encher as&nbsp;instruções</strong>, agora no&nbsp;tamanho do&nbsp;seu&nbsp;mês. As&nbsp;duas listas são os&nbsp;<strong>campos 4 e&nbsp;5</strong>.</p>
+      <p>No&nbsp;<strong>campo 3</strong>. Quase sempre a&nbsp;tranca já&nbsp;existe na&nbsp;sua&nbsp;casa, e&nbsp;o&nbsp;trabalho é apontar qual é. Se&nbsp;ela não&nbsp;existir, o&nbsp;campo 3 vira o&nbsp;que&nbsp;precisa ser
+      criado, e&nbsp;isso é uma&nbsp;decisão de&nbsp;gestão, não&nbsp;de&nbsp;ferramenta.</p>
       <div class="destrave">
         <div class="destrave-rot">Se travar, responda estas três</div>
         <ul>
-          <li>Das&nbsp;cinco tarefas que&nbsp;você listou na&nbsp;aula 1.1, quais voltam mais vezes por&nbsp;mês? Comece por&nbsp;elas.</li>
-          <li>Dessas, em&nbsp;quais o&nbsp;critério é sempre o&nbsp;mesmo? Tarefa que&nbsp;volta muito com&nbsp;critério que&nbsp;muda toda vez não&nbsp;paga base.</li>
-          <li>Para&nbsp;as&nbsp;de&nbsp;fora, o&nbsp;motivo é "acontece pouco" ou&nbsp;"é sempre diferente"? Os&nbsp;dois valem, e&nbsp;são motivos diferentes.</li>
+          <li>Hoje, quem assina alguma coisa antes disso sair? Essa assinatura já&nbsp;é uma&nbsp;tranca.</li>
+          <li>Existe um&nbsp;sistema em&nbsp;que&nbsp;alguém aperta o&nbsp;botão de&nbsp;enviar? Esse botão é o&nbsp;lugar.</li>
+          <li>Dá para&nbsp;resolver tirando o&nbsp;arquivo do&nbsp;alcance, em&nbsp;vez de&nbsp;escrever uma&nbsp;regra
+          sobre&nbsp;ele?</li>
         </ul>
-        <div class="destrave-nao"><strong>Não conta como resposta:</strong> deixar de
-        fora só o que você não gosta de fazer. As duas de fora precisam de um motivo de
-        frequência ou de critério, e é esse motivo que impede você de sair daqui montando
-        base para tudo e abandonar em duas semanas.</div>
+        <div class="destrave-nao"><strong>Não conta como resposta:</strong> "vou escrever
+        na instrução que ele nunca pode fazer isso". Isso é o lado esquerdo da
+        demonstração, e é exatamente o que esta aula veio dizer que não basta.</div>
       </div>
     </div>
 
-    <div class="canvas solta" data-chave="canvas-m1a4-base">
+    <div class="canvas solta" data-chave="canvas-m1a6-tranca">
       <div class="canvas-topo">
         <div>
           <span class="rot">Canvas</span>
-          <h3 class="canvas-t">Onde&nbsp;eu invisto, e&nbsp;onde&nbsp;eu não&nbsp;invisto</h3>
+          <h3 class="canvas-t">A&nbsp;tranca da&nbsp;minha&nbsp;área</h3>
         </div>
         <div class="canvas-estado">O rascunho fica salvo neste aparelho</div>
       </div>
@@ -2883,55 +2992,35 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         <div class="cv-campo">
           <div class="cv-n">1</div>
           <div>
-            <label class="cv-rot" for="cv-m4-antes">O pedido que eu escrevia no começo do curso</label>
-            <div class="cv-ex">Ex: dois parágrafos explicando quem eu sou, o convênio, o formato e o que não fazer</div>
-            <textarea id="cv-m4-antes" rows="2"></textarea>
+            <label class="cv-rot" for="cv-a6-regra">A regra que não pode falhar uma vez em cem</label>
+            <div class="cv-ex">Ex: nenhum valor vai ao financiador sem conferência de quem responde pela prestação</div>
+            <textarea id="cv-a6-regra" rows="2"></textarea>
           </div>
         </div>
         <div class="cv-campo">
           <div class="cv-n">2</div>
           <div>
-            <label class="cv-rot" for="cv-m4-agora">O meu pedido de hoje, na mesma tarefa</label>
-            <div class="cv-ex">Ex: feche o trimestre e me diga o que não entra no relatório</div>
-            <textarea id="cv-m4-agora" rows="2"></textarea>
+            <label class="cv-rot" for="cv-a6-estrago">O estrago, com um caso concreto</label>
+            <div class="cv-ex">Ex: o número vai no relatório, o financiador confere contra o extrato e abre diligência. Três semanas para responder</div>
+            <textarea id="cv-a6-estrago" rows="2"></textarea>
           </div>
         </div>
         <div class="cv-campo">
           <div class="cv-n">3</div>
           <div>
-            <label class="cv-rot" for="cv-m4-conta">Quantas vezes ela volta por mês, e se a base já se pagou</label>
-            <div class="cv-ex">Ex: volta 4 vezes por mês e já rodou 5 vezes com o projeto. Passou da terceira, então já se pagou</div>
-            <textarea id="cv-m4-conta" rows="2"></textarea>
-          </div>
-        </div>
-        <div class="cv-campo">
-          <div class="cv-n">4</div>
-          <div>
-            <label class="cv-rot" for="cv-m4-proximas">As duas próximas tarefas que merecem base, e quantas vezes voltam por mês</label>
-            <div class="cv-ex">Ex: triagem de proposta, 6 vezes. Conferência de lista de presença, 4 vezes</div>
-            <textarea id="cv-m4-proximas" rows="2"></textarea>
-          </div>
-        </div>
-        <div class="cv-campo">
-          <div class="cv-n">5</div>
-          <div>
-            <label class="cv-rot" for="cv-m4-fora">As duas que ficam de fora, e por quê</label>
-            <div class="cv-ex">Ex: o relatório anual, porque acontece uma vez. O ofício de resposta, porque é sempre diferente</div>
-            <textarea id="cv-m4-fora" rows="2"></textarea>
+            <label class="cv-rot" for="cv-a6-onde">Onde a tranca vive, fora da conversa</label>
+            <div class="cv-ex">Ex: o campo "conferido por" no modelo do relatório, que a coordenação preenche antes do envio</div>
+            <textarea id="cv-a6-onde" rows="2"></textarea>
           </div>
         </div>
       </div>
       <div class="canvas-rodape">
         <button class="btn-copiar" type="button" data-acao="linha">Copiar a minha linha</button>
         <button class="btn-fantasma" type="button" data-acao="apagar">Apagar o rascunho</button>
-        <p class="cv-nota">Os&nbsp;campos 1 e&nbsp;2 lado a&nbsp;lado são a&nbsp;medida do&nbsp;módulo inteiro.
-        A&nbsp;diferença entre&nbsp;eles é o&nbsp;que&nbsp;a&nbsp;base tirou do&nbsp;seu&nbsp;teclado.</p>
+        <p class="cv-nota">Este canvas não&nbsp;vira peça no&nbsp;Claude, e&nbsp;é de&nbsp;propósito: o&nbsp;campo
+        3 é a&nbsp;única coisa deste módulo que&nbsp;se&nbsp;resolve fora da&nbsp;ferramenta.</p>
       </div>
     </div>
-
-    <p class="fig-leg"><strong>O&nbsp;campo 5 é o&nbsp;que&nbsp;impede o&nbsp;efeito colateral desta
-    aula.</strong> Quem sai daqui empolgado tenta montar base para&nbsp;tudo, gasta duas
-    semanas e&nbsp;abandona. Escolher o&nbsp;que&nbsp;fica de&nbsp;fora é parte do&nbsp;método.</p>
   </section>
 
   <section class="secao" id="s06">
@@ -2945,63 +3034,59 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 
     <p><em>O&nbsp;seu&nbsp;vai ser diferente do&nbsp;meu,&nbsp;e&nbsp;tudo bem. Compare a&nbsp;estrutura, não&nbsp;o&nbsp;conteúdo.</em></p>
 
-    <div class="grade grade-2 solta">
-      <div class="cartao">
-        <span class="rot">O pedido do começo do curso</span>
-        <p>Dois parágrafos dizendo que&nbsp;trabalha com&nbsp;prestação de&nbsp;contas, explicando o&nbsp;convênio e&nbsp;as&nbsp;doze unidades, pedindo uma&nbsp;página, mandando não&nbsp;estimar valor
-        faltante e&nbsp;dizendo que&nbsp;o&nbsp;coordenador ia ler.</p>
-      </div>
-      <div class="cartao cartao-cor">
-        <span class="rot">O pedido de agora</span>
-        <p><em>"feche o&nbsp;trimestre e&nbsp;me diga o&nbsp;que&nbsp;não&nbsp;pode entrar no&nbsp;relatório"</em>.
-        Treze palavras, e&nbsp;o&nbsp;resultado é melhor, porque&nbsp;tudo que&nbsp;saiu do&nbsp;pedido continua
-        valendo por&nbsp;escrito em&nbsp;outro lugar.</p>
-      </div>
+    <div class="tabela solta">
+      <table>
+        <thead><tr>
+          <th>A área</th><th>A regra que não é texto</th><th>O estrago, uma vez em cem</th><th>Onde a tranca vive</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><strong>Prestação de contas</strong></td>
+              <td>Nenhum valor vai ao financiador sem conferência</td>
+              <td>O número entra na prestação e vira diligência, com três semanas de
+              resposta e o convênio suspenso no meio</td>
+              <td>O campo "conferido por" no modelo, que a coordenação preenche antes do
+              envio</td></tr>
+          <tr><td><strong>Turmas e eventos</strong></td>
+              <td>Documento de identidade e informação de saúde de participante não entram
+              em nenhuma peça</td>
+              <td>Vaza dado pessoal de participante, e a casa responde por isso</td>
+              <td>Esses arquivos não moram na pasta que a ferramenta alcança</td></tr>
+          <tr><td><strong>Compras e contratos</strong></td>
+              <td>Nenhum valor vai ao fornecedor sem a aprovação da alçada</td>
+              <td>Compromisso assumido fora da alçada, que a casa tem de honrar ou
+              desfazer com o fornecedor</td>
+              <td>O aceite no sistema de compras, que fica fora do alcance da ferramenta</td></tr>
+        </tbody>
+      </table>
     </div>
 
-    <p class="fig-leg"><strong>Nenhuma informação foi perdida entre&nbsp;os&nbsp;dois.</strong> Ela
-    só&nbsp;mudou de&nbsp;lugar, e&nbsp;saiu do&nbsp;teclado.</p>
-    <h3 style="margin:34px 0 14px">A&nbsp;conta do&nbsp;campo 3</h3>
+    <p class="fig-leg"><strong>Repare que&nbsp;a&nbsp;última coluna nunca é uma&nbsp;frase.</strong> É
+    sempre um&nbsp;campo, uma&nbsp;pasta ou&nbsp;um&nbsp;botão. Quando&nbsp;a&nbsp;sua&nbsp;coluna 4 vier em&nbsp;forma de&nbsp;frase,
+    volte: você escreveu uma&nbsp;instrução, não&nbsp;uma&nbsp;tranca.</p>
 
-    <div class="cartao">
-      <span class="rot">Quantas vezes ela volta, e se a base já se pagou</span>
-      <p><strong>Volta 4 vezes por&nbsp;mês, e&nbsp;já&nbsp;rodou 6 vezes dentro do&nbsp;projeto.</strong>
-      Passou da&nbsp;terceira ainda na&nbsp;segunda semana, então a&nbsp;base já&nbsp;se&nbsp;pagou e&nbsp;o&nbsp;que&nbsp;vem
-      daqui em&nbsp;diante é lucro. A&nbsp;conta é essa, e&nbsp;ela cabe em&nbsp;duas linhas.</p>
-      <p>O&nbsp;que&nbsp;fez a&nbsp;conta virar foi a&nbsp;frequência, não&nbsp;o&nbsp;tamanho do&nbsp;trabalho. O&nbsp;fechamento do&nbsp;trimestre é uma&nbsp;tarefa muito maior e&nbsp;roda 4 vezes <em>por&nbsp;ano</em>:
-      ele também paga base, mas&nbsp;leva nove meses para&nbsp;pagar.</p>
+    <h3 style="margin:34px 0 14px">O&nbsp;que&nbsp;é tranca, e&nbsp;o&nbsp;que&nbsp;é só&nbsp;capricho</h3>
+
+    <div class="contraste solta">
+      <div class="ctr e"><span class="ctr-selo">É tranca</span>
+        <h4>"Nenhum dado de&nbsp;participante sai em&nbsp;documento"</h4>
+        <p>O&nbsp;estrago é irreversível e&nbsp;envolve terceiro. Vira caminho: o&nbsp;arquivo não&nbsp;fica
+        ao&nbsp;alcance.</p></div>
+      <div class="ctr nao"><span class="ctr-selo">É capricho</span>
+        <h4>"O&nbsp;relatório sempre começa pelo&nbsp;resumo executivo"</h4>
+        <p>Se&nbsp;falhar uma&nbsp;vez em&nbsp;cem, você reordena em&nbsp;dois minutos. É regra boa, e&nbsp;é
+        texto: instrução, e&nbsp;nada além disso.</p></div>
     </div>
 
-    <p class="fig-leg"><strong>Repare que&nbsp;as&nbsp;duas tarefas do&nbsp;parágrafo acima pagam
-    base, e&nbsp;por&nbsp;caminhos diferentes.</strong> Uma&nbsp;paga em&nbsp;duas semanas, a&nbsp;outra em&nbsp;nove
-    meses. Quem não&nbsp;faz a&nbsp;conta trata as&nbsp;duas como se&nbsp;fossem a&nbsp;mesma decisão.</p>
-
-
-    <div class="grade grade-2 solta">
-      <div class="cartao">
-        <span class="rot">As duas próximas a virar base</span>
-        <ul class="lista">
-          <li>Triagem de&nbsp;proposta de&nbsp;fornecedor, uma&nbsp;seis vezes por&nbsp;mês</li>
-          <li>Conferência de&nbsp;lista de&nbsp;presença, quatro vezes</li>
-        </ul>
-        <p style="margin:0">As&nbsp;duas são chatas, repetitivas e&nbsp;têm critério estável.</p>
-      </div>
-      <div class="cartao">
-        <span class="rot">As duas que ficam de fora</span>
-        <ul class="lista">
-          <li>O&nbsp;relatório anual, porque&nbsp;acontece uma&nbsp;vez e&nbsp;cada ano é diferente</li>
-          <li>O&nbsp;ofício de&nbsp;resposta ao&nbsp;financiador, porque&nbsp;a&nbsp;situação muda toda vez</li>
-        </ul>
-        <p style="margin:0">Do&nbsp;segundo se&nbsp;pede redação, não&nbsp;procedimento.</p>
-      </div>
-    </div>
-
-    <div class="aviso">
-      <div class="aviso-t">O que separa uma decisão boa de uma rasa</div>
-      <p>A&nbsp;rasa escolhe as&nbsp;tarefas mais importantes. A&nbsp;boa escolhe <strong>as&nbsp;mais
-      repetitivas com&nbsp;critério estável</strong>, que&nbsp;quase nunca são as&nbsp;mesmas.</p>
-    </div>
+    <p class="fig-leg"><strong>Chamar de&nbsp;tranca o&nbsp;que&nbsp;é capricho é o&nbsp;erro caro do&nbsp;outro
+    lado.</strong> Toda tranca custa: uma&nbsp;etapa a&nbsp;mais, uma&nbsp;pessoa a&nbsp;mais, um&nbsp;atraso. Se&nbsp;o&nbsp;estrago cabe em&nbsp;dois minutos de&nbsp;conserto, a&nbsp;tranca custa mais do&nbsp;que&nbsp;evita.</p>
   </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Você já&nbsp;tem o&nbsp;que&nbsp;precisa para&nbsp;usar isto amanhã: a&nbsp;regra da&nbsp;sua&nbsp;área que&nbsp;não&nbsp;é texto, e&nbsp;onde&nbsp;a&nbsp;tranca dela vive. O&nbsp;que&nbsp;vem abaixo é
+  <strong>aprofundamento</strong>: leia agora se&nbsp;tiver cinco minutos, ou&nbsp;volte aqui antes
+  de&nbsp;a&nbsp;sua&nbsp;área ligar qualquer coisa nova.</p>
 
   <section class="secao" id="s07">
     <div class="secao-topo">
@@ -3013,21 +3098,23 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     </div>
 
     <div class="aviso erro">
-      <div class="aviso-t">Investir base na tarefa mais importante</div>
-      <p>Importante e&nbsp;repetitiva são coisas diferentes, e&nbsp;a&nbsp;base só&nbsp;paga a&nbsp;segunda.
-      Montar base para&nbsp;o&nbsp;que&nbsp;acontece uma&nbsp;vez por&nbsp;ano é gastar hoje um&nbsp;trabalho que&nbsp;estará desatualizado quando&nbsp;a&nbsp;tarefa voltar.</p>
+      <div class="aviso-t">Chamar de tranca o que é só capricho</div>
+      <p>Se&nbsp;toda regra virar tranca, o&nbsp;trabalho para.&nbsp;Cada tranca cobra uma&nbsp;etapa, uma&nbsp;assinatura, um&nbsp;atraso. <strong>A&nbsp;pergunta do&nbsp;estrago serve para&nbsp;os&nbsp;dois lados</strong>:
+      ela promove a&nbsp;regra crítica e&nbsp;rebaixa a&nbsp;que&nbsp;só&nbsp;era preferência.</p>
     </div>
 
     <div class="aviso erro">
-      <div class="aviso-t">Desistir na semana 2, quando ainda está empatado</div>
-      <p>A&nbsp;base não&nbsp;devolve nada nas&nbsp;primeiras vezes, por&nbsp;definição: ela custa antes e&nbsp;rende depois. <strong>Quem mede na&nbsp;semana 2 conclui que&nbsp;não&nbsp;valeu</strong>, e&nbsp;a&nbsp;conclusão está certa para&nbsp;a&nbsp;semana 2 e&nbsp;errada para&nbsp;o&nbsp;trimestre.</p>
+      <div class="aviso-t">Confiar mais porque escreveu com mais ênfase</div>
+      <p>Caixa alta e&nbsp;negrito mudam a&nbsp;sua&nbsp;confiança, e&nbsp;não&nbsp;o&nbsp;mecanismo. <strong>É o&nbsp;pior
+      dos&nbsp;dois mundos</strong>: mesma taxa de&nbsp;falha, e&nbsp;mais gente achando que&nbsp;está
+      resolvido.</p>
     </div>
 
     <div class="aviso erro">
-      <div class="aviso-t">Achar que a base substitui o pedido</div>
-      <p>O&nbsp;pedido encolhe e&nbsp;não&nbsp;desaparece. Base boa com&nbsp;pedido sem&nbsp;critério de&nbsp;sucesso
-      devolve trabalho bem feito na&nbsp;direção errada, que&nbsp;é mais caro do&nbsp;que&nbsp;resposta
-      genérica: essa você percebe na&nbsp;hora.</p>
+      <div class="aviso-t">Deixar a tranca para "quando estiver rodando"</div>
+      <p>A&nbsp;tranca é a&nbsp;única coisa deste módulo que&nbsp;não&nbsp;se&nbsp;resolve com&nbsp;a&nbsp;ferramenta: ela
+      depende de&nbsp;gente, de&nbsp;processo e&nbsp;às&nbsp;vezes de&nbsp;sistema. Por&nbsp;isso ela é a&nbsp;primeira a&nbsp;combinar, e&nbsp;não&nbsp;a&nbsp;última. <strong>Quem deixa para&nbsp;depois descobre a&nbsp;necessidade dela
+      no&nbsp;dia do&nbsp;estrago.</strong></p>
     </div>
   </section>
 
@@ -3036,36 +3123,36 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       <div class="secao-n">08</div>
       <div>
         <div class="secao-fn">A cerca</div>
-        <h2>O&nbsp;que&nbsp;a&nbsp;base não&nbsp;faz, por&nbsp;melhor que&nbsp;ela esteja</h2>
+        <h2>O&nbsp;que&nbsp;a&nbsp;tranca não&nbsp;resolve</h2>
       </div>
     </div>
 
-    <p>Este é o&nbsp;fim do&nbsp;módulo, e&nbsp;vale dizer com&nbsp;clareza o&nbsp;que&nbsp;não&nbsp;foi entregue nele, para&nbsp;ninguém sair esperando o&nbsp;que&nbsp;não&nbsp;vem.</p>
+    <p>Ela protege do&nbsp;estrago grande, e&nbsp;não&nbsp;substitui nada do&nbsp;que&nbsp;veio antes.</p>
 
     <div class="cartao">
-      <span class="rot">O que continua fora, mesmo com tudo montado</span>
-      <p><strong>Ela não&nbsp;toca nos&nbsp;seus&nbsp;arquivos.</strong> Tudo que&nbsp;você montou até&nbsp;aqui
-      vive dentro da&nbsp;conversa e&nbsp;do&nbsp;projeto. A&nbsp;planilha continua sendo anexada à&nbsp;mão, e&nbsp;o&nbsp;resultado continua saindo como texto na&nbsp;tela.</p>
-      <p><strong>Ela não&nbsp;roda sem&nbsp;você.</strong> Nada do&nbsp;que&nbsp;existe hoje acontece
-      sozinho: alguém abre, pede e&nbsp;confere. O&nbsp;encontro 4 é onde&nbsp;isso muda.</p>
-      <p><strong>Ela não&nbsp;decide.</strong> Depois de&nbsp;quatro aulas construindo base, a&nbsp;parte que&nbsp;continua sua&nbsp;é exatamente a&nbsp;mesma do&nbsp;primeiro dia, e&nbsp;agora ela ocupa
-      uma&nbsp;fatia maior do&nbsp;seu&nbsp;tempo. Era esse o&nbsp;objetivo.</p>
+      <span class="rot">Onde ela para</span>
+      <p><strong>Tranca não&nbsp;melhora resposta.</strong> Ela impede o&nbsp;pior caso de&nbsp;sair, e&nbsp;o&nbsp;trabalho comum continua dependendo da&nbsp;instrução bem escrita e&nbsp;do&nbsp;pedido bem feito.</p>
+      <p><strong>Tranca não&nbsp;é sua&nbsp;sozinha.</strong> Etapa de&nbsp;conferência, alçada e&nbsp;acesso
+      a&nbsp;sistema são decisões da&nbsp;casa. O&nbsp;que&nbsp;você leva desta aula é a&nbsp;lista do&nbsp;que&nbsp;precisa
+      ser combinado, e&nbsp;com&nbsp;quem.</p>
+      <p><strong>Tranca não&nbsp;dispensa a&nbsp;conferência.</strong> As&nbsp;quatro camadas da&nbsp;aula 3
+      do&nbsp;nivelamento continuam sendo o&nbsp;seu&nbsp;trabalho em&nbsp;tudo que&nbsp;não&nbsp;é crítico, que&nbsp;é a&nbsp;maior parte do&nbsp;dia.</p>
     </div>
 
     <div class="aviso atencao">
       <div class="aviso-t">O que nunca acontece neste nível</div>
-      <p>Base montada não&nbsp;vira desculpa para&nbsp;conferir menos. Quanto menor o&nbsp;pedido, mais
-      da&nbsp;resposta veio de&nbsp;coisa escrita semanas atrás, que&nbsp;você não&nbsp;relê. É por&nbsp;isso que&nbsp;as&nbsp;quatro camadas da&nbsp;aula 3 fecham este módulo também.</p>
+      <p>Nenhuma regra crítica fica dependendo só&nbsp;de&nbsp;estar escrita. Se&nbsp;a&nbsp;sua&nbsp;casa não&nbsp;tem
+      tranca para&nbsp;uma&nbsp;regra da&nbsp;coluna B, o&nbsp;material não&nbsp;resolve isso: <strong>o&nbsp;que&nbsp;resolve é a&nbsp;conversa com&nbsp;quem pode criar a&nbsp;etapa.</strong></p>
     </div>
   </section>
 
   <div class="checagem">
     <span class="rot">Confira você mesmo</span>
     <ul>
-      <li>Você tem os&nbsp;dois pedidos lado a&nbsp;lado, o&nbsp;do&nbsp;começo do&nbsp;curso e&nbsp;o&nbsp;de&nbsp;agora</li>
-      <li>As&nbsp;duas próximas tarefas foram escolhidas por&nbsp;repetição, e&nbsp;não&nbsp;por&nbsp;importância</li>
-      <li>Duas tarefas ficaram explicitamente de&nbsp;fora, com&nbsp;o&nbsp;motivo escrito</li>
-      <li>Você sabe dizer em&nbsp;quantas repetições a&nbsp;base daquela tarefa se&nbsp;paga</li>
+      <li>Você escolheu uma&nbsp;regra, e&nbsp;não&nbsp;marcou todas como críticas</li>
+      <li>O&nbsp;campo 2 tem um&nbsp;caso concreto, com&nbsp;quem descobre e&nbsp;o&nbsp;que&nbsp;a&nbsp;casa faz depois</li>
+      <li>O&nbsp;campo 3 é um&nbsp;campo, uma&nbsp;pasta ou&nbsp;um&nbsp;botão, e&nbsp;não&nbsp;uma&nbsp;frase escrita para&nbsp;ele</li>
+      <li>Você sabe dizer qual das&nbsp;suas&nbsp;regras é capricho, e&nbsp;por&nbsp;isso continua sendo texto</li>
     </ul>
   </div>
 
@@ -3073,21 +3160,22 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <div class="fecho-rot">Você sabe fazer isto agora</div>
     <div class="fecho-sub">Confira sozinho: se algum item não estiver de pé, volte na seção que o cobre.</div>
     <ul>
-      <li><span><strong>Você reconhece</strong> o&nbsp;teto do&nbsp;pedido, e&nbsp;para&nbsp;de&nbsp;mexer em&nbsp;palavras quando&nbsp;chega nele</span></li>
-      <li><span><strong>Você decide</strong> onde&nbsp;investir base pela&nbsp;repetição, e&nbsp;não&nbsp;pela&nbsp;importância</span></li>
-      <li><span><strong>Você escolhe</strong> o&nbsp;que&nbsp;fica de&nbsp;fora, que&nbsp;é o&nbsp;que&nbsp;faz o&nbsp;método sobreviver ao&nbsp;mês</span></li>
-      <li><span><strong>O&nbsp;artefato:</strong> a&nbsp;conta do&nbsp;seu&nbsp;caso, com&nbsp;duas tarefas escolhidas e&nbsp;duas descartadas</span></li>
+      <li><span><strong>Você separa</strong> regra que&nbsp;pode ser texto de&nbsp;regra que&nbsp;precisa de&nbsp;trava</span></li>
+      <li><span><strong>Você usa</strong> a&nbsp;pergunta do&nbsp;estrago, e&nbsp;não&nbsp;a&nbsp;da&nbsp;importância</span></li>
+      <li><span><strong>Você aponta</strong> onde&nbsp;a&nbsp;tranca vive, fora da&nbsp;conversa</span></li>
+      <li><span><strong>O&nbsp;artefato:</strong> a&nbsp;regra da&nbsp;sua&nbsp;área que&nbsp;hoje está protegida só&nbsp;por&nbsp;confiança</span></li>
     </ul>
-    <div class="fecho-nota">O Módulo 1 termina aqui. Tudo que você montou vive dentro da conversa, e o próximo encontro tira isso de lá.</div>
+    <div class="fecho-nota">Este é o item do módulo que você leva para uma conversa de gestão, e não para a ferramenta.</div>
   </div>
 
   <div class="gancho">
     <span class="rot">A trava que esta aula não resolve</span>
-    <p>A&nbsp;sua&nbsp;base está pronta, e&nbsp;ela só&nbsp;alcança o&nbsp;que&nbsp;você anexa à&nbsp;mão, uma&nbsp;coisa de&nbsp;cada vez. Os&nbsp;arquivos de&nbsp;verdade estão numa&nbsp;pasta, são muitos, e&nbsp;copiar um&nbsp;por&nbsp;um&nbsp;já&nbsp;é o&nbsp;trabalho que&nbsp;você queria evitar. <strong>É essa a&nbsp;porta do&nbsp;Módulo 2</strong>,
-    e&nbsp;é onde&nbsp;o&nbsp;que&nbsp;você escreveu vira um&nbsp;arquivo que&nbsp;mora junto do&nbsp;material.</p>
+    <p>Você já&nbsp;sabe onde&nbsp;cada regra mora e&nbsp;o&nbsp;que&nbsp;não&nbsp;pode depender de&nbsp;texto. Falta a&nbsp;pergunta do&nbsp;dinheiro: <strong>vale a&nbsp;pena montar tudo isso para&nbsp;qual tarefa?</strong>
+    Preparar base custa tempo antes de&nbsp;devolver qualquer coisa, e&nbsp;nem toda tarefa paga
+    esse custo. <strong>É a&nbsp;próxima aula</strong>, e&nbsp;ela tem uma&nbsp;conta.</p>
   </div>
 
-<nav class="rodape-nav"><a href="../m1a3-mapa/">&larr; O mapa: onde cada regra mora</a><span></span></nav>
+<nav class="rodape-nav"><a href="../m1a5-mapa/">&larr; O mapa: onde cada regra mora</a><a href="../m1a7-base/">Por que a base multiplica &rarr;</a></nav>
 </main>
 
 

@@ -241,12 +241,11 @@ def g5_prompt_tem_os_quatro_paragrafos(rel, html):
             html, flags=re.S), 1):
         if ident not in copiaveis:
             continue
-        # 🔴 A EXCECAO QUE O COMENTARIO ACIMA JA DECLARAVA e o codigo nao tinha.
-        # Um TRECHO DE CONFIGURACAO copiavel (o perfil da conta, um arquivo de
-        # regras) nao e um pedido, e nao tem por que ter "O que eu preciso" nem
-        # "Na duvida": ele nao pede nada, ele descreve quem pergunta.
-        # A marca e estrutural, nao caso a caso: quem quiser a excecao escreve
-        # .config na classe, e o gate continua conferindo todo o resto.
+        # A EXCECAO QUE O COMENTARIO ACIMA JA DECLARAVA e o codigo nao tinha.
+        # Um trecho de CONFIGURACAO copiavel (o perfil da conta, um arquivo de
+        # regras) nao e um pedido: ele nao pede nada, descreve quem pergunta.
+        # A marca e estrutural, nao caso a caso -- quem quer a dispensa escreve
+        # .config na classe, e o gate continua cobrando todo o resto.
         if "config" in classes.split():
             continue
         texto = corpo.replace("&nbsp;", " ")
@@ -653,6 +652,30 @@ def g23_pergunta_de_grupo_tem_destrave(rel, html):
     compartilhada" e acha que respondeu.
     """
     falhas = []
+
+    # 🔴 O EXERCICIO TAMBEM. Ate 28/08 este gate so varria .perguntas, e entao
+    # um exercicio de quatro passos sem nenhum destrave passava nas 864
+    # checagens com zero achado. Foi o defeito que o autor do curso achou DUAS
+    # vezes no piloto IEL, apontando a pagina de origem, enquanto a suite dizia
+    # "passou". No exercicio a unidade e o proprio .passo, nao a .pergunta:
+    # ou todos os passos destravam, ou nenhum destrava. O passo que destrava ao
+    # lado do que nao destrava ensina que o segundo e mais facil.
+    passos = [c for _, c in blocos_por_classe(html, "passo")]
+    if passos:
+        com_d = [c for c in passos if 'class="destrave"' in c]
+        # NAO e "tudo ou nada" aqui: "abra uma conversa nova" nao tem o que
+        # destravar. O que nao pode e o exercicio inteiro sem nenhum -- foi
+        # assim que as 5 aulas de nivelamento do piloto IEL sairam, 17 passos
+        # e zero destrave, e a suite deu "passou".
+        if not com_d:
+            falhas.append("{}: {} passos e nenhum destrave. Todo passo que pede "
+                          "o aluno a produzir texto proprio precisa de um"
+                          .format(rel, len(passos)))
+        for corpo in com_d:
+            if 'class="destrave-nao"' not in corpo:
+                falhas.append("{}: um passo com destrave nao diz o que NAO conta "
+                              "como resposta".format(rel))
+
     for i, (_, bloco) in enumerate(blocos_por_classe(html, "perguntas"), 1):
         perguntas = blocos_por_classe(bloco, "pergunta")
         if not perguntas:
@@ -1005,6 +1028,9 @@ def g32_a_pagina_bate_com_o_insumo(rel, html):
         return []
     falhas = []
     for slug, info in manifesto.items():
+        # Uma aula pode ter mais de uma demonstracao: "caso" aceita string
+        # (um caso) ou lista (varios). Antes so a string passava, e a aula com
+        # duas demonstracoes quebrava o manifesto.
         casos = info["caso"]
         if isinstance(casos, str):
             casos = [casos]
@@ -1087,7 +1113,11 @@ EU_INSTRUTOR = re.compile(
 # é exatamente o que o padrão manda escrever ali. Estes blocos saem da varredura.
 VOZ_DO_ALUNO = re.compile(
     r'<pre class="[^"]*\b(?:prompt-txt|cr-txt)\b[^"]*"[^>]*>.*?</pre>'
-    r"|<textarea\b.*?</textarea>",
+    r"|<textarea\b.*?</textarea>"
+    # O .cv-rot e ROTULO DE CANVAS: texto que o aluno preenche, na voz dele.
+    # Sem esta linha o gate acusava "escrevo" dentro de um rotulo e mandava
+    # consertar o que estava certo. Achado no piloto IEL.
+    r'|<[^>]*class="[^"]*\bcv-rot\b[^"]*"[^>]*>.*?</[a-zA-Z]+>',
     re.S | re.I)
 
 TURMA_COMO_PLATEIA = re.compile(
@@ -1209,6 +1239,158 @@ def g36_a_mesa_fecha_cem(rel, html):
     return falhas
 
 
+# Filhos diretos legitimos do <main>. Levantado das 6 paginas do padrao em
+# 28/08. Peca de CONTEUDO nunca entra aqui: ela mora dentro de um destes.
+PRIMEIRO_NIVEL = {
+    "secao", "passo", "heroi", "aviso", "nesta-aula",
+    "checagem", "fecho", "gancho", "rodape-nav", "doc", "doc-barra",
+    # o divisor da aula com dois comprimentos, e a nota dele
+    "ate-aqui", "ate-aqui-nota",
+}
+
+
+def g37_as_divs_fecham(rel, html):
+    """Cada <div> aberta fecha.
+
+    🔴 Nasceu de defeito real no piloto IEL: um <div> do .grao copiado da
+    vitrine sem a linha de fechamento. Toda a secao 02 caiu dentro de um grid
+    de duas colunas e a pagina passou a rolar na horizontal. Os 36 gates deram
+    zero achado e quem pegou foi o navegador.
+    """
+    abre = len(re.findall(r"<div\b", html))
+    fecha = len(re.findall(r"</div\s*>", html))
+    if abre != fecha:
+        return ["{}: {} <div> aberta(s) para {} fechada(s), diferenca de {}"
+                .format(rel, abre, fecha, abs(abre - fecha))]
+    return []
+
+
+def g38_todo_bloco_mora_em_envelope(rel, html):
+    """Filho direto do <main> so pode ser envelope, nunca peca de conteudo.
+
+    🔴 Nasceu de defeito real no piloto IEL: um bloco inteiro emendado DEPOIS
+    do </section> em vez de antes. O HTML existia, o balanceamento fechava, os
+    36 gates deram zero, e o bloco nao estava dentro de secao nenhuma -- entao
+    nascia sem a margem, sem a numeracao e fora do sumario.
+    """
+    m = re.search(r"<main\b[^>]*>", html)
+    if not m:
+        return []
+    falhas, i, prof = [], m.end(), 1
+    while i < len(html) and prof:
+        tag = re.search(r"<(/?)([a-zA-Z]\w*)([^>]*?)>", html[i:])
+        if not tag:
+            break
+        if prof == 1 and not tag.group(1):
+            cls = re.search(r'class="([^"]*)"', tag.group(3))
+            nomes = cls.group(1).split() if cls else []
+            if not (set(nomes) & PRIMEIRO_NIVEL):
+                falhas.append('{}: <{} class="{}"> e filho direto do <main>: '
+                              "todo bloco mora dentro de um envelope"
+                              .format(rel, tag.group(2), " ".join(nomes)))
+        i += tag.end()
+        if tag.group(2).lower() in ("br", "img", "input", "meta", "link", "hr", "source"):
+            continue
+        prof += -1 if tag.group(1) else 1
+    return falhas
+
+
+def _e_aula(html):
+    """Pagina de AULA: oito secoes e pelo menos um conceito.
+
+    A ASSINATURA E A PROPRIA ANATOMIA. A aula tem exatamente 8 .secao, porque
+    a anatomia e fixa; a vitrine tem 48, o modulo tem 2, a pagina de caso e o
+    exemplo tem zero. Medido nas 6 paginas do padrao e nas 9 aulas do piloto
+    IEL em 28/08: todas as nove tinham 8, sem excecao.
+
+    Nao depende de NOME de pagina (foi o que deixou tres gates cegos no
+    piloto) nem de campo novo no gerador. Se a anatomia mudar de tamanho,
+    este numero muda junto, e e por isso que ele mora aqui e nao espalhado.
+    """
+    secoes = len(re.findall(r'<section class="(?:[^"]* )?secao(?: [^"]*)?"', html))
+    if secoes != 8:
+        return None
+    con = re.findall(r'<[^>]*class="(?:[^"]* )?conceito(?: [^"]*)?"', html)
+    pas = re.findall(r'<[^>]*class="(?:[^"]* )?passo(?: [^"]*)?"', html)
+    return (len(con), len(pas)) if con else None
+
+
+def g39_uma_aula_um_conceito(rel, html):
+    """🔴 UMA AULA, UM CONCEITO. Dois conceitos sao duas aulas.
+
+    Ate 28/08 a anatomia dizia "o conceito DIVIDIDO se for mais de um", e o
+    resultado medido no piloto IEL foi: 9 de 9 aulas com dois conceitos
+    empilhados na secao 02 e a primeira pratica so na secao 05. A regra 1 do
+    roteiro -- conceito, imagem, pratica, proximo conceito -- estava escrita e
+    era inaplicavel, porque duas voltas do ciclo nao cabem em oito secoes.
+
+    A cura nao e reordenar: e cortar. Com um conceito por aula o ciclo fecha
+    sozinho, a aula encolhe, e o encontro passa a ter MAIS voltas de pratica,
+    nao menos -- que era o que faltava quando a sala ficou parada em 27/08.
+    """
+    m = _e_aula(html)
+    if not m:
+        return []
+    conceitos, _ = m
+    if conceitos > 1:
+        return ["{}: {} conceitos numa aula so. Uma aula, um conceito -- o "
+                "segundo vira outra aula".format(rel, conceitos)]
+    return []
+
+
+def g41_o_conceito_vem_com_imagem(rel, html):
+    """🔴 Todo conceito nasce com a analogia junto. A imagem nao vem depois.
+
+    "As pessoas nao entendem o que voce fala, mas o que elas veem ou o que elas
+    sentem quando voce fala" -- e "a imagem vem primeiro, para depois processar
+    o entendimento". Da formula AIDEN, de Adriano de Marqui.
+
+    Medido no piloto IEL, aula n1: a secao de conceito tinha 632 palavras e a
+    primeira figura so chegava na secao seguinte. Seiscentas palavras de
+    abstracao antes de qualquer imagem foi o que travou a sala em 27/08 -- e a
+    ordem das secoes nao tem nada a ver com isso.
+
+    A peca .analogia carrega tres das cinco partes do AIDEN: a imagem (corpo),
+    o detalhamento (.analogia-mapa, o de-para) e a extensao (.analogia-mais).
+    O abstrato mora no .conceito e a negacao no .contraste, que ja existiam.
+    """
+    if not _e_aula(html):
+        return []
+    falhas = []
+    for i, (_, corpo) in enumerate(blocos_por_classe(html, "conceito"), 1):
+        if 'class="analogia"' not in corpo:
+            falhas.append("{}: o conceito {} nao tem analogia. A imagem nao vem "
+                          "depois do conceito: ela e como o conceito se diz"
+                          .format(rel, i))
+    for i, (_, corpo) in enumerate(blocos_por_classe(html, "analogia"), 1):
+        if 'class="analogia-mapa"' not in corpo:
+            falhas.append("{}: a analogia {} nao mapeia a imagem na coisa. Sem o "
+                          "de-para ela e enfeite".format(rel, i))
+    return falhas
+
+
+def g40_a_aula_declara_onde_acaba(rel, html):
+    """🔴 Toda aula tem o divisor, e ele fica entre o gabarito e as pegadinhas.
+
+    A aula tem DOIS COMPRIMENTOS declarados: ate o divisor e obrigatorio, o
+    resto e aprofundamento e o aluno escolhe. Peca HERDADA de "Claude para
+    Lideres" (Adriano Couto) -- herdamos a forma, nada do texto.
+
+    Medido na aula n1 do piloto IEL: 2.349 palavras ate o gabarito e 1.118
+    depois, sendo 982 so na secao 08. Sem o divisor tudo chega como
+    obrigatorio, e a aula de nivelamento vira 3.467 palavras de leitura.
+    """
+    if not _e_aula(html):
+        return []
+    if 'class="ate-aqui"' not in html:
+        return ["{}: aula sem o divisor. Toda aula declara onde acaba o "
+                "obrigatorio e comeca o aprofundamento".format(rel)]
+    if 'class="ate-aqui-nota"' not in html:
+        return ["{}: o divisor esta sem a nota que diz ao aluno o que fazer "
+                "com o que vem depois".format(rel)]
+    return []
+
+
 # =========================================================================
 # A LISTA · gate, defeito injetado, página alvo do defeito
 # =========================================================================
@@ -1280,13 +1462,12 @@ GATES = [
      lambda h: h.replace('<span class="fr">', ""),
      "componentes/index.html"),
     ("G32", "a página bate com o insumo", g32_a_pagina_bate_com_o_insumo,
-     # 🔴 MESMO ACHADO do G35/G36, agora no G32: o defeito injetado estava preso
-     # ao VOCABULARIO do template ("a coluna Loja"). Este curso nao tem loja, tem
-     # unidade, entao o gate nascia CEGO. Reapontado para uma coluna real do
-     # insumo daqui. Conserto certo do lado de la: injetar o defeito a partir do
-     # insumos.json, que ja sabe quais sao as colunas de verdade.
-     lambda h: h.replace("coluna Unidade", "coluna Filial", 1),
-     "caso/index.html"),
+     # defeito por PADRAO, nao pelo vocabulario do template: troca o nome da
+     # primeira coluna citada, seja ela qual for no insumo deste curso.
+     # a coluna em Maiuscula e a que o gate confere contra o insumo; trocar a
+     # primeira minuscula que aparecer na prosa nao prova nada.
+     lambda h: re.sub(r"(a coluna )([A-ZÀ-Ý]\w*)", r"\1Filial", h, count=1),
+     None),
     ("G31", "o roteiro cita classe que existe", g31_o_roteiro_cita_classe_que_existe,
      lambda h: h.replace(".diagnostico{", ".classe-que-sumiu{", 1),
      "index.html"),
@@ -1330,19 +1511,29 @@ GATES = [
      g35_breakout_nao_sobrevive_a_shorthand,
      lambda h: h.replace(".aulas-lista{display:flex",
                          ".aulas-lista{margin:22px 0;display:flex", 1),
-     # 🔴 ACHADO: o alvo de calibracao estava ancorado em NOME de pagina do
-     # template ("modulo/index.html", "aula/index.html"), e nenhum curso real
-     # usa esses nomes. Aqui as paginas sao "nivelamento" e "n1-dois-modos",
-     # entao os dois gates nasceram CEGOS e a suite inteira reprovou com zero
-     # achado real. O gate continua varrendo todas as paginas: o que falhou
-     # foi o auto-teste dele.
-     # Conserto certo, do lado de la: achar o alvo por CONTEUDO (a primeira
-     # pagina que tem .aulas-lista, a primeira que tem .mesa), nao por nome.
-     "nivelamento/index.html"),
+     None),
     ("G36", "a mesa fecha 100", g36_a_mesa_fecha_cem,
-     lambda h: h.replace('class="mesa-faixa livre" style="width:58%"',
-                         'class="mesa-faixa livre" style="width:40%"', 1),
-     "componentes/index.html"),
+     # defeito por PADRAO: desloca a largura da primeira faixa, qualquer que
+     # seja o valor dela nesta pagina, e a soma deixa de fechar 100.
+     lambda h: re.sub(r'(class="mesa-faixa[^"]*"[^>]*style="width:)([\d.]+)(%)',
+                      lambda m: "{}{:g}{}".format(m.group(1),
+                                                  float(m.group(2)) + 7, m.group(3)),
+                      h, count=1),
+     None),
+    ("G37", "as divs fecham", g37_as_divs_fecham,
+     lambda h: h.replace("</div>", "", 1), None),
+    ("G38", "todo bloco mora em envelope", g38_todo_bloco_mora_em_envelope,
+     lambda h: re.sub(r"(<main\b[^>]*>)",
+                      r'\1<div class="cartao">defeito injetado</div>', h, count=1),
+     None),
+    ("G39", "uma aula, um conceito", g39_uma_aula_um_conceito,
+     lambda h: h.replace("</main>",
+                         '<div class="conceito">defeito injetado</div></main>', 1),
+     None),
+    ("G40", "a aula declara onde acaba", g40_a_aula_declara_onde_acaba,
+     lambda h: h.replace('class="ate-aqui"', 'class="ate-aqui-sumiu"', 1), None),
+    ("G41", "o conceito vem com imagem", g41_o_conceito_vem_com_imagem,
+     lambda h: h.replace('class="analogia"', 'class="analogia-sumiu"', 1), None),
 ]
 
 
@@ -1365,21 +1556,31 @@ def main():
             for f in fn(rel, html):
                 falhas.append("{}: {}".format(rel, f))
 
-        # calibração: o gate acusa o próprio defeito?
-        alvo = alvo_defeito or docs[0][0]
-        limpo = por_rel.get(alvo)
-        if limpo is None:
-            cegos.append("{} · alvo de calibração não existe: {}".format(gid, alvo))
-            acusou = False
-        else:
+        # 🔴 A CALIBRACAO ACHA O ALVO SOZINHA.
+        # Ate 28/08 todo alvo era NOME de pagina do template ("modulo/index.html").
+        # Nenhum curso real usa esses nomes: no piloto IEL as paginas se chamavam
+        # "nivelamento" e "n1-dois-modos", e tres gates nasceram cegos de uma vez
+        # -- a suite reprovou inteira sem um achado real, e a sessao teve que
+        # reapontar os alvos a mao, conserto que morre na proxima sincronizacao.
+        # Agora o alvo declarado e so uma DICA: se ele nao existe, ou se o defeito
+        # nao prova nada nele, a calibracao varre as demais paginas e fica na
+        # primeira em que o defeito injetado realmente faz o gate acusar.
+        # Gate novo pode nascer com alvo None: ele se acha.
+        candidatos = ([alvo_defeito] if alvo_defeito in por_rel else []) \
+            + [r for r, _ in docs if r != alvo_defeito]
+        alvo, acusou = alvo_defeito or candidatos[0], False
+        for cand in candidatos:
+            limpo = por_rel[cand]
             sujo = defeito(limpo)
             if sujo == limpo:
-                cegos.append("{} · o defeito não mudou nada em {}".format(gid, alvo))
-                acusou = False
-            else:
-                acusou = len(fn(alvo, sujo)) > len(fn(alvo, limpo))
-                if not acusou:
-                    cegos.append("{} · não acusou o defeito injetado em {}".format(gid, alvo))
+                continue
+            if len(fn(cand, sujo)) > len(fn(cand, limpo)):
+                alvo, acusou = cand, True
+                break
+        if not acusou:
+            cegos.append("{} · nenhuma das {} páginas prova este gate: ou o defeito "
+                         "injetado não muda nada, ou o gate não o acusa"
+                         .format(gid, len(candidatos)))
 
         marca = "FALHA " if falhas else ("CEGO  " if not acusou else "ok    ")
         print("{} {:<4} {:<40} {} achado(s) · calibrado: {}".format(

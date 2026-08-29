@@ -388,6 +388,12 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    FUNÇÃO da seção, e o H2 diz o assunto dela. O aluno que abre a quinta aula
    já sabe onde as coisas estão.                                             */
 .secao{margin-bottom:64px;scroll-margin-top:80px}
+/* h3 SOLTO, fora de componente. O reset zera a margem de todo titulo e cada
+   componente devolve a sua; o h3 direto na secao ficava sem nenhuma, colado
+   no bloco de cima e no de baixo. Achado no piloto IEL.
+   Filho direto so: h3 dentro de componente continua com a margem dele.      */
+.secao > h3{margin:32px 0 12px}
+.secao > h3:first-child{margin-top:0}
 .secao-topo{display:flex;align-items:flex-start;gap:16px;margin-bottom:22px}
 .secao-n{
   font-family:var(--font-mono);font-size:30px;font-weight:500;
@@ -565,6 +571,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   padding:18px;margin:0;font-family:var(--font-mono);font-size:14px;
   line-height:1.7;color:var(--text);white-space:pre-wrap;
 }
+
 /* Trecho de CONFIGURACAO, nao de pedido. O perfil da conta e o arquivo de
    regras sao copiaveis e nao tem os quatro paragrafos de um prompt, porque
    nao pedem nada: descrevem quem pergunta. A borda a esquerda separa os dois
@@ -752,6 +759,33 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   border-radius:var(--raio);padding:20px;margin:30px 0;
 }
 .gancho p:last-child{margin-bottom:0}
+
+/* ---------- O DIVISOR · A AULA ACABA AQUI --------------------------------
+   HERDADO. A peca vem de "Claude para Lideres", de Adriano Couto, onde se
+   chama o divisor da bandeirada. Herdamos a FORMA -- a aula com dois
+   comprimentos declarados -- e nada do texto dele.
+
+   O que vem ANTES e a aula: situacao, conceito, figura, demonstracao,
+   pratica, gabarito. O que vem DEPOIS e aprofundamento, e o aluno escolhe.
+   Resolve a tensao entre "a aula tem que caber no encontro" e "quem quer
+   profundidade fica sem".
+
+   Medido na aula n1 do piloto IEL, 27/08: 2.349 palavras antes do divisor e
+   1.118 depois. Sem ele, as 3.467 chegam como se fossem todas obrigatorias
+   -- e foi a sensacao de sala parada que o autor relatou no encontro 1.   */
+.ate-aqui{display:flex;align-items:center;gap:16px;margin:46px 0 22px}
+.ate-aqui::before,.ate-aqui::after{
+  content:"";flex:1;height:1px;background:var(--border-strong);
+}
+.ate-aqui-rot{
+  font-family:var(--font-mono);font-size:11px;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--text-dim);white-space:nowrap;
+}
+.ate-aqui-nota{
+  font-size:15px;line-height:1.55;color:var(--text-dim);
+  text-align:center;max-width:560px;margin:0 auto 34px;
+}
+.ate-aqui-nota strong{color:var(--text)}
 
 .rodape-nav{
   display:flex;justify-content:space-between;gap:16px;
@@ -1202,6 +1236,16 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    estrutura; só o do meio ganha o selo e o fundo. E embaixo vem o resumo de uma
    linha por opção, que é o que a pessoa leva na cabeça.                       */
 .opcoes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0}
+
+/* MESMA CURA DO .contraste (commit 738b55b), que o .opcoes nao recebeu.
+   Com 3 colunas fixas, 4 opcoes deixam a quarta sozinha ocupando um terco da
+   largura. Medido no piloto IEL, m1a1-superficies secao 03.
+   Vai dentro de min-width porque abaixo de 720px tudo vira 1 coluna, e o
+   :has() tem especificidade maior que a regra do responsivo.                */
+@media (min-width:721px){
+  .opcoes:has(> .opc:nth-child(2)):not(:has(> .opc:nth-child(3))){grid-template-columns:repeat(2,1fr)}
+  .opcoes:has(> .opc:nth-child(4)):not(:has(> .opc:nth-child(5))){grid-template-columns:repeat(2,1fr)}
+}
 .opc{
   background:var(--bg-elev);border:1px solid var(--border);
   border-radius:var(--raio);display:flex;flex-direction:column;overflow:hidden;
@@ -2259,6 +2303,47 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
      .conceito ideia. O numero existe so para dizer QUANTAS sao, e some da
                memoria depois da leitura. Por isso aqui ele e texto.
    Trocar um pelo outro faz o aluno tentar "executar" um conceito.          */
+/* ---------- A ANALOGIA · o filminho na cabeca ----------------------------
+   HERDADA. A forma vem da formula AIDEN, de Adriano de Marqui (curso Didatica
+   Lendaria, no vault de Alan Nicolas). Herdamos a forma; o texto e nosso.
+
+   A regra que a peca serve: "as pessoas nao entendem o que voce fala, mas o
+   que elas veem ou o que elas sentem quando voce fala" -- e "a imagem vem
+   primeiro, para depois processar o entendimento".
+
+   AIDEN tem cinco partes. O padrao ja tinha duas:
+     A abstrato       -> .conceito, e agora ele cabe em UMA frase
+     I imagem         -> .analogia, o corpo
+     D detalhamento   -> .analogia-mapa, o de-para entre a analogia e a coisa
+     E extensao       -> .analogia-mais, onde mais isso aparece
+     N negacao        -> .contraste, que ja existia
+   Medido no piloto IEL: a secao de conceito tinha 632 palavras e a primeira
+   figura so chegava na secao seguinte, com 312. Seiscentas palavras de
+   abstracao antes de qualquer imagem foi o que travou a sala em 27/08.     */
+.analogia{
+  background:var(--bg-warm);border-left:3px solid var(--accent);
+  border-radius:0 var(--raio) var(--raio) 0;padding:18px 20px;margin:20px 0;
+}
+.analogia-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--accent-dark);margin-bottom:9px;
+}
+.analogia > p{margin:0 0 14px}
+.analogia > p:last-child{margin-bottom:0}
+.analogia-mapa{list-style:none;margin:0 0 14px;padding:0}
+.analogia-mapa li{
+  position:relative;padding-left:19px;margin-bottom:8px;font-size:16px;
+}
+.analogia-mapa li:last-child{margin-bottom:0}
+.analogia-mapa li::before{
+  content:"\2192";position:absolute;left:0;top:0;color:var(--accent);
+}
+.analogia-mapa li strong{color:var(--text)}
+.analogia-mais{
+  font-size:15px;color:var(--text-dim);border-top:1px solid var(--border);
+  padding-top:12px;margin:0;
+}
+
 .conceito{margin:34px 0}
 .conceito:first-of-type{margin-top:26px}
 .conceito-rot{
@@ -2429,8 +2514,20 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .fecho-sub{font-size:13px;color:var(--text-muted);margin-bottom:12px}
 .fecho ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-.fecho li{display:flex;gap:10px;align-items:baseline;font-size:15px;line-height:1.45}
-.fecho li::before{content:"\2713";color:var(--accent);flex:0 0 auto;font-size:13px}
+/* 🔴 O li NAO pode ser flex container.
+   Era display:flex, e entao <li><strong>Abertura</strong> resto do texto</li>
+   virava DUAS colunas: o negrito espremido numa faixa estreita e o texto ao
+   lado, desalinhado. Achado no piloto IEL: 36 itens em 9 aulas, e nenhum gate
+   pegou. E a armadilha n2 da secao 9 do CLAUDE.md, cometida pelo padrao.
+   O marcador agora e absoluto, entao o conteudo do li volta a ser texto
+   corrido e o negrito de abertura fica na mesma linha.
+   O line-height do ::before e 21,75/13 para a baseline do simbolo cair na
+   mesma linha da primeira linha do texto.                                   */
+.fecho li{position:relative;padding-left:23px;font-size:15px;line-height:1.45}
+.fecho li::before{
+  content:"\2713";position:absolute;left:0;top:0;
+  color:var(--accent);font-size:13px;line-height:1.673;
+}
 .fecho li strong{font-weight:600}
 .fecho-nota{
   font-size:13px;color:var(--text-muted);line-height:1.5;

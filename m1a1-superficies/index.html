@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quatro superfícies, e a mesa que todas dividem</title>
+<title>Quatro superfícies, e a que a sua tarefa pede</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -388,6 +388,12 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    FUNÇÃO da seção, e o H2 diz o assunto dela. O aluno que abre a quinta aula
    já sabe onde as coisas estão.                                             */
 .secao{margin-bottom:64px;scroll-margin-top:80px}
+/* h3 SOLTO, fora de componente. O reset zera a margem de todo titulo e cada
+   componente devolve a sua; o h3 direto na secao ficava sem nenhuma, colado
+   no bloco de cima e no de baixo. Achado no piloto IEL.
+   Filho direto so: h3 dentro de componente continua com a margem dele.      */
+.secao > h3{margin:32px 0 12px}
+.secao > h3:first-child{margin-top:0}
 .secao-topo{display:flex;align-items:flex-start;gap:16px;margin-bottom:22px}
 .secao-n{
   font-family:var(--font-mono);font-size:30px;font-weight:500;
@@ -565,6 +571,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   padding:18px;margin:0;font-family:var(--font-mono);font-size:14px;
   line-height:1.7;color:var(--text);white-space:pre-wrap;
 }
+
 /* Trecho de CONFIGURACAO, nao de pedido. O perfil da conta e o arquivo de
    regras sao copiaveis e nao tem os quatro paragrafos de um prompt, porque
    nao pedem nada: descrevem quem pergunta. A borda a esquerda separa os dois
@@ -752,6 +759,33 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   border-radius:var(--raio);padding:20px;margin:30px 0;
 }
 .gancho p:last-child{margin-bottom:0}
+
+/* ---------- O DIVISOR · A AULA ACABA AQUI --------------------------------
+   HERDADO. A peca vem de "Claude para Lideres", de Adriano Couto, onde se
+   chama o divisor da bandeirada. Herdamos a FORMA -- a aula com dois
+   comprimentos declarados -- e nada do texto dele.
+
+   O que vem ANTES e a aula: situacao, conceito, figura, demonstracao,
+   pratica, gabarito. O que vem DEPOIS e aprofundamento, e o aluno escolhe.
+   Resolve a tensao entre "a aula tem que caber no encontro" e "quem quer
+   profundidade fica sem".
+
+   Medido na aula n1 do piloto IEL, 27/08: 2.349 palavras antes do divisor e
+   1.118 depois. Sem ele, as 3.467 chegam como se fossem todas obrigatorias
+   -- e foi a sensacao de sala parada que o autor relatou no encontro 1.   */
+.ate-aqui{display:flex;align-items:center;gap:16px;margin:46px 0 22px}
+.ate-aqui::before,.ate-aqui::after{
+  content:"";flex:1;height:1px;background:var(--border-strong);
+}
+.ate-aqui-rot{
+  font-family:var(--font-mono);font-size:11px;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--text-dim);white-space:nowrap;
+}
+.ate-aqui-nota{
+  font-size:15px;line-height:1.55;color:var(--text-dim);
+  text-align:center;max-width:560px;margin:0 auto 34px;
+}
+.ate-aqui-nota strong{color:var(--text)}
 
 .rodape-nav{
   display:flex;justify-content:space-between;gap:16px;
@@ -1202,6 +1236,16 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    estrutura; só o do meio ganha o selo e o fundo. E embaixo vem o resumo de uma
    linha por opção, que é o que a pessoa leva na cabeça.                       */
 .opcoes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0}
+
+/* MESMA CURA DO .contraste (commit 738b55b), que o .opcoes nao recebeu.
+   Com 3 colunas fixas, 4 opcoes deixam a quarta sozinha ocupando um terco da
+   largura. Medido no piloto IEL, m1a1-superficies secao 03.
+   Vai dentro de min-width porque abaixo de 720px tudo vira 1 coluna, e o
+   :has() tem especificidade maior que a regra do responsivo.                */
+@media (min-width:721px){
+  .opcoes:has(> .opc:nth-child(2)):not(:has(> .opc:nth-child(3))){grid-template-columns:repeat(2,1fr)}
+  .opcoes:has(> .opc:nth-child(4)):not(:has(> .opc:nth-child(5))){grid-template-columns:repeat(2,1fr)}
+}
 .opc{
   background:var(--bg-elev);border:1px solid var(--border);
   border-radius:var(--raio);display:flex;flex-direction:column;overflow:hidden;
@@ -2259,6 +2303,47 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
      .conceito ideia. O numero existe so para dizer QUANTAS sao, e some da
                memoria depois da leitura. Por isso aqui ele e texto.
    Trocar um pelo outro faz o aluno tentar "executar" um conceito.          */
+/* ---------- A ANALOGIA · o filminho na cabeca ----------------------------
+   HERDADA. A forma vem da formula AIDEN, de Adriano de Marqui (curso Didatica
+   Lendaria, no vault de Alan Nicolas). Herdamos a forma; o texto e nosso.
+
+   A regra que a peca serve: "as pessoas nao entendem o que voce fala, mas o
+   que elas veem ou o que elas sentem quando voce fala" -- e "a imagem vem
+   primeiro, para depois processar o entendimento".
+
+   AIDEN tem cinco partes. O padrao ja tinha duas:
+     A abstrato       -> .conceito, e agora ele cabe em UMA frase
+     I imagem         -> .analogia, o corpo
+     D detalhamento   -> .analogia-mapa, o de-para entre a analogia e a coisa
+     E extensao       -> .analogia-mais, onde mais isso aparece
+     N negacao        -> .contraste, que ja existia
+   Medido no piloto IEL: a secao de conceito tinha 632 palavras e a primeira
+   figura so chegava na secao seguinte, com 312. Seiscentas palavras de
+   abstracao antes de qualquer imagem foi o que travou a sala em 27/08.     */
+.analogia{
+  background:var(--bg-warm);border-left:3px solid var(--accent);
+  border-radius:0 var(--raio) var(--raio) 0;padding:18px 20px;margin:20px 0;
+}
+.analogia-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--accent-dark);margin-bottom:9px;
+}
+.analogia > p{margin:0 0 14px}
+.analogia > p:last-child{margin-bottom:0}
+.analogia-mapa{list-style:none;margin:0 0 14px;padding:0}
+.analogia-mapa li{
+  position:relative;padding-left:19px;margin-bottom:8px;font-size:16px;
+}
+.analogia-mapa li:last-child{margin-bottom:0}
+.analogia-mapa li::before{
+  content:"\2192";position:absolute;left:0;top:0;color:var(--accent);
+}
+.analogia-mapa li strong{color:var(--text)}
+.analogia-mais{
+  font-size:15px;color:var(--text-dim);border-top:1px solid var(--border);
+  padding-top:12px;margin:0;
+}
+
 .conceito{margin:34px 0}
 .conceito:first-of-type{margin-top:26px}
 .conceito-rot{
@@ -2429,8 +2514,20 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .fecho-sub{font-size:13px;color:var(--text-muted);margin-bottom:12px}
 .fecho ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-.fecho li{display:flex;gap:10px;align-items:baseline;font-size:15px;line-height:1.45}
-.fecho li::before{content:"\2713";color:var(--accent);flex:0 0 auto;font-size:13px}
+/* 🔴 O li NAO pode ser flex container.
+   Era display:flex, e entao <li><strong>Abertura</strong> resto do texto</li>
+   virava DUAS colunas: o negrito espremido numa faixa estreita e o texto ao
+   lado, desalinhado. Achado no piloto IEL: 36 itens em 9 aulas, e nenhum gate
+   pegou. E a armadilha n2 da secao 9 do CLAUDE.md, cometida pelo padrao.
+   O marcador agora e absoluto, entao o conteudo do li volta a ser texto
+   corrido e o negrito de abertura fica na mesma linha.
+   O line-height do ::before e 21,75/13 para a baseline do simbolo cair na
+   mesma linha da primeira linha do texto.                                   */
+.fecho li{position:relative;padding-left:23px;font-size:15px;line-height:1.45}
+.fecho li::before{
+  content:"\2713";position:absolute;left:0;top:0;
+  color:var(--accent);font-size:13px;line-height:1.673;
+}
 .fecho li strong{font-weight:600}
 .fecho-nota{
   font-size:13px;color:var(--text-muted);line-height:1.5;
@@ -2547,15 +2644,15 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">Imersão em IA com Claude</a> &rsaquo; <a href="../m1/">Módulo 1</a> &rsaquo; Quatro superfícies, e a mesa que todas dividem</nav>
+<nav class="migalha"><a href="../">Imersão em IA com Claude</a> &rsaquo; <a href="../m1/">Módulo 1</a> &rsaquo; Quatro superfícies, e a que a sua tarefa pede</nav>
 
 
 <main class="folha">
   <div class="heroi">
     <div class="heroi-kicker">Módulo 1 · aula 1.1</div>
-    <h1>Quatro superfícies, e&nbsp;a&nbsp;mesa que&nbsp;todas dividem</h1>
-    <p class="heroi-sub">Onde&nbsp;cada tarefa sua&nbsp;mora, decidido em&nbsp;quatro perguntas, e&nbsp;por&nbsp;que&nbsp;a&nbsp;conversa longa piora sem&nbsp;ninguém mexer em&nbsp;nada.</p>
-    <div><span class="selo">Quatro perguntas</span><span class="selo">A janela de contexto</span></div>
+    <h1>Quatro superfícies, e&nbsp;a&nbsp;que&nbsp;a&nbsp;sua&nbsp;tarefa pede</h1>
+    <p class="heroi-sub">Onde&nbsp;cada tarefa sua&nbsp;mora, decidido em&nbsp;quatro perguntas, sem&nbsp;subir de&nbsp;superfície por&nbsp;status.</p>
+    <div><span class="selo">Quatro perguntas</span><span class="selo">Pare no primeiro sim</span></div>
   </div>
 
   <div class="nesta-aula">
@@ -2563,7 +2660,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <div class="nesta-aula-sub">Ao final, você será capaz de:</div>
     <ul>
       <li>Decidir em&nbsp;qual superfície cada tarefa sua&nbsp;mora, com&nbsp;quatro perguntas</li>
-      <li>Reconhecer o&nbsp;momento em&nbsp;que&nbsp;a&nbsp;conversa passou do&nbsp;ponto, e&nbsp;saber o&nbsp;que&nbsp;fazer</li>
+      <li>Escolher a&nbsp;tarefa da&nbsp;sua&nbsp;semana que&nbsp;vale virar projeto, com&nbsp;um&nbsp;motivo que&nbsp;se&nbsp;sustenta</li>
     </ul>
   </div>
 
@@ -2613,7 +2710,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <div class="aviso">
       <div class="aviso-t">A lista da esquerda, e o que você já conhece dela</div>
       <ul class="lista">
-        <li><strong>Projetos:</strong> a&nbsp;superfície deste módulo, e&nbsp;o&nbsp;assunto da&nbsp;próxima aula</li>
+        <li><strong>Projetos:</strong> a&nbsp;superfície deste módulo</li>
         <li><strong>Personalizar:</strong> onde&nbsp;mora o&nbsp;perfil que&nbsp;você escreveu na&nbsp;aula 5 do&nbsp;nivelamento</li>
         <li><strong>Programado:</strong> a&nbsp;rotina que&nbsp;roda sem&nbsp;você começar, e&nbsp;que&nbsp;é
         o&nbsp;fim do&nbsp;encontro 3</li>
@@ -2628,174 +2725,51 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <div class="secao-topo">
       <div class="secao-n">02</div>
       <div>
-        <div class="secao-fn">O conceito &middot; são dois</div>
-        <h2>O&nbsp;que&nbsp;ele alcança, e&nbsp;o&nbsp;quanto cabe de&nbsp;cada vez</h2>
+        <div class="secao-fn">O conceito</div>
+        <h2>O&nbsp;que&nbsp;ele alcança sem&nbsp;você levar na&nbsp;mão</h2>
       </div>
     </div>
 
     <div class="conceito">
-      <div class="conceito-rot">Conceito 1</div>
+      <div class="conceito-rot">O conceito desta aula</div>
       <h3>A&nbsp;superfície muda o&nbsp;alcance, não&nbsp;a&nbsp;inteligência</h3>
       <p>Trocar de&nbsp;superfície não&nbsp;deixa a&nbsp;resposta mais esperta. Muda <strong>o&nbsp;que&nbsp;ela
-      consegue enxergar sem&nbsp;você levar na&nbsp;mão</strong>, e&nbsp;cada degrau soma ao&nbsp;anterior:</p>
-      <ul class="lista">
-        <li><strong>Conversa:</strong> só&nbsp;o&nbsp;que&nbsp;foi colado ali</li>
-        <li><strong>Projeto:</strong> mais o&nbsp;que&nbsp;está guardado nas&nbsp;instruções</li>
-        <li><strong>Cowork:</strong> mais os&nbsp;arquivos da&nbsp;pasta que&nbsp;você liberar</li>
-        <li><strong>Code:</strong> mais as&nbsp;ferramentas que&nbsp;operam sozinhas</li>
-      </ul>
-      <p>Por&nbsp;isso a&nbsp;pergunta certa nunca é <em>"qual é o&nbsp;melhor?"</em>. É <em>"onde&nbsp;está o&nbsp;material desta tarefa?"</em>, e&nbsp;a&nbsp;resposta decide sozinha.</p>
-    </div>
+      consegue enxergar sem&nbsp;você levar na&nbsp;mão</strong>, e&nbsp;cada degrau soma ao&nbsp;anterior.</p>
 
-    <h3 style="margin:34px 0 14px">"Então é só&nbsp;usar sempre a&nbsp;de&nbsp;maior alcance?"</h3>
-
-    <p>É a&nbsp;conclusão natural do&nbsp;conceito acima, e&nbsp;ela custa caro. <strong>Alcance maior
-    é exatamente o&nbsp;que&nbsp;enche a&nbsp;mesa mais rápido</strong>: a&nbsp;pasta que&nbsp;ele lê inteira
-    ocupa um&nbsp;espaço que&nbsp;a&nbsp;conversa curta não&nbsp;ocupava. O&nbsp;segundo conceito é o&nbsp;preço do&nbsp;primeiro, e&nbsp;os&nbsp;dois juntos são o&nbsp;que&nbsp;decide a&nbsp;superfície de&nbsp;uma&nbsp;tarefa.</p>
-
-    <div class="conceito">
-      <div class="conceito-rot">Conceito 2</div>
-      <h3>Tudo que&nbsp;ele precisa cabe numa&nbsp;mesa, e&nbsp;ela tem tamanho fixo</h3>
-      <p>Para&nbsp;trabalhar, ele precisa de&nbsp;tudo ao&nbsp;mesmo tempo em&nbsp;cima de&nbsp;uma&nbsp;mesa: o&nbsp;seu&nbsp;pedido, o&nbsp;que&nbsp;você colou, as&nbsp;regras que&nbsp;você deu, as&nbsp;respostas anteriores e&nbsp;a&nbsp;conversa inteira até&nbsp;ali.</p>
-      <p>A&nbsp;mesa não&nbsp;cresce. E&nbsp;<strong>a&nbsp;cada mensagem sua,&nbsp;a&nbsp;conversa inteira volta para&nbsp;cima dela</strong>, não&nbsp;só&nbsp;a&nbsp;última frase. É por&nbsp;isso que&nbsp;ela enche sozinha mesmo
-      quando&nbsp;você não&nbsp;cola nada novo.</p>
-    </div>
-
-    <div class="mesa">
-      <div class="mesa-linha">
-        <div class="mesa-topo">
-          <span class="mesa-quando">Mensagem 3</span>
-          <span class="mesa-nota">mesa com folga</span>
-        </div>
-        <div class="mesa-trilho">
-          <div class="mesa-faixa regra" style="width:8%">regras</div>
-          <div class="mesa-faixa dado" style="width:22%">a planilha</div>
-          <div class="mesa-faixa conversa" style="width:10%">conversa</div>
-          <div class="mesa-faixa livre" style="width:60%">espaço livre</div>
-        </div>
-      </div>
-      <div class="mesa-linha">
-        <div class="mesa-topo">
-          <span class="mesa-quando">Mensagem 20</span>
-          <span class="mesa-nota">começa a apertar</span>
-        </div>
-        <div class="mesa-trilho">
-          <div class="mesa-faixa regra" style="width:8%">regras</div>
-          <div class="mesa-faixa dado" style="width:22%">a planilha</div>
-          <div class="mesa-faixa conversa" style="width:46%">conversa até aqui</div>
-          <div class="mesa-faixa livre" style="width:24%">livre</div>
-        </div>
-      </div>
-      <div class="mesa-linha">
-        <div class="mesa-topo">
-          <span class="mesa-quando">Mensagem 45</span>
-          <span class="mesa-nota">o combinado do começo está soterrado</span>
-        </div>
-        <div class="mesa-trilho">
-          <div class="mesa-faixa regra" style="width:8%">regras</div>
-          <div class="mesa-faixa dado" style="width:22%">a planilha</div>
-          <div class="mesa-faixa conversa" style="width:66%">conversa até aqui</div>
-          <div class="mesa-faixa livre" style="width:4%"></div>
-        </div>
-      </div>
-      <div class="mesa-legenda">A faixa das regras não mudou de tamanho. O que cresceu
-      foi a conversa, e é ela que empurra o resto para o fundo.</div>
-    </div>
-
-    <p class="fig-leg"><strong>Repare que&nbsp;nada foi apagado.</strong> O&nbsp;combinado da&nbsp;mensagem 3 continua lá, embaixo de&nbsp;uma&nbsp;pilha. Ele não&nbsp;esqueceu a&nbsp;regra: ela ficou
-    longe demais para&nbsp;pesar tanto quanto pesava no&nbsp;começo.</p>
-
-    <div class="aviso atencao">
-      <div class="aviso-t">A conclusão que contraria o instinto</div>
-      <p>O&nbsp;instinto é <em>"quanto mais informação eu der, melhor"</em>. A&nbsp;documentação
-      oficial da&nbsp;Anthropic diz o&nbsp;contrário com&nbsp;todas as&nbsp;letras: <strong>contexto
-      irrelevante demais piora o&nbsp;desempenho.</strong> Não&nbsp;é sobre&nbsp;dar muito, é sobre&nbsp;dar
-      o&nbsp;certo. Um&nbsp;manual de&nbsp;quarenta páginas na&nbsp;mesa atrapalha mais do&nbsp;que&nbsp;ajuda; as&nbsp;três páginas que&nbsp;interessam, não.</p>
-    </div>
-
-    <div class="solta" style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
-      <div class="cartao">
-        <span class="rot">Você sobe 3 páginas certas</span>
-        <div class="grao">
-          <i class="gr certo"></i><i class="gr"></i><i class="gr"></i>
-        </div>
-        <p style="margin:0">Ele procura o&nbsp;trecho que&nbsp;responde à&nbsp;sua&nbsp;pergunta.
-        <strong>Só&nbsp;tem um&nbsp;candidato, e&nbsp;é o&nbsp;certo.</strong></p>
-      </div>
-      <div class="cartao">
-        <span class="rot">Você sobe o manual de 40 páginas</span>
-        <div class="grao">
-          <i class="gr certo"></i><i class="gr parecido"></i><i class="gr"></i><i class="gr"></i>
-          <i class="gr parecido"></i><i class="gr"></i><i class="gr"></i><i class="gr"></i>
-          <i class="gr parecido"></i><i class="gr"></i><i class="gr parecido"></i><i class="gr"></i>
-          <i class="gr"></i><i class="gr"></i><i class="gr parecido"></i><i class="gr"></i>
-          <i class="gr"></i><i class="gr"></i><i class="gr"></i><i class="gr parecido"></i>
-          <i class="gr"></i><i class="gr"></i><i class="gr"></i><i class="gr parecido"></i>
-          <i class="gr"></i><i class="gr"></i><i class="gr"></i><i class="gr"></i>
-          <i class="gr parecido"></i><i class="gr"></i><i class="gr"></i><i class="gr"></i>
-          <i class="gr"></i><i class="gr parecido"></i><i class="gr"></i><i class="gr"></i>
-          <i class="gr"></i><i class="gr"></i><i class="gr"></i><i class="gr"></i>
-        </div>
-        <p style="margin:0">O&nbsp;trecho certo continua lá. <strong>Só&nbsp;que&nbsp;agora ele disputa
-        com&nbsp;oito parecidos</strong>, e&nbsp;às&nbsp;vezes perde.</p>
-      </div>
-      <div class="legenda" style="grid-column:1/-1">
-        <span><i style="background:var(--ok)"></i> o trecho que responde de verdade</span>
-        <span><i style="background:var(--atencao)"></i> trecho parecido, de outro caso</span>
-        <span><i style="background:var(--bg-warm)"></i> não tem a ver com a pergunta</span>
+      <div class="analogia">
+        <div class="analogia-rot">É como o crachá do primeiro dia</div>
+        <p>Ninguém fica mais competente por&nbsp;ganhar um&nbsp;crachá melhor. O&nbsp;crachá não&nbsp;ensina
+        o&nbsp;trabalho: ele só&nbsp;decide de&nbsp;quanta coisa você chega perto sem&nbsp;precisar pedir
+        para&nbsp;alguém buscar.</p>
+        <ul class="analogia-mapa">
+          <li><strong>O&nbsp;crachá que&nbsp;abre só&nbsp;a&nbsp;catraca</strong> é a&nbsp;<strong>conversa</strong>:
+          você entra, e&nbsp;tudo que&nbsp;for usar você leva na&nbsp;mão</li>
+          <li><strong>O&nbsp;crachá que&nbsp;abre o&nbsp;seu&nbsp;andar</strong> é o&nbsp;<strong>projeto</strong>:
+          as&nbsp;regras do&nbsp;seu&nbsp;setor já&nbsp;estão lá, e&nbsp;você para&nbsp;de&nbsp;carregar</li>
+          <li><strong>A&nbsp;chave do&nbsp;arquivo morto</strong> é o&nbsp;<strong>Cowork</strong>: você
+          alcança a&nbsp;papelada inteira sem&nbsp;tirar folha por&nbsp;folha</li>
+          <li><strong>A&nbsp;sala das&nbsp;máquinas</strong> é o&nbsp;<strong>Code</strong>: você mexe no&nbsp;que&nbsp;continua rodando depois que&nbsp;você vai embora</li>
+        </ul>
+        <p class="analogia-mais">É a&nbsp;mesma conversa do&nbsp;login que&nbsp;te dá acesso a&nbsp;mais um&nbsp;módulo do&nbsp;sistema, da&nbsp;permissão na&nbsp;pasta da&nbsp;rede, da&nbsp;chave do&nbsp;almoxarifado.
+        Sempre que&nbsp;o&nbsp;acesso muda, o&nbsp;trabalho muda junto, e&nbsp;a&nbsp;competência de&nbsp;quem trabalha
+        continua exatamente a&nbsp;mesma.</p>
       </div>
     </div>
 
-    <p class="fig-leg"><strong>O&nbsp;problema não&nbsp;são as&nbsp;páginas que&nbsp;não&nbsp;têm nada a&nbsp;ver.</strong> São as&nbsp;parecidas. Ele procura na&nbsp;mesa o&nbsp;trecho que&nbsp;responde à&nbsp;sua&nbsp;pergunta, e&nbsp;num&nbsp;material grande o&nbsp;certo disputa com&nbsp;oito quase iguais. Subir mais
-    coisa não&nbsp;aumenta a&nbsp;chance de&nbsp;acertar: aumenta a&nbsp;de&nbsp;errar perto.</p>
-
-    <h3 style="margin:40px 0 14px">Como saber se&nbsp;a&nbsp;mesa da&nbsp;sua&nbsp;conversa já&nbsp;encheu</h3>
-
-    <p>Não&nbsp;dá para&nbsp;olhar e&nbsp;ver. <strong>O&nbsp;teste é pedir que&nbsp;ela mostre o&nbsp;que&nbsp;ainda
-    enxerga do&nbsp;começo</strong>, e&nbsp;ele não&nbsp;pede trabalho novo. Cole no&nbsp;fim de&nbsp;uma&nbsp;conversa sua&nbsp;que&nbsp;já&nbsp;passou de&nbsp;vinte mensagens.</p>
-
-    <div class="prompt">
-      <div class="prompt-barra">
-        <span class="prompt-rot">teste da mesa &middot; cola no fim de uma conversa longa</span>
-        <button class="btn-copiar" data-alvo="p-teste-mesa">copiar</button>
-      </div>
-      <pre class="prompt-txt" id="p-teste-mesa">Antes de continuar, quero conferir o que você ainda tem desta conversa.
-
-O que eu preciso: a lista de todas as regras e restrições que eu escrevi desde a primeira mensagem, na ordem em que apareceram, e quais delas você aplicou na sua última resposta.
-
-Restrições: não invente regra que eu não escrevi, e não reformule o que eu disse com outras palavras. Se alguma coisa ficou vaga para você, diga que ficou.
-
-Na dúvida: se você não conseguir recuperar alguma parte do começo, diga isso em vez de completar pelo que faz sentido.</pre>
+    <div class="contraste solta">
+      <div class="ctr e"><span class="ctr-selo">É</span>
+        <h4>Uma&nbsp;escolha sobre&nbsp;onde&nbsp;está o&nbsp;material</h4>
+        <p>A&nbsp;resposta sai de&nbsp;"o&nbsp;que&nbsp;esta tarefa precisa ter por&nbsp;perto", e&nbsp;ela decide
+        sozinha em&nbsp;qual superfície a&nbsp;tarefa mora.</p></div>
+      <div class="ctr nao"><span class="ctr-selo">Não é</span>
+        <h4>Uma&nbsp;escala de&nbsp;qualidade</h4>
+        <p>A&nbsp;superfície de&nbsp;cima não&nbsp;responde melhor. Ela responde sobre&nbsp;mais coisa, o&nbsp;que&nbsp;é diferente, e&nbsp;às&nbsp;vezes pior: mais material perto significa mais material
+        para&nbsp;conferir.</p></div>
     </div>
 
-    <p class="fig-leg"><strong>A&nbsp;última linha é a&nbsp;que&nbsp;faz o&nbsp;teste funcionar.</strong>
-    Sem&nbsp;ela, o&nbsp;que&nbsp;volta é uma&nbsp;lista plausível montada a&nbsp;partir do&nbsp;fim da&nbsp;conversa, e&nbsp;você conclui que&nbsp;está tudo bem.</p>
-
-    <div class="tabela solta">
-      <table>
-        <thead><tr>
-          <th>O que voltou</th><th>Em que estado a mesa está</th><th>O que fazer</th>
-        </tr></thead>
-        <tbody>
-          <tr><td>Todas as regras, na ordem, e as aplicadas batendo</td>
-              <td>com folga</td>
-              <td>siga na mesma conversa</td></tr>
-          <tr><td>Todas as regras, mas ela aplicou só as recentes</td>
-              <td>apertando</td>
-              <td>recole as duas ou três que importam, e siga</td></tr>
-          <tr><td>Faltaram regras, ou apareceu regra que você não escreveu</td>
-              <td>cheia</td>
-              <td><strong>comece conversa nova</strong> com o contexto certo</td></tr>
-          <tr><td>Ela disse que não conseguiu recuperar o começo</td>
-              <td>cheia, e honesta</td>
-              <td>comece conversa nova, e considere virar projeto</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p class="fig-leg"><strong>A&nbsp;terceira linha é a&nbsp;mais comum, e&nbsp;a&nbsp;mais
-    perigosa.</strong> Regra que&nbsp;aparece sem&nbsp;ter sido escrita é o&nbsp;mesmo defeito da&nbsp;aula
-    3 do&nbsp;nivelamento, agora vindo do&nbsp;próprio histórico da&nbsp;conversa em&nbsp;vez do&nbsp;material.</p>
+    <p class="fig-leg"><strong>A&nbsp;pergunta certa nunca é "qual é o&nbsp;melhor?".</strong> É
+    "onde&nbsp;está o&nbsp;material desta tarefa?", e&nbsp;é por&nbsp;isso que&nbsp;a&nbsp;resposta muda de&nbsp;tarefa
+    para&nbsp;tarefa dentro do&nbsp;mesmo dia da&nbsp;mesma pessoa.</p>
   </section>
 
   <section class="secao" id="s03">
@@ -2991,7 +2965,7 @@ Na dúvida: se você não conseguir recuperar alguma parte do começo, diga isso
 
     <div class="aviso">
       <div class="aviso-t">Como saber que a sua resposta está pronta</div>
-      <p>Use esta régua nos&nbsp;quatro passos: <strong>outra pessoa da&nbsp;sua&nbsp;área conseguiria
+      <p>Use esta régua nos&nbsp;três passos: <strong>outra pessoa da&nbsp;sua&nbsp;área conseguiria
       dizer em&nbsp;que&nbsp;superfície cada tarefa cai, lendo só&nbsp;o&nbsp;que&nbsp;você escreveu?</strong> Se&nbsp;para&nbsp;saber ela precisaria te ligar, a&nbsp;tarefa ainda está genérica demais para&nbsp;ser
       classificada.</p>
       <p>Cada passo abaixo traz <strong>três perguntas menores</strong> para&nbsp;destravar, e&nbsp;um&nbsp;exemplo do&nbsp;que&nbsp;<strong>não</strong>&nbsp;conta como resposta. A&nbsp;<a href="#s06">seção 06</a> traz uma&nbsp;semana inteira já&nbsp;classificada, para&nbsp;você ver o&nbsp;nível de&nbsp;detalhe que&nbsp;se&nbsp;espera.</p>
@@ -3103,31 +3077,6 @@ Na dúvida: se você não conseguir recuperar alguma parte do começo, diga isso
       </div>
     </div>
 
-    <div class="passo">
-      <div class="passo-topo">
-        <div class="passo-n">04</div>
-        <div>
-          <div class="passo-fn">Passo 4 &middot; o segundo conceito</div>
-          <h3>Abra a&nbsp;sua&nbsp;conversa mais longa e&nbsp;ache onde&nbsp;ela passou do&nbsp;ponto</h3>
-        </div>
-      </div>
-      <p>Os&nbsp;três primeiros passos são do&nbsp;conceito da&nbsp;superfície. Este é do&nbsp;conceito da&nbsp;mesa, e&nbsp;é o&nbsp;único jeito de&nbsp;saber se&nbsp;você o&nbsp;entendeu. Role até&nbsp;o&nbsp;começo e&nbsp;procure
-      <strong>a&nbsp;última vez em&nbsp;que&nbsp;ele acertou de&nbsp;primeira</strong>. Dali para&nbsp;baixo, a&nbsp;mesa já&nbsp;estava cheia. A&nbsp;resposta vai no&nbsp;<strong>campo 6</strong>.</p>
-      <div class="destrave">
-        <div class="destrave-rot">Se travar, responda estas três</div>
-        <ul>
-          <li>Qual foi o&nbsp;último pedido dessa conversa que&nbsp;ele acertou sem&nbsp;você ter que&nbsp;corrigir?</li>
-          <li>Depois desse ponto, quantas vezes você repetiu uma&nbsp;instrução que&nbsp;já&nbsp;tinha
-          dado antes?</li>
-          <li>Se&nbsp;você abrisse uma&nbsp;conversa nova agora, o&nbsp;que&nbsp;dessa aqui você levaria
-          junto? Cabe em&nbsp;duas ou&nbsp;três linhas, e&nbsp;é isso que&nbsp;vai no&nbsp;campo 6.</li>
-        </ul>
-        <div class="destrave-nao"><strong>Não conta como resposta:</strong> "ela começou
-        a piorar". Diga em qual pedido, com a frase: <em>"na hora que pedi o resumo por
-        unidade, ela citou uma unidade que não existe no arquivo"</em>.</div>
-      </div>
-    </div>
-
     <div class="canvas solta" data-chave="canvas-m1a1-superficies">
       <div class="canvas-topo">
         <div>
@@ -3141,58 +3090,48 @@ Na dúvida: se você não conseguir recuperar alguma parte do começo, diga isso
         <div class="cv-campo">
           <div class="cv-n">1</div>
           <div>
-            <label class="cv-rot" for="cv-m1-repete">As cinco tarefas que voltam toda semana</label>
+            <label class="cv-rot" for="cv-a1-repete">As cinco tarefas que voltam toda semana</label>
             <div class="cv-ex">Ex: conferir execução do convênio, montar a lista de presença, responder pedido de informação do financiador</div>
-            <textarea id="cv-m1-repete" rows="2"></textarea>
+            <textarea id="cv-a1-repete" rows="2"></textarea>
           </div>
         </div>
         <div class="cv-campo">
           <div class="cv-n">2</div>
           <div>
-            <label class="cv-rot" for="cv-m1-conversa">As que pararam na pergunta 1 &middot; conversa</label>
+            <label class="cv-rot" for="cv-a1-conversa">As que pararam na pergunta 1 &middot; conversa</label>
             <div class="cv-ex">Ex: redigir o ofício de resposta, que muda de assunto toda vez</div>
-            <textarea id="cv-m1-conversa" rows="2"></textarea>
+            <textarea id="cv-a1-conversa" rows="2"></textarea>
           </div>
         </div>
         <div class="cv-campo">
           <div class="cv-n">3</div>
           <div>
-            <label class="cv-rot" for="cv-m1-projeto">As que pararam na pergunta 2 &middot; projeto</label>
+            <label class="cv-rot" for="cv-a1-projeto">As que pararam na pergunta 2 &middot; projeto</label>
             <div class="cv-ex">Ex: a conferência da execução, que tem sempre a mesma regra e a mesma norma por trás</div>
-            <textarea id="cv-m1-projeto" rows="2"></textarea>
+            <textarea id="cv-a1-projeto" rows="2"></textarea>
           </div>
         </div>
         <div class="cv-campo">
           <div class="cv-n">4</div>
           <div>
-            <label class="cv-rot" for="cv-m1-depois">As que passaram da pergunta 2 &middot; encontros 3 e 4</label>
+            <label class="cv-rot" for="cv-a1-depois">As que passaram da pergunta 2 &middot; encontros 3 e 4</label>
             <div class="cv-ex">Ex: montar a lista de presença, que são doze arquivos de turma. Não some: ela volta no encontro 3</div>
-            <textarea id="cv-m1-depois" rows="2"></textarea>
+            <textarea id="cv-a1-depois" rows="2"></textarea>
           </div>
         </div>
         <div class="cv-campo">
           <div class="cv-n">5</div>
           <div>
-            <label class="cv-rot" for="cv-m1-escolhida">A que vira projeto na próxima aula, e por quê</label>
+            <label class="cv-rot" for="cv-a1-escolhida">A que vira projeto, e por quê</label>
             <div class="cv-ex">Ex: a conferência, porque eu reexplico a mesma coisa toda semana e a norma é sempre a mesma</div>
-            <textarea id="cv-m1-escolhida" rows="2"></textarea>
-          </div>
-        </div>
-        <div class="cv-campo">
-          <div class="cv-n">6</div>
-          <div>
-            <label class="cv-rot" for="cv-m1-mesa">A conversa que já passou do ponto, e o que eu levaria para uma nova</label>
-            <div class="cv-ex">Ex: a do fechamento do trimestre, que tem 60 mensagens. Levaria só a regra de não estimar e a planilha da semana</div>
-            <textarea id="cv-m1-mesa" rows="2"></textarea>
+            <textarea id="cv-a1-escolhida" rows="2"></textarea>
           </div>
         </div>
       </div>
       <div class="canvas-rodape">
         <button class="btn-copiar" type="button" data-acao="linha">Copiar a minha linha</button>
         <button class="btn-fantasma" type="button" data-acao="apagar">Apagar o rascunho</button>
-        <p class="cv-nota">O&nbsp;campo 5 é o&nbsp;insumo da&nbsp;aula 1.2. Sem&nbsp;ele, a&nbsp;próxima aula
-        vira teoria. O&nbsp;campo 6 é o&nbsp;do&nbsp;segundo conceito, e&nbsp;ele se&nbsp;responde hoje mesmo,
-        na&nbsp;conversa que&nbsp;você já&nbsp;tem aberta.</p>
+        <p class="cv-nota">O&nbsp;campo 5 é o&nbsp;insumo da&nbsp;aula 1.3, que&nbsp;monta o&nbsp;projeto. Sem&nbsp;ele, aquela aula vira teoria.</p>
       </div>
     </div>
   </section>
@@ -3247,29 +3186,27 @@ Na dúvida: se você não conseguir recuperar alguma parte do começo, diga isso
       <p>A&nbsp;rasa separa por&nbsp;assunto. A&nbsp;boa separa por&nbsp;<em>onde&nbsp;está o&nbsp;material e&nbsp;o&nbsp;que&nbsp;se&nbsp;repete</em>, e&nbsp;por&nbsp;isso ela às&nbsp;vezes coloca duas tarefas de&nbsp;áreas diferentes na&nbsp;mesma superfície.</p>
     </div>
 
-    <h3 style="margin:34px 0 14px">Os&nbsp;dois campos que&nbsp;fecham o&nbsp;canvas</h3>
+    <h3 style="margin:34px 0 14px">O&nbsp;campo 5, que&nbsp;é o&nbsp;que&nbsp;sai daqui</h3>
 
-    <div class="grade grade-2 solta">
-      <div class="cartao">
-        <span class="rot">Campo 5 &middot; a que vira projeto, e por quê</span>
-        <h4>A&nbsp;conferência da&nbsp;execução</h4>
-        <p>Não&nbsp;porque&nbsp;ela é a&nbsp;mais importante das&nbsp;cinco, e&nbsp;sim porque&nbsp;é a&nbsp;que&nbsp;eu
-        reexplico toda semana: a&nbsp;mesma norma, o&nbsp;mesmo critério de&nbsp;valor faltando, a&nbsp;mesma regra de&nbsp;nome parecido. Outra pessoa faria igual se&nbsp;soubesse as&nbsp;regras, e&nbsp;hoje elas só&nbsp;existem na&nbsp;minha&nbsp;cabeça.</p>
-      </div>
-      <div class="cartao">
-        <span class="rot">Campo 6 &middot; a conversa que passou do ponto</span>
-        <h4>A&nbsp;do&nbsp;fechamento do&nbsp;trimestre, com&nbsp;60 mensagens</h4>
-        <p>Ela acertou de&nbsp;primeira até&nbsp;o&nbsp;pedido do&nbsp;comparativo entre&nbsp;unidades. Dali para&nbsp;baixo eu repeti três vezes a&nbsp;regra de&nbsp;não&nbsp;estimar valor faltando. Para&nbsp;a&nbsp;conversa
-        nova eu levaria duas coisas: essa regra, e&nbsp;a&nbsp;planilha da&nbsp;semana. O&nbsp;resto das&nbsp;60
-        mensagens não&nbsp;faz falta.</p>
-      </div>
+    <div class="cartao">
+      <span class="rot">Campo 5 &middot; a que vira projeto, e por quê</span>
+      <h4>A&nbsp;conferência da&nbsp;execução</h4>
+      <p>Não&nbsp;porque&nbsp;ela é a&nbsp;mais importante das&nbsp;cinco, e&nbsp;sim porque&nbsp;é a&nbsp;que&nbsp;eu
+      reexplico toda semana: a&nbsp;mesma norma, o&nbsp;mesmo critério de&nbsp;valor faltando, a&nbsp;mesma regra de&nbsp;nome parecido. Outra pessoa faria igual se&nbsp;soubesse as&nbsp;regras, e&nbsp;hoje elas só&nbsp;existem na&nbsp;minha&nbsp;cabeça.</p>
     </div>
 
-    <p class="fig-leg"><strong>Repare no&nbsp;campo 5: o&nbsp;motivo não&nbsp;fala de&nbsp;importância.</strong>
-    Ele fala de&nbsp;repetição e&nbsp;de&nbsp;regra escrita, que&nbsp;é o&nbsp;que&nbsp;a&nbsp;próxima aula vai pedir. Motivo
-    do&nbsp;tipo "porque&nbsp;é crítico para&nbsp;a&nbsp;área" não&nbsp;sobrevive ao&nbsp;primeiro exercício da&nbsp;1.2.</p>
-
+    <p class="fig-leg"><strong>Repare que&nbsp;o&nbsp;motivo não&nbsp;fala de&nbsp;importância.</strong>
+    Ele fala de&nbsp;repetição e&nbsp;de&nbsp;regra escrita, que&nbsp;é o&nbsp;que&nbsp;a&nbsp;aula 1.3 vai pedir. Motivo
+    do&nbsp;tipo "porque&nbsp;é crítico para&nbsp;a&nbsp;área" não&nbsp;sobrevive ao&nbsp;primeiro exercício de&nbsp;lá.</p>
   </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Você já&nbsp;tem o&nbsp;que&nbsp;precisa para&nbsp;usar isto amanhã: a&nbsp;lista
+  classificada e&nbsp;a&nbsp;tarefa escolhida. O&nbsp;que&nbsp;vem abaixo é <strong>aprofundamento</strong>:
+  leia agora se&nbsp;tiver cinco minutos, ou&nbsp;volte aqui quando&nbsp;a&nbsp;primeira classificação der
+  errado.</p>
 
   <section class="secao" id="s07">
     <div class="secao-topo">
@@ -3281,23 +3218,20 @@ Na dúvida: se você não conseguir recuperar alguma parte do começo, diga isso
     </div>
 
     <div class="aviso erro">
-      <div class="aviso-t">Insistir na mesma conversa por educação</div>
-      <p>Continuar na&nbsp;conversa que&nbsp;já&nbsp;tem quarenta mensagens porque&nbsp;"ela já&nbsp;sabe do&nbsp;assunto" é o&nbsp;oposto do&nbsp;que&nbsp;acontece: <strong>ela sabe menos, porque&nbsp;o&nbsp;começo está
-      soterrado</strong>. Conversa nova com&nbsp;o&nbsp;contexto certo ganha de&nbsp;conversa longa
-      quase sempre.</p>
-    </div>
-
-    <div class="aviso erro">
       <div class="aviso-t">Subir de superfície antes de precisar</div>
       <p>Montar projeto para&nbsp;uma&nbsp;tarefa que&nbsp;acontece uma&nbsp;vez é trabalho jogado fora, e&nbsp;montar pasta para&nbsp;o&nbsp;que&nbsp;cabe num&nbsp;anexo é pior ainda. A&nbsp;regra é parar no&nbsp;primeiro
       sim, não&nbsp;chegar no&nbsp;último.</p>
     </div>
 
     <div class="aviso erro">
-      <div class="aviso-t">Achar que a mesa cheia é defeito da ferramenta</div>
-      <p>A&nbsp;mesa tem tamanho fixo por&nbsp;projeto, e&nbsp;não&nbsp;por&nbsp;descuido. Quem entende isso
-      administra o&nbsp;que&nbsp;põe em&nbsp;cima dela; quem não&nbsp;entende conclui que&nbsp;a&nbsp;ferramenta piora
-      com&nbsp;o&nbsp;uso, e&nbsp;usa cada vez menos.</p>
+      <div class="aviso-t">Classificar por assunto, e não por material</div>
+      <p>Juntar "tudo que&nbsp;é de&nbsp;convênio" numa&nbsp;superfície e&nbsp;"tudo que&nbsp;é de&nbsp;turma" em&nbsp;outra parece organizado e&nbsp;não&nbsp;decide nada. Duas tarefas do&nbsp;mesmo assunto moram em&nbsp;superfícies diferentes quando&nbsp;uma&nbsp;se&nbsp;repete com&nbsp;regra fixa e&nbsp;a&nbsp;outra não.</p>
+    </div>
+
+    <div class="aviso erro">
+      <div class="aviso-t">Achar que o crachá melhor resolve o pedido ruim</div>
+      <p>Projeto com&nbsp;as&nbsp;regras certas e&nbsp;pedido vago devolve resposta vaga, igual à&nbsp;conversa. O&nbsp;alcance maior não&nbsp;conserta pedido: ele só&nbsp;faz o&nbsp;pedido alcançar mais
+      material.</p>
     </div>
   </section>
 
@@ -3311,15 +3245,13 @@ Na dúvida: se você não conseguir recuperar alguma parte do começo, diga isso
     </div>
 
     <p>Escolher bem economiza trabalho todo dia, e&nbsp;não&nbsp;substitui nada do&nbsp;que&nbsp;veio
-    antes. Três coisas continuam de&nbsp;pé em&nbsp;qualquer superfície.</p>
+    antes. Duas coisas continuam de&nbsp;pé em&nbsp;qualquer superfície.</p>
 
     <div class="cartao">
       <span class="rot">O que atravessa as quatro</span>
-      <p><strong>O&nbsp;pedido continua sendo seu.</strong>&nbsp;Projeto com&nbsp;regras boas e&nbsp;pedido
-      vago devolve resposta vaga, igual à&nbsp;conversa. A&nbsp;superfície muda o&nbsp;alcance, não&nbsp;a&nbsp;qualidade do&nbsp;que&nbsp;você pede.</p>
       <p><strong>A&nbsp;conferência continua sendo sua.</strong>&nbsp;As&nbsp;quatro camadas da&nbsp;aula 3
-      valem em&nbsp;todas, e&nbsp;a&nbsp;de&nbsp;cima valem mais: quanto mais material ela alcança sozinha,
-      menos você viu o&nbsp;que&nbsp;entrou.</p>
+      do&nbsp;nivelamento valem em&nbsp;todas, e&nbsp;nas&nbsp;de&nbsp;cima valem mais: quanto mais material ela
+      alcança sozinha, menos você viu o&nbsp;que&nbsp;entrou.</p>
       <p><strong>A&nbsp;regra do&nbsp;que&nbsp;pode ser anexado continua valendo.</strong> Subir de&nbsp;superfície aumenta o&nbsp;alcance dela sobre&nbsp;o&nbsp;seu&nbsp;material, e&nbsp;as&nbsp;três caixas da&nbsp;aula 4
       passam a&nbsp;valer para&nbsp;a&nbsp;pasta inteira, não&nbsp;só&nbsp;para&nbsp;um&nbsp;arquivo.</p>
     </div>
@@ -3337,8 +3269,8 @@ Na dúvida: se você não conseguir recuperar alguma parte do começo, diga isso
     <ul>
       <li>As&nbsp;suas&nbsp;cinco tarefas estão classificadas, e&nbsp;nenhuma ficou sem&nbsp;superfície</li>
       <li>Você parou na&nbsp;primeira pergunta que&nbsp;deu sim, em&nbsp;vez de&nbsp;escolher a&nbsp;mais avançada</li>
-      <li>Você sabe dizer, olhando uma&nbsp;conversa sua,&nbsp;se&nbsp;a&nbsp;mesa já&nbsp;está cheia</li>
-      <li>Está escolhida a&nbsp;tarefa que&nbsp;vira projeto na&nbsp;próxima aula, com&nbsp;o&nbsp;motivo escrito</li>
+      <li>Está escolhida a&nbsp;tarefa que&nbsp;vira projeto, com&nbsp;o&nbsp;motivo escrito no&nbsp;campo 5</li>
+      <li>O&nbsp;motivo fala de&nbsp;repetição, e&nbsp;não&nbsp;de&nbsp;importância</li>
     </ul>
   </div>
 
@@ -3347,22 +3279,21 @@ Na dúvida: se você não conseguir recuperar alguma parte do começo, diga isso
     <div class="fecho-sub">Confira sozinho: se algum item não estiver de pé, volte na seção que o cobre.</div>
     <ul>
       <li><span><strong>Você escolhe</strong> a&nbsp;superfície de&nbsp;uma&nbsp;tarefa com&nbsp;quatro perguntas, e&nbsp;para&nbsp;no&nbsp;primeiro sim</span></li>
-      <li><span><strong>Você entende</strong> por&nbsp;que&nbsp;a&nbsp;conversa longa piora, e&nbsp;que&nbsp;não&nbsp;é a&nbsp;ferramenta cansando</span></li>
-      <li><span><strong>Você reconhece</strong> o&nbsp;momento de&nbsp;começar de&nbsp;novo em&nbsp;vez de&nbsp;insistir</span></li>
+      <li><span><strong>Você separa</strong> alcance de&nbsp;qualidade, e&nbsp;não&nbsp;sobe de&nbsp;superfície por&nbsp;status</span></li>
       <li><span><strong>O&nbsp;artefato:</strong> as&nbsp;tarefas da&nbsp;sua&nbsp;semana classificadas, e&nbsp;uma&nbsp;escolhida para&nbsp;virar projeto</span></li>
     </ul>
-    <div class="fecho-nota">A próxima aula pega a tarefa que você escolheu e monta o projeto dela, com as regras que hoje moram na sua cabeça.</div>
+    <div class="fecho-nota">A tarefa escolhida no campo 5 é o insumo da aula 1.3, que monta o projeto dela.</div>
   </div>
 
   <div class="gancho">
     <span class="rot">A trava que esta aula não resolve</span>
-    <p>Você sabe que&nbsp;a&nbsp;tarefa deveria virar projeto. Falta o&nbsp;que&nbsp;escrever dentro dele:
-    quais das&nbsp;suas&nbsp;regras merecem virar texto fixo, e&nbsp;quais só&nbsp;atrapalhariam ocupando
-    espaço na&nbsp;mesa. <strong>É esse critério que&nbsp;a&nbsp;próxima aula entrega</strong>, e&nbsp;ele
-    cabe em&nbsp;uma&nbsp;frase.</p>
+    <p>Você escolheu a&nbsp;superfície pelo&nbsp;alcance, e&nbsp;alcance maior tem um&nbsp;preço que&nbsp;ninguém
+    conta: <strong>tudo que&nbsp;ele alcança precisa caber em&nbsp;algum lugar ao&nbsp;mesmo tempo</strong>.
+    Esse lugar tem tamanho fixo, e&nbsp;é ele que&nbsp;explica por&nbsp;que&nbsp;a&nbsp;conversa que&nbsp;começou boa
+    piora sozinha. <strong>É a&nbsp;próxima aula.</strong></p>
   </div>
 
-<nav class="rodape-nav"><a href="../m1/">&larr; Módulo 1</a><a href="../m1a2-regra/">A regra que fica, e as três gavetas &rarr;</a></nav>
+<nav class="rodape-nav"><a href="../m1/">&larr; Módulo 1</a><a href="../m1a2-mesa/">A mesa tem tamanho fixo &rarr;</a></nav>
 </main>
 
 
