@@ -72,10 +72,28 @@ SEQUENCIA = ["index", "nivelamento",
 # A navegacao nao se perde: a migalha volta em um clique e o rodape leva
 # para a proxima. Para trazer a barra de volta, basta repovoar esta lista.
 TRILHA = [
-    ("", [
-        # ("n1-dois-modos", "Delegar a execução ou pensar junto"),
-        # As tres proximas entram na trilha quando o fragmento delas nascer.
-        # Declarar antes quebra o G7: a barra vira link para pasta que nao existe.
+    # 🔴 ISTO NAO DESENHA MAIS BARRA NENHUMA, desde 28/08. A trilha lateral saiu
+    # do padrao (a regra .com-trilha .solta zerava o breakout, e este curso usa
+    # 183 breakouts em 193 figuras). O que sobrou da TRILHA e o unico papel que
+    # ela sempre teve de verdade: DIZER A ORDEM DAS AULAS.
+    # Os gates G42 e G44 leem daqui, e so daqui: sequencia nao se deduz de nome
+    # de arquivo. Deixar esta lista vazia deixa os dois cegos, com zero achado.
+    ("Nivelamento", [
+        ("n1-dois-modos",    "Delegar a execução ou pensar junto"),
+        ("n2-generica",      "Por que a resposta vem genérica"),
+        ("n3-conferir",      "Conferir o que volta"),
+        ("n4-limite",        "O que não entra no chat"),
+        ("n5-configurar",    "A primeira configuração"),
+    ]),
+    ("Módulo 1", [
+        ("m1a1-superficies", "Quatro superfícies, e a que a sua tarefa pede"),
+        ("m1a2-mesa",        "A mesa tem tamanho fixo"),
+        ("m1a3-instrucao",   "A instrução que fica, e as três gavetas"),
+        ("m1a4-regra",       "A regra do 2×"),
+        ("m1a5-mapa",        "O mapa: onde cada regra mora"),
+        ("m1a6-tranca",      "A regra que não mora em texto nenhum"),
+        ("m1a7-base",        "Por que a base multiplica"),
+        ("m1a8-conta",       "A conta da repetição"),
     ]),
 ]
 
@@ -99,6 +117,7 @@ PAGINAS = {
         migalha=[("../", "Imersão em IA com Claude"), (None, "Nivelamento")],
     ),
     "n1-dois-modos": dict(
+        tipo="pratica",
         titulo="Delegar a execução ou pensar junto",
         kicker="Nivelamento · Aula 1",
         h1="Delegar a execução ou pensar junto",
@@ -110,6 +129,7 @@ PAGINAS = {
                  (None, "Delegar a execução ou pensar junto")],
     ),
     "n2-generica": dict(
+        tipo="pratica",
         titulo="Por que a resposta vem genérica",
         kicker="Nivelamento · Aula 2",
         h1="Por que a resposta vem genérica",
@@ -143,6 +163,7 @@ PAGINAS = {
                  (None, "A execução do convênio, conferida")],
     ),
     "n3-conferir": dict(
+        tipo="pratica",
         titulo="Como saber se a resposta está certa",
         kicker="Nivelamento · aula 3 de 4",
         h1="Como saber se a resposta está certa",
@@ -154,6 +175,7 @@ PAGINAS = {
                  (None, "Como saber se a resposta está certa")],
     ),
     "n4-limite": dict(
+        tipo="fundamento",
         titulo="O que não entra no chat",
         kicker="Nivelamento · aula 4 de 4",
         h1="O que não entra no chat",
@@ -187,6 +209,7 @@ PAGINAS = {
                  (None, "O arquivo preparado antes de anexar")],
     ),
     "n5-configurar": dict(
+        tipo="pratica",
         titulo="A primeira configuração",
         kicker="Nivelamento · aula 5 de 5",
         h1="A primeira configuração",
@@ -219,6 +242,7 @@ PAGINAS = {
                  (None, "Módulo 1")],
     ),
     "m1a1-superficies": dict(
+        tipo="fundamento",
         titulo="Quatro superfícies, e a que a sua tarefa pede",
         kicker="Módulo 1 · aula 1.1",
         h1="Quatro superfícies, e a que a sua tarefa pede",
@@ -230,6 +254,7 @@ PAGINAS = {
                  (None, "Quatro superfícies, e a que a sua tarefa pede")],
     ),
     "m1a2-mesa": dict(
+        tipo="fundamento",
         titulo="A mesa tem tamanho fixo",
         kicker="Módulo 1 · aula 1.2",
         h1="A mesa tem tamanho fixo",
@@ -241,6 +266,7 @@ PAGINAS = {
                  (None, "A mesa tem tamanho fixo")],
     ),
     "m1a3-instrucao": dict(
+        tipo="pratica",
         titulo="A instrução que fica, e as três gavetas",
         kicker="Módulo 1 · aula 1.3",
         h1="A instrução que fica, e as três gavetas",
@@ -252,6 +278,7 @@ PAGINAS = {
                  (None, "A instrução que fica, e as três gavetas")],
     ),
     "m1a4-regra": dict(
+        tipo="fundamento",
         titulo="A regra do 2×",
         kicker="Módulo 1 · aula 1.4",
         h1="A regra do 2×",
@@ -285,6 +312,7 @@ PAGINAS = {
                  (None, "O projeto montado, gaveta por gaveta")],
     ),
     "m1a5-mapa": dict(
+        tipo="pratica",
         titulo="O mapa: onde cada regra mora",
         kicker="Módulo 1 · aula 1.5",
         h1="O mapa: onde cada regra mora",
@@ -296,6 +324,7 @@ PAGINAS = {
                  (None, "O mapa: onde cada regra mora")],
     ),
     "m1a6-tranca": dict(
+        tipo="fundamento",
         titulo="A regra que não mora em texto nenhum",
         kicker="Módulo 1 · aula 1.6",
         h1="A regra que não mora em texto nenhum",
@@ -307,6 +336,7 @@ PAGINAS = {
                  (None, "A regra que não mora em texto nenhum")],
     ),
     "m1a7-base": dict(
+        tipo="pratica",
         titulo="Por que a base multiplica",
         kicker="Módulo 1 · aula 1.7",
         h1="Por que a base multiplica",
@@ -318,6 +348,7 @@ PAGINAS = {
                  (None, "Por que a base multiplica")],
     ),
     "m1a8-conta": dict(
+        tipo="fundamento",
         titulo="A conta da repetição",
         kicker="Módulo 1 · aula 1.8",
         h1="A conta da repetição",
@@ -836,9 +867,12 @@ def monta(slug, cfg, fragmento):
     else:
         migalha = ""
     raiz = "./" if slug == "index" else "../"
-    # a barra so existe se a pagina estiver na trilha; sem ela, o wrapper de
-    # duas colunas nao entra e o layout fica exatamente como era
-    barra = trilha(slug)
+    # 🔴 A BARRA LATERAL NAO NASCE MAIS, decisao do padrao em 28/08 e medida
+    # neste curso: 0 de 30 paginas a montavam, e 183 das 193 figuras sao
+    # breakout, que a regra .com-trilha .solta zerava. A funcao trilha() fica
+    # no arquivo: quem quiser a barra de volta troca esta linha por
+    # barra = trilha(slug), e nada mais.
+    barra = ""
     abre = '<div class="com-trilha">' + barra if barra else ""
     fecha = "</div>" if barra else ""
     return TEMPLATE % dict(
@@ -846,6 +880,9 @@ def monta(slug, cfg, fragmento):
         sigla=CURSO["sigla"], nome=CURSO["nome"], sub=CURSO["sub"],
         migalha=migalha, kicker=cfg["kicker"], h1=cfg["h1"],
         sub_pagina=cfg["sub"], selos=selos, corpo=fragmento,
+        # aula-pratica ou aula-fundamento, lido do tipo= em PAGINAS. Pagina que
+        # nao e aula fica sem classe, e os gates de tipo nao a enxergam.
+        tipo=("aula-" + cfg["tipo"]) if cfg.get("tipo") else "",
         abre_trilha=abre, fecha_trilha=fecha, rodape=rodape(slug),
     )
 
@@ -880,7 +917,7 @@ TEMPLATE = r"""<!DOCTYPE html>
 %(migalha)s
 
 %(abre_trilha)s
-<main class="folha">
+<main class="folha %(tipo)s">
   <div class="heroi">
     <div class="heroi-kicker">%(kicker)s</div>
     <h1>%(h1)s</h1>
