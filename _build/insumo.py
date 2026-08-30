@@ -162,10 +162,15 @@ def suja(linhas, spec, r):
     quais = set(spec["armadilhas"])
 
     if "nome_em_dois_jeitos" in quais:
-        # a MESMA loja escrita de três jeitos, em 18% das linhas
+        # a MESMA unidade escrita de quatro jeitos, em 18% das linhas.
+        # 🔴 ACHADO 27/08, corrigido em 31/08: a quarta grafia era "Loja Centro",
+        # residuo do gerador de varejo. Convenio nao tem loja, e a palavra
+        # aparecia na planilha que o aluno baixa enquanto o material inteiro
+        # fala de unidade. Virou "Unidade Centro", que ensina a mesma coisa:
+        # a mesma unidade escrita de um jeito que nenhuma juncao automatica pega.
         for l in linhas:
             if l["loja"] == "Centro" and r.random() < 0.18:
-                l["loja"] = r.choice(["centro", "CENTRO", "Loja Centro"])
+                l["loja"] = r.choice(["centro", "CENTRO", "Unidade Centro"])
         aplicadas.append("nome_em_dois_jeitos")
 
     if "data_em_dois_formatos" in quais:
