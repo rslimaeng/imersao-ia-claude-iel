@@ -99,24 +99,29 @@
    Trocar de cliente é trocar o marca.css, e o gate G-COR confere que este
    arquivo continua sem hex solto.
 
-   Extraído de três cursos que já rodaram: Claude na Prática (Pouchain),
-   Workshop Maria Pitanga e Ideação com AI First (Longevidade). O que está
+   Extraído de três in-company que já rodaram: IC-A, IC-B e IC-C -- o mapa
+   dos códigos está no PROVENIENCIA-INTERNA.md do padrão. O que está
    aqui sobreviveu aos três; o que era de um curso só ficou lá.
    ============================================================================ */
 
 /* ---------- 1 · MEDIDA ------------------------------------------------------
-   A página tem DUAS larguras, e só duas. Nove larguras diferentes dentro do
+   A página tem TRES larguras, e só três. Nove larguras diferentes dentro do
    mesmo texto é o que faz a prosa parecer órfã.
 
    --col       a coluna de leitura. Prosa enche ela inteira, sem max-width
                próprio. São ~80 caracteres por linha, que é onde a leitura
                ainda é confortável. Acima de 90 ela cai de verdade.
+   --col-media a largura do meio, para o bloco que é metade figura e metade
+               prosa: demonstração lado a lado, antes-depois com texto dentro.
+               Na largura cheia ele foge da coluna de texto e o olho perde o
+               par. Herdada do IC-A, medida lá. Use com `.solta.meia`.
    --col-larga o breakout. Figura, tabela e grade SAEM da coluna.
 
    Figura mais larga que o texto lê como editorial. Texto mais estreito que
    a figura, sem motivo, lê como quebrado.                                   */
 :root{
   --col:780px;
+  --col-media:960px;
   --col-larga:1140px;
   --raio-p:6px; --raio:10px; --raio-g:14px;
   --sombra-p:0 1px 2px rgba(20,20,19,.04),0 1px 3px rgba(20,20,19,.06);
@@ -128,7 +133,13 @@
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0;background:var(--bg);color:var(--text);
-  font-family:var(--font-body);font-size:17px;line-height:1.65;
+  /* 18,5px / 1,68 medido na aula do IC-A, que e a entrega que o Rafael
+     aponta como a de melhor respiro. Estava em 17px / 1,65, o que dava 87
+     caracteres por linha contra os 79 de la: texto 8% menor, entrelinha 3px
+     mais apertada e linha 10% mais longa. Era isso que lia como comprimido.
+     Mexe so na PROSA: 47 elementos herdam daqui (p, strong, li, em), e todo
+     o resto da pagina tem tamanho proprio. Medido antes de trocar. */
+  font-family:var(--font-body);font-size:18.5px;line-height:1.68;
   -webkit-font-smoothing:antialiased;
 }
 img{max-width:100%;height:auto}
@@ -142,7 +153,7 @@ img{max-width:100%;height:auto}
    no fim da linha para equilibrar o bloco inteiro, e na tela isso aparece como
    a frase que quebra do nada com meia linha vazia à direita.
 
-   Medido no Longevidade, 8 páginas a 1280px, 437 linhas de prosa:
+   Medido no IC-C, 8 páginas a 1280px, 437 linhas de prosa:
      com balance + pretty ..... 62 linhas quebravam com espaço sobrando
      com quebra natural ......... 0
 
@@ -154,6 +165,27 @@ h1,h2,h3,h4{text-wrap:balance}
 
 h1,h2,h3,h4{margin:0;font-weight:600;letter-spacing:-.01em;line-height:1.2}
 p{margin:0 0 18px}
+
+/* Lista em prosa.
+   🔴 ACHADO PARA O PADRAO, 27/08. O base.css tem 48 componentes e nenhuma
+   lista NEUTRA: toda regra de ul/li mora dentro de um componente com
+   envelope proprio (.checagem, .fecho, .destrave, .ad, .quad). <ul> solto
+   numa .secao cai no default do navegador, com marcador preto e recuo de
+   40px que destoa da pagina.
+   O efeito colateral e que quem escreve nao tem para onde levar a prosa, e
+   ela vira paragrafo. Foi a reclamacao do cliente em 27/08, em 3 paginas
+   seguidas: "sempre que possivel, use bullet points".
+   Nasce SEM envelope de proposito: so o marcador, o respiro e o negrito de
+   abertura. Herda os 18,5px/1,68 do body, entao ela le como a prosa em volta
+   e nao como um bloco a parte.                                             */
+.lista{margin:18px 0;padding:0;list-style:none}
+.lista li{position:relative;padding-left:21px;margin-bottom:11px}
+.lista li:last-child{margin-bottom:0}
+.lista li::before{
+  content:"";position:absolute;left:4px;top:.66em;
+  width:6px;height:6px;border-radius:50%;background:var(--accent);
+}
+.lista li strong{color:var(--text)}
 a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-line)}
 a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
 
@@ -255,20 +287,44 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
    precisar do breakout — um documento A4, uma tabela de 12 colunas — a pagina
    dele fica FORA da trilha e mantem o layout editorial de sempre.
    =========================================================================== */
+/* 🔴 GRID DE TRES COLUNAS, E NAO FLEX. Corrigido em 26/08.
+   No flex a coluna de leitura se centralizava no espaco RESIDUAL -- o que
+   sobra depois de tirar os 288px da trilha. Medido a 1265px: 75px de margem
+   a esquerda contra 410px a direita, com o centro do texto 167px fora do
+   centro da tela. A mesma aula no IC-A, que nao tem trilha, mede 235/250.
+   Era isto que o Rafael leu como "torto" e "desenquadrado" quatro vezes.
+
+   O grid resolve porque a coluna do meio nao depende do que existe nas
+   laterais: a leitura fica no centro da TELA e a trilha ocupa a margem
+   direita, em vez de roubar o centro. Medido depois: 235/250, identico ao
+   IC-A.
+
+   minmax(0,1fr) nas laterais e obrigatorio: 1fr puro nao encolhe abaixo do
+   conteudo da trilha e devolve o problema em tela media. */
 .com-trilha{
-  display:flex;gap:32px;align-items:flex-start;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,var(--col)) minmax(0,1fr);
+  gap:32px;align-items:flex-start;
   max-width:1536px;margin:0 auto;padding:0 24px;
 }
 .com-trilha>.folha{
   /* min-width:0 e obrigatorio: item de flex nasce com min-width:auto e nao
      encolhe abaixo do conteudo. O .doc tem min-width:100% e esticava a coluna
      de 780 para 1140, empurrando a pagina para fora da tela. */
-  flex:1;min-width:0;max-width:var(--col);margin:0 auto;padding:0;
+  grid-column:2;min-width:0;max-width:var(--col);margin:0 auto;padding:0;
 }
+/* 🔴 A MIGALHA TEM DE MEDIR PELA MESMA REGUA DO TEXTO.
+   O grid moveu a coluna de leitura para o centro da tela e deixou a migalha
+   onde ela estava: num container de 1140 centralizado. Medido a 1265px, a
+   migalha comecava em 55px e o texto em 235px -- 180px de distancia, na
+   mesma pagina. Antes do grid eram 20px, ja errados.
+   Duas reguas na mesma pagina e o que sobra do "desenquadrado" depois de
+   consertar a coluna. */
+body:has(.com-trilha) .migalha{max-width:var(--col)}
 .com-trilha .solta{width:auto;min-width:0;margin-left:0;transform:none}
 
 .trilha{
-  flex:0 0 288px;align-self:flex-start;position:sticky;top:84px;
+  grid-column:3;max-width:288px;align-self:flex-start;position:sticky;top:84px;
   font-size:13px;order:2;
 }
 .trilha-cab{
@@ -337,6 +393,12 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
    FUNÇÃO da seção, e o H2 diz o assunto dela. O aluno que abre a quinta aula
    já sabe onde as coisas estão.                                             */
 .secao{margin-bottom:64px;scroll-margin-top:80px}
+/* h3 SOLTO, fora de componente. O reset zera a margem de todo titulo e cada
+   componente devolve a sua; o h3 direto na secao ficava sem nenhuma, colado
+   no bloco de cima e no de baixo. Achado no piloto IEL.
+   Filho direto so: h3 dentro de componente continua com a margem dele.      */
+.secao > h3{margin:32px 0 12px}
+.secao > h3:first-child{margin-top:0}
 .secao-topo{display:flex;align-items:flex-start;gap:16px;margin-bottom:22px}
 .secao-n{
   font-family:var(--font-mono);font-size:30px;font-weight:500;
@@ -414,6 +476,23 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
    baixo é o que ela não é. Funciona porque a confusão do aluno quase nunca é
    sobre a definição: é sobre a coisa parecida ao lado.                       */
 .contraste{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+
+/* O PAR EM CIMA, O CONTRARIO EMBAIXO.
+   Com contagem PAR a grade tem metade das colunas, entao a linha de cima fica
+   toda "e" e a de baixo toda "nao e" -- que e como o bloco se le. Com 3 fixas,
+   4 blocos deixavam o quarto orfao numa linha sozinha: foi o que aconteceu na
+   aula modelo, e o Rafael viu no print.
+     2 blocos -> 2 colunas    6 blocos -> 3 colunas
+     4 blocos -> 2 colunas    8 blocos -> 4 colunas
+   Contagem IMPAR mantem as 3 de sempre: nao ha par para alinhar.
+   Vai dentro de min-width porque abaixo de 720px tudo vira 1 coluna, e o
+   :has() tem especificidade maior que a regra do responsivo. */
+@media (min-width:721px){
+  .contraste:has(> .ctr:nth-child(2)):not(:has(> .ctr:nth-child(3))){grid-template-columns:repeat(2,1fr)}
+  .contraste:has(> .ctr:nth-child(4)):not(:has(> .ctr:nth-child(5))){grid-template-columns:repeat(2,1fr)}
+  .contraste:has(> .ctr:nth-child(6)):not(:has(> .ctr:nth-child(7))){grid-template-columns:repeat(3,1fr)}
+  .contraste:has(> .ctr:nth-child(8)):not(:has(> .ctr:nth-child(9))){grid-template-columns:repeat(4,1fr)}
+}
 .ctr{
   background:var(--bg-elev);border:1px solid var(--border);
   border-radius:var(--raio);padding:18px;
@@ -497,6 +576,12 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
   padding:18px;margin:0;font-family:var(--font-mono);font-size:14px;
   line-height:1.7;color:var(--text);white-space:pre-wrap;
 }
+
+/* Trecho de CONFIGURACAO, nao de pedido. O perfil da conta e o arquivo de
+   regras sao copiaveis e nao tem os quatro paragrafos de um prompt, porque
+   nao pedem nada: descrevem quem pergunta. A borda a esquerda separa os dois
+   na pagina, e o G5 usa a mesma classe para nao cobrar o que nao se aplica. */
+.prompt-txt.config{border-left:3px solid var(--accent-line)}
 
 /* ---------- 12 · TABELA --------------------------------------------------- */
 .tabela{
@@ -680,6 +765,33 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
 }
 .gancho p:last-child{margin-bottom:0}
 
+/* ---------- O DIVISOR · A AULA ACABA AQUI --------------------------------
+   HERDADO. A peca vem de "Claude para Lideres", de Adriano Couto, onde se
+   chama o divisor da bandeirada. Herdamos a FORMA -- a aula com dois
+   comprimentos declarados -- e nada do texto dele.
+
+   O que vem ANTES e a aula: situacao, conceito, figura, demonstracao,
+   pratica, gabarito. O que vem DEPOIS e aprofundamento, e o aluno escolhe.
+   Resolve a tensao entre "a aula tem que caber no encontro" e "quem quer
+   profundidade fica sem".
+
+   Medido na aula n1 do piloto IEL, 27/08: 2.349 palavras antes do divisor e
+   1.118 depois. Sem ele, as 3.467 chegam como se fossem todas obrigatorias
+   -- e foi a sensacao de sala parada que o autor relatou no encontro 1.   */
+.ate-aqui{display:flex;align-items:center;gap:16px;margin:46px 0 22px}
+.ate-aqui::before,.ate-aqui::after{
+  content:"";flex:1;height:1px;background:var(--border-strong);
+}
+.ate-aqui-rot{
+  font-family:var(--font-mono);font-size:11px;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--text-dim);white-space:nowrap;
+}
+.ate-aqui-nota{
+  font-size:15px;line-height:1.55;color:var(--text-dim);
+  text-align:center;max-width:560px;margin:0 auto 34px;
+}
+.ate-aqui-nota strong{color:var(--text)}
+
 .rodape-nav{
   display:flex;justify-content:space-between;gap:16px;
   padding:26px 0 60px;border-top:1px solid var(--border);margin-top:40px;
@@ -687,7 +799,7 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
 .rodape-nav a{font-size:15px}
 
 /* ---------- 16 · A PÁGINA DE CASO, EM CINCO PASSOS ------------------------
-   Vem do Workshop Maria Pitanga, e é a peça que o Rafael chamou de maior ganho
+   Vem do IC-B, e é a peça que o Rafael chamou de maior ganho
    daquele material. Toda página de caso tem os MESMOS cinco passos, na mesma
    ordem, com os mesmos títulos. Verificado nas oito páginas de lá: nenhuma
    variação.
@@ -707,9 +819,18 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
 }
 .passo:first-child{border-top:0;padding-top:0}
 .passo-topo{display:flex;align-items:flex-start;gap:18px;margin-bottom:20px}
+/* 🔴 O NUMERO DO PASSO E MEDALHA, NAO NUMERAL.
+   Ate 26/08 isto era font-size:34px em numeral, contra os 30px do .secao-n.
+   O filho saia MAIOR que o pai, e o Rafael viu no print da secao 05: os
+   quatro passos gritavam mais alto que as oito secoes ao redor.
+   Numeral compete com numeral. Medalha nao compete: e outro objeto.
+   E como o IC-A resolve, e por isso la o passo nunca briga com a secao. */
 .passo-n{
-  font-family:var(--font-mono);font-size:34px;font-weight:500;
-  color:var(--accent);line-height:1;flex:0 0 auto;
+  font-family:var(--font-mono);font-size:13px;font-weight:500;
+  color:var(--bg-elev);background:var(--accent);line-height:1;flex:0 0 auto;
+  min-width:26px;height:26px;margin-top:3px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:var(--raio-p);
 }
 .passo-fn{
   font-family:var(--font-mono);font-size:11px;text-transform:uppercase;
@@ -1120,6 +1241,16 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
    estrutura; só o do meio ganha o selo e o fundo. E embaixo vem o resumo de uma
    linha por opção, que é o que a pessoa leva na cabeça.                       */
 .opcoes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0}
+
+/* MESMA CURA DO .contraste (commit 738b55b), que o .opcoes nao recebeu.
+   Com 3 colunas fixas, 4 opcoes deixam a quarta sozinha ocupando um terco da
+   largura. Medido no piloto IEL, m1a1-superficies secao 03.
+   Vai dentro de min-width porque abaixo de 720px tudo vira 1 coluna, e o
+   :has() tem especificidade maior que a regra do responsivo.                */
+@media (min-width:721px){
+  .opcoes:has(> .opc:nth-child(2)):not(:has(> .opc:nth-child(3))){grid-template-columns:repeat(2,1fr)}
+  .opcoes:has(> .opc:nth-child(4)):not(:has(> .opc:nth-child(5))){grid-template-columns:repeat(2,1fr)}
+}
 .opc{
   background:var(--bg-elev);border:1px solid var(--border);
   border-radius:var(--raio);display:flex;flex-direction:column;overflow:hidden;
@@ -1357,6 +1488,25 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
   .doc{border:0;box-shadow:none;border-radius:0;padding:0;margin:0}
   .doc-num{break-inside:avoid}
   .doc h3{break-after:avoid}
+  /* 🔴 CONTEUDO ESCONDIDO NA TELA NAO PODE SUMIR NO PAPEL. A aba fechada,
+     o aprofundamento fechado e a resposta fechada existem no HTML -- quem
+     imprime a aula para levar para a sala precisa das tres inteiras, ou o
+     material impresso vira um terco do material da tela. */
+  .aba-corpo{display:block!important;border-top:1px solid var(--border);
+    padding-top:14px}
+  .aba-rot{display:block;font-weight:600;margin-bottom:8px}
+  .abas-fila{display:none}
+  .aprofunda{display:block!important;position:static;border:1px solid var(--border);
+    margin:14px 0;max-width:none;
+    /* o modal rola na tela e NAO rola no papel: sem zerar os dois, a folha
+       corta a tabela na altura que a tela usava */
+    max-height:none;overflow:visible}
+  .aprofunda-corpo{overflow:visible}
+  .aprofunda-abrir,.aprofunda-fechar{display:none}
+  /* o pe some: o botao que ele carrega ja nao funciona no papel */
+  .aprofunda-pe{display:none}
+  .vf-corpo{display:block!important}
+  .vf summary::after{content:""}
 }
 
 /* ---------- 35 · O LOOP ABERTO E O LOOP FECHADO ---------------------------
@@ -2086,7 +2236,7 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
                     começou no meio da linha, no resto que a anterior deixou
                     → cura: esta seção
 
-   🔴 Medido no Longevidade: 283 de 491 frases quebravam no meio, e a frase
+   🔴 Medido no IC-C: 283 de 491 frases quebravam no meio, e a frase
    mediana ocupava 497px numa medida de 720px. TRÊS DE CADA QUATRO já cabiam
    numa linha e quebravam mesmo assim.
 
@@ -2122,6 +2272,9 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
   margin-left:50%;
   transform:translateX(-50%);
 }
+/* a largura do meio: metade figura, metade prosa. Estourar até 1140 aqui separa
+   o par que precisa ser lido junto. */
+.solta.meia{width:min(var(--col-media),calc(100vw - 40px))}
 /* dentro de um gabarito a coluna já é estreita: estourar ali vaza da caixa */
 .gabarito-corpo .solta{width:auto;min-width:0;margin-left:0;transform:none}
 
@@ -2136,26 +2289,556 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
    O custo esta declarado: pagina COM trilha nao tem figura larga. Se um curso
    precisar do breakout (um documento A4, uma tabela de 12 colunas), a pagina
    dele fica FORA da TRILHA e mantem o layout editorial de sempre. */
-/* 🔴 CORRIGIDO 26/08. Em 25/08 esta regra era width:auto e desligava o
-   breakout inteiro quando a trilha existia: toda figura larga caia de 1140px
-   para os 780px da coluna de leitura, 32% mais estreita. Foi desligado por
-   medo errado -- supus que nao sobrava espaco, sem medir.
+/* 🔴 A CONTA, FEITA TRES VEZES, E ELA NAO FECHA. Fechado em 26/08.
 
-   Sobra. Com a trilha de 288px e o gap de 32, o track de conteudo fica com
-   ~1168px num container de 1536. O que o breakout NAO pode e medir por
-   100vw, porque a viewport inclui a trilha: por isso o calc desconta os
-   400px que trilha, gap e padding ocupam. */
-.com-trilha .solta{
-  width:min(var(--col-larga),calc(100vw - 400px));
-  min-width:100%;margin-left:50%;transform:translateX(-50%);
+   25/08 -- width:auto. Desliguei o breakout por medo, sem medir. Figura
+           larga caiu de 1140 para 780. O Rafael chamou de "comprimido".
+   26/08 -- calc(100vw - 400px). Media 865px a 1265. Parecia resolvido, e
+           colidia: a borda direita do bloco caia em 1058px e a trilha
+           comeca em 1047. 11px por baixo da barra, em cinco blocos da
+           aula 1 do IEL, no ar.
+   26/08 -- a conta, agora com o grid. A coluna de leitura passou a ser
+           centralizada na TELA. Entao o limite da direita nao e mais a
+           borda da janela: e onde a trilha comeca. Meia-largura maxima =
+           1047 - 32 - 632 = 383px, o que da 766px de bloco. MENOS que os
+           780 da propria coluna.
+
+   Nao ha breakout possivel numa pagina com trilha, e a conta e a mesma em
+   qualquer largura porque coluna e trilha crescem juntas.
+
+   A ESCOLHA, ENTAO, E DECLARADA: a barra vence, e a figura larga mora nas
+   paginas que nao tem barra -- caso/ e exemplo/, que e onde a demonstracao
+   e o artefato pronto moram de qualquer jeito. As tres entregas de
+   referencia (IC-A, IC-B e IC-C) nao tem barra lateral
+   em aula nenhuma, e e por isso que a figura larga cabe la.
+
+   NAO "conserte" isto de novo sem medir a borda direita contra .trilha. */
+.com-trilha .solta{width:auto;min-width:0;margin-left:0;transform:none}
+
+
+/* ---------- 57 · O SUB-CONCEITO NUMERADO ---------------------------------
+   "Conceito 1 · ... / Conceito 2 · ..." dentro de UMA secao. Vem do IC-A
+   (aulas 1.1, 1.2 e 2.1) e do bloco 03 do M3 do IC-B.
+
+   Resolve o que o Rafael pediu duas vezes: "o conceito tem que ser dividido".
+   Uma secao 02 que trata de duas ideias vira dois blocos com numero proprio,
+   em vez de tres paragrafos seguidos em que a segunda ideia se esconde.
+
+   🔴 NAO E O .passo, e a diferenca importa:
+     .passo    etapa de exercicio. Tem ordem obrigatoria, o aluno EXECUTA,
+               e o numero e medalha porque marca posicao numa fila.
+     .conceito ideia. O numero existe so para dizer QUANTAS sao, e some da
+               memoria depois da leitura. Por isso aqui ele e texto.
+   Trocar um pelo outro faz o aluno tentar "executar" um conceito.          */
+/* ---------- A ANALOGIA · o filminho na cabeca ----------------------------
+   HERDADA. A forma vem da formula AIDEN, de Adriano de Marqui (curso Didatica
+   Lendaria, no vault de Alan Nicolas). Herdamos a forma; o texto e nosso.
+
+   A regra que a peca serve: "as pessoas nao entendem o que voce fala, mas o
+   que elas veem ou o que elas sentem quando voce fala" -- e "a imagem vem
+   primeiro, para depois processar o entendimento".
+
+   AIDEN tem cinco partes. O padrao ja tinha duas:
+     A abstrato       -> .conceito, e agora ele cabe em UMA frase
+     I imagem         -> .analogia, o corpo
+     D detalhamento   -> .analogia-mapa, o de-para entre a analogia e a coisa
+     E extensao       -> .analogia-mais, onde mais isso aparece
+     N negacao        -> .contraste, que ja existia
+   Medido no piloto IEL: a secao de conceito tinha 632 palavras e a primeira
+   figura so chegava na secao seguinte, com 312. Seiscentas palavras de
+   abstracao antes de qualquer imagem foi o que travou a sala em 27/08.     */
+/* ---------- O TIPO DA AULA ------------------------------------------------
+   Decisao do Rafael em 28/08: existem DOIS tipos de aula, e forcar a mesma
+   anatomia nos dois foi o que produziu exercicio postico.
+
+     .aula-fundamento   ensina como a coisa funciona. Entrega um INSTRUMENTO
+                        de referencia (a ficha, a regua, o cartao), nao um
+                        exercicio. Nao leva secao 05 forcada.
+     .aula-pratica      a pessoa faz. Leva as tres pecas da 05: .arquivo,
+                        .passo e .prompt.
+
+   A marca sai no elemento main e o aluno a ve no kicker: ele sabe, antes de rolar a
+   pagina, se vem aprender ou se vem fazer. E nao se mistura com o selo, que
+   fala de duracao e area.                                                  */
+.aula-fundamento .heroi-kicker{color:var(--text-dim)}
+.aula-pratica .heroi-kicker{color:var(--accent-dark)}
+.aula-pratica .heroi-kicker::before,
+.aula-fundamento .heroi-kicker::before{
+  content:"";display:inline-block;width:7px;height:7px;border-radius:50%;
+  margin-right:8px;vertical-align:middle;
 }
+.aula-fundamento .heroi-kicker::before{background:var(--text-muted)}
+.aula-pratica .heroi-kicker::before{background:var(--accent)}
+
+.analogia{
+  background:var(--bg-warm);border-left:3px solid var(--accent);
+  border-radius:0 var(--raio) var(--raio) 0;padding:18px 20px;margin:20px 0;
+}
+.analogia-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--accent-dark);margin-bottom:9px;
+}
+.analogia > p{margin:0 0 14px}
+.analogia > p:last-child{margin-bottom:0}
+.analogia-mapa{list-style:none;margin:0 0 14px;padding:0}
+.analogia-mapa li{
+  position:relative;padding-left:19px;margin-bottom:8px;font-size:16px;
+}
+.analogia-mapa li:last-child{margin-bottom:0}
+.analogia-mapa li::before{
+  content:"\2192";position:absolute;left:0;top:0;color:var(--accent);
+}
+.analogia-mapa li strong{color:var(--text)}
+.analogia-mais{
+  font-size:15px;color:var(--text-dim);border-top:1px solid var(--border);
+  padding-top:12px;margin:0;
+}
+
+.conceito{margin:34px 0}
+.conceito:first-of-type{margin-top:26px}
+.conceito-rot{
+  font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--accent);
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px;
+}
+.conceito h3{font-size:21px;line-height:1.28;margin-bottom:11px}
+.conceito > p:last-child{margin-bottom:0}
+
+/* ---------- 58 · A MESA · a janela de contexto enchendo -------------------
+   A unica peca de verdade nova das tres entregas de referencia, e a mais
+   didatica delas. O IC-A mostra a MESMA barra em tres momentos da
+   conversa (mensagem 3, 20 e 40) e a pessoa VE a faixa das regras virar uma
+   tirinha no meio de uma pilha. Explicar isso em prosa custa dois paragrafos
+   e nao convence ninguem.
+
+   Serve para qualquer coisa que ENCHE ao longo do tempo: janela de contexto,
+   agenda da semana, orcamento do mes.
+
+   🔴 As faixas sao percentuais e a soma tem de dar 100. Barra que nao fecha
+   100 mente sobre a conta que ela mesma esta ensinando -- o gate G36 confere.
+
+   Contraste medido, texto branco 11px sobre cada faixa:
+     .regra    --accent-dark  #2c4753   9,4:1
+     .dado     --accent       #3b5b6b   7,2:1
+     .conversa --text-muted   #5a6172   6,2:1
+     .livre    sem fundo, --text-dim sobre --bg-warm   4,5:1                */
+.mesa{margin-top:26px;margin-bottom:26px}
+.mesa-linha{margin-bottom:18px}
+.mesa-linha:last-child{margin-bottom:0}
+.mesa-topo{
+  display:flex;justify-content:space-between;align-items:baseline;
+  gap:14px;margin-bottom:7px;
+}
+.mesa-quando{font-weight:600;font-size:15px}
+.mesa-nota{font-family:var(--font-mono);font-size:12px;color:var(--text-dim)}
+.mesa-trilho{
+  display:flex;height:28px;border-radius:var(--raio-p);overflow:hidden;
+  background:var(--bg-warm);
+}
+.mesa-faixa{
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-mono);font-size:11px;color:var(--bg-elev);
+  white-space:nowrap;overflow:hidden;
+}
+.mesa-faixa.regra{background:var(--accent-dark)}
+.mesa-faixa.dado{background:var(--accent)}
+.mesa-faixa.conversa{background:var(--text-muted)}
+.mesa-faixa.livre{background:transparent;color:var(--text-dim)}
+.mesa-legenda{
+  display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;
+  font-family:var(--font-mono);font-size:11px;color:var(--text-dim);
+}
+.mesa-legenda span{display:inline-flex;align-items:center;gap:6px}
+.mesa-legenda i{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+.mesa-legenda i.regra{background:var(--accent-dark)}
+.mesa-legenda i.dado{background:var(--accent)}
+.mesa-legenda i.conversa{background:var(--text-muted)}
+.mesa-legenda i.livre{background:var(--bg-warm);border:1px solid var(--border-strong)}
+
+/* ---------- 59 · A VERIFICAÇÃO DE ENTENDIMENTO ------------------------
+   🔴 A peça que faltava para a aula de FUNDAMENTO existir de verdade.
+
+   Regra do Rafael, 30/08: "há aulas de fundamentos que são só de explicação e
+   de confirmar com a turma se todo mundo entendeu". Até aqui o padrão só tinha
+   .checagem -- lista de conferencia no FIM da aula, que a pessoa lê e concorda
+   com ela mesma. Isso não confirma entendimento: confirma leitura.
+
+   O .verifique é outra coisa: pergunta FECHADA, com resposta escondida, colada
+   no conceito que ela testa. O instrutor lê em voz alta, a sala responde, e só
+   então ele abre. É o que a aula de fundamento entrega no lugar do exercício
+   postiço -- e o que a torna conduzível numa sala, não só legível sozinha.
+
+   A resposta nasce FECHADA pela mesma razão do .gabarito: aberta, ninguém
+   tenta.                                                                    */
+.verifique{
+  border:1px solid var(--accent-line);border-radius:var(--raio);
+  background:var(--accent-tinted);margin:26px 0;overflow:hidden;
+}
+.verifique-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--accent-dark);
+  padding:14px 20px 0;
+}
+.verifique-nota{
+  font-size:14px;color:var(--text-dim);padding:5px 20px 12px;margin:0;
+}
+.vf{border-top:1px solid var(--accent-line)}
+.vf summary{
+  padding:15px 20px;cursor:pointer;list-style:none;
+  display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:baseline;
+}
+.vf summary::-webkit-details-marker{display:none}
+.vf-n{
+  font-family:var(--font-mono);font-size:13px;color:var(--accent);
+}
+.vf-p{font-weight:500}
+.vf-corpo{
+  padding:0 20px 18px 54px;font-size:16px;color:var(--text-muted);
+}
+.vf-corpo p:last-child{margin-bottom:0}
+/* O sinal de que há resposta embaixo mora no fim da linha, e não no começo:
+   no começo ele competiria com o número da pergunta. */
+.vf summary::after{
+  content:"mostrar";grid-column:2;font-family:var(--font-mono);
+  font-size:10px;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--accent);margin-top:6px;
+}
+.vf[open] summary::after{content:"esconder"}
+
+/* ---------- 60 · O TESTE RÁPIDO ------------------------------------------
+   Uma linha que diz COMO SE RECONHECE a coisa na vida real. Vem do IC-B,
+   onde cada card de gatilho termina com o critério de
+   identificação -- herdamos a forma, nada do texto.
+
+   É a peça mais barata do padrão e uma das mais fortes: sem ela o aluno sai
+   sabendo a definição e não reconhece o caso quando ele aparece na segunda.
+   Uma frase, no imperativo, com um teste que a pessoa consegue aplicar
+   sozinha. Se precisar de duas frases, o conceito ainda não está pronto.    */
+.teste-rapido{
+  display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;
+  border-top:1px dashed var(--accent-line);
+  margin-top:14px;padding-top:12px;
+}
+.teste-rapido-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--accent-dark);white-space:nowrap;
+}
+.teste-rapido p{margin:0;font-size:15px;color:var(--text-muted)}
+.teste-rapido strong{color:var(--text)}
+
+/* ---------- 61 · A COLUNA DO ERRO COMUM ----------------------------------
+   Variante da .anatomia com uma quarta coluna: o que quase todo mundo escreve
+   errado NAQUELE campo. A .anatomia sozinha ensina o que o campo é; ela não
+   ensina o que a sala vai fazer com ele.
+
+   Vem dos prints do IC-D, onde a tabela de campos do prompt tem a
+   coluna do erro ao lado do exemplo bom. É a diferença entre descrever o
+   formulário e corrigir a prova.                                            */
+.anatomia.com-erro{grid-template-columns:170px 1fr 1fr 130px}
+.anat-erro{background:var(--erro-soft)}
+.anat-erro-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--erro-texto);margin-bottom:5px;display:block;
+}
+.anat-erro p{margin:0;font-size:14px;color:var(--text-muted)}
+
+/* ---------- 62 · AS ABAS ------------------------------------------------
+   Um assunto com N faces que a pessoa compara UMA DE CADA VEZ: os níveis de
+   uso, os modos, os gatilhos. Sem JavaScript -- radio escondido e irmão
+   marcado --, porque o padrão embute o CSS em cada página e não quer estado
+   que dependa de script para o conteúdo aparecer.
+
+   🔴 IMPRESSÃO: no papel não existe "a aba aberta". Toda aba imprime,
+   uma embaixo da outra, com o rótulo virando título. Aba que some na
+   impressão é conteúdo perdido.
+
+   O limite é OITO, subido de seis em 30/08 por decisão do Rafael. O caso que
+   forçou: uma régua de níveis com oito degraus, que não cabia em seis e não
+   é escada (a pessoa navega para o degrau dela, não percorre todos).
+
+   Acima de oito a fila quebra em duas linhas e o aluno perde a noção de
+   quantas faces existem -- ali vira .escada ou tabela. A fila rola de lado
+   no celular desde sempre, então oito não custa largura lá.               */
+.abas{margin:24px 0;border:1px solid var(--border);border-radius:var(--raio);
+  background:var(--bg-elev);overflow:hidden}
+.abas > input[type=radio]{position:absolute;opacity:0;pointer-events:none}
+.abas-fila{
+  display:flex;flex-wrap:wrap;gap:0;background:var(--bg-warm);
+  border-bottom:1px solid var(--border);
+}
+.abas-fila label{
+  padding:13px 18px;cursor:pointer;font-size:15px;font-weight:500;
+  color:var(--text-dim);border-bottom:2px solid transparent;
+  border-right:1px solid var(--border);
+}
+.abas-fila label:last-child{border-right:0}
+.aba-corpo{display:none;padding:22px 20px}
+.aba-corpo > :last-child{margin-bottom:0}
+.aba-rot{display:none}
+/* 🔴 A FILA E <nav>, NAO <div>, E A PECA INTEIRA DEPENDE DISSO.
+   nth-of-type conta por TIPO DE ELEMENTO, nao por classe. Com a fila em
+   <div>, ela vira a primeira <div> filha, .aba-corpo:nth-of-type(1) nunca
+   casa, e TODOS os pares saem deslocados em um: nenhuma aba abre.
+
+   Foi assim que esta peca nasceu, em 30/08, e passou nas 315 checagens da
+   suite -- nenhum gate media comportamento de CSS. O defeito so apareceu
+   medindo a pagina no navegador, contando quantos .aba-corpo estavam
+   visiveis: quatro corpos, zero visiveis.
+
+   Com a fila em <nav>, os .aba-corpo sao as unicas <div> filhas e a contagem
+   alinha. O gate G46 confere a marcacao.
+
+   Oito pares, escritos à mão: o seletor de irmão não tem contador. */
+.abas > input:nth-of-type(1):checked ~ .abas-fila label:nth-of-type(1),
+.abas > input:nth-of-type(2):checked ~ .abas-fila label:nth-of-type(2),
+.abas > input:nth-of-type(3):checked ~ .abas-fila label:nth-of-type(3),
+.abas > input:nth-of-type(4):checked ~ .abas-fila label:nth-of-type(4),
+.abas > input:nth-of-type(5):checked ~ .abas-fila label:nth-of-type(5),
+.abas > input:nth-of-type(6):checked ~ .abas-fila label:nth-of-type(6),
+.abas > input:nth-of-type(7):checked ~ .abas-fila label:nth-of-type(7),
+.abas > input:nth-of-type(8):checked ~ .abas-fila label:nth-of-type(8){
+  background:var(--bg-elev);color:var(--accent-dark);
+  border-bottom-color:var(--accent);
+}
+.abas > input:nth-of-type(1):checked ~ .aba-corpo:nth-of-type(1),
+.abas > input:nth-of-type(2):checked ~ .aba-corpo:nth-of-type(2),
+.abas > input:nth-of-type(3):checked ~ .aba-corpo:nth-of-type(3),
+.abas > input:nth-of-type(4):checked ~ .aba-corpo:nth-of-type(4),
+.abas > input:nth-of-type(5):checked ~ .aba-corpo:nth-of-type(5),
+.abas > input:nth-of-type(6):checked ~ .aba-corpo:nth-of-type(6),
+.abas > input:nth-of-type(7):checked ~ .aba-corpo:nth-of-type(7),
+.abas > input:nth-of-type(8):checked ~ .aba-corpo:nth-of-type(8){display:block}
+/* o foco de teclado precisa aparecer em algum lugar: o input é invisível, então
+   quem mostra é o label irmão */
+.abas > input:focus-visible:nth-of-type(1) ~ .abas-fila label:nth-of-type(1),
+.abas > input:focus-visible:nth-of-type(2) ~ .abas-fila label:nth-of-type(2),
+.abas > input:focus-visible:nth-of-type(3) ~ .abas-fila label:nth-of-type(3),
+.abas > input:focus-visible:nth-of-type(4) ~ .abas-fila label:nth-of-type(4),
+.abas > input:focus-visible:nth-of-type(5) ~ .abas-fila label:nth-of-type(5),
+.abas > input:focus-visible:nth-of-type(6) ~ .abas-fila label:nth-of-type(6),
+.abas > input:focus-visible:nth-of-type(7) ~ .abas-fila label:nth-of-type(7),
+.abas > input:focus-visible:nth-of-type(8) ~ .abas-fila label:nth-of-type(8){
+  outline:2px solid var(--accent);outline-offset:-2px;
+}
+
+/* ---------- 63 · O APROFUNDAMENTO ---------------------------------------
+   O que NÃO cabe na aula e some se virar parágrafo: a exceção técnica, a
+   tabela longa, o caso raro. Abre por cima da página e fecha sem tirar a
+   pessoa do lugar onde ela estava lendo.
+
+   Por que não o <details>: details empurra o texto para baixo, e quem abre
+   perde a linha em que estava. Para um parágrafo isso não custa nada -- e por
+   isso o .gabarito segue sendo details. Para meia tela de tabela, custa.
+
+   🔴 O conteúdo mora na página, não no script. <dialog> fechado não é
+   conteúdo ausente: ele está no HTML, o Ctrl+F acha, e a impressão mostra.  */
+.aprofunda-abrir{
+  display:inline-flex;align-items:center;gap:7px;
+  background:none;border:0;padding:0;cursor:pointer;
+  font-family:var(--font-mono);font-size:12px;text-transform:uppercase;
+  letter-spacing:.07em;color:var(--accent);
+  border-bottom:1px solid var(--accent-line);
+}
+.aprofunda-abrir::before{content:"\2295"}
+.aprofunda{
+  border:1px solid var(--border);border-radius:var(--raio);
+  padding:0;max-width:min(760px,calc(100vw - 32px));width:100%;
+  background:var(--bg-elev);color:var(--text);
+}
+.aprofunda::backdrop{background:rgba(26,31,46,.42)}
+.aprofunda-topo{
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  padding:20px 24px 0;
+}
+.aprofunda-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--text-dim);
+}
+.aprofunda-fechar{
+  background:none;border:0;cursor:pointer;font-size:22px;line-height:1;
+  color:var(--text-dim);padding:0 2px;
+}
+.aprofunda-corpo{padding:10px 24px 24px}
+.aprofunda-corpo > :last-child{margin-bottom:0}
+
+/* ---------- 64 · O RESULTADO ESPERADO DO PASSO --------------------------
+   🔴 Estava na lista de 27/08 como "proposta ainda não implementada" e
+   ficou três dias fora: o .passo não tinha onde dizer o que deveria ter
+   acontecido. Sem isso o aluno só descobre que errou no passo 2 quando chega
+   ao 5 e nada bate -- e aí ele não sabe qual dos quatro passos foi.
+
+   É a peça que o tutorial do curso do Couto tem em cada passo. Uma linha, no
+   indicativo, descrevendo o estado da tela: o que apareceu, quantas linhas,
+   qual mensagem.                                                           */
+.passo-ok{
+  display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:baseline;
+  background:var(--ok-soft);border:1px solid var(--ok);
+  border-radius:var(--raio-p);padding:11px 14px;margin-top:14px;
+}
+.passo-ok-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--ok-texto);white-space:nowrap;
+}
+.passo-ok p{margin:0;font-size:15px;color:var(--text-muted)}
+
+/* ---------- 65 · O SYSTEM PROMPT COMO INSUMO ----------------------------
+   Quarto formato de insumo, ao lado de .xlsx, .docx e do par dos dois.
+   Decisão do Rafael em 30/08: "às vezes padrões de system prompt".
+
+   NÃO É O .prompt. O .prompt é o pedido de UMA conversa, que a pessoa cola e
+   descarta. Isto é a instrução PERMANENTE que ela guarda num Project, num
+   assistente ou num GPT -- ela cola uma vez e usa por semanas. Por isso vem
+   com o campo do que trocar antes de usar: sem ele a pessoa cola a instrução
+   com o nome de outra empresa dentro.                                       */
+.sistema{
+  border:1px solid var(--border);border-radius:var(--raio);
+  background:var(--bg-elev);margin:22px 0;overflow:hidden;
+}
+.sistema-topo{
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  background:var(--bg-warm);border-bottom:1px solid var(--border);
+  padding:12px 18px;
+}
+.sistema-rot{
+  font-family:var(--font-mono);font-size:11px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--text-dim);
+}
+.sistema-onde{font-size:14px;color:var(--text-dim)}
+.sistema-txt{
+  font-family:var(--font-mono);font-size:14px;line-height:1.62;
+  background:var(--bg-code);padding:18px;margin:0;
+  white-space:pre-wrap;word-break:break-word;
+}
+/* o que a pessoa TEM de trocar antes de colar. Marcado no texto e repetido
+   embaixo em lista: no meio de trinta linhas, destaque sozinho passa batido */
+.sistema-troca{
+  background:var(--accent-soft);color:var(--accent-dark);
+  padding:1px 5px;border-radius:3px;font-weight:600;
+}
+.sistema-pe{
+  border-top:1px solid var(--border);padding:14px 18px;
+  font-size:14px;color:var(--text-dim);
+}
+.sistema-pe ul{margin:7px 0 0;padding-left:19px}
+.sistema-pe li{margin-bottom:5px}
+
+/* ---------- 66 · O TERCEIRO TIPO DE AULA · ORGANIZAÇÃO -----------------
+   🔴 Decisão do Rafael, aberta em 30/08 como fio P6 e fechada aqui.
+
+   Havia dois tipos e a realidade tinha três. Ele descreveu o que faltava com
+   estas palavras: "alguns fundamentos também são práticos, porque permitem
+   enxergar o conceito e organizá-lo".
+
+     .aula-fundamento    ensina como a coisa funciona   -> entrega um instrumento
+     .aula-pratica       a pessoa faz                   -> entrega uma coisa feita
+     .aula-organizacao   a pessoa MAPEIA o que ela já tem -> entrega o mapa dela
+
+   A de organização não é meio-termo dos dois: ela não ensina conceito novo e
+   não produz entregável de trabalho. Ela põe o aluno a inventariar a própria
+   rotina dentro de uma estrutura dada -- e o que sai é sobre ELE, não sobre o
+   assunto. É por isso que o insumo dela é sempre um .canvas em branco, nunca
+   uma planilha preenchida por nós.
+
+   JÁ EXISTE, e é a melhor página que o Rafael produziu: a m1a5-mapa da
+   imersão do IEL, com 3.633 palavras e 14 figuras -- quase o dobro da média
+   das outras. Ela não cabia em nenhum dos dois contratos e passou nos gates
+   por acidente.                                                            */
+.aula-organizacao .heroi-kicker{color:var(--ok-texto)}
+.aula-organizacao .heroi-kicker::before{
+  content:"";display:inline-block;width:7px;height:7px;border-radius:50%;
+  margin-right:8px;vertical-align:middle;background:var(--ok);
+}
+
+/* ---------- 67 · O CARD DE DEGRAU DE UMA RÉGUA ---------------------------
+   O card que mora dentro de cada .aba de uma régua de níveis. Vem de um print
+   do site da mentoria da Débora Nascimento, mandado pelo Rafael em 30/08 --
+   herdamos a FORMA, nada do texto.
+
+   🔴 O valor não está no CSS: está nos QUATRO RÓTULOS FIXOS, na mesma ordem,
+   em todo degrau da régua.
+
+     .nivel-rot "Você está aqui se…"     -> o sinal comportamental, na 2ª pessoa
+     .nivel-rot "O que define"           -> a definição, que vem DEPOIS do sinal
+     .nivel-rot "Ferramentas típicas"    -> os .chip do degrau
+     .nivel-passo "Próximo passo…"       -> uma ação concreta, hoje
+
+   A ordem é o argumento. Definição primeiro produz taxonomia que a pessoa lê
+   e não se localiza; sinal primeiro produz reconhecimento, e é ele que faz o
+   aluno dizer "esse sou eu" antes de qualquer teoria. O último bloco é o que
+   impede a régua de virar quadro na parede: sem próximo passo concreto, saber
+   o próprio degrau não muda a segunda-feira.                               */
+.nivel{padding:2px 0}
+.nivel-topo{
+  display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;
+  padding-bottom:16px;border-bottom:1px solid var(--border);
+}
+.nivel-n{
+  display:grid;place-items:center;min-width:56px;height:56px;padding:0 10px;
+  border-radius:var(--raio-p);background:var(--accent-tinted);
+  border:1px solid var(--accent-line);
+  font-family:var(--font-titulo);font-size:19px;color:var(--accent-dark);
+}
+.nivel-fase{
+  display:inline-block;font-family:var(--font-mono);font-size:10px;
+  text-transform:uppercase;letter-spacing:.09em;color:var(--accent-dark);
+  background:var(--accent-tinted);border:1px solid var(--accent-line);
+  border-radius:20px;padding:3px 10px;margin-bottom:7px;
+}
+.nivel-t{font-family:var(--font-titulo);font-size:23px;margin:0 0 5px}
+.nivel-ol{margin:0;font-size:15px;color:var(--text-dim)}
+.nivel-bloco{margin-top:18px}
+.nivel-rot{
+  font-family:var(--font-mono);font-size:10px;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--accent-dark);display:block;margin-bottom:6px;
+}
+.nivel-bloco p{margin:0}
+.nivel-chips{display:flex;flex-wrap:wrap;gap:7px}
+/* O próximo passo é callout e não parágrafo: ele é a única parte do card que
+   a pessoa executa, e precisa sobreviver à leitura em diagonal. */
+.nivel-passo{
+  border-left:3px solid var(--accent);background:var(--bg-warm);
+  border-radius:0 var(--raio-p) var(--raio-p) 0;
+  padding:13px 16px;margin-top:18px;
+}
+.nivel-passo p{margin:0;font-size:15px;color:var(--text-muted)}
+
+/* ---------- 68 · O RODAPÉ DO APROFUNDAMENTO ------------------------------
+   A ação do modal grudada no pé, enquanto o corpo rola. Sem isto, um modal
+   com meia tela de tabela esconde o próprio botão: a pessoa lê a tabela, quer
+   copiar, e tem de rolar de volta para achar o que a fez abrir o modal.
+
+   🔴 O <dialog> precisa de altura MÁXIMA para o corpo ter o que rolar. Sem o
+   max-height, o modal cresce com o conteúdo, a página é que rola, e o pé
+   "fixo" desce junto -- que é o defeito que este bloco existe para evitar. */
+.aprofunda{display:flex;flex-direction:column;max-height:min(84vh,760px)}
+.aprofunda-corpo{overflow-y:auto;flex:1 1 auto}
+.aprofunda-pe{
+  display:flex;justify-content:flex-end;gap:10px;align-items:center;
+  border-top:1px solid var(--border);background:var(--bg-warm);
+  padding:13px 24px;flex:0 0 auto;
+}
+
+/* ---------- 69 · A LEGENDA DE VOCABULÁRIO --------------------------------
+   Os rótulos explicados ANTES da tabela que os usa. Não é a .legenda de
+   figura (aquela é fila horizontal de cor); esta é lista de termo + o que ele
+   significa, e vem acima do bloco que vai repetir o termo dezenas de vezes.
+
+   🔴 Sem ela, a primeira coluna da tabela ensina por indução: a pessoa lê seis
+   linhas e deduz o que o selo quer dizer, deduz errado numa delas, e segue.
+   O custo de declarar o vocabulário são três linhas.                       */
+.vocab{
+  background:var(--bg-warm);border:1px solid var(--border);
+  border-radius:var(--raio);padding:15px 18px;margin:20px 0;
+  display:grid;gap:9px;
+}
+.vocab-l{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline}
+.vocab-l p{margin:0;font-size:15px;color:var(--text-muted)}
 
 /* ---------- 56 · TELAS ESTREITAS ------------------------------------------ */
 
 /* ===========================================================================
    PAGINA DE MODULO — o nivel que faltava entre a capa e a aula
 
-   Extraido do m1/index.html do Claude na Pratica (Pouchain), a unica entrega
+   Extraido do m1/index.html do IC-A, a unica entrega
    com a hierarquia completa capa -> modulo -> aula. Nada aqui foi desenhado:
    os nomes de token foram traduzidos para o vocabulario do template
    (--radius -> --raio, --radius-sm -> --raio-p, --shadow-md -> --sombra) e
@@ -2177,9 +2860,19 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
   padding:4px 9px;border-radius:var(--raio-p)}
 .rec.livre{background:var(--bg-warm);color:var(--text-dim)}
 
-.aulas-lista{display:flex;flex-direction:column;gap:22px;margin:22px 0}
+/* 🔴 SEM SHORTHAND DE MARGEM AQUI, E O MOTIVO E CARO.
+   Ate 26/08 esta regra era `margin:22px 0`. O shorthand zera margin-left, e
+   `.aulas-lista` vem DEPOIS de `.solta` no arquivo com a mesma especificidade
+   -- entao ela vencia e matava o margin-left:50% do breakout.
+   O transform:translateX(-50%) NAO e margem: sobrevivia sozinho. Resultado
+   medido a 1265px: o cartao nascia em -311px, cortado pela esquerda, SEM
+   gerar rolagem horizontal e SEM nenhum gate acusar.
+   Regra que fica: componente que anda com .solta usa margin-top/margin-bottom.
+   O gate G35 confere isso em todo o arquivo. */
+.aulas-lista{display:flex;flex-direction:column;gap:22px;
+  margin-top:22px;margin-bottom:22px}
 /* 22px e o ritmo da casa: medido na capa, 7 de 7 gaps entre blocos de uma
-   secao dao exatamente 22. A Pouchain usa gap:16px com margin-bottom:56px;
+   secao dao exatamente 22. O IC-A usa gap:16px com margin-bottom:56px;
    eu tinha copiado o gap e largado a margem, e o cartao de explicacao ficava
    encostado no primeiro card, com ZERO respiro. A lista nao tem motivo para
    ser excecao ao ritmo, ainda mais com cartao de 355px de altura. */
@@ -2250,8 +2943,20 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
 }
 .fecho-sub{font-size:13px;color:var(--text-muted);margin-bottom:12px}
 .fecho ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-.fecho li{display:flex;gap:10px;align-items:baseline;font-size:15px;line-height:1.45}
-.fecho li::before{content:"\2713";color:var(--accent);flex:0 0 auto;font-size:13px}
+/* 🔴 O li NAO pode ser flex container.
+   Era display:flex, e entao <li><strong>Abertura</strong> resto do texto</li>
+   virava DUAS colunas: o negrito espremido numa faixa estreita e o texto ao
+   lado, desalinhado. Achado no piloto IEL: 36 itens em 9 aulas, e nenhum gate
+   pegou. E a armadilha n2 da secao 9 do CLAUDE.md, cometida pelo padrao.
+   O marcador agora e absoluto, entao o conteudo do li volta a ser texto
+   corrido e o negrito de abertura fica na mesma linha.
+   O line-height do ::before e 21,75/13 para a baseline do simbolo cair na
+   mesma linha da primeira linha do texto.                                   */
+.fecho li{position:relative;padding-left:23px;font-size:15px;line-height:1.45}
+.fecho li::before{
+  content:"\2713";position:absolute;left:0;top:0;
+  color:var(--accent);font-size:13px;line-height:1.673;
+}
 .fecho li strong{font-weight:600}
 .fecho-nota{
   font-size:13px;color:var(--text-muted);line-height:1.5;
@@ -2281,7 +2986,7 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
   .doc{padding:36px 32px}
 }
 @media (max-width:720px){
-  body{font-size:16px}
+  body{font-size:17px}
   .fecho{padding:16px 18px}
   .aula-body{grid-template-columns:1fr;gap:16px}
   .grade-2,.grade-3,.contraste,.vereditos,.duo{grid-template-columns:1fr}
@@ -2347,6 +3052,23 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
   .secao-topo{gap:12px}
   .secao-n{font-size:24px}
   .heroi-sub{font-size:17px}
+  /* a quarta coluna do erro comum nao cabe em 375px: as quatro viram pilha,
+     como ja acontece com a .anatomia de tres */
+  .anatomia.com-erro{grid-template-columns:1fr}
+  .teste-rapido,.passo-ok{grid-template-columns:1fr;gap:5px}
+  /* a fila de abas rola de lado em vez de quebrar em duas linhas: quebrada,
+     a pessoa perde a conta de quantas faces existem */
+  .abas-fila{flex-wrap:nowrap;overflow-x:auto}
+  .abas-fila label{white-space:nowrap;padding:12px 15px;font-size:14px}
+  .vf-corpo{padding-left:20px}
+  .sistema-topo{flex-direction:column;align-items:flex-start;gap:5px}
+  /* o chip do degrau sai de cima do titulo e vira linha propria: lado a lado
+     em 375px sobram 40px para o titulo, que quebra letra a letra */
+  .nivel-topo{grid-template-columns:1fr;gap:11px}
+  .nivel-t{font-size:20px}
+  .vocab-l{grid-template-columns:1fr;gap:4px}
+  .aprofunda{max-height:92vh}
+  .aprofunda-pe{padding:12px 18px}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -2359,24 +3081,24 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
 <header class="topo">
   <div class="topo-in">
     <a href="../" class="marca">
-      <div class="marca-sigla">NC</div>
+      <div class="marca-sigla">IC</div>
       <div>
-        <div class="marca-nome">Nome do Curso</div>
+        <div class="marca-nome">Imersão em IA com Claude</div>
         <div class="marca-sub">Treinamento in-company · Rafael Lima</div>
       </div>
     </a>
   </div>
 </header>
 
-<nav class="migalha"><a href="../">Nome do Curso</a> &rsaquo; Nome do Módulo</nav>
+<nav class="migalha"><a href="../">Imersão em IA com Claude</a> &rsaquo; Nome do Módulo</nav>
 
 
-<main class="folha">
+<main class="folha ">
   <div class="heroi">
     <div class="heroi-kicker">Módulo 1 de N</div>
     <h1>A&nbsp;capacidade que&nbsp;este módulo entrega</h1>
     <p class="heroi-sub">Uma&nbsp;linha dizendo o&nbsp;que&nbsp;a&nbsp;pessoa sai sabendo fazer depois destas aulas.</p>
-    <div><span class="selo">3 aulas</span><span class="selo">2h15</span></div>
+    <div><span class="selo">Uso interno</span><span class="selo">Não vai para a turma</span></div>
   </div>
 
   <div class="aviso so-tela">
@@ -2409,7 +3131,7 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
       cláusula sem&nbsp;aula é promessa em&nbsp;aberto.</strong></p>
     </div>
 
-    <div class="aulas-lista">
+    <div class="aulas-lista solta">
 
       <a class="aula-card ready" href="../caso/">
         <div class="aula-top">
@@ -2507,6 +3229,7 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
     </div>
   </section>
 
+
 </main>
 
 
@@ -2547,6 +3270,32 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
       var alvo = document.getElementById(b.dataset.alvo);
       if(alvo) copia(b, alvo.textContent.trim());
     });
+  });
+
+  /* ---- o aprofundamento ----
+     Trazido a mao do padrao em 30/08, junto com o .aprofunda do base.css.
+     O <dialog> nativo precisa de showModal() para virar modal de verdade: sem
+     ele o navegador so mostra a caixa no fluxo, sem foco preso e sem Esc.
+
+     ATENCAO: se o script nao rodar, o botao nao abre nada -- e por isso o
+     CONTEUDO mora no HTML e a impressao o revela. Modal e a comodidade;
+     o conteudo nunca depende dela. */
+  document.querySelectorAll('.aprofunda-abrir[data-alvo]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var d = document.getElementById(b.dataset.alvo);
+      if(d && d.showModal) d.showModal();
+    });
+  });
+  document.querySelectorAll('.aprofunda-fechar').forEach(function(b){
+    b.addEventListener('click', function(){
+      var d = b.closest('dialog');
+      if(d) d.close();
+    });
+  });
+  /* clicar fora fecha: o alvo do clique e o proprio dialog quando ele cai no
+     backdrop, porque o miolo esta dentro de .aprofunda-corpo */
+  document.querySelectorAll('dialog.aprofunda').forEach(function(d){
+    d.addEventListener('click', function(e){ if(e.target === d) d.close(); });
   });
 
   /* ---- imprimir o documento ----

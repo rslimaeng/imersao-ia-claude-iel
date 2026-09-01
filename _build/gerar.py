@@ -397,6 +397,20 @@ PAGINAS = {
                  ("../caso/", "A execução do convênio, conferida"),
                  (None, "O exemplo pronto")],
     ),
+    # 🔴 PAGINA DE REFERENCIA DO PADRAO, nao do curso. O modulo de verdade
+    # daqui e o m1; esta e a vitrine do NIVEL modulo, linkada de componentes/.
+    # Ate 01/09 ela existia no disco SEM estar nesta lista: sobrou da copia do
+    # template, parou em 26/08, e por isso servia o base.css velho, com nome de
+    # cliente dentro. Quem a encontrou foi o G50, tres achados numa pagina que
+    # ninguem sabia que ainda era publicada.
+    "modulo": dict(
+        titulo="Nome do Módulo",
+        kicker="Módulo 1 de N",
+        h1="A capacidade que este módulo entrega",
+        sub="Uma linha dizendo o que a pessoa sai sabendo fazer depois destas aulas.",
+        selos=["Uso interno", "Não vai para a turma"],
+        migalha=[("../", "Imersão em IA com Claude"), (None, "Nome do Módulo")],
+    ),
     "componentes": dict(
         titulo="As peças do padrão",
         kicker="Referência do padrão",

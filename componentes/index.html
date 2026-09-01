@@ -99,8 +99,8 @@
    Trocar de cliente é trocar o marca.css, e o gate G-COR confere que este
    arquivo continua sem hex solto.
 
-   Extraído de três cursos que já rodaram: Claude na Prática (Pouchain),
-   Workshop Maria Pitanga e Ideação com AI First (Longevidade). O que está
+   Extraído de três in-company que já rodaram: IC-A, IC-B e IC-C -- o mapa
+   dos códigos está no PROVENIENCIA-INTERNA.md do padrão. O que está
    aqui sobreviveu aos três; o que era de um curso só ficou lá.
    ============================================================================ */
 
@@ -114,7 +114,7 @@
    --col-media a largura do meio, para o bloco que é metade figura e metade
                prosa: demonstração lado a lado, antes-depois com texto dentro.
                Na largura cheia ele foge da coluna de texto e o olho perde o
-               par. Herdada do curso Pouchain, medida lá. Use com `.solta.meia`.
+               par. Herdada do IC-A, medida lá. Use com `.solta.meia`.
    --col-larga o breakout. Figura, tabela e grade SAEM da coluna.
 
    Figura mais larga que o texto lê como editorial. Texto mais estreito que
@@ -133,7 +133,7 @@
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0;background:var(--bg);color:var(--text);
-  /* 18,5px / 1,68 medido na aula da Pouchain, que e a entrega que o Rafael
+  /* 18,5px / 1,68 medido na aula do IC-A, que e a entrega que o Rafael
      aponta como a de melhor respiro. Estava em 17px / 1,65, o que dava 87
      caracteres por linha contra os 79 de la: texto 8% menor, entrelinha 3px
      mais apertada e linha 10% mais longa. Era isso que lia como comprimido.
@@ -153,7 +153,7 @@ img{max-width:100%;height:auto}
    no fim da linha para equilibrar o bloco inteiro, e na tela isso aparece como
    a frase que quebra do nada com meia linha vazia à direita.
 
-   Medido no Longevidade, 8 páginas a 1280px, 437 linhas de prosa:
+   Medido no IC-C, 8 páginas a 1280px, 437 linhas de prosa:
      com balance + pretty ..... 62 linhas quebravam com espaço sobrando
      com quebra natural ......... 0
 
@@ -291,13 +291,13 @@ a:hover{color:var(--accent-dark);border-bottom-color:var(--accent-dark)}
    No flex a coluna de leitura se centralizava no espaco RESIDUAL -- o que
    sobra depois de tirar os 288px da trilha. Medido a 1265px: 75px de margem
    a esquerda contra 410px a direita, com o centro do texto 167px fora do
-   centro da tela. A mesma aula na Pouchain, que nao tem trilha, mede 235/250.
+   centro da tela. A mesma aula no IC-A, que nao tem trilha, mede 235/250.
    Era isto que o Rafael leu como "torto" e "desenquadrado" quatro vezes.
 
    O grid resolve porque a coluna do meio nao depende do que existe nas
    laterais: a leitura fica no centro da TELA e a trilha ocupa a margem
-   direita, em vez de roubar o centro. Medido depois: 235/250, identico a
-   Pouchain.
+   direita, em vez de roubar o centro. Medido depois: 235/250, identico ao
+   IC-A.
 
    minmax(0,1fr) nas laterais e obrigatorio: 1fr puro nao encolhe abaixo do
    conteudo da trilha e devolve o problema em tela media. */
@@ -799,7 +799,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 .rodape-nav a{font-size:15px}
 
 /* ---------- 16 · A PÁGINA DE CASO, EM CINCO PASSOS ------------------------
-   Vem do Workshop Maria Pitanga, e é a peça que o Rafael chamou de maior ganho
+   Vem do IC-B, e é a peça que o Rafael chamou de maior ganho
    daquele material. Toda página de caso tem os MESMOS cinco passos, na mesma
    ordem, com os mesmos títulos. Verificado nas oito páginas de lá: nenhuma
    variação.
@@ -824,7 +824,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    O filho saia MAIOR que o pai, e o Rafael viu no print da secao 05: os
    quatro passos gritavam mais alto que as oito secoes ao redor.
    Numeral compete com numeral. Medalha nao compete: e outro objeto.
-   E como a Pouchain resolve, e por isso la o passo nunca briga com a secao. */
+   E como o IC-A resolve, e por isso la o passo nunca briga com a secao. */
 .passo-n{
   font-family:var(--font-mono);font-size:13px;font-weight:500;
   color:var(--bg-elev);background:var(--accent);line-height:1;flex:0 0 auto;
@@ -2236,7 +2236,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
                     começou no meio da linha, no resto que a anterior deixou
                     → cura: esta seção
 
-   🔴 Medido no Longevidade: 283 de 491 frases quebravam no meio, e a frase
+   🔴 Medido no IC-C: 283 de 491 frases quebravam no meio, e a frase
    mediana ocupava 497px numa medida de 720px. TRÊS DE CADA QUATRO já cabiam
    numa linha e quebravam mesmo assim.
 
@@ -2309,7 +2309,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    A ESCOLHA, ENTAO, E DECLARADA: a barra vence, e a figura larga mora nas
    paginas que nao tem barra -- caso/ e exemplo/, que e onde a demonstracao
    e o artefato pronto moram de qualquer jeito. As tres entregas de
-   referencia (Maria Pitanga, Longevidade, Pouchain) nao tem barra lateral
+   referencia (IC-A, IC-B e IC-C) nao tem barra lateral
    em aula nenhuma, e e por isso que a figura larga cabe la.
 
    NAO "conserte" isto de novo sem medir a borda direita contra .trilha. */
@@ -2317,8 +2317,8 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 
 
 /* ---------- 57 · O SUB-CONCEITO NUMERADO ---------------------------------
-   "Conceito 1 · ... / Conceito 2 · ..." dentro de UMA secao. Vem da Pouchain
-   (aulas 1.1, 1.2 e 2.1) e do bloco 03 do M3 da Maria Pitanga.
+   "Conceito 1 · ... / Conceito 2 · ..." dentro de UMA secao. Vem do IC-A
+   (aulas 1.1, 1.2 e 2.1) e do bloco 03 do M3 do IC-B.
 
    Resolve o que o Rafael pediu duas vezes: "o conceito tem que ser dividido".
    Uma secao 02 que trata de duas ideias vira dois blocos com numero proprio,
@@ -2405,7 +2405,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 
 /* ---------- 58 · A MESA · a janela de contexto enchendo -------------------
    A unica peca de verdade nova das tres entregas de referencia, e a mais
-   didatica delas. A Pouchain mostra a MESMA barra em tres momentos da
+   didatica delas. O IC-A mostra a MESMA barra em tres momentos da
    conversa (mensagem 3, 20 e 40) e a pessoa VE a faixa das regras virar uma
    tirinha no meio de uma pilha. Explicar isso em prosa custa dois paragrafos
    e nao convence ninguem.
@@ -2505,8 +2505,8 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 .vf[open] summary::after{content:"esconder"}
 
 /* ---------- 60 · O TESTE RÁPIDO ------------------------------------------
-   Uma linha que diz COMO SE RECONHECE a coisa na vida real. Vem do curso da
-   Maria Pitanga, onde cada card de gatilho termina com o critério de
+   Uma linha que diz COMO SE RECONHECE a coisa na vida real. Vem do IC-B,
+   onde cada card de gatilho termina com o critério de
    identificação -- herdamos a forma, nada do texto.
 
    É a peça mais barata do padrão e uma das mais fortes: sem ela o aluno sai
@@ -2530,7 +2530,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    errado NAQUELE campo. A .anatomia sozinha ensina o que o campo é; ela não
    ensina o que a sala vai fazer com ele.
 
-   Vem dos prints do curso da Mallory, onde a tabela de campos do prompt tem a
+   Vem dos prints do IC-D, onde a tabela de campos do prompt tem a
    coluna do erro ao lado do exemplo bom. É a diferença entre descrever o
    formulário e corrigir a prova.                                            */
 .anatomia.com-erro{grid-template-columns:170px 1fr 1fr 130px}
@@ -2838,7 +2838,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 /* ===========================================================================
    PAGINA DE MODULO — o nivel que faltava entre a capa e a aula
 
-   Extraido do m1/index.html do Claude na Pratica (Pouchain), a unica entrega
+   Extraido do m1/index.html do IC-A, a unica entrega
    com a hierarquia completa capa -> modulo -> aula. Nada aqui foi desenhado:
    os nomes de token foram traduzidos para o vocabulario do template
    (--radius -> --raio, --radius-sm -> --raio-p, --shadow-md -> --sombra) e
@@ -2872,7 +2872,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 .aulas-lista{display:flex;flex-direction:column;gap:22px;
   margin-top:22px;margin-bottom:22px}
 /* 22px e o ritmo da casa: medido na capa, 7 de 7 gaps entre blocos de uma
-   secao dao exatamente 22. A Pouchain usa gap:16px com margin-bottom:56px;
+   secao dao exatamente 22. O IC-A usa gap:16px com margin-bottom:56px;
    eu tinha copiado o gap e largado a margem, e o cartao de explicacao ficava
    encostado no primeiro card, com ZERO respiro. A lista nao tem motivo para
    ser excecao ao ritmo, ainda mais com cartao de 355px de altura. */
@@ -4349,12 +4349,25 @@ sem me mostrar a conta.</pre>
       <div class="secao-n">18</div>
       <div>
         <div class="secao-fn">A ferramenta viva</div>
-        <h2>O&nbsp;criador de&nbsp;prompt</h2>
+        <h2>O&nbsp;criador de&nbsp;prompt &mdash; PCTFL+CS</h2>
       </div>
     </div>
 
     <p>É a&nbsp;única peça do&nbsp;padrão que&nbsp;o&nbsp;aluno <strong>opera</strong> em&nbsp;vez de&nbsp;ler.
     Seis campos à&nbsp;esquerda, o&nbsp;prompt montando sozinho à&nbsp;direita. Ele muda o&nbsp;texto de&nbsp;um&nbsp;campo e&nbsp;vê exatamente o&nbsp;que&nbsp;aquilo faz no&nbsp;pedido.</p>
+
+    <p><strong>O&nbsp;método tem nome, e&nbsp;o&nbsp;nome vai na&nbsp;aula:</strong> <strong>PCTFL+CS</strong>.
+    Sem&nbsp;a&nbsp;sigla, o&nbsp;aluno sai sabendo preencher seis campos e&nbsp;não&nbsp;sai com&nbsp;nada que&nbsp;ele
+    consiga pedir de&nbsp;novo na&nbsp;segunda-feira. É a&nbsp;sigla que&nbsp;ele leva embora.</p>
+
+    <div class="glosa solta">
+      <div class="glosa-nota">De onde vêm os campos</div>
+      <p>Os&nbsp;quatro primeiros são os&nbsp;<strong>4 Pilares</strong> do&nbsp;curso
+      <em>Gestão com&nbsp;IA</em>, de&nbsp;Adriano Couto (M2, aula 1): Papel · Contexto ·
+      Objetivo · Formato. O&nbsp;<strong>L</strong> vem do&nbsp;bloco <code>RESTRIÇÕES</code> e&nbsp;o&nbsp;<strong>CS</strong> do&nbsp;campo <code>Critérios: como medir sucesso</code>, os&nbsp;dois
+      da&nbsp;aula 2 do&nbsp;mesmo módulo, em&nbsp;frameworks separados.
+      <strong>Juntar os&nbsp;seis numa&nbsp;sigla única é do&nbsp;Rafael</strong> &mdash; e&nbsp;é o&nbsp;que&nbsp;transforma três checklists soltos em&nbsp;uma&nbsp;coisa que&nbsp;se&nbsp;ensina.</p>
+    </div>
 
     <div class="criador solta">
       <div class="cr-lado">
@@ -5703,8 +5716,8 @@ sem me mostrar a conta.</pre>
       &ldquo;executar&rdquo; um&nbsp;conceito.</p>
     </div>
 
-    <p class="fig-leg"><strong>Classes <code>.conceito</code> e&nbsp;<code>.conceito-rot</code>.</strong> Vem das&nbsp;aulas 1.1, 1.2 e&nbsp;2.1 do&nbsp;Claude na&nbsp;Prática e&nbsp;do&nbsp;bloco 03 do&nbsp;M3 do&nbsp;Maria Pitanga, as&nbsp;duas entregas em&nbsp;que&nbsp;o&nbsp;conceito
-    aparece dividido.</p>
+    <p class="fig-leg"><strong>Classes <code>.conceito</code> e&nbsp;<code>.conceito-rot</code>.</strong> Vem de&nbsp;duas entregas in-company
+    anteriores, as&nbsp;duas em&nbsp;que&nbsp;o&nbsp;conceito aparece dividido.</p>
   </section>
 
   <section class="secao" id="mesa">
@@ -5772,6 +5785,560 @@ sem me mostrar a conta.</pre>
       <p>É a&nbsp;única peça de&nbsp;verdade nova das&nbsp;três entregas de&nbsp;referência. Explicar em&nbsp;texto que&nbsp;&ldquo;a conversa inteira vai junto a&nbsp;cada mensagem&rdquo; custa dois
       parágrafos e&nbsp;não&nbsp;convence ninguém. A&nbsp;barra convence em&nbsp;cinco segundos, porque&nbsp;a&nbsp;faixa verde encolhendo é a&nbsp;própria explicação.</p>
     </div>
+  </section>
+
+  <section class="secao" id="passo">
+    <div class="secao-topo">
+      <div class="secao-n">46</div>
+      <div>
+        <div class="secao-fn">Quando a página manda a pessoa fazer</div>
+        <h2>O&nbsp;exercício em&nbsp;passos</h2>
+      </div>
+    </div>
+
+    <p>É a&nbsp;peça mais usada de&nbsp;todo curso montado neste padrão, e&nbsp;até&nbsp;28/08 ela não&nbsp;aparecia aqui. Cada passo é uma&nbsp;ação só,&nbsp;numerada, com&nbsp;o&nbsp;verbo na&nbsp;frente. O&nbsp;passo
+    que&nbsp;pede a&nbsp;pessoa a&nbsp;<strong>produzir texto próprio</strong> leva destrave junto:
+    sem&nbsp;ele o&nbsp;exercício vira "e&nbsp;agora faça você", e&nbsp;metade da&nbsp;sala escreve uma&nbsp;linha
+    achando que&nbsp;respondeu.</p>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">01</div>
+        <div>
+          <div class="passo-fn">Passo 1</div>
+          <h3>Escreva o&nbsp;pedido do&nbsp;jeito que&nbsp;você mandaria hoje</h3>
+        </div>
+      </div>
+      <p>Sem&nbsp;pensar em&nbsp;técnica nenhuma. Escreva como você escreveria para&nbsp;um&nbsp;colega
+      com&nbsp;pressa, e&nbsp;guarde esse texto: ele é o&nbsp;seu&nbsp;ponto de&nbsp;partida.</p>
+
+      <div class="destrave">
+        <div class="destrave-rot">Se travar, responda estas três antes</div>
+        <ul>
+          <li>O&nbsp;que&nbsp;um&nbsp;colega novo precisaria saber que&nbsp;não&nbsp;está escrito em&nbsp;lugar
+          nenhum?</li>
+          <li>Qual é o&nbsp;formato do&nbsp;que&nbsp;você espera receber de&nbsp;volta?</li>
+          <li>O&nbsp;que&nbsp;seria uma&nbsp;resposta certa e&nbsp;mesmo assim inútil para&nbsp;você?</li>
+        </ul>
+        <div class="destrave-nao"><strong>Não conta como pedido:</strong> uma linha
+        sem contexto. Se caberia num post-it, ainda não carrega o que você sabe e a
+        máquina não.</div>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Classes <code>.passo</code> e&nbsp;<code>.destrave</code>.</strong>
+    O&nbsp;gate G23 reprova o&nbsp;exercício que&nbsp;não&nbsp;tem nenhum destrave, e&nbsp;reprova o&nbsp;destrave
+    que&nbsp;não&nbsp;diz o&nbsp;que&nbsp;não&nbsp;conta como resposta.</p>
+  </section>
+
+  <section class="secao" id="ate-aqui">
+    <div class="secao-topo">
+      <div class="secao-n">47</div>
+      <div>
+        <div class="secao-fn">Quando a aula tem dois comprimentos</div>
+        <h2>O&nbsp;divisor</h2>
+      </div>
+    </div>
+
+    <p>A&nbsp;aula acaba no&nbsp;gabarito. O&nbsp;que&nbsp;vem depois é aprofundamento, e&nbsp;quem tem cinco
+    minutos lê agora, quem não&nbsp;tem volta quando&nbsp;a&nbsp;primeira coisa der errado. Sem&nbsp;essa
+    linha, uma&nbsp;aula de&nbsp;três mil palavras chega inteira como obrigatória, e&nbsp;a&nbsp;pessoa que&nbsp;tem meia hora desiste da&nbsp;aula toda em&nbsp;vez de&nbsp;levar a&nbsp;parte que&nbsp;resolve o&nbsp;problema
+    dela.</p>
+
+    <div class="ate-aqui">
+      <div class="ate-aqui-rot">A aula acaba aqui</div>
+    </div>
+    <p class="ate-aqui-nota">Você já&nbsp;tem o&nbsp;que&nbsp;precisa para&nbsp;usar isto amanhã. O&nbsp;que&nbsp;vem
+    abaixo é <strong>aprofundamento</strong>: leia agora se&nbsp;tiver cinco minutos, ou&nbsp;volte
+    aqui quando&nbsp;a&nbsp;primeira coisa der errado.</p>
+
+    <p class="fig-leg"><strong>Classe <code>.ate-aqui</code>.</strong> Peça herdada de&nbsp;<em>Claude para&nbsp;Líderes</em>, de&nbsp;Adriano Couto, onde&nbsp;a&nbsp;aula também declara onde&nbsp;termina o&nbsp;obrigatório. Herdamos a&nbsp;forma; o&nbsp;texto é nosso.&nbsp;O&nbsp;gate G40 reprova a&nbsp;aula
+    que&nbsp;não&nbsp;declara onde&nbsp;acaba.</p>
+  </section>
+
+  <section class="secao" id="analogia">
+    <div class="secao-topo">
+      <div class="secao-n">48</div>
+      <div>
+        <div class="secao-fn">Quando o conceito precisa virar filme na cabeça</div>
+        <h2>A&nbsp;analogia</h2>
+      </div>
+    </div>
+
+    <p>A&nbsp;regra que&nbsp;esta peça serve: <strong>as&nbsp;pessoas não&nbsp;entendem o&nbsp;que&nbsp;você fala, e&nbsp;sim
+    o&nbsp;que&nbsp;elas veem quando&nbsp;você fala.</strong> A&nbsp;imagem não&nbsp;vem depois do&nbsp;conceito, como
+    ilustração. Ela é <em>como o&nbsp;conceito se&nbsp;diz</em>. Conceito sem&nbsp;analogia é abstração,
+    e&nbsp;abstração é o&nbsp;que&nbsp;faz a&nbsp;sala parar.</p>
+
+    <p>São três partes, e&nbsp;o&nbsp;gate G41 cobra as&nbsp;três. O&nbsp;rótulo abre com&nbsp;a&nbsp;imagem do&nbsp;cotidiano. O&nbsp;mapa faz o&nbsp;de-para entre&nbsp;a&nbsp;analogia e&nbsp;a&nbsp;coisa real, item a&nbsp;item. E&nbsp;o&nbsp;pé
+    diz onde&nbsp;mais aquilo aparece, que&nbsp;é o&nbsp;que&nbsp;transforma o&nbsp;exemplo num&nbsp;princípio.</p>
+
+    <div class="analogia">
+      <div class="analogia-rot">É como um extintor de incêndio</div>
+      <p>Ninguém compra extintor pensando no&nbsp;dia que&nbsp;vai usar. Compra porque&nbsp;o&nbsp;dia em&nbsp;que&nbsp;precisar, não&nbsp;vai dar tempo de&nbsp;sair procurando.</p>
+      <ul class="analogia-mapa">
+        <li><strong>O&nbsp;extintor na&nbsp;parede</strong> é a&nbsp;peça pronta no&nbsp;padrão</li>
+        <li><strong>A&nbsp;checagem anual</strong> é o&nbsp;gate, que&nbsp;confere se&nbsp;ela ainda funciona</li>
+        <li><strong>O&nbsp;dia do&nbsp;incêndio</strong> é a&nbsp;aula às&nbsp;sete da&nbsp;noite, com&nbsp;a&nbsp;sala cheia</li>
+      </ul>
+      <p class="analogia-mais">Vale para&nbsp;qualquer coisa que&nbsp;se&nbsp;prepara antes e&nbsp;se&nbsp;usa sob&nbsp;pressão: o&nbsp;checklist do&nbsp;piloto, o&nbsp;kit de&nbsp;primeiros socorros, o&nbsp;roteiro da&nbsp;aula.</p>
+    </div>
+
+    <p class="fig-leg"><strong>Classe <code>.analogia</code>, com&nbsp;<code>.analogia-rot</code>, <code>.analogia-mapa</code> e&nbsp;<code>.analogia-mais</code>.</strong> Forma herdada da&nbsp;fórmula AIDEN, de&nbsp;Adriano de&nbsp;Marqui. As&nbsp;cinco letras são abstrato, imagem, detalhamento, extensão e&nbsp;negação: o&nbsp;abstrato mora no&nbsp;<code>.conceito</code>, a&nbsp;negação no&nbsp;<code>.contraste</code>, e&nbsp;esta
+    peça carrega as&nbsp;três do&nbsp;meio.</p>
+  </section>
+
+  <section class="secao" id="verifique">
+    <div class="secao-topo">
+      <div class="secao-n">49</div>
+      <div>
+        <div class="secao-fn">Quando a aula é só explicação</div>
+        <h2>A&nbsp;verificação de&nbsp;entendimento</h2>
+      </div>
+    </div>
+
+    <p>Há aula que&nbsp;não&nbsp;tem exercício porque&nbsp;não&nbsp;há o&nbsp;que&nbsp;exercitar: ela explica um&nbsp;conceito e&nbsp;confirma que&nbsp;a&nbsp;sala entendeu. Até&nbsp;30/08 o&nbsp;padrão só&nbsp;tinha a&nbsp;<code>.checagem</code>, que&nbsp;é lista de&nbsp;conferência no&nbsp;fim e&nbsp;a&nbsp;pessoa lê concordando
+    com&nbsp;ela mesma. <strong>Isso confirma leitura, não&nbsp;entendimento.</strong></p>
+
+    <p>Esta peça é outra coisa: pergunta <strong>fechada</strong>, com&nbsp;a&nbsp;resposta
+    escondida, colada no&nbsp;conceito que&nbsp;ela testa. A&nbsp;resposta nasce fechada pela&nbsp;mesma
+    razão do&nbsp;gabarito: aberta, ninguém tenta. E&nbsp;cada resposta diz em&nbsp;que&nbsp;seção o&nbsp;assunto
+    mora, para&nbsp;a&nbsp;pessoa saber onde&nbsp;voltar.</p>
+
+    <div class="verifique">
+      <div class="verifique-rot">Verificação de entendimento</div>
+      <p class="verifique-nota">Duas perguntas bastam numa&nbsp;aula curta. Acima de&nbsp;quatro,
+      a&nbsp;peça vira prova e&nbsp;a&nbsp;sala para&nbsp;de&nbsp;responder.</p>
+
+      <details class="vf">
+        <summary><span class="vf-n">1</span><span class="vf-p">A conversa passou a
+        errar o formato combinado. O que aconteceu com a instrução do começo?</span></summary>
+        <div class="vf-corpo">
+          <p>Ela saiu do&nbsp;espaço disponível, ou&nbsp;encolheu tanto que&nbsp;sobrou um&nbsp;pedaço sem&nbsp;sentido. O&nbsp;que&nbsp;sai primeiro é sempre o&nbsp;mais antigo.</p>
+        </div>
+      </details>
+
+      <details class="vf">
+        <summary><span class="vf-n">2</span><span class="vf-p">Insistir e corrigir várias
+        vezes aproxima ou afasta do resultado combinado?</span></summary>
+        <div class="vf-corpo">
+          <p>Afasta. Cada correção ocupa lugar e&nbsp;empurra o&nbsp;começo para&nbsp;fora, então a&nbsp;conversa mais corrigida é a&nbsp;que&nbsp;menos lembra do&nbsp;que&nbsp;foi combinado.</p>
+        </div>
+      </details>
+    </div>
+
+    <p class="fig-leg"><strong>Classe <code>.verifique</code>, com&nbsp;<code>.verifique-rot</code>, <code>.verifique-nota</code> e&nbsp;um&nbsp;<code>&lt;details class="vf"&gt;</code> por&nbsp;pergunta.</strong> O&nbsp;<code>&lt;summary&gt;</code> leva o&nbsp;número em&nbsp;<code>.vf-n</code> e&nbsp;a&nbsp;pergunta em&nbsp;<code>.vf-p</code>. O&nbsp;gate G43 reprova a&nbsp;aula de&nbsp;fundamento que&nbsp;não&nbsp;tem esta peça.</p>
+
+    <p class="fig-leg"><strong>A&nbsp;pergunta é fechada de&nbsp;propósito.</strong> Pergunta
+    aberta numa&nbsp;sala grande produz silêncio, e&nbsp;silêncio é indistinguível de&nbsp;entendimento. A&nbsp;pergunta com&nbsp;uma&nbsp;resposta certa produz resposta, e&nbsp;resposta errada é
+    informação.</p>
+  </section>
+
+  <section class="secao" id="teste-rapido">
+    <div class="secao-topo">
+      <div class="secao-n">50</div>
+      <div>
+        <div class="secao-fn">Como se reconhece a coisa na vida real</div>
+        <h2>O&nbsp;teste rápido</h2>
+      </div>
+    </div>
+
+    <p>É a&nbsp;peça mais barata do&nbsp;padrão e&nbsp;uma&nbsp;das&nbsp;mais fortes. Sem&nbsp;ela, a&nbsp;pessoa sai da&nbsp;aula sabendo a&nbsp;definição e&nbsp;<strong>não&nbsp;reconhece o&nbsp;caso</strong> quando&nbsp;ele aparece
+    na&nbsp;segunda-feira. Uma&nbsp;frase, no&nbsp;imperativo, com&nbsp;um&nbsp;teste que&nbsp;ela aplica sozinha.</p>
+
+    <p>Mora dentro do&nbsp;<code>.conceito</code>, logo depois da&nbsp;analogia: o&nbsp;conceito diz o&nbsp;que&nbsp;a&nbsp;coisa é, a&nbsp;analogia mostra, e&nbsp;o&nbsp;teste rápido diz como identificar. Se&nbsp;ele
+    precisar de&nbsp;duas frases, o&nbsp;conceito ainda não&nbsp;está pronto.</p>
+
+    <div class="conceito">
+      <div class="conceito-rot">Exemplo dentro de um conceito</div>
+      <h3>O&nbsp;que&nbsp;a&nbsp;pessoa esqueceu tem duas origens diferentes</h3>
+      <p>Uma&nbsp;coisa é a&nbsp;informação ter saído do&nbsp;espaço disponível. Outra é ela nunca ter
+      entrado. As&nbsp;duas parecem iguais na&nbsp;tela, e&nbsp;o&nbsp;conserto de&nbsp;cada uma&nbsp;é diferente.</p>
+
+      <div class="teste-rapido">
+        <div class="teste-rapido-rot">Teste rápido</div>
+        <p><strong>Se&nbsp;o&nbsp;que&nbsp;ela esqueceu foi dito por&nbsp;você lá atrás, é limite de&nbsp;espaço.</strong> Se&nbsp;ela nunca soube daquilo, é outro problema.</p>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Classe <code>.teste-rapido</code>, com&nbsp;<code>.teste-rapido-rot</code>.</strong> Forma herdada de&nbsp;um&nbsp;curso de&nbsp;gatilhos
+    in-company, onde&nbsp;cada cartão termina com&nbsp;o&nbsp;critério de&nbsp;identificação. Herdamos a&nbsp;forma;
+    o&nbsp;texto é nosso.</p>
+  </section>
+
+  <section class="secao" id="anatomia-com-erro">
+    <div class="secao-topo">
+      <div class="secao-n">51</div>
+      <div>
+        <div class="secao-fn">Por dentro, com o erro ao lado</div>
+        <h2>A&nbsp;anatomia com&nbsp;a&nbsp;coluna do&nbsp;erro comum</h2>
+      </div>
+    </div>
+
+    <p>A&nbsp;anatomia sozinha ensina <strong>o&nbsp;que&nbsp;o&nbsp;campo é</strong>. Ela não&nbsp;ensina o&nbsp;que&nbsp;a&nbsp;sala vai fazer com&nbsp;ele. A&nbsp;variante acrescenta uma&nbsp;coluna: o&nbsp;que&nbsp;quase todo mundo
+    escreve errado naquele campo, com&nbsp;as&nbsp;palavras que&nbsp;a&nbsp;pessoa realmente usa.</p>
+
+    <p>É a&nbsp;diferença entre&nbsp;descrever o&nbsp;formulário e&nbsp;corrigir a&nbsp;prova. Use quando&nbsp;o&nbsp;campo
+    tiver um&nbsp;erro <strong>previsível</strong>. Campo sem&nbsp;erro típico fica com&nbsp;a&nbsp;coluna
+    vazia, e&nbsp;coluna vazia em&nbsp;metade das&nbsp;linhas é sinal de&nbsp;que&nbsp;a&nbsp;variante não&nbsp;era
+    necessária.</p>
+
+    <div class="anatomia com-erro solta">
+      <div class="anat-cabeca">
+        <span>o pedido &middot; campo a campo</span>
+        <span>4 campos</span>
+      </div>
+
+      <div class="anat-campo"><code>quem lê</code><span>para quem é a resposta</span></div>
+      <div>O gestor da área, que decide o que priorizar e não acompanha o dia a dia.</div>
+      <div class="anat-erro">
+        <span class="anat-erro-rot">O erro comum</span>
+        <p>"para&nbsp;a&nbsp;diretoria". Cargo não&nbsp;é leitor: dois diretores leem coisas
+        diferentes.</p>
+      </div>
+      <div class="anat-quando">Sempre<span>abre o pedido</span></div>
+
+      <div class="anat-campo"><code>o que eu preciso</code><span>o resultado, não a tarefa</span></div>
+      <div>Uma página, com os três números que mais mudaram e uma frase por número.</div>
+      <div class="anat-erro">
+        <span class="anat-erro-rot">O erro comum</span>
+        <p>"resuma". Resumir é o&nbsp;que&nbsp;ela faz; o&nbsp;que&nbsp;você precisa é o&nbsp;que&nbsp;sobra
+        depois.</p>
+      </div>
+      <div class="anat-quando">Sempre<span>é o corpo</span></div>
+
+      <div class="anat-campo"><code>restrições</code><span>o que não pode</span></div>
+      <div>Sem gráfico, porque vai impresso em preto e branco.</div>
+      <div class="anat-erro">
+        <span class="anat-erro-rot">O erro comum</span>
+        <p>Deixar vazio. O&nbsp;campo em&nbsp;branco é lido como "pode tudo", e&nbsp;é onde&nbsp;nasce o&nbsp;retrabalho.</p>
+      </div>
+      <div class="anat-quando raro">Quase sempre<span>vale conferir</span></div>
+
+      <div class="anat-campo"><code>na dúvida</code><span>o que fazer com o vazio</span></div>
+      <div>Se faltar dado, escreva "não consta" e siga. Não estime.</div>
+      <div class="anat-erro">
+        <span class="anat-erro-rot">O erro comum</span>
+        <p>Não&nbsp;escrever nada. Sem&nbsp;instrução para&nbsp;o&nbsp;vazio, o&nbsp;vazio é preenchido com&nbsp;um&nbsp;número plausível.</p>
+      </div>
+      <div class="anat-quando">Sempre<span>fecha o pedido</span></div>
+    </div>
+
+    <p class="fig-leg"><strong>Classe <code>.anatomia com-erro</code>, com&nbsp;<code>.anat-erro</code> e&nbsp;<code>.anat-erro-rot</code>.</strong> São quatro colunas:
+    campo, exemplo bom, erro comum, quando&nbsp;vale. A&nbsp;ordem importa: o&nbsp;erro vem depois do&nbsp;exemplo bom, nunca antes, porque&nbsp;quem lê o&nbsp;errado primeiro decora o&nbsp;errado.</p>
+  </section>
+
+  <section class="secao" id="abas">
+    <div class="secao-topo">
+      <div class="secao-n">52</div>
+      <div>
+        <div class="secao-fn">Um assunto com várias faces</div>
+        <h2>As&nbsp;abas</h2>
+      </div>
+    </div>
+
+    <p>Quando&nbsp;o&nbsp;assunto tem N faces que&nbsp;a&nbsp;pessoa compara <strong>uma&nbsp;de&nbsp;cada vez</strong>
+    e&nbsp;não&nbsp;lado a&nbsp;lado: os&nbsp;níveis de&nbsp;uso, os&nbsp;modos, os&nbsp;perfis. Empilhar as&nbsp;quatro em&nbsp;prosa produz três páginas que&nbsp;ninguém lê inteiras; pôr lado a&nbsp;lado em&nbsp;grade produz
+    quatro colunas estreitas demais para&nbsp;caber o&nbsp;texto.</p>
+
+    <p>Sem&nbsp;script nenhum: um&nbsp;botão de&nbsp;rádio escondido e&nbsp;o&nbsp;irmão marcado. O&nbsp;padrão embute
+    o&nbsp;estilo em&nbsp;cada página e&nbsp;não&nbsp;quer conteúdo que&nbsp;dependa de&nbsp;código para&nbsp;aparecer.
+    <strong>O&nbsp;limite é oito</strong>, subido de&nbsp;seis em&nbsp;30/08. O&nbsp;caso que&nbsp;forçou foi uma&nbsp;régua de&nbsp;níveis com&nbsp;oito degraus, que&nbsp;não&nbsp;cabia em&nbsp;seis e&nbsp;não&nbsp;é escada: a&nbsp;pessoa
+    navega até&nbsp;o&nbsp;degrau <em>dela</em>, não&nbsp;percorre todos em&nbsp;ordem.</p>
+
+    <div class="abas">
+      <input type="radio" name="abas-vitrine" id="ab-v1" checked>
+      <input type="radio" name="abas-vitrine" id="ab-v2">
+      <input type="radio" name="abas-vitrine" id="ab-v3">
+      <input type="radio" name="abas-vitrine" id="ab-v4">
+      <nav class="abas-fila">
+        <label for="ab-v1">Nível 1</label>
+        <label for="ab-v2">Nível 2</label>
+        <label for="ab-v3">Nível 3</label>
+        <label for="ab-v4">Nível 4</label>
+      </nav>
+      <div class="aba-corpo">
+        <div class="aba-rot">Nível 1</div>
+        <p>A&nbsp;pessoa faz a&nbsp;pergunta e&nbsp;usa a&nbsp;resposta como está. É onde&nbsp;quase todo mundo
+        começa, e&nbsp;é onde&nbsp;o&nbsp;resultado genérico aparece.</p>
+      </div>
+      <div class="aba-corpo">
+        <div class="aba-rot">Nível 2</div>
+        <p>A&nbsp;pessoa dá contexto e&nbsp;formato antes de&nbsp;perguntar, e&nbsp;confere o&nbsp;que&nbsp;voltou. É
+        o&nbsp;degrau que&nbsp;a&nbsp;maior parte de&nbsp;um&nbsp;treinamento de&nbsp;quatro horas alcança.</p>
+      </div>
+      <div class="aba-corpo">
+        <div class="aba-rot">Nível 3</div>
+        <p>A&nbsp;pessoa guarda o&nbsp;pedido que&nbsp;funcionou e&nbsp;reusa. Aqui o&nbsp;ganho para&nbsp;de&nbsp;depender
+        de&nbsp;lembrar como foi que&nbsp;deu certo da&nbsp;última vez.</p>
+      </div>
+      <div class="aba-corpo">
+        <div class="aba-rot">Nível 4</div>
+        <p>A&nbsp;pessoa escolhe a&nbsp;ferramenta antes de&nbsp;escolher o&nbsp;pedido. Aqui a&nbsp;pergunta
+        deixa de&nbsp;ser "a&nbsp;IA consegue?" e&nbsp;vira "qual delas é melhor nisto?".</p>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Classe <code>.abas</code>, com&nbsp;<code>.abas-fila</code>,
+    <code>.aba-corpo</code> e&nbsp;<code>.aba-rot</code>.</strong> Os&nbsp;<code>&lt;input type="radio"&gt;</code> vêm primeiro, todos com&nbsp;o&nbsp;mesmo
+    <code>name</code>, e&nbsp;o&nbsp;primeiro leva <code>checked</code>. Aba sem&nbsp;<code>checked</code> abre a&nbsp;peça vazia.</p>
+
+    <p class="fig-leg"><strong>Os&nbsp;pares são escritos à&nbsp;mão, um&nbsp;por&nbsp;aba.</strong> O&nbsp;seletor de&nbsp;irmão do&nbsp;CSS não&nbsp;tem contador, então cada posição precisa da&nbsp;própria
+    linha. Existem oito pares no&nbsp;<code>base.css</code>: a&nbsp;nona aba aparece na&nbsp;fila e&nbsp;não&nbsp;abre nada.</p>
+
+    <p class="fig-leg"><strong>No&nbsp;papel não&nbsp;existe aba aberta.</strong> A&nbsp;impressão
+    mostra todas, uma&nbsp;embaixo da&nbsp;outra, e&nbsp;o&nbsp;<code>.aba-rot</code> vira o&nbsp;título de&nbsp;cada
+    uma.&nbsp;Conteúdo escondido na&nbsp;tela não&nbsp;pode sumir no&nbsp;papel.</p>
+  </section>
+
+  <section class="secao" id="aprofunda">
+    <div class="secao-topo">
+      <div class="secao-n">53</div>
+      <div>
+        <div class="secao-fn">O que não cabe na aula</div>
+        <h2>O&nbsp;aprofundamento</h2>
+      </div>
+    </div>
+
+    <p>A&nbsp;exceção técnica, a&nbsp;tabela longa, o&nbsp;caso raro: coisas que&nbsp;somem se&nbsp;virarem
+    parágrafo e&nbsp;que&nbsp;atrapalham se&nbsp;ficarem no&nbsp;corpo. Esta peça abre por&nbsp;cima da&nbsp;página e&nbsp;fecha sem&nbsp;tirar a&nbsp;pessoa do&nbsp;lugar onde&nbsp;ela estava lendo.</p>
+
+    <p><strong>Por&nbsp;que&nbsp;não&nbsp;o&nbsp;<code>&lt;details&gt;</code>:</strong> ele empurra o&nbsp;texto
+    para&nbsp;baixo, e&nbsp;quem abre perde a&nbsp;linha em&nbsp;que&nbsp;estava. Para&nbsp;um&nbsp;parágrafo isso não&nbsp;custa
+    nada, e&nbsp;por&nbsp;isso o&nbsp;gabarito continua sendo um&nbsp;<code>details</code>. Para&nbsp;meia tela de&nbsp;tabela, custa.</p>
+
+    <button class="aprofunda-abrir" data-alvo="apf-vitrine">Por que a conta muda no
+    fim do mês</button>
+
+    <dialog class="aprofunda" id="apf-vitrine">
+      <div class="aprofunda-topo">
+        <span class="aprofunda-rot">Aprofundamento</span>
+        <button class="aprofunda-fechar" aria-label="fechar">&times;</button>
+      </div>
+      <div class="aprofunda-corpo">
+        <p>O&nbsp;espaço disponível não&nbsp;é o&nbsp;mesmo em&nbsp;toda ferramenta, e&nbsp;não&nbsp;é o&nbsp;mesmo em&nbsp;todo
+        plano da&nbsp;mesma ferramenta. Um&nbsp;material que&nbsp;afirma um&nbsp;número fixo envelhece na&nbsp;semana seguinte e&nbsp;passa a&nbsp;ensinar errado.</p>
+        <p id="apf-sinal">Por&nbsp;isso o&nbsp;padrão ensina o&nbsp;<strong>sinal</strong>, e&nbsp;não&nbsp;o&nbsp;número: quando&nbsp;o&nbsp;que&nbsp;você combinou no&nbsp;começo volta a&nbsp;ser desrespeitado, o&nbsp;espaço
+        acabou. O&nbsp;sinal continua valendo depois que&nbsp;o&nbsp;número mudar.</p>
+      </div>
+      <div class="aprofunda-pe">
+        <button class="btn-copiar" data-alvo="apf-sinal">copiar o sinal</button>
+      </div>
+    </dialog>
+
+    <p class="fig-leg"><strong>Classe <code>.aprofunda</code>, num&nbsp;<code>&lt;dialog&gt;</code>, com&nbsp;o&nbsp;botão <code>.aprofunda-abrir</code> apontando pelo&nbsp;<code>data-alvo</code> para&nbsp;o&nbsp;<code>id</code> dele.</strong> O&nbsp;conteúdo mora na&nbsp;página, não&nbsp;no&nbsp;código: fechado, ele continua no&nbsp;HTML, a&nbsp;busca do&nbsp;navegador acha, e&nbsp;a&nbsp;impressão mostra.</p>
+
+    <p class="fig-leg"><strong>O&nbsp;<code>.aprofunda-pe</code> gruda a&nbsp;ação no&nbsp;pé enquanto&nbsp;o&nbsp;corpo rola.</strong> Sem&nbsp;ele, um&nbsp;modal com&nbsp;meia tela de&nbsp;tabela esconde o&nbsp;próprio
+    botão: a&nbsp;pessoa lê tudo, quer copiar, e&nbsp;tem de&nbsp;rolar de&nbsp;volta até&nbsp;o&nbsp;que&nbsp;a&nbsp;fez abrir
+    o&nbsp;modal. O&nbsp;pé exige altura máxima no&nbsp;<code>&lt;dialog&gt;</code>, senão o&nbsp;modal
+    cresce com&nbsp;o&nbsp;conteúdo e&nbsp;o&nbsp;pé desce junto.</p>
+  </section>
+
+  <section class="secao" id="passo-ok">
+    <div class="secao-topo">
+      <div class="secao-n">54</div>
+      <div>
+        <div class="secao-fn">O que deveria ter acontecido</div>
+        <h2>O&nbsp;resultado esperado do&nbsp;passo</h2>
+      </div>
+    </div>
+
+    <p>Sem&nbsp;esta linha, a&nbsp;pessoa só&nbsp;descobre que&nbsp;errou no&nbsp;passo 2 quando&nbsp;chega ao&nbsp;5 e&nbsp;nada
+    bate. E&nbsp;aí ela não&nbsp;sabe <strong>qual dos&nbsp;quatro passos</strong> foi. Uma&nbsp;frase, no&nbsp;indicativo, descrevendo o&nbsp;estado da&nbsp;tela: o&nbsp;que&nbsp;apareceu, quantas linhas, qual
+    mensagem.</p>
+
+    <p>Não&nbsp;é obrigatório em&nbsp;todo passo. O&nbsp;último passo de&nbsp;uma&nbsp;sequência costuma ser o&nbsp;próprio resultado, e&nbsp;passo que&nbsp;não&nbsp;muda a&nbsp;tela não&nbsp;tem o&nbsp;que&nbsp;descrever. O&nbsp;que&nbsp;o&nbsp;gate
+    G43 cobra é que&nbsp;o&nbsp;exercício <strong>tenha pelo&nbsp;menos um</strong>.</p>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">02</div>
+        <div>
+          <div class="passo-fn">Passo 2</div>
+          <h3>Cole o&nbsp;material e&nbsp;faça o&nbsp;pedido</h3>
+        </div>
+      </div>
+      <p>Uma&nbsp;mensagem só,&nbsp;com&nbsp;o&nbsp;arquivo anexado e&nbsp;o&nbsp;pedido completo. Sem&nbsp;dividir em&nbsp;duas. Este passo continua o&nbsp;exercício da&nbsp;peça anterior, e&nbsp;por&nbsp;isso ele é o&nbsp;2:
+      <strong>a&nbsp;numeração de&nbsp;passo corre pela&nbsp;página inteira</strong>, não&nbsp;por&nbsp;bloco.</p>
+
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo se</div>
+        <p>a&nbsp;resposta veio no&nbsp;formato que&nbsp;você pediu, já&nbsp;na&nbsp;primeira vez. Se&nbsp;veio,
+        <strong>não&nbsp;corrija nada</strong>: o&nbsp;valor deste passo é ele custar uma&nbsp;mensagem
+        só.</p>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Classe <code>.passo-ok</code>, com&nbsp;<code>.passo-ok-rot</code>.</strong> Fica dentro do&nbsp;<code>.passo</code>, sempre como
+    último bloco dele. Forma herdada do&nbsp;tutorial de&nbsp;<em>Claude para&nbsp;Líderes</em>, de&nbsp;Adriano Couto, que&nbsp;traz o&nbsp;resultado esperado em&nbsp;cada passo. Herdamos a&nbsp;forma; o&nbsp;texto
+    é nosso.</p>
+  </section>
+
+  <section class="secao" id="sistema">
+    <div class="secao-topo">
+      <div class="secao-n">55</div>
+      <div>
+        <div class="secao-fn">A instrução que a pessoa guarda</div>
+        <h2>A&nbsp;instrução permanente</h2>
+      </div>
+    </div>
+
+    <p><strong>Não&nbsp;é o&nbsp;<code>.prompt</code>.</strong> O&nbsp;prompt é o&nbsp;pedido de&nbsp;uma&nbsp;conversa: a&nbsp;pessoa cola e&nbsp;descarta. Isto é a&nbsp;instrução que&nbsp;ela guarda num&nbsp;projeto,
+    num&nbsp;assistente ou&nbsp;num&nbsp;atalho, cola uma&nbsp;vez e&nbsp;usa por&nbsp;semanas. São dois insumos
+    diferentes e&nbsp;o&nbsp;aluno precisa ver a&nbsp;diferença na&nbsp;página, não&nbsp;deduzir.</p>
+
+    <p>A&nbsp;peça traz o&nbsp;campo do&nbsp;<strong>que&nbsp;trocar antes de&nbsp;usar</strong>, marcado no&nbsp;texto
+    e&nbsp;repetido embaixo em&nbsp;lista. No&nbsp;meio de&nbsp;trinta linhas, destaque sozinho passa batido,
+    e&nbsp;a&nbsp;pessoa cola a&nbsp;instrução com&nbsp;o&nbsp;nome de&nbsp;outra empresa dentro.</p>
+
+    <div class="sistema">
+      <div class="sistema-topo">
+        <span class="sistema-rot">Instrução permanente</span>
+        <span class="sistema-onde">cola uma vez, no projeto</span>
+      </div>
+      <pre class="sistema-txt">Você responde pedidos da equipe de <span class="sistema-troca">SUPERVISÃO DE LOJAS</span>.
+
+CONTEXTO FIXO
+São <span class="sistema-troca">12 LOJAS</span>, e o fechamento chega toda segunda em planilha exportada do sistema.
+Quem lê as suas respostas decide o que priorizar na semana e não acompanha o dia a dia.
+
+COMO RESPONDER
+Uma página, no máximo. Três números primeiro, uma frase por número depois.
+Sem gráfico: o material vai impresso em preto e branco.
+
+O QUE NUNCA FAZER
+Não estime valor que não estiver na planilha. Onde faltar dado, escreva "não consta".
+Não reabra decisão que o pedido disser que já está fechada.</pre>
+      <div class="sistema-pe">
+        Troque antes de colar:
+        <ul>
+          <li><strong>SUPERVISÃO DE&nbsp;LOJAS</strong> pela&nbsp;sua&nbsp;área</li>
+          <li><strong>12 LOJAS</strong> pelo&nbsp;número real da&nbsp;sua&nbsp;operação</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Classe <code>.sistema</code>, com&nbsp;<code>.sistema-topo</code>, <code>.sistema-txt</code>, <code>.sistema-troca</code> e&nbsp;<code>.sistema-pe</code>.</strong> O&nbsp;quarto formato de&nbsp;insumo do&nbsp;padrão, ao&nbsp;lado do&nbsp;<code>.xlsx</code>, do&nbsp;<code>.docx</code> e&nbsp;do&nbsp;par dos&nbsp;dois.</p>
+
+    <p class="fig-leg"><strong>O&nbsp;que&nbsp;trocar aparece duas vezes.</strong> Marcado no&nbsp;corpo, para&nbsp;a&nbsp;pessoa achar enquanto&nbsp;lê, e&nbsp;listado no&nbsp;pé, para&nbsp;ela conferir depois de&nbsp;colar. Uma&nbsp;vez só&nbsp;não&nbsp;basta: a&nbsp;instrução longa é lida em&nbsp;diagonal.</p>
+  </section>
+
+  <section class="secao" id="nivel">
+    <div class="secao-topo">
+      <div class="secao-n">56</div>
+      <div>
+        <div class="secao-fn">Onde a pessoa está numa régua</div>
+        <h2>O&nbsp;card de&nbsp;degrau</h2>
+      </div>
+    </div>
+
+    <p>Mora dentro de&nbsp;cada <code>.aba-corpo</code> de&nbsp;uma&nbsp;régua de&nbsp;níveis. O&nbsp;valor dele
+    não&nbsp;está no&nbsp;desenho: está nos&nbsp;<strong>quatro rótulos fixos, na&nbsp;mesma ordem, em&nbsp;todo
+    degrau</strong>. Régua em&nbsp;que&nbsp;cada nível é descrito do&nbsp;jeito que&nbsp;deu na&nbsp;hora vira
+    taxonomia, e&nbsp;taxonomia a&nbsp;pessoa lê sem&nbsp;se&nbsp;localizar.</p>
+
+    <div class="vocab">
+      <div class="vocab-l"><span class="chip chip-accent">Você está aqui se…</span>
+        <p>o&nbsp;sinal comportamental, na&nbsp;segunda pessoa. Vem <strong>primeiro</strong>.</p></div>
+      <div class="vocab-l"><span class="chip chip-accent">O que define</span>
+        <p>a&nbsp;definição do&nbsp;degrau, que&nbsp;vem depois do&nbsp;sinal e&nbsp;nunca antes.</p></div>
+      <div class="vocab-l"><span class="chip chip-accent">Ferramentas típicas</span>
+        <p>o&nbsp;que&nbsp;a&nbsp;pessoa desse degrau costuma ter aberto.</p></div>
+      <div class="vocab-l"><span class="chip chip-accent">Próximo passo</span>
+        <p>uma&nbsp;ação concreta, para&nbsp;hoje. É o&nbsp;que&nbsp;impede a&nbsp;régua de&nbsp;virar quadro.</p></div>
+    </div>
+
+    <div class="nivel">
+      <div class="nivel-topo">
+        <div class="nivel-n">N2</div>
+        <div>
+          <span class="nivel-fase">Método</span>
+          <h3 class="nivel-t">O&nbsp;Aprendiz</h3>
+          <p class="nivel-ol">Entendeu que&nbsp;<em>como</em> pergunta muda o&nbsp;que&nbsp;volta</p>
+        </div>
+      </div>
+
+      <div class="nivel-bloco">
+        <span class="nivel-rot">Você está aqui se…</span>
+        <p>Você reescreve o&nbsp;pedido quando&nbsp;a&nbsp;resposta não&nbsp;serve, em&nbsp;vez de&nbsp;desistir. Já&nbsp;percebeu que&nbsp;a&nbsp;mesma pergunta escrita de&nbsp;dois jeitos devolve coisas diferentes, e&nbsp;já&nbsp;guardou algum pedido que&nbsp;funcionou, mesmo que&nbsp;num&nbsp;bloco de&nbsp;notas.</p>
+      </div>
+
+      <div class="nivel-bloco">
+        <span class="nivel-rot">O que define este nível</span>
+        <p>O&nbsp;pedido virou a&nbsp;alavanca. O&nbsp;que&nbsp;ainda não&nbsp;virou é o&nbsp;contexto: cada conversa
+        nova começa do&nbsp;zero, e&nbsp;você reexplica quem você é e&nbsp;o&nbsp;que&nbsp;precisa toda vez.</p>
+      </div>
+
+      <div class="nivel-bloco">
+        <span class="nivel-rot">Ferramentas típicas</span>
+        <div class="nivel-chips">
+          <span class="chip">Um chat, no navegador</span>
+          <span class="chip">Uma pasta de pedidos que deram certo</span>
+        </div>
+      </div>
+
+      <div class="nivel-passo">
+        <span class="nivel-rot">Próximo passo concreto</span>
+        <p>Pegue o&nbsp;pedido que&nbsp;você mais repete e&nbsp;cole num&nbsp;lugar que&nbsp;persista, com&nbsp;o&nbsp;contexto junto. É o&nbsp;que&nbsp;separa este degrau do&nbsp;próximo, e&nbsp;custa dez minutos.</p>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Classe <code>.nivel</code>, com&nbsp;<code>.nivel-topo</code>,
+    <code>.nivel-n</code>, <code>.nivel-fase</code>, <code>.nivel-bloco</code>,
+    <code>.nivel-rot</code> e&nbsp;<code>.nivel-passo</code>.</strong> Forma herdada de&nbsp;um&nbsp;print do&nbsp;site da&nbsp;mentoria de&nbsp;Débora Nascimento. Herdamos a&nbsp;forma; o&nbsp;texto é nosso.</p>
+
+    <p class="fig-leg"><strong>A&nbsp;ordem dos&nbsp;quatro blocos é o&nbsp;argumento.</strong>
+    Definição primeiro produz uma&nbsp;pessoa que&nbsp;lê e&nbsp;não&nbsp;se&nbsp;acha. Sinal primeiro produz
+    reconhecimento, e&nbsp;é o&nbsp;reconhecimento que&nbsp;faz o&nbsp;aluno dizer <em>"esse sou eu"</em>
+    antes de&nbsp;qualquer teoria.</p>
+
+    <p class="fig-leg"><strong>O&nbsp;último bloco não&nbsp;é opcional.</strong> Sem&nbsp;o&nbsp;próximo
+    passo concreto, saber o&nbsp;próprio degrau não&nbsp;muda a&nbsp;segunda-feira da&nbsp;pessoa, e&nbsp;a&nbsp;régua
+    vira diagnóstico sem&nbsp;receita.</p>
+  </section>
+
+  <section class="secao" id="vocab">
+    <div class="secao-topo">
+      <div class="secao-n">57</div>
+      <div>
+        <div class="secao-fn">O rótulo explicado antes de aparecer</div>
+        <h2>A&nbsp;legenda de&nbsp;vocabulário</h2>
+      </div>
+    </div>
+
+    <p>Quando&nbsp;uma&nbsp;tabela usa o&nbsp;mesmo selo em&nbsp;dezenas de&nbsp;linhas, o&nbsp;selo precisa ser
+    explicado <strong>antes</strong> da&nbsp;tabela. Sem&nbsp;isso a&nbsp;primeira coluna ensina por&nbsp;indução: a&nbsp;pessoa lê seis linhas, deduz o&nbsp;que&nbsp;o&nbsp;rótulo quer dizer, deduz errado numa&nbsp;delas, e&nbsp;segue sem&nbsp;saber.</p>
+
+    <p>Não&nbsp;confunda com&nbsp;a&nbsp;<code>.legenda</code> de&nbsp;figura, que&nbsp;é fila horizontal de&nbsp;cor
+    embaixo do&nbsp;desenho. Esta é lista de&nbsp;<strong>termo + o&nbsp;que&nbsp;ele significa</strong>, e&nbsp;vem em&nbsp;cima do&nbsp;bloco que&nbsp;vai repetir o&nbsp;termo.</p>
+
+    <div class="vocab">
+      <div class="vocab-l"><span class="selo selo-cor">Autopiloto</span>
+        <p>tarefa repetitiva e&nbsp;bem definida; você revisa por&nbsp;cima.</p></div>
+      <div class="vocab-l"><span class="selo selo-cor">Colaboração</span>
+        <p>exige o&nbsp;seu&nbsp;contexto e&nbsp;o&nbsp;seu&nbsp;julgamento; você itera junto.</p></div>
+      <div class="vocab-l"><span class="selo selo-cor">Manual</span>
+        <p>impacto humano alto ou&nbsp;a&nbsp;voz é sua;&nbsp;a&nbsp;máquina só&nbsp;inspira.</p></div>
+    </div>
+
+    <div class="tabela">
+      <table>
+        <thead><tr><th>A tarefa</th><th>O modo</th><th>Por quê</th></tr></thead>
+        <tbody>
+          <tr><td>Resumir uma ata longa</td><td><span class="selo selo-cor">Autopiloto</span></td>
+              <td>Você cola a transcrição e confere o resultado por cima</td></tr>
+          <tr><td>Plano de entrada de alguém novo</td><td><span class="selo selo-cor">Colaboração</span></td>
+              <td>Só você sabe como a equipe funciona</td></tr>
+          <tr><td>Mensagem de pêsames</td><td><span class="selo selo-cor">Manual</span></td>
+              <td>A voz é sua, e é ela que a pessoa vai ler</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>Classe <code>.vocab</code>, com&nbsp;<code>.vocab-l</code>.</strong> Cada linha é o&nbsp;rótulo à&nbsp;esquerda e&nbsp;a&nbsp;definição à&nbsp;direita. Em&nbsp;telas estreitas a&nbsp;definição desce para&nbsp;baixo do&nbsp;rótulo.</p>
+
+    <p class="fig-leg"><strong>Três termos é o&nbsp;tamanho certo.</strong> Acima de&nbsp;cinco, a&nbsp;legenda vira a&nbsp;tabela que&nbsp;ela deveria explicar, e&nbsp;a&nbsp;pessoa lê duas vezes a&nbsp;mesma
+    coisa.</p>
   </section>
 
 
