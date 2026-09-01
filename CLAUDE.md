@@ -1,5 +1,8 @@
 # CLAUDE.md · template de treinamento
 
+> **Os cursos de origem aparecem como código** (`IC-A`…`IC-D`). O mapa está em
+> `0-padrao-de-treinamentos/PROVENIENCIA-INTERNA.md`, que fica fora de `template/`
+> e não é copiado para curso nenhum. O G50 confere.
 > Copie esta pasta para começar um curso novo.
 
 🔴 **Leia o `COMO-EXECUTAR.md` primeiro.** Ele é o roteiro: diz o que fazer, em que
@@ -9,15 +12,15 @@ aqui é a referência**, e o roteiro manda você nele quando precisar do detalhe
 Ler só a referência é o erro que custa a primeira leva: você fica sabendo todas as
 regras e não sabe por onde começar.
 
-**Fontes.** A anatomia de aula e a escrita vêm do **Claude na Prática (Pouchain)**.
+**Fontes.** A anatomia de aula e a escrita vêm do **IC-A**.
 A página de caso em cinco passos, a prévia do resultado e as estruturas de decisão
-vêm do **Workshop Maria Pitanga**. O gerador, os gates e a cura da quebra de linha
-vêm do **Ideação com AI First (Longevidade)**. Rafael aprovou os três como
+vêm do **IC-B**. O gerador, os gates e a cura da quebra de linha
+vêm do **IC-C**. Rafael aprovou os três como
 referência em 20/08/2026.
 
-**Um aviso sobre as fontes:** o Maria Pitanga é o mais forte em estrutura de
+**Um aviso sobre as fontes:** o IC-B é o mais forte em estrutura de
 exercício e o mais antigo em escrita. Ele usa travessão e emoji em card, que
-depois viraram proibidos. **Copie a estrutura de lá, a escrita do Pouchain.**
+depois viraram proibidos. **Copie a estrutura de lá, a escrita do IC-A.**
 
 ---
 
@@ -263,11 +266,12 @@ lado, *você sabe fazer agora* do outro. Mesmo verbo, tempo diferente.
 | # | A função | O que entra | O erro que ela evita |
 |---|---|---|---|
 | 01 | A situação | o problema na voz de quem faz o trabalho, sem conceito nenhum | começar pela definição |
-| 02 | O conceito | um, no máximo dois. O rótulo declara o teto | a aula que ensina seis coisas e fixa nenhuma |
+| 02 | O conceito | **um, e só um**, e ele nasce com a analogia junto | a aula que ensina seis coisas e fixa nenhuma · conceito sem imagem |
 | 03 | Como funciona | o mecanismo, com figura. É a seção mais visual | explicar com três parágrafos o que um desenho resolve |
 | 04 | Demonstração | ver acontecer. Leva ao passo a passo, em página própria | mostrar o resultado pronto |
 | 05 | Sua vez | o exercício, com o arquivo de partida | exercício que pede o que o aluno ainda não tem |
 | 06 | Confira | gabarito, atrás de um toggle fechado | gabarito aberto: ninguém tenta |
+| 🏁 | **O divisor** | `.ate-aqui`: a aula acaba aqui, o resto é aprofundamento | a aula de 3.400 palavras que chega toda como obrigatória |
 | 07 | Pegadinhas | os erros que quase todo mundo comete ali | a pessoa descobrir sozinha, três semanas depois |
 | 08 | A cerca | o que nunca pode acontecer neste nível | ensinar a fazer sem ensinar quando não fazer |
 
@@ -281,20 +285,112 @@ coluna do meio. A da direita é o menu da vitrine: escolha UMA, não todas.
 | # | obrigatório, toda aula | o modelo mostra | escolha uma na vitrine |
 |---|---|---|---|
 | 01 | a dor na voz de quem faz | prosa curta | `.glosa` |
-| 02 | o conceito **dividido** se for mais de um | `.conceito` + `.contraste` | `.venn` · `.cem` · `.antes` |
+| 02 | **um** conceito, nunca dois, **com `.analogia`** | `.conceito` + `.analogia` + `.contraste` | `.venn` · `.cem` · `.antes` |
 | 03 | um artefato visual, sempre | `.converge` + `.mesa` | `.ciclo` · `.escada` · `.matriz` · `.cascata` · `.linha-tempo` · mais catorze |
 | 04 | o link para a página de caso | `.demo` + link | `.tela` · `.fonte` |
-| 05 | **as três, sempre:** `.arquivo`, `.passo`, `.prompt` | as três | `.canvas` no lugar do `.arquivo`, quando o insumo é a rotina da própria pessoa |
+| 05 | **as três, sempre:** `.arquivo`, `.passo`, `.prompt` — mais `.destrave` em todo passo que pede texto do aluno | as três | `.canvas` no lugar do `.arquivo`, quando o insumo é a rotina da própria pessoa |
 | 06 | o gabarito fechado | `<details class="gabarito">` | — |
+| 🏁 | o divisor, sempre | `.ate-aqui` + `.ate-aqui-nota` | — |
 | 07 | os erros de quem parte daqui | `.dg` | `.destrave` |
 | 08 | a cerca | `.cartao` com lista | `.aviso erro` |
 
+🔴 **UMA AULA, UM CONCEITO — mudou em 28/08.** Até aqui a linha 02 dizia "um, no
+máximo dois", e o resultado medido no primeiro curso real foi: **9 de 9 aulas com dois
+conceitos empilhados na 02 e a primeira prática só na 05.** A regra 1 do roteiro
+(*conceito → imagem → prática → próximo conceito*) estava escrita e era inaplicável:
+duas voltas do ciclo não cabem em oito seções. Com um conceito por aula o ciclo fecha
+sozinho, a aula encolhe, e **o encontro passa a ter mais voltas de prática, não menos**.
+Medido pelo **G39**.
+
+🔴 **O DIVISOR 🏁 — peça herdada, declarada como herdada.** Vem de *Claude para
+Líderes*, de Adriano Couto: a aula com **dois comprimentos**. Até o divisor é
+obrigatório; depois dele é aprofundamento, e o aluno escolhe. Herdamos a forma e nada
+do texto. Medido na aula `n1` do piloto: **2.349 palavras até o gabarito e 1.118
+depois**, sendo 982 só na seção 08 — mais que a prática inteira, numa aula de
+nivelamento. Medido pelo **G40**.
+
+🔴 **TRÊS TIPOS DE AULA. Dois desde 28/08, o terceiro desde 30/08.** Declare em
+`PAGINAS`, e a anatomia é a mesma nos três: oito seções, na mesma ordem. O que muda é o
+contrato das seções 05 e 06. Medido pelo **G43**.
+
+| `tipo=` | o que ela é | o que a 05 entrega | o que a 06 cobra |
+|---|---|---|---|
+| `"pratica"` | a pessoa faz | `.arquivo` + `.passo` + `.prompt` + `.passo-ok` | o gabarito |
+| `"fundamento"` | como a coisa funciona | um **instrumento**: `.arquivo`, `.canvas` ou `.criador` | a **`.verifique`** |
+| `"organizacao"` | a pessoa mapeia a própria rotina | `.canvas` + figura de estrutura + `.destrave` | o gabarito |
+
+Uma anatomia só, aplicada aos três casos, foi o que produziu exercício postiço em aula de
+conceito. **A aula de fundamento não é aula sem entrega: é aula que entrega outra coisa.**
+E em três aulas seguidas, pelo menos uma é de `pratica` ou `organizacao` — **G44**. A de
+organização quebra a fila porque nela a sala não só escuta: ela preenche, decide, ordena.
+
+🔴 **EXPLICAR E CONFIRMAR SÃO DUAS COISAS, e o padrão só tinha a primeira.** Regra do
+Rafael, 30/08: *"há aulas de fundamentos que são só de explicação e de confirmar com a
+turma se todo mundo entendeu"*. A `.checagem` é lista de conferência no fim, que a pessoa
+lê concordando com ela mesma: isso confirma **leitura**. O que confirma **entendimento** é
+a `.verifique` — pergunta fechada, resposta escondida, colada no conceito que ela testa. É
+a peça que torna a aula de fundamento conduzível numa sala, e não só legível sozinha.
+
+🔴 **O RESULTADO ESPERADO DO PASSO, desde 30/08.** Todo exercício leva pelo menos um
+`.passo-ok` dizendo o que deveria ter acontecido. Sem ele o aluno só descobre que errou no
+passo 2 quando chega ao 5 e nada bate — e aí ele não sabe qual dos quatro passos foi. A
+peça estava na lista de 27/08 como proposta e ficou três dias fora do padrão.
+
+🔴 **MODELO PARA CADA CONTRATO.** `aula/` é o modelo de prática e `fundamento/` é o de
+fundamento. **Contrato sem modelo não é regra: é texto no roteiro que ninguém segue.** Até
+30/08 o padrão declarava dois tipos e mostrava um só, e quem escrevia aula de conceito
+copiava a de prática e inventava exercício para preencher a 05. Foi assim que a trilha IEL
+40h ganhou cinco aulas de conceito com exercício postiço, seguidas.
+
+🔴 **A TRILHA LATERAL SAIU, desde 28/08.** A regra `.com-trilha .solta` zerava o breakout,
+e toda figura larga encolhia para a largura da coluna. A barra custava o espaço largo da
+página em troca de um índice que a página de módulo já dá. Navegação fica no `.rodape-nav`
+e na migalha.
+
+🔴 **A ANATOMIA NÃO PARA NA AULA. Regra de módulo, desde 28/08.**
+
+**Em quaisquer três aulas seguidas da `TRILHA`, pelo menos uma entrega artefato** —
+`.arquivo`, `.canvas` ou `.criador`, uma peça que produz algo que **sai da tela**.
+Exercício não é entrega. Medido pelo **G42**, que é o primeiro gate do padrão a olhar a
+**sequência** e não a página.
+
+Nasceu de defeito real na trilha IEL 40h: cinco aulas seguidas de fundamento, 15 passos de
+exercício, **zero artefato**, e as cinco passando em todos os 41 gates da época.
+
+🔴 **O CONCEITO NASCE COM A IMAGEM. A fórmula AIDEN, desde 28/08.**
+
+> *"As pessoas não entendem o que você fala, mas o que elas veem ou o que elas sentem
+> quando você fala."* E: *"a imagem vem primeiro, para depois processar o entendimento."*
+
+Cinco partes, e o padrão já tinha duas:
+
+| | | onde mora |
+|---|---|---|
+| **A** | abstrato — o conceito técnico, **em uma frase** | `.conceito` |
+| **I** | imagem — o visual do cotidiano | `.analogia` |
+| **D** | detalhamento — o de-para entre a analogia e a coisa | `.analogia-mapa` |
+| **E** | extensão — onde mais aquilo aparece | `.analogia-mais` |
+| **N** | negação — o que **não** é | `.contraste` |
+
+**A imagem não é ilustração que vem depois: é como o conceito se diz.** Medido no piloto
+IEL: a seção de conceito tinha **632 palavras** e a primeira figura só chegava na seção
+seguinte, com 312. Seiscentas palavras de abstração antes de qualquer imagem foi o que
+travou a sala em 27/08 — e a ordem das seções não tem nada a ver com isso.
+
+Forma herdada de Adriano de Marqui (*Didática Lendária*). Pesquisa em
+`4-ativo-pedagogico/notas/vault-alan--didatica-e-feynman.md`. Medido pelo **G41**.
+
 🔴 **A seção 05 é a que mais nasce magra**, e ela tem três peças obrigatórias.
+
+E o `.destrave` mora **aqui**, não só na 07: ele é a peça que faz o exercício
+ser respondível. A linha da 07 continua valendo — o destrave serve nos dois
+lugares — mas quem escreve procura a peça nesta linha, e até 28/08 ela não
+estava. O primeiro curso real nasceu sem destrave em nenhum exercício.
 Aula sem arquivo para baixar, sem passo numerado e sem pedido pronto para
 copiar vira "agora faça você" e ninguém faz. As três entregas de referência têm
 as três, nas oito aulas: nenhuma exceção.
 
-**Por que o modelo não mostra as 48.** Um modelo que mostra tudo deixa de ser
+**Por que o modelo não mostra as 57.** Um modelo que mostra tudo deixa de ser
 modelo e vira segunda vitrine, e o curso copiado dele sai carregado. O modelo
 mostra a espinha; a vitrine mostra o acervo. Se você abriu só o modelo, você
 viu um terço do padrão.
@@ -507,7 +603,7 @@ você inventou para organizar as aulas) vira **comentário HTML**, nunca texto v
 ## 6. O padrão é piso, não jaula
 
 Rafael foi explícito em 20/08: o Claude **pode e deve adaptar** o padrão de um exemplo
-para outro, como o Maria Pitanga fez, **até criar diagrama novo quando o assunto
+para outro, como o IC-B fez, **até criar diagrama novo quando o assunto
 pedir**. Material que sai igual em toda página vira formulário preenchido, e ninguém
 lê formulário.
 
@@ -543,7 +639,7 @@ a única do módulo sem os dois.
 família e ache quem está fora. Leva dois comandos e evita uma rodada inteira gasta no
 defeito errado.
 
-E antes de inventar: **abra a vitrine**. São mais de vinte peças, e a chance de já
+E antes de inventar: **abra a vitrine**. São 57 peças, e a chance de já
 existir o que você quer é alta. Inventar o que já existe custa duas vezes: o trabalho
 de criar, e a inconsistência de ter dois jeitos de mostrar a mesma coisa.
 
@@ -708,7 +804,7 @@ defeito errado.** Elas se parecem na tela e não têm nada a ver uma com a outra
 | 🔴 **A frase quebra e ainda sobra coluna** | a frase **começou no meio da linha**, no resto que a anterior deixou | **uma frase por linha** |
 
 **A terceira é a que ele reclamou mais vezes, e é a menos óbvia.** Medido no
-Longevidade: **283 de 491 frases** quebravam no meio, e a frase mediana ocupava
+IC-C: **283 de 491 frases** quebravam no meio, e a frase mediana ocupava
 **497px numa medida de 720px**. Três de cada quatro já cabiam inteiras numa linha
 e quebravam mesmo assim, porque começavam no resto da anterior.
 
@@ -731,7 +827,7 @@ continua prosa corrida; dentro da coluna larga, cada frase ganha a sua linha.
 > um bloco de prosa que ele vai ler na sala e não pôs `.fr-host`, o efeito não
 > acontece**, e nenhum gate reclama: é escolha, não defeito.
 
-**Medido, não estimado.** Cola de espaço rígido no Longevidade, 437 linhas de
+**Medido, não estimado.** Cola de espaço rígido no IC-C, 437 linhas de
 prosa: 192 quebras órfãs sem ela, 8 com ela, 0 quebras precoces sem o `text-wrap`.
 E a medida só vale se ela souber reprovar: desfaça a correção no DOM vivo e
 confirme que o número sobe.
@@ -740,7 +836,7 @@ confirme que o número sobe.
 > segundo a sua própria métrica, a métrica está errada, não a execução.** Pergunte
 > o que exatamente incomoda, ou meça o que o print mostra, em vez do que você supõe.
 
-> 🔴 **A página menos auditada costuma ser a mais usada.** No Longevidade o canvas,
+> 🔴 **A página menos auditada costuma ser a mais usada.** No IC-C o canvas,
 > que é o que a turma abre no celular, tinha 13 quebras ruins em 375px contra 3 no
 > site. Ele é a exceção do gerador, e por isso ninguém o mede.
 
@@ -875,7 +971,7 @@ buraco por estimativa e ninguém percebe.
 
 ## 13. A página de caso, em cinco passos
 
-Vem do Maria Pitanga, e é a peça que o Rafael chamou de maior ganho daquele
+Vem do IC-B, e é a peça que o Rafael chamou de maior ganho daquele
 material. Toda página de caso tem os **mesmos cinco passos**, na mesma ordem,
 com os mesmos títulos. Conferido nas oito páginas de lá: nenhuma variação.
 
@@ -930,7 +1026,7 @@ o lado bom de uma opção não é figura, é propaganda.
 
 ## 15. As três peças que o aluno opera
 
-A vitrine tem mais de vinte componentes, e vinte deles são para ler. Três não:
+A vitrine tem 57 componentes, e 54 deles são para ler. Três não:
 
 | Peça | Classe | A regra que não pode cair |
 |---|---|---|
@@ -1009,7 +1105,7 @@ enuncia a regra sobre ela, senão se auto-reprova.
 **Exit code sozinho nunca é prova.** Leia a saída: ela imprime achado por gate e
 diz quais gates não se provaram contra o próprio defeito injetado.
 
-São **21 gates**, em cinco famílias: escrita (travessão, vocabulário de bastidor,
+São **41 gates**, em cinco famílias: escrita (travessão, vocabulário de bastidor,
 direção de cena, duração fora da capa, os quatro parágrafos do prompt), estrutura
 (classe sem CSS, link, imagem, gabarito, botão de copiar, numeração, seção completa,
 tabela no envelope), quebra de linha (a cola aplicada, `text-wrap` só em título),
@@ -1027,27 +1123,27 @@ em que a vitrine for para uma turma.
 
 | O que | De onde vem | Estado |
 |---|---|---|
-| Anatomia de aula, 8 seções | Pouchain | ✅ no template |
-| Página de caso, 5 passos, com prévia | Maria Pitanga | ✅ no template |
-| Grade de casos, matriz, tabela de decisão | Maria Pitanga | ✅ no template |
-| Cura da quebra de linha + cola de espaço rígido | Longevidade | ✅ no template |
+| Anatomia de aula, 8 seções | IC-A | ✅ no template |
+| Página de caso, 5 passos, com prévia | IC-B | ✅ no template |
+| Grade de casos, matriz, tabela de decisão | IC-B | ✅ no template |
+| Cura da quebra de linha + cola de espaço rígido | IC-C | ✅ no template |
 | Cartão de vídeo, matriz esforço × impacto, tela com campos | os três cursos | ✅ no template |
-| Demonstração A/B, anatomia de arquivo, três opções | Pouchain | ✅ no template |
-| Antes e depois, cadeia de nós | Maria Pitanga | ✅ no template |
-| Criador de prompt, ferramenta viva de 6 campos | Maria Pitanga, M1 §09 | ✅ no template |
-| Canvas preenchível com rascunho salvo | Maria Pitanga M5 · Longevidade | ✅ no template |
-| Página de exemplo pronto, com CSS de impressão | Pouchain, `m1/a1/exemplo/` | ✅ no template |
+| Demonstração A/B, anatomia de arquivo, três opções | IC-A | ✅ no template |
+| Antes e depois, cadeia de nós | IC-B | ✅ no template |
+| Criador de prompt, ferramenta viva de 6 campos | IC-B, M1 §09 | ✅ no template |
+| Canvas preenchível com rascunho salvo | IC-B M5 · IC-C | ✅ no template |
+| Página de exemplo pronto, com CSS de impressão | IC-A, `m1/a1/exemplo/` | ✅ no template |
 | Capa modelo, com as aulas e a grade de casos | os três cursos | ✅ no template |
-| `gates.py` · 21 gates, todos calibrados | Longevidade + 4 novos | ✅ no template |
+| `gates.py` · 41 gates, todos calibrados | IC-C + 4 novos + 5 do piloto IEL | ✅ no template |
 | Skill `criar-treinamento` que dita o processo | `~/.claude/skills/` | ✅ instalada |
 | **23 tipos de diagrama**, com classe e regra própria | os 12 prints + os 28 tipos da `diagram-design` | ✅ no template |
 | A regra do diagrama, com a ponte para a `diagram-design` | pedido dele, 20/08 | ✅ seção 7 |
-| **Os 4 padrões de linguagem (P1 a P4)** | Pouchain, 07/08 | ✅ seção 5 |
-| **Pessoa gramatical no lugar da lista de palavras** | Pouchain, 07/08 | ✅ seção 5 |
-| **Número é andaime, não critério** | Pouchain, 07/08 | ✅ seção 5 |
-| **Promessa de ganho, não de conserto** | Pouchain, 17/08 | ✅ seção 5 |
-| **O padrão de ouro da demonstração** | Pouchain, 07/08 | ✅ seção 4 |
-| **"Padrão" é o padrão do módulo** | Pouchain, 08/08 | ✅ seção 6 |
-| **Promessa operacional fecha na prática** | Longevidade, 17/08 | ✅ seção 10 |
-| **As três quebras de linha, com a cura de cada** | Longevidade, 4 reclamações | ✅ seção 9 |
-| **Proposta de aprovação não é material de sala** | Longevidade, 17/08 | ✅ seção 5 |
+| **Os 4 padrões de linguagem (P1 a P4)** | IC-A, 07/08 | ✅ seção 5 |
+| **Pessoa gramatical no lugar da lista de palavras** | IC-A, 07/08 | ✅ seção 5 |
+| **Número é andaime, não critério** | IC-A, 07/08 | ✅ seção 5 |
+| **Promessa de ganho, não de conserto** | IC-A, 17/08 | ✅ seção 5 |
+| **O padrão de ouro da demonstração** | IC-A, 07/08 | ✅ seção 4 |
+| **"Padrão" é o padrão do módulo** | IC-A, 08/08 | ✅ seção 6 |
+| **Promessa operacional fecha na prática** | IC-C, 17/08 | ✅ seção 10 |
+| **As três quebras de linha, com a cura de cada** | IC-C, 4 reclamações | ✅ seção 9 |
+| **Proposta de aprovação não é material de sala** | IC-C, 17/08 | ✅ seção 5 |
