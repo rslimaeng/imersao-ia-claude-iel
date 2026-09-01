@@ -52,9 +52,9 @@ CURSO = {
 SEQUENCIA = ["index", "nivelamento",
              "n1-dois-modos", "n2-generica", "n3-conferir", "n4-limite",
              "n5-configurar",
-             "m1", "m1a1-superficies", "m1a2-mesa", "m1a3-instrucao",
-             "m1a4-regra", "m1a5-mapa", "m1a6-tranca", "m1a7-base",
-             "m1a8-conta"]
+             "m1", "m1a1-qual-trabalho", "m1a2-recomecar",
+             "m1a3-montar-assistente", "m1a4-onde-a-regra-mora",
+             "m1a5-quando-compensa"]
 
 # ---------------------------------------------------------------------------
 # A TRILHA · o indice do curso, e a unica lista escrita a mao neste arquivo
@@ -85,15 +85,18 @@ TRILHA = [
         ("n4-limite",        "O que não entra no chat"),
         ("n5-configurar",    "A primeira configuração"),
     ]),
+    # 🔴 CINCO, e nao oito, desde 01/09. Nao foi corte: foi fusao, decidida pelo
+    # Rafael depois de comparar as oito com a trilha IEL de 40h. O titulo antigo
+    # dizia o ASSUNTO ("A mesa tem tamanho fixo"), e nao o resultado, porque cada
+    # aula carregava mais de um resultado e nenhum titulo conseguia nomear um so.
+    # As 1.3+1.4, 1.5+1.6 e 1.7+1.8 eram tres movimentos partidos ao meio, e as
+    # quatro clausulas da ementa caem exatamente sobre os cinco pares.
     ("Módulo 1", [
-        ("m1a1-superficies", "Quatro superfícies, e a que a sua tarefa pede"),
-        ("m1a2-mesa",        "A mesa tem tamanho fixo"),
-        ("m1a3-instrucao",   "A instrução que fica, e as três gavetas"),
-        ("m1a4-regra",       "A regra do 2×"),
-        ("m1a5-mapa",        "O mapa: onde cada regra mora"),
-        ("m1a6-tranca",      "A regra que não mora em texto nenhum"),
-        ("m1a7-base",        "Por que a base multiplica"),
-        ("m1a8-conta",       "A conta da repetição"),
+        ("m1a1-qual-trabalho",      "Descubra qual trabalho seu merece um assistente"),
+        ("m1a2-recomecar",          "Saiba a hora de recomeçar, antes que a IA erre"),
+        ("m1a3-montar-assistente",  "Monte o assistente que já sabe como você trabalha"),
+        ("m1a4-onde-a-regra-mora",  "Descubra por que algumas regras não podem ser só texto"),
+        ("m1a5-quando-compensa",    "Saiba quando montar assistente compensa, e quando não"),
     ]),
 ]
 
@@ -237,57 +240,51 @@ PAGINAS = {
         h1="A regra sai do teclado",
         sub="O método do nivelamento vira base escrita: o que você repetia em todo "
             "pedido passa a morar onde a ferramenta lê sozinha.",
-        selos=["4 aulas", "Claude Desktop"],
+        selos=["5 aulas", "Claude Desktop"],
         migalha=[("../", "Imersão em IA com Claude"),
                  (None, "Módulo 1")],
     ),
-    "m1a1-superficies": dict(
+    # 🔴 AS CINCO DE 01/09. O titulo de cada uma e literal, escolhido pelo
+    # Rafael entre duas colunas de opcoes, e diz o RESULTADO que a pessoa leva.
+    # Ate 31/08 o titulo dizia o assunto ("A mesa tem tamanho fixo"), porque o
+    # COMO-EXECUTAR mandava as duas coisas em linhas diferentes. O sintoma era o
+    # titulo; a causa era cada aula carregar mais de um resultado.
+    "m1a1-qual-trabalho": dict(
         tipo="fundamento",
-        titulo="Quatro superfícies, e a que a sua tarefa pede",
+        titulo="Descubra qual trabalho seu merece um assistente",
         kicker="Módulo 1 · aula 1.1",
-        h1="Quatro superfícies, e a que a sua tarefa pede",
-        sub="Onde cada tarefa sua mora, decidido em quatro perguntas, sem subir de "
-            "superfície por status.",
+        h1="Descubra qual trabalho seu merece um assistente",
+        sub="Quatro perguntas decidem onde cada tarefa sua mora. A que se repete "
+            "com as mesmas regras é a que paga um assistente montado.",
         selos=["Quatro perguntas", "Pare no primeiro sim"],
         migalha=[("../", "Imersão em IA com Claude"),
                  ("../m1/", "Módulo 1"),
-                 (None, "Quatro superfícies, e a que a sua tarefa pede")],
+                 (None, "Descubra qual trabalho seu merece um assistente")],
     ),
-    "m1a2-mesa": dict(
+    "m1a2-recomecar": dict(
         tipo="fundamento",
-        titulo="A mesa tem tamanho fixo",
+        titulo="Saiba a hora de recomeçar, antes que a IA erre",
         kicker="Módulo 1 · aula 1.2",
-        h1="A mesa tem tamanho fixo",
-        sub="Por que a conversa longa piora sem ninguém mexer em nada, como medir "
-            "isso em trinta segundos, e o que levar quando for recomeçar.",
+        h1="Saiba a hora de recomeçar, antes que a IA erre",
+        sub="A conversa longa piora sem ninguém mexer em nada. Como medir isso em "
+            "trinta segundos, e o que levar quando for recomeçar.",
         selos=["O teste da mesa", "Três linhas que sobrevivem"],
         migalha=[("../", "Imersão em IA com Claude"),
                  ("../m1/", "Módulo 1"),
-                 (None, "A mesa tem tamanho fixo")],
+                 (None, "Saiba a hora de recomeçar, antes que a IA erre")],
     ),
-    "m1a3-instrucao": dict(
+    "m1a3-montar-assistente": dict(
         tipo="pratica",
-        titulo="A instrução que fica, e as três gavetas",
+        titulo="Monte o assistente que já sabe como você trabalha",
         kicker="Módulo 1 · aula 1.3",
-        h1="A instrução que fica, e as três gavetas",
-        sub="O texto que ele lê no começo de toda conversa daquele trabalho, e os três "
-            "lugares de um projeto que ninguém deve trocar entre si.",
-        selos=["Instrução persistente", "Três gavetas"],
+        h1="Monte o assistente que já sabe como você trabalha",
+        sub="O texto que ele lê no começo de toda conversa daquele trabalho, o "
+            "critério que decide o que entra nele, e o primeiro resultado que ele "
+            "devolve montado.",
+        selos=["Três gavetas", "A regra do 2×", "Artefato visual"],
         migalha=[("../", "Imersão em IA com Claude"),
                  ("../m1/", "Módulo 1"),
-                 (None, "A instrução que fica, e as três gavetas")],
-    ),
-    "m1a4-regra": dict(
-        tipo="fundamento",
-        titulo="A regra do 2×",
-        kicker="Módulo 1 · aula 1.4",
-        h1="A regra do 2×",
-        sub="O critério que decide o que vira texto fixo, e o teste contra um trabalho "
-            "que você já entregou.",
-        selos=["Corrigiu duas vezes", "Teste com trabalho fechado"],
-        migalha=[("../", "Imersão em IA com Claude"),
-                 ("../m1/", "Módulo 1"),
-                 (None, "A regra do 2×")],
+                 (None, "Monte o assistente que já sabe como você trabalha")],
     ),
     "caso-superficies": dict(
         titulo="O projeto do relatório de execução",
@@ -311,62 +308,36 @@ PAGINAS = {
                  ("../m1/", "Módulo 1"),
                  (None, "O projeto montado, gaveta por gaveta")],
     ),
-    "m1a5-mapa": dict(
-        # 🔴 ORGANIZACAO, e nao pratica. Ela foi declarada pratica em 29/08 porque
-        # o terceiro tipo nao existia ainda, e passava por acidente: o que sai
-        # daqui nao e uma coisa feita, e o MAPA DA PROPRIA PESSOA nos cinco
-        # lugares. O comentario do base.css do padrao cita esta aula como o caso
-        # que motivou a criacao do tipo.
+    "m1a4-onde-a-regra-mora": dict(
+        # 🔴 ORGANIZACAO, e nao pratica. O que sai daqui nao e uma coisa feita:
+        # e o MAPA DA PROPRIA PESSOA nos cinco lugares. O comentario do base.css
+        # do padrao cita esta aula como o caso que motivou criar o terceiro tipo.
         tipo="organizacao",
-        titulo="O mapa: onde cada regra mora",
-        kicker="Módulo 1 · aula 1.5",
-        h1="O mapa: onde cada regra mora",
-        sub="Uma pergunta escolhe o lugar de qualquer regra sua, e os cinco nomes que "
-            "aparecem na tela: instruções, skill, comando, conector e plugin.",
-        selos=["Sempre, às vezes, nunca", "Cinco lugares"],
+        titulo="Descubra por que algumas regras não podem ser só texto",
+        kicker="Módulo 1 · aula 1.4",
+        h1="Descubra por que algumas regras não podem ser só texto",
+        sub="Uma pergunta escolhe o lugar de qualquer regra sua entre os cinco que "
+            "aparecem na tela. A regra que não pode falhar não é nenhum deles.",
+        selos=["Sempre, às vezes, nunca", "A tranca"],
         migalha=[("../", "Imersão em IA com Claude"),
                  ("../m1/", "Módulo 1"),
-                 (None, "O mapa: onde cada regra mora")],
+                 (None, "Descubra por que algumas regras não podem ser só texto")],
     ),
-    "m1a6-tranca": dict(
-        tipo="fundamento",
-        titulo="A regra que não mora em texto nenhum",
-        kicker="Módulo 1 · aula 1.6",
-        h1="A regra que não mora em texto nenhum",
-        sub="A pergunta que separa regra comum de regra crítica, e por que escrever em "
-            "caixa alta não muda o mecanismo.",
-        selos=["Uma vez em cem", "A tranca"],
-        migalha=[("../", "Imersão em IA com Claude"),
-                 ("../m1/", "Módulo 1"),
-                 (None, "A regra que não mora em texto nenhum")],
-    ),
-    "m1a7-base": dict(
+    "m1a5-quando-compensa": dict(
         tipo="pratica",
-        titulo="Por que a base multiplica",
-        kicker="Módulo 1 · aula 1.7",
-        h1="Por que a base multiplica",
-        sub="O teto do pedido bem escrito, e a medida do que a base já tirou do seu "
-            "teclado.",
-        selos=["O teto do pedido", "Dois pedidos lado a lado"],
+        titulo="Saiba quando montar assistente compensa, e quando não",
+        kicker="Módulo 1 · aula 1.5",
+        h1="Saiba quando montar assistente compensa, e quando não",
+        sub="O teto do pedido bem escrito, a medida do que a base já tirou do seu "
+            "teclado, e a partir de quantas voltas montar se paga.",
+        selos=["O teto do pedido", "Repetição, não importância"],
         migalha=[("../", "Imersão em IA com Claude"),
                  ("../m1/", "Módulo 1"),
-                 (None, "Por que a base multiplica")],
-    ),
-    "m1a8-conta": dict(
-        tipo="fundamento",
-        titulo="A conta da repetição",
-        kicker="Módulo 1 · aula 1.8",
-        h1="A conta da repetição",
-        sub="A partir de quantas voltas montar a base se paga, e por que a tarefa mais "
-            "importante quase nunca é a escolhida.",
-        selos=["Repetição, não importância", "Duas de fora"],
-        migalha=[("../", "Imersão em IA com Claude"),
-                 ("../m1/", "Módulo 1"),
-                 (None, "A conta da repetição")],
+                 (None, "Saiba quando montar assistente compensa, e quando não")],
     ),
     "caso-mapa": dict(
         titulo="A norma da casa vira procedimento",
-        kicker="Demonstração da aula 1.5 · em cinco passos",
+        kicker="Demonstração da aula 1.4 · em cinco passos",
         h1="Transformar o que já está escrito em algo que ele lê sozinho",
         sub="A pergunta única aplicada antes de tudo, e o pedido que transforma a "
             "norma da sua área sem misturar boa prática de fora.",
@@ -377,7 +348,7 @@ PAGINAS = {
     ),
     "caso-base": dict(
         titulo="A medição que fecha o módulo",
-        kicker="Demonstração das aulas 1.7 e 1.8 · em cinco passos",
+        kicker="Demonstração da aula 1.5 · em cinco passos",
         h1="Para onde foi cada informação do pedido antigo",
         sub="A conferência que mostra o que a base já cobre, o que se perdeu pelo "
             "caminho e o que está escrito duas vezes.",
