@@ -1,0 +1,26 @@
+{
+  "_leia-me": "Contrato do G51: o que o curso promete x em que bloco. So entram blocos FECHADOS. O nivelamento (n1-n5) esta CONGELADO por decisao do Rafael em 01/09 e nao entra no contrato.",
+  "PCTFL no M1": {
+    "termo": "PCTFL",
+    "blocos": [
+      "m1a"
+    ],
+    "fonte": "CLAUDE.md linha 31 — 4 encontros: PCTFL, PPBR com ROI, IPO, analise de dados"
+  },
+  "criterio de sucesso no M1": {
+    "termo": "criterio de sucesso",
+    "blocos": [
+      "m1a"
+    ],
+    "fonte": "CLAUDE.md linha 272 — o campo que fecha o PCTFL, e a regra n1 do acervo"
+  },
+  "_pendente": "PPBR com ROI e IPO sao dos encontros seguintes e entram quando aqueles modulos existirem.",
+  "_calibracao": "O injetor do G51 ESVAZIA o html do index, entao todo contrato precisa de uma promessa apontando para index.html -- sem ela o gate nasce cego, e gate cego reprova a suite inteira.",
+  "SENTINELA da capa": {
+    "termo": "Imersão em IA",
+    "blocos": [
+      "index.html"
+    ],
+    "fonte": "calibracao do G51, nao e promessa de ementa"
+  }
+}
