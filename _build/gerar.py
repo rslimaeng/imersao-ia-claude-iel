@@ -254,8 +254,8 @@ PAGINAS = {
         titulo="Descubra qual trabalho seu merece um assistente",
         kicker="Módulo 1 · aula 1.1",
         h1="Descubra qual trabalho seu merece um assistente",
-        sub="Quatro perguntas decidem onde cada tarefa sua mora. A que se repete "
-            "com as mesmas regras é a que paga um assistente montado.",
+        sub="Quatro perguntas decidem se cada tarefa sua vai no chat, num projeto, "
+            "no Cowork ou no Code. E você cria o primeiro projeto na tela.",
         selos=["Quatro perguntas", "Pare no primeiro sim"],
         migalha=[("../", "Imersão em IA com Claude"),
                  ("../m1/", "Módulo 1"),
