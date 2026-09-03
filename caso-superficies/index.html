@@ -952,6 +952,20 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 }
 .btn:hover{background:var(--accent-dark);color:var(--bg-elev)}
 
+/* O botao secundario, para quando o mesmo arquivo tem duas acoes. O padding
+   e 10/19 e nao 11/20 porque o .btn tem border:0 e este tem 1px -- sem isso
+   os dois ficam com alturas diferentes lado a lado. */
+.btn-2{
+  background:transparent;color:var(--accent);
+  border:1px solid var(--border-strong);padding:10px 19px;
+}
+.btn-2:hover{background:var(--accent-soft);color:var(--accent-dark);border-color:var(--accent)}
+
+/* Os dois botoes viram UM filho do grid do .arquivo, que e 1fr auto. Sem
+   este envelope o segundo <a> criaria uma terceira coluna e quebraria o
+   bloco. */
+.arq-acoes{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
 /* ---------- 19 · MATRIZ DE DECISÃO ---------------------------------------- */
 .matriz{
   display:grid;grid-template-columns:auto 1fr 1fr;gap:1px;margin:22px 0;
@@ -3280,7 +3294,11 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         <p style="margin:8px 0 0">🔴 <strong>Vai no&nbsp;campo Contexto, e&nbsp;não&nbsp;nas&nbsp;instruções.</strong> Ele é material de&nbsp;consulta: o&nbsp;assistente abre quando&nbsp;o&nbsp;pedido
         é de&nbsp;documento, e&nbsp;ignora nas&nbsp;outras conversas.</p>
       </div>
-      <a class="btn" href="../_arquivos/design-system-iel.html">Baixar &darr;</a>
+      <div class="arq-acoes">
+        <a class="btn" href="../_arquivos/design-system-iel.html" target="_blank"
+           rel="noopener">Abrir</a>
+        <a class="btn btn-2" href="../_arquivos/design-system-iel.html" download>Baixar</a>
+      </div>
     </div>
 
     <div class="arquivo">
