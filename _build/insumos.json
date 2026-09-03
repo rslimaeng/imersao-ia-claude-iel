@@ -1,5 +1,57 @@
 {
+  "execucao-convenio-2025": {
+    "aba_de_dados": "execucao",
+    "abas": [
+      "execucao",
+      "resumo",
+      "atividades"
+    ],
+    "armadilhas": {
+      "coluna_com_espaco_no_nome": "que o nome que ela vê não é o nome que a ferramenta lê",
+      "data_em_dois_formatos": "que a IA ordena errado sem avisar",
+      "linha_duplicada": "que conferir o total contra a soma é barato",
+      "linha_em_branco_antes_do_cabecalho": "que o arquivo precisa ser olhado antes de ser usado",
+      "nome_em_dois_jeitos": "que juntar por semelhança é decisão, não detalhe. É a origem do parágrafo 'Na dúvida' do prompt",
+      "numero_como_texto": "que soma que não soma tem causa, e a causa é achável",
+      "valor_faltando": "que o buraco tem de ser declarado, nunca estimado em silêncio"
+    },
+    "arquivo": "execucao-convenio-2025.xlsx",
+    "cabecalho_na_linha": 3,
+    "caso": [
+      "caso-superficies",
+      "caso-regra"
+    ],
+    "colunas": {
+      "atividades": [
+        "Atividade",
+        "Valor de tabela",
+        "Eixo"
+      ],
+      "execucao": [
+        "Registro",
+        "Data",
+        "Unidade",
+        "Atividade",
+        "Horas",
+        "Valor Hora",
+        " Valor Total",
+        "Fonte do Recurso"
+      ],
+      "resumo": [
+        "Trimestre",
+        "Periodo",
+        "Valor Executado",
+        "Registros",
+        "Valor medio",
+        "Observacao da execucao"
+      ]
+    },
+    "formato": "xlsx",
+    "linhas": 3442,
+    "titulo": "Execução do convênio · 12 unidades · 2025"
+  },
   "execucao-convenio-exemplo": {
+    "aba_de_dados": "execucao",
     "abas": [
       "leia-me",
       "execucao",
@@ -23,7 +75,6 @@
       "caso-conferir",
       "caso-limite",
       "caso-configurar",
-      "caso-regra",
       "caso-base"
     ],
     "colunas": {

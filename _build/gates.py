@@ -1023,7 +1023,15 @@ def _abre_mesmo(caminho, info):
         if wb.sheetnames != info["abas"]:
             return "as abas são {} e o manifesto diz {}".format(
                 wb.sheetnames, info["abas"])
-        ws = wb[info["abas"][1]] if len(info["abas"]) > 1 else wb.worksheets[0]
+        # 🔴 A aba de dados vem NOMEADA no manifesto, e nao pela posicao. Ela
+        # era "a segunda" so porque existia uma aba leia-me antes dela; quando
+        # um insumo nasceu sem leia-me, "a segunda" virou a aba resumo, e o
+        # gate acusou 2 linhas onde havia 3.442. Posicao nao e nome.
+        nome_dados = info.get("aba_de_dados")
+        if nome_dados and nome_dados in wb.sheetnames:
+            ws = wb[nome_dados]
+        else:
+            ws = wb[info["abas"][1]] if len(info["abas"]) > 1 else wb.worksheets[0]
         dados = ws.max_row - info["cabecalho_na_linha"]
         if dados != info["linhas"]:
             return "a aba tem {} linhas de dado e o manifesto diz {}".format(
