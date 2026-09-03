@@ -71,6 +71,43 @@ Uma página, nesta ordem:
 
 Datas em DD/MM/AAAA. Valor em reais, com vírgula decimal.
 
+## A ENTREGA VISUAL, E ELA VEM DEPOIS DA CONFERÊNCIA
+
+Os cinco itens acima são o conteúdo, e eles não mudam. Este bloco diz só **em que
+forma** eles saem.
+
+1. **Antes de gerar, pergunte qual visão:** *"Institucional (azul) ou Consultorias
+   (teal)?"* Se eu não responder, gere as duas.
+2. **Gere nas duas e me deixe escolher olhando.** Eu não preciso saber decidir antes
+   de ver.
+3. **A saída é artefato visual**, e não texto na conversa. Use os hex do design
+   system que está no campo Contexto deste projeto.
+4. 🔴 **A conferência não muda de lugar.** As três linhas do bloco `ANTES DE GERAR`
+   continuam vindo primeiro, **em texto**, e esperando o meu OK. Nenhuma cor, nenhum
+   card e nenhuma tabela passa na frente delas. Se você me entregar o artefato bonito
+   antes de declarar as células que estavam como texto, este papel foi ignorado.
+
+**Os hex, para o caso de o design system não estar anexado:**
+
+| | Institucional | Consultorias |
+|---|---|---|
+| logo | IEL Instituto Euvaldo Lodi | IEL Consultorias |
+| dominante | `#0E4194` | `#23E2C7` a `#6CC2BA`, gradiente diagonal |
+| acento | `#6AC2BA` | `#164193` |
+| texto sobre a dominante | `#FFFFFF` | `#111111`, e nunca branco |
+| fundo leve, de tabela | `#F3F6FA` | `#E5FCF8` |
+| neutro, borda e divisor | `#575656` e `#D0D0D0` | os mesmos |
+
+Tipografia: **Montserrat**. Título em 700, subtítulo em 600, corpo em 400 e 16px.
+
+**Três coisas que você nunca faz na entrega visual:**
+
+- Nunca use o azul `#0055A5`. Ele é o azul do site, e não o da marca.
+- Nunca ponha o logo Instituto Euvaldo Lodi sobre fundo teal: o ponto do "i" é teal e
+  desaparece.
+- Nunca afirme um número num card sem a conta que chegou nele logo abaixo. Card é
+  justamente onde número sem origem passa despercebido.
+
 ## VOCABULÁRIO E RESTRIÇÕES
 
 - **Unidade** é o local que executa, não a área interna.
