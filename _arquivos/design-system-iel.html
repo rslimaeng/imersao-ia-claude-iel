@@ -88,6 +88,13 @@ section.s{padding-top:56px;scroll-margin-top:20px}
    saida honesta e a pastilha branca -- que e o que marca com logo colorido
    faz. Nao vale para o logo 2, que ja traz o proprio fundo no PNG. */
 .palco.escuro.l1 img{background:#fff;padding:14px 20px;border-radius:8px}
+.logo-colar{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:18px 0 0}
+.lc{border:1px solid var(--cinza-200);border-radius:var(--raio);padding:16px 18px;background:#fff;
+  display:flex;flex-direction:column;gap:14px;justify-content:space-between}
+.lc-topo{display:flex;align-items:center;gap:16px}
+.lc-topo img{height:48px;width:auto;display:block}
+.lc-topo strong{display:block;font-size:15px}
+.lc-meta{font:400 12px/1.4 Montserrat,sans-serif;color:var(--cinza)}
 .cartao-pe{border-top:1px solid var(--cinza-200);padding:14px 18px;display:flex;
   gap:8px;align-items:center;flex-wrap:wrap}
 .cartao-pe strong{font-size:14px;margin-right:auto}
@@ -270,6 +277,41 @@ section.s{padding-top:56px;scroll-margin-top:20px}
   2.500 &times; 1.667 px e já vem com o card. O download desenha o cartão num canvas, na
   escala escolhida, <strong>sem biblioteca externa</strong>: este arquivo abre de um pen
   drive, sem internet.</p>
+
+  <h3>O logo para colar dentro de um documento</h3>
+
+  <p>O PNG em tamanho cheio não cabe num documento que a IA monta: em texto, o logo 1
+  ocupa <strong>41 KB</strong> e o logo 2 <strong>348 KB</strong>, e ninguém transporta
+  isso para dentro de um relatório. Os dois blocos abaixo são os mesmos logos
+  <strong>reduzidos para 48 px de altura</strong>, que é o tamanho de cabeçalho, e cabem
+  em 6 KB cada um.</p>
+
+  <p class="nota">Cole no campo de imagem do documento, ou peça ao assistente que use
+  este bloco no cabeçalho. Sobre fundo escuro ou teal, o logo vai
+  <strong>sobre uma pastilha branca</strong>.</p>
+
+  <div class="logo-colar">
+    <div class="lc">
+      <div class="lc-topo">
+        <img src="data:image/png;base64,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" alt="IEL Instituto Euvaldo Lodi, 48px" height="48">
+        <div>
+          <strong>Institucional</strong>
+          <span class="lc-meta">190 &times; 48 px &middot; 6,0 KB de texto</span>
+        </div>
+      </div>
+      <button class="bx" type="button" data-uri="1">Copiar o bloco</button>
+    </div>
+    <div class="lc">
+      <div class="lc-topo">
+        <img src="data:image/png;base64,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" alt="IEL Consultorias, 48px" height="48">
+        <div>
+          <strong>Consultorias</strong>
+          <span class="lc-meta">72 &times; 48 px &middot; 5,2 KB de texto</span>
+        </div>
+      </div>
+      <button class="bx" type="button" data-uri="2">Copiar o bloco</button>
+    </div>
+  </div>
 
   <div class="aviso">
     <h4>De onde vêm os hex</h4>
@@ -558,7 +600,7 @@ section.s{padding-top:56px;scroll-margin-top:20px}
 <section class="s" id="s7">
   <span class="s-n">Seção 7</span>
   <h2>Mockup aplicado · o relatório de execução, nas duas visões</h2>
-  <p>É o mesmo caso da aula: o fechamento do trimestre do convênio do Instituto Farol,
+  <p>É o mesmo caso da aula: o fechamento do trimestre do convênio do IEL,
   que é um universo fictício. <strong>Lado a lado, para você escolher olhando</strong>, em
   vez de decidir no abstrato.</p>
 
@@ -567,7 +609,7 @@ section.s{padding-top:56px;scroll-margin-top:20px}
       <div class="doc-topo">
         <img data-logo="1" alt="IEL">
         <div><div class="t">Execução do convênio · T3 2025</div>
-        <div class="m">Instituto Farol · 12 unidades · 01/07 a 30/09/2025</div></div>
+        <div class="m">IEL · 12 unidades · 01/07 a 30/09/2025</div></div>
       </div>
       <div class="doc-corpo">
         <div class="conf">
@@ -603,7 +645,7 @@ section.s{padding-top:56px;scroll-margin-top:20px}
       <div class="doc-topo">
         <img data-logo="2" alt="IEL Consultorias" style="height:44px;border-radius:6px">
         <div><div class="t">Execução do convênio · T3 2025</div>
-        <div class="m">Instituto Farol · 12 unidades · 01/07 a 30/09/2025</div></div>
+        <div class="m">IEL · 12 unidades · 01/07 a 30/09/2025</div></div>
       </div>
       <div class="doc-corpo">
         <div class="conf">
@@ -711,6 +753,20 @@ section.s{padding-top:56px;scroll-margin-top:20px}
 
 <script>
 (function(){
+ /* Copia a tag <img> pronta, com o data URI reduzido dentro. E o unico jeito
+    de o logo viajar para dentro de um documento que a IA monta: o PNG cheio
+    tem 41 KB e 348 KB em texto, e nao passa. */
+ document.addEventListener('click', function(ev){
+   var b = ev.target.closest && ev.target.closest('[data-uri]');
+   if(!b) return;
+   var img = b.closest('.lc').querySelector('img');
+   var tag = '<img src="' + img.getAttribute('src') + '" alt="IEL" height="48">';
+   navigator.clipboard.writeText(tag).then(function(){
+     var antes = b.textContent; b.textContent = 'copiado';
+     setTimeout(function(){ b.textContent = antes; }, 1400);
+   });
+ });
+
   var corpo = document.body;
 
   /* ------------------------------------------------------------------ */
@@ -793,7 +849,7 @@ section.s{padding-top:56px;scroll-margin-top:20px}
   /* AS DEZ SECOES QUE A IA LE.                                         */
   /* A estrutura vem da aula de visual de marca do Adriano Couto, lida  */
   /* com o rito. A ESTRUTURA atravessa; a redacao e nossa, e o caso e   */
-  /* o do Instituto Farol.                                              */
+  /* o do IEL.                                              */
   /*                                                                    */
   /* As duas visoes saem da MESMA funcao, de proposito: dois literais   */
   /* gigantes sairiam do ar um do outro na primeira correcao.           */
