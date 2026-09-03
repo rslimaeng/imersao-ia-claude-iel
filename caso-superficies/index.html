@@ -3278,7 +3278,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
           <span class="arq-tipo">md</span>
           <code>system-prompt-relatorio-execucao.md</code>
         </div>
-        <p>O&nbsp;papel do&nbsp;agente, pronto para&nbsp;colar. 159 linhas &middot; papel, ordem de&nbsp;leitura, o&nbsp;que&nbsp;nunca fazer, formato, a&nbsp;entrega visual, vocabulário e&nbsp;gatilhos de&nbsp;escalação.</p>
+        <p>O&nbsp;papel do&nbsp;agente, pronto para&nbsp;colar. 171 linhas &middot; papel, ordem de&nbsp;leitura, o&nbsp;que&nbsp;nunca fazer, formato, a&nbsp;entrega visual, vocabulário e&nbsp;gatilhos de&nbsp;escalação.</p>
         <p style="margin:8px 0 0"><strong>Vai no&nbsp;campo Instruções do&nbsp;projeto.</strong></p>
       </div>
       <a class="btn" href="../_arquivos/system-prompt-relatorio-execucao.md">Baixar &darr;</a>
@@ -3343,7 +3343,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       </div>
     </div>
 
-    <p>Primeiro o&nbsp;papel, uma&nbsp;vez, no&nbsp;campo de&nbsp;instruções do&nbsp;projeto. Ele é longo porque&nbsp;já&nbsp;passou por&nbsp;vários fechamentos: <strong>o&nbsp;seu&nbsp;não&nbsp;começa com&nbsp;159 linhas</strong>, e&nbsp;a&nbsp;aula 1.3 traz o&nbsp;critério que&nbsp;decide o&nbsp;que&nbsp;entra.</p>
+    <p>Primeiro o&nbsp;papel, uma&nbsp;vez, no&nbsp;campo de&nbsp;instruções do&nbsp;projeto. Ele é longo porque&nbsp;já&nbsp;passou por&nbsp;vários fechamentos: <strong>o&nbsp;seu&nbsp;não&nbsp;começa com&nbsp;171 linhas</strong>, e&nbsp;a&nbsp;aula 1.3 traz o&nbsp;critério que&nbsp;decide o&nbsp;que&nbsp;entra.</p>
 
     <div class="prompt">
       <div class="prompt-barra">
@@ -3469,12 +3469,24 @@ VOCABULÁRIO E RESTRIÇÕES
 
 GATILHOS DE ESCALAÇÃO
 
-Pare e me pergunte antes de seguir quando:
+🔴 A resumo não bater com a sua soma não é gatilho: é o achado principal
+deste relatório. Esta planilha sai de um sistema que soma com fórmula, e
+fórmula ignora célula de texto em silêncio. Quando as duas contas divergirem,
+escreva a diferença no topo, com a conta que chegou nela, e siga. Parar aí é
+me devolver um defeito que eu já sei que existe, em vez de me entregar o
+tamanho dele.
 
-- Duas grafias parecerem a mesma unidade e a diferença mudar o total
-- A soma que você fez não bater com a aba resumo
-- Faltar dado que muda o valor executado
-- Antes de qualquer número sair para fora da casa
+O mesmo vale para as grafias, para a linha duplicada e para as linhas sem hora:
+os padrões estão no bloco ANTES DE GERAR, e eles existem para você não parar.
+
+Pare e me pergunte antes de seguir apenas quando:
+
+- Duas grafias parecerem unidades diferentes, e não a mesma escrita de dois
+  jeitos. Caixa, acento e a palavra "Unidade" na frente você resolve sozinho.
+- Faltar uma coluna da lista, ou a aba execucao não existir no arquivo
+- O total do ano der negativo, ou passar do dobro do que a resumo declara
+- Eu pedir para mandar o documento para fora da casa. Montar o relatório é
+  trabalho interno; enviar ao financiador é outra decisão, e é minha.
 
 ANTES DE GERAR
 
@@ -3565,15 +3577,37 @@ Os padrões, para você não parar:
           declara as&nbsp;duas formas</li>
           <li><strong>As&nbsp;61 linhas sem&nbsp;horas</strong> saem declaradas, e&nbsp;nenhuma delas
           vira estimativa</li>
-          <li><strong>A&nbsp;soma bate com&nbsp;a&nbsp;aba resumo</strong>, e&nbsp;mesmo assim ela diz que&nbsp;bater não&nbsp;é prova</li>
+          <li><strong>A&nbsp;soma não&nbsp;bate com&nbsp;a&nbsp;aba resumo</strong>, e&nbsp;a&nbsp;diferença de&nbsp;<strong>R$ 675.215,00</strong> aparece no&nbsp;topo do&nbsp;relatório, com&nbsp;a&nbsp;conta. Ela
+          não&nbsp;para&nbsp;para&nbsp;te perguntar: essa diferença é o&nbsp;achado</li>
           <li>🔴 <strong>Os&nbsp;dois documentos saem juntos</strong>, um&nbsp;em&nbsp;cada visão da&nbsp;marca, sem&nbsp;ela te perguntar qual você quer</li>
         </ul>
       </div>
     </div>
 
-    <p class="fig-leg"><strong>A&nbsp;última linha é a&nbsp;mais valiosa, e&nbsp;é a&nbsp;menos
-    intuitiva.</strong> A&nbsp;soma dos&nbsp;valores numéricos fecha exatamente com&nbsp;o&nbsp;total da&nbsp;aba resumo. As&nbsp;duas contas ignoram as&nbsp;mesmas 422 células de&nbsp;texto, então elas batem
-    entre&nbsp;si e&nbsp;continuam erradas juntas. Conferência que&nbsp;fecha não&nbsp;é conferência que&nbsp;está certa.</p>
+    <p class="fig-leg"><strong>A última linha é a mais valiosa, e é a menos
+    intuitiva.</strong> A aba <code>resumo</code> parece uma segunda opinião, e não é: ela
+    é a mesma planilha, somada por uma fórmula que <strong>ignora célula de texto em
+    silêncio</strong>. Some só os valores numéricos e você fecha com ela ao centavo, o que
+    dá a sensação de conferência feita. Some tudo, como o papel manda, e aparecem
+    <strong>R$ 675.215,00</strong> a mais, que são exatamente as 422 células que a
+    fórmula pulou.</p>
+
+    <div class="tabela">
+      <table>
+        <thead><tr><th>A conta</th><th>Valor do ano</th><th>Registros</th></tr></thead>
+        <tbody>
+          <tr><td><strong>O padrão do papel</strong> · texto convertido, duplicata uma
+          vez</td><td>R$ 5.688.553,00</td><td>3.441</td></tr>
+          <tr><td>O método da aba <code>resumo</code> · texto fora, duplicata
+          dobrada</td><td>R$ 5.013.338,00</td><td>3.020</td></tr>
+          <tr><td><strong>A diferença</strong></td><td><strong>R$ 675.215,00</strong>
+          · 13,5% do ano</td><td>421</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg">🔴 <strong>Conferência que&nbsp;fecha não&nbsp;é conferência que&nbsp;está
+    certa.</strong> É o&nbsp;que&nbsp;a&nbsp;aula inteira ensina, e&nbsp;aqui ela tem número: quem confiou na&nbsp;aba de&nbsp;conferência mandou ao&nbsp;financiador um&nbsp;relatório com&nbsp;treze por&nbsp;cento a&nbsp;menos de&nbsp;execução do&nbsp;que&nbsp;a&nbsp;casa realmente executou.</p>
 
     <div class="aviso">
       <div class="aviso-t">Por que saem dois documentos, e não um</div>

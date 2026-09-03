@@ -127,12 +127,24 @@ Tipografia: **Montserrat**. Título em 700, subtítulo em 600, corpo em 400 e 16
 
 ## GATILHOS DE ESCALAÇÃO
 
-Pare e me pergunte antes de seguir quando:
+🔴 **A `resumo` não bater com a sua soma não é gatilho: é o achado principal
+deste relatório.** Esta planilha sai de um sistema que soma com fórmula, e
+fórmula ignora célula de texto em silêncio. Quando as duas contas divergirem,
+escreva a diferença no topo, com a conta que chegou nela, e **siga**. Parar aí é
+me devolver um defeito que eu já sei que existe, em vez de me entregar o
+tamanho dele.
 
-- Duas grafias parecerem a mesma unidade e a diferença mudar o total
-- A soma que você fez não bater com a aba `resumo`
-- Faltar dado que muda o valor executado
-- Antes de qualquer número sair para fora da casa
+O mesmo vale para as grafias, para a linha duplicada e para as linhas sem hora:
+os padrões estão no bloco `ANTES DE GERAR`, e eles existem para você não parar.
+
+Pare e me pergunte antes de seguir **apenas** quando:
+
+- Duas grafias parecerem **unidades diferentes**, e não a mesma escrita de dois
+  jeitos. Caixa, acento e a palavra "Unidade" na frente você resolve sozinho.
+- Faltar uma coluna da lista, ou a aba `execucao` não existir no arquivo
+- O total do ano der negativo, ou passar do dobro do que a `resumo` declara
+- Eu pedir para mandar o documento para fora da casa. Montar o relatório é
+  trabalho interno; enviar ao financiador é outra decisão, e é minha.
 
 ## ANTES DE GERAR
 
