@@ -328,8 +328,8 @@ PAGINAS = {
         titulo="Saiba quando montar assistente compensa, e quando não",
         kicker="Módulo 1 · aula 1.5",
         h1="Saiba quando montar assistente compensa, e quando não",
-        sub="O teto do pedido bem escrito, a medida do que a base já tirou do seu "
-            "teclado, e a partir de quantas voltas montar se paga.",
+        sub="O teto do pedido bem escrito, quanto o perfil e as instruções do projeto "
+            "já tiraram do seu teclado, e a partir de quantas voltas isso se paga.",
         selos=["O teto do pedido", "Repetição, não importância"],
         migalha=[("../", "Imersão em IA com Claude"),
                  ("../m1/", "Módulo 1"),
