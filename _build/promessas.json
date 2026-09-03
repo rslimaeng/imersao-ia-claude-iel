@@ -1,19 +1,7 @@
 {
   "_leia-me": "Contrato do G51: o que o curso promete x em que bloco. So entram blocos FECHADOS. O nivelamento (n1-n5) esta CONGELADO por decisao do Rafael em 01/09 e nao entra no contrato.",
-  "PCTFL no M1": {
-    "termo": "PCTFL",
-    "blocos": [
-      "m1a"
-    ],
-    "fonte": "CLAUDE.md linha 31 — 4 encontros: PCTFL, PPBR com ROI, IPO, analise de dados"
-  },
-  "criterio de sucesso no M1": {
-    "termo": "criterio de sucesso",
-    "blocos": [
-      "m1a"
-    ],
-    "fonte": "CLAUDE.md linha 272 — o campo que fecha o PCTFL, e a regra n1 do acervo"
-  },
+  "_removido-em-03-09": "As DUAS promessas do M1 sairam, e as duas eram calibracao errada minha. 1) 'PCTFL no M1': a fonte era o CLAUDE.md linha 31, que NAO promete nada -- ela descreve o CURSO ANTERIOR (IA para Negocios) que metade da sala fez. Li descricao como promessa. 2) 'criterio de sucesso no M1': a fonte era a linha 272, que mora na secao 'O que o aluno JA VIU, e o que ele nao viu', e a linha seguinte do proprio CLAUDE.md diz que quem reapresenta os dois termos e O NIVELAMENTO, nao o M1. E o nivelamento esta CONGELADO e fora deste contrato pela regra do _leia-me acima, entao apontar as promessas para la seria trocar um erro por outro. MEDIDO NA TELA EM 03/09, antes de remover: 'criterio de sucesso' aparece 12x em n2-generica, 4x em m1a5-quando-compensa, 2x em n5-configurar e 1x em n3-conferir. Nao estava ausente. 'PCTFL' da zero nas 11 paginas, mas o PADRAO esta na tela do n2-generica campo a campo, com a tabela 'P · Papel | C · Contexto | ...' -- o que falta e a sigla, e o M1 nem e o lugar dela: o M1 tira a regra do teclado e poe na base escrita, ou seja, ele PRESSUPOE o padrao em vez de ensina-lo.",
+  "_licao": "Promessa de contrato sai de onde o curso DECLARA O QUE ENTREGA, nunca de onde ele descreve o que o aluno ja viu. Antes de escrever uma promessa nova, leia o TITULO DA SECAO onde a linha mora.",
   "_pendente": "PPBR com ROI e IPO sao dos encontros seguintes e entram quando aqueles modulos existirem.",
   "_calibracao": "O injetor do G51 ESVAZIA o html do index, entao todo contrato precisa de uma promessa apontando para index.html -- sem ela o gate nasce cego, e gate cego reprova a suite inteira.",
   "SENTINELA da capa": {

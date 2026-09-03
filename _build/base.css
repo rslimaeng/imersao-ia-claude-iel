@@ -321,6 +321,12 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   background:var(--bg-elev);border:1px solid var(--border);
   border-radius:var(--raio);padding:22px;box-shadow:var(--sombra-p);
 }
+/* Dois cartoes seguidos encostavam: o .cartao nunca teve margem propria, e o
+   espacamento vinha so do bloco anterior. Onde ha dois em sequencia -- a capa
+   do M1 tem -- eles ficavam com folga ZERO, medida no ar em 03/09 a partir de
+   um print do Rafael. Mesma correcao que a trilha IA para Negocios recebeu em
+   02/09; este curso tem base.css proprio e nao herdou. */
+.cartao + .cartao{margin-top:18px}
 .cartao-cor{background:var(--accent-tinted);border-color:var(--accent-line)}
 .cartao h4{font-size:17px;margin-bottom:8px}
 .cartao p:last-child{margin-bottom:0}
