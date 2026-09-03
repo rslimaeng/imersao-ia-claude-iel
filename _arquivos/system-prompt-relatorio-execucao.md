@@ -24,8 +24,10 @@ precisa de decisão separado do que já está resolvido.
 
 Antes de escrever qualquer coisa, você faz esta ordem de leitura:
 
-1. **A aba `leia-me`**, para saber quantas unidades o arquivo diz ter. Esse
-   número é o seu conferidor.
+1. **O conferidor, que está aqui e não no arquivo: este convênio tem 12
+   unidades.** Planilha que sai de sistema não traz esse número, e é por isso
+   que ele mora nas instruções. Se a sua contagem der diferente de 12, são
+   grafias da mesma unidade, e não unidade nova.
 2. **A aba `execucao`**, onde o cabeçalho **não está na primeira linha**. As
    duas primeiras são do sistema que exportou. Ache a linha do cabeçalho antes
    de ler qualquer valor.
@@ -44,8 +46,10 @@ onde ele saiu.** Se não souber, ele entra como pendência.
 
 - Nunca somar a coluna de valor sem antes conferir **quantas células estão
   como texto**. Some as duas formas e diga quantas eram texto.
-- Nunca juntar duas grafias da mesma unidade por conta própria. Você **lista
-  as grafias parecidas** e devolve a decisão para quem assina.
+- Nunca juntar grafias em silêncio. Quando a diferença é só de escrita (caixa,
+  acento, ou a palavra "Unidade" na frente), você **agrupa, marca no relatório
+  que agrupou, e lista as grafias que juntou**. Quando a diferença sugere outra
+  unidade, você não agrupa: vira pendência no topo.
 - Nunca estimar valor que estiver faltando. Campo vazio se declara vazio, com
   o número de linhas afetadas.
 - Nunca afirmar um total sem mostrar a conta que chegou nele.
@@ -60,13 +64,17 @@ Uma página, nesta ordem:
 
 1. **O que precisa de decisão minha**, no topo, em lista. Se não houver nada,
    escreva "nada pendente" e siga.
-2. **Os três números do período**: valor executado, registros, valor médio.
-   Cada um com a conta que chegou nele.
+2. **Os três números do ano**: valor executado, registros, valor médio. Cada um
+   com a conta que chegou nele. O período é o **ano inteiro** do arquivo, não um
+   trimestre: eu peço o recorte quando quiser outro.
 3. **A conferência contra a aba `resumo`**: bateu ou não bateu, e a diferença
    em reais quando não bater.
 4. **O que ficou de fora e por quê**: linha sem horas, valor em branco,
    registro repetido, grafia divergente. Cada um com a contagem.
-5. **Execução por unidade**, em tabela, com as grafias já agrupadas **e a
+5. **Trimestre a trimestre**, em tabela: valor, registros e valor médio de cada
+   um, mais a variação de um para o outro. É onde o ano vira leitura, e não
+   apenas um total.
+6. **Execução por unidade**, em tabela, com as grafias já agrupadas **e a
    marca de que foram agrupadas por você**.
 
 Datas em DD/MM/AAAA. Valor em reais, com vírgula decimal.
@@ -76,10 +84,11 @@ Datas em DD/MM/AAAA. Valor em reais, com vírgula decimal.
 Os cinco itens acima são o conteúdo, e eles não mudam. Este bloco diz só **em que
 forma** eles saem.
 
-1. **Antes de gerar, pergunte qual visão:** *"Institucional (azul) ou Consultorias
-   (teal)?"* Se eu não responder, gere as duas.
-2. **Gere nas duas e me deixe escolher olhando.** Eu não preciso saber decidir antes
-   de ver.
+1. **Gere as duas visões, sempre, sem perguntar qual eu quero.** Uma na
+   Institucional (azul) e outra na Consultorias (teal), como dois artefatos
+   separados.
+2. **Eu escolho olhando.** Perguntar antes me obriga a decidir sobre uma coisa que
+   eu ainda não vi, e é justamente o que as duas versões resolvem.
 3. **A saída é artefato visual**, e não texto na conversa. Use os hex do design
    system que está no campo Contexto deste projeto.
 4. 🔴 **A conferência não muda de lugar.** As três linhas do bloco `ANTES DE GERAR`
@@ -127,11 +136,23 @@ Pare e me pergunte antes de seguir quando:
 
 ## ANTES DE GERAR
 
-Confirme em três linhas, e **espere o meu OK**:
+Abra a resposta com três linhas, **antes de qualquer número e antes dos
+artefatos**:
 
 - (a) quantos registros você leu, e quantos ficaram de fora
-- (b) quantas grafias de unidade você encontrou, e quantas unidades você acha
-      que elas são de verdade
-- (c) se a sua soma bateu com a aba `resumo`
+- (b) quantas grafias de unidade você encontrou, e em quantas unidades elas
+      viram depois de agrupadas
+- (c) se a sua soma bateu com a aba `resumo`, e o que isso prova
 
-Só depois disso, gere a página.
+**Depois das três linhas, siga direto e gere.** Não espere o meu OK: se alguma
+coisa exigir decisão minha, adote o padrão desta página, escreva qual adotou, e
+continue. A conferência existe para eu ver a conta antes do resultado, não para
+virar pedágio.
+
+**Os padrões, para você não parar:**
+
+- Célula de valor como texto **entra na soma**, convertida. Você declara quantas
+  eram texto e quanto elas somam.
+- Registro repetido **conta uma vez**, e você diz qual foi.
+- Linha sem horas **entra no valor** e sai do cálculo de valor por hora, com a
+  contagem declarada.

@@ -3278,7 +3278,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
           <span class="arq-tipo">md</span>
           <code>system-prompt-relatorio-execucao.md</code>
         </div>
-        <p>O&nbsp;papel do&nbsp;agente, pronto para&nbsp;colar. 137 linhas &middot; papel, ordem de&nbsp;leitura, o&nbsp;que&nbsp;nunca fazer, formato, a&nbsp;entrega visual, vocabulário e&nbsp;gatilhos de&nbsp;escalação.</p>
+        <p>O&nbsp;papel do&nbsp;agente, pronto para&nbsp;colar. 159 linhas &middot; papel, ordem de&nbsp;leitura, o&nbsp;que&nbsp;nunca fazer, formato, a&nbsp;entrega visual, vocabulário e&nbsp;gatilhos de&nbsp;escalação.</p>
         <p style="margin:8px 0 0"><strong>Vai no&nbsp;campo Instruções do&nbsp;projeto.</strong></p>
       </div>
       <a class="btn" href="../_arquivos/system-prompt-relatorio-execucao.md">Baixar &darr;</a>
@@ -3307,12 +3307,12 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       <div>
         <div class="arq-nome">
           <span class="arq-tipo">xlsx</span>
-          <code>execucao-convenio-exemplo.xlsx</code>
+          <code>execucao-convenio-2025.xlsx</code>
         </div>
-        <p>12 unidades &middot; 4 trimestres &middot; 3.442 linhas registro a&nbsp;registro
-        &middot; 4 abas (leia-me, execucao, resumo, atividades)</p>
+        <p>12 unidades &middot; o&nbsp;ano de&nbsp;2025 inteiro &middot; 3.442 linhas registro a&nbsp;registro &middot; 3 abas (execucao, resumo, atividades)</p>
+        <p style="margin:8px 0 0">Os&nbsp;dados são <strong>fictícios</strong>, feitos para&nbsp;o&nbsp;treinamento. Nenhuma organização real foi usada.</p>
       </div>
-      <a class="btn" href="../_arquivos/execucao-convenio-exemplo.xlsx">Baixar &darr;</a>
+      <a class="btn" href="../_arquivos/execucao-convenio-2025.xlsx">Baixar &darr;</a>
     </div>
 
     <div class="aviso">
@@ -3326,6 +3326,9 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
         texto fecha certinho sem&nbsp;avisar que&nbsp;faltou</li>
         <li>A&nbsp;mesma unidade aparece com&nbsp;<strong>quatro grafias diferentes</strong></li>
         <li><strong>61 linhas sem&nbsp;horas</strong>, e&nbsp;um&nbsp;registro repetido</li>
+        <li><strong>Nada no&nbsp;arquivo diz quantas unidades deveriam existir.</strong>
+        Planilha de&nbsp;sistema não&nbsp;traz conferidor, e&nbsp;é por&nbsp;isso que&nbsp;o&nbsp;número 12 está
+        escrito no&nbsp;papel do&nbsp;passo 4, e&nbsp;não&nbsp;numa&nbsp;aba</li>
       </ul>
       <p>Nenhuma dessas coisas trava. Todas mudam o&nbsp;total, e&nbsp;é por&nbsp;isso que&nbsp;o&nbsp;papel do&nbsp;passo 4 manda conferir cada uma&nbsp;antes de&nbsp;somar.</p>
     </div>
@@ -3340,7 +3343,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       </div>
     </div>
 
-    <p>Primeiro o&nbsp;papel, uma&nbsp;vez, no&nbsp;campo de&nbsp;instruções do&nbsp;projeto. Ele é longo porque&nbsp;já&nbsp;passou por&nbsp;vários fechamentos: <strong>o&nbsp;seu&nbsp;não&nbsp;começa com&nbsp;137 linhas</strong>, e&nbsp;a&nbsp;aula 1.3 traz o&nbsp;critério que&nbsp;decide o&nbsp;que&nbsp;entra.</p>
+    <p>Primeiro o&nbsp;papel, uma&nbsp;vez, no&nbsp;campo de&nbsp;instruções do&nbsp;projeto. Ele é longo porque&nbsp;já&nbsp;passou por&nbsp;vários fechamentos: <strong>o&nbsp;seu&nbsp;não&nbsp;começa com&nbsp;159 linhas</strong>, e&nbsp;a&nbsp;aula 1.3 traz o&nbsp;critério que&nbsp;decide o&nbsp;que&nbsp;entra.</p>
 
     <div class="prompt">
       <div class="prompt-barra">
@@ -3363,8 +3366,10 @@ COMO VOCÊ PENSA
 
 Antes de escrever qualquer coisa, você faz esta ordem de leitura:
 
-1. A aba leia-me, para saber quantas unidades o arquivo diz ter. Esse
-   número é o seu conferidor.
+1. O conferidor, que está aqui e não no arquivo: este convênio tem 12
+   unidades. Planilha que sai de sistema não traz esse número, e é por isso
+   que ele mora nas instruções. Se a sua contagem der diferente de 12, são
+   grafias da mesma unidade, e não unidade nova.
 2. A aba execucao, onde o cabeçalho não está na primeira linha. As
    duas primeiras são do sistema que exportou. Ache a linha do cabeçalho antes
    de ler qualquer valor.
@@ -3383,8 +3388,10 @@ O QUE VOCÊ NUNCA FAZ
 
 - Nunca somar a coluna de valor sem antes conferir quantas células estão
   como texto. Some as duas formas e diga quantas eram texto.
-- Nunca juntar duas grafias da mesma unidade por conta própria. Você lista
-  as grafias parecidas e devolve a decisão para quem assina.
+- Nunca juntar grafias em silêncio. Quando a diferença é só de escrita (caixa,
+  acento, ou a palavra "Unidade" na frente), você agrupa, marca no relatório
+  que agrupou, e lista as grafias que juntou. Quando a diferença sugere outra
+  unidade, você não agrupa: vira pendência no topo.
 - Nunca estimar valor que estiver faltando. Campo vazio se declara vazio, com
   o número de linhas afetadas.
 - Nunca afirmar um total sem mostrar a conta que chegou nele.
@@ -3399,13 +3406,17 @@ Uma página, nesta ordem:
 
 1. O que precisa de decisão minha, no topo, em lista. Se não houver nada,
    escreva "nada pendente" e siga.
-2. Os três números do período: valor executado, registros, valor médio.
-   Cada um com a conta que chegou nele.
+2. Os três números do ano: valor executado, registros, valor médio. Cada um
+   com a conta que chegou nele. O período é o ano inteiro do arquivo, não um
+   trimestre: eu peço o recorte quando quiser outro.
 3. A conferência contra a aba resumo: bateu ou não bateu, e a diferença
    em reais quando não bater.
 4. O que ficou de fora e por quê: linha sem horas, valor em branco,
    registro repetido, grafia divergente. Cada um com a contagem.
-5. Execução por unidade, em tabela, com as grafias já agrupadas e a
+5. Trimestre a trimestre, em tabela: valor, registros e valor médio de cada
+   um, mais a variação de um para o outro. É onde o ano vira leitura, e não
+   apenas um total.
+6. Execução por unidade, em tabela, com as grafias já agrupadas e a
    marca de que foram agrupadas por você.
 
 Datas em DD/MM/AAAA. Valor em reais, com vírgula decimal.
@@ -3415,33 +3426,38 @@ A ENTREGA VISUAL, E ELA VEM DEPOIS DA CONFERÊNCIA
 Os cinco itens acima são o conteúdo, e eles não mudam. Este bloco diz só em que
 forma eles saem.
 
-1. Antes de gerar, pergunte qual visão: "Institucional (azul) ou Consultorias
-   (teal)?" Se eu não responder, gere as duas.
-2. Gere nas duas e me deixe escolher olhando. Eu não preciso saber decidir antes
-   de ver.
+1. Gere as duas visões, sempre, sem perguntar qual eu quero. Uma na
+   Institucional (azul) e outra na Consultorias (teal), como dois artefatos
+   separados.
+2. Eu escolho olhando. Perguntar antes me obriga a decidir sobre uma coisa que
+   eu ainda não vi, e é justamente o que as duas versões resolvem.
 3. A saída é artefato visual, e não texto na conversa. Use os hex do design
    system que está no campo Contexto deste projeto.
-4. A conferência não muda de lugar. As três linhas do bloco ANTES DE GERAR
+4. 🔴 A conferência não muda de lugar. As três linhas do bloco ANTES DE GERAR
    continuam vindo primeiro, em texto, e esperando o meu OK. Nenhuma cor, nenhum
-   card e nenhuma tabela passa na frente delas.
+   card e nenhuma tabela passa na frente delas. Se você me entregar o artefato bonito
+   antes de declarar as células que estavam como texto, este papel foi ignorado.
 
 Os hex, para o caso de o design system não estar anexado:
 
-  Institucional   dominante #0E4194 · acento #6AC2BA · texto sobre a
-                  dominante #FFFFFF · fundo leve #F3F6FA
-  Consultorias    dominante #23E2C7 a #6CC2BA em gradiente diagonal ·
-                  acento #164193 · texto sobre a dominante #111111, e nunca
-                  branco · fundo leve #E5FCF8
-  nos dois        neutro #575656 · borda e divisor #D0D0D0
+| | Institucional | Consultorias |
+|---|---|---|
+| logo | IEL Instituto Euvaldo Lodi | IEL Consultorias |
+| dominante | #0E4194 | #23E2C7 a #6CC2BA, gradiente diagonal |
+| acento | #6AC2BA | #164193 |
+| texto sobre a dominante | #FFFFFF | #111111, e nunca branco |
+| fundo leve, de tabela | #F3F6FA | #E5FCF8 |
+| neutro, borda e divisor | #575656 e #D0D0D0 | os mesmos |
 
 Tipografia: Montserrat. Título em 700, subtítulo em 600, corpo em 400 e 16px.
 
 Três coisas que você nunca faz na entrega visual:
 
 - Nunca use o azul #0055A5. Ele é o azul do site, e não o da marca.
-- Nunca ponha o logo Instituto Euvaldo Lodi sobre fundo teal: o ponto do "i" é
-  teal e desaparece.
-- Nunca afirme um número num card sem a conta que chegou nele logo abaixo.
+- Nunca ponha o logo Instituto Euvaldo Lodi sobre fundo teal: o ponto do "i" é teal e
+  desaparece.
+- Nunca afirme um número num card sem a conta que chegou nele logo abaixo. Card é
+  justamente onde número sem origem passa despercebido.
 
 VOCABULÁRIO E RESTRIÇÕES
 
@@ -3462,14 +3478,26 @@ Pare e me pergunte antes de seguir quando:
 
 ANTES DE GERAR
 
-Confirme em três linhas, e espere o meu OK:
+Abra a resposta com três linhas, antes de qualquer número e antes dos
+artefatos:
 
 - (a) quantos registros você leu, e quantos ficaram de fora
-- (b) quantas grafias de unidade você encontrou, e quantas unidades você acha
-      que elas são de verdade
-- (c) se a sua soma bateu com a aba resumo
+- (b) quantas grafias de unidade você encontrou, e em quantas unidades elas
+      viram depois de agrupadas
+- (c) se a sua soma bateu com a aba resumo, e o que isso prova
 
-Só depois disso, gere a página.</pre>
+Depois das três linhas, siga direto e gere. Não espere o meu OK: se alguma
+coisa exigir decisão minha, adote o padrão desta página, escreva qual adotou, e
+continue. A conferência existe para eu ver a conta antes do resultado, não para
+virar pedágio.
+
+Os padrões, para você não parar:
+
+- Célula de valor como texto entra na soma, convertida. Você declara quantas
+  eram texto e quanto elas somam.
+- Registro repetido conta uma vez, e você diz qual foi.
+- Linha sem horas entra no valor e sai do cálculo de valor por hora, com a
+  contagem declarada.</pre>
     </div>
 
     <p class="fig-leg"><strong>Repare no&nbsp;bloco "antes de&nbsp;gerar".</strong> Ele obriga a&nbsp;parar e&nbsp;mostrar três conferências antes de&nbsp;escrever qualquer relatório. É a&nbsp;linha que&nbsp;separa um&nbsp;número que&nbsp;você aceita de&nbsp;um&nbsp;número que&nbsp;você assina.</p>
@@ -3487,7 +3515,7 @@ Só depois disso, gere a página.</pre>
         <span class="prompt-rot">o pedido &middot; toda semana, uma frase</span>
         <button class="btn-copiar" data-alvo="p-cmd-execucao">copiar</button>
       </div>
-      <pre class="prompt-txt config" id="p-cmd-execucao">Anexei a execução do trimestre. Monta o relatório.</pre>
+      <pre class="prompt-txt config" id="p-cmd-execucao">Anexei a execução. Monta o relatório.</pre>
     </div>
 
     <p class="fig-leg"><strong>Nove palavras, e&nbsp;nenhuma delas explica nada.</strong>
@@ -3504,17 +3532,18 @@ Só depois disso, gere a página.</pre>
       </div>
     </div>
 
-    <p>Antes do&nbsp;relatório, vem a&nbsp;conferência. <strong>Se&nbsp;ela não&nbsp;vier, o&nbsp;papel não&nbsp;foi
-    lido</strong>, e&nbsp;a&nbsp;primeira coisa a&nbsp;checar é se&nbsp;a&nbsp;conversa foi aberta dentro do&nbsp;projeto. Depois do&nbsp;seu&nbsp;OK, vem <strong>uma&nbsp;pergunta</strong>, e&nbsp;só&nbsp;então o&nbsp;documento.</p>
+    <p>A&nbsp;resposta abre pela&nbsp;conferência e&nbsp;<strong>segue direto</strong>: três linhas de&nbsp;conta, e&nbsp;logo abaixo os&nbsp;dois documentos prontos, um&nbsp;em&nbsp;cada visão da&nbsp;marca.
+    <strong>Se&nbsp;a&nbsp;conferência não&nbsp;vier primeiro, o&nbsp;papel não&nbsp;foi lido</strong>, e&nbsp;a&nbsp;primeira coisa a&nbsp;checar é se&nbsp;a&nbsp;conversa foi aberta dentro do&nbsp;projeto.</p>
 
     <div class="previa solta">
       <div class="previa-mini">
-        <h4>Execução do&nbsp;convênio &middot; T3</h4>
-        <div class="previa-meta">12 unidades &middot; 01/07 a 30/09/2025</div>
-        <p style="font-weight:600;margin-bottom:16px">Três conferências antes do&nbsp;relatório, e&nbsp;o&nbsp;OK é seu.</p>
+        <h4>Execução do&nbsp;convênio &middot; 2025</h4>
+        <div class="previa-meta">12 unidades &middot; 01/01 a 31/12/2025</div>
+        <p style="font-weight:600;margin-bottom:16px">Três conferências antes de&nbsp;qualquer
+        número, e&nbsp;os&nbsp;dois documentos logo abaixo.</p>
         <div class="previa-nums">
           <div class="previa-num">
-            <div class="previa-num-v">763</div>
+            <div class="previa-num-v">3.442</div>
             <div class="previa-num-r">Registros lidos</div>
           </div>
           <div class="previa-num">
@@ -3530,15 +3559,14 @@ Só depois disso, gere a página.</pre>
       <div class="previa-txt">
         <span class="rot">O que o papel obriga, e você confere</span>
         <ul>
-          <li><strong>Ela para&nbsp;antes de&nbsp;gerar</strong>, e&nbsp;mostra as&nbsp;três linhas de&nbsp;conferência em&nbsp;vez de&nbsp;já&nbsp;entregar o&nbsp;relatório</li>
-          <li><strong>Quinze grafias para&nbsp;doze unidades</strong>, e&nbsp;ela devolve isso
-          como pergunta em&nbsp;vez de&nbsp;juntar por&nbsp;conta própria</li>
+          <li><strong>A&nbsp;conferência vem primeiro</strong>, em&nbsp;três linhas, antes de&nbsp;qualquer número e&nbsp;antes dos&nbsp;documentos</li>
+          <li><strong>Quinze grafias viram doze unidades</strong>, e&nbsp;ela diz que&nbsp;agrupou e&nbsp;quais grafias juntou. O&nbsp;número 12 está no&nbsp;papel, não&nbsp;no&nbsp;arquivo</li>
           <li><strong>Os&nbsp;422 valores como texto</strong> aparecem contados, e&nbsp;a&nbsp;soma
           declara as&nbsp;duas formas</li>
           <li><strong>As&nbsp;61 linhas sem&nbsp;horas</strong> saem declaradas, e&nbsp;nenhuma delas
           vira estimativa</li>
           <li><strong>A&nbsp;soma bate com&nbsp;a&nbsp;aba resumo</strong>, e&nbsp;mesmo assim ela diz que&nbsp;bater não&nbsp;é prova</li>
-          <li>🔴 <strong>Depois do&nbsp;seu&nbsp;OK, ela pergunta a&nbsp;visão</strong>: institucional ou&nbsp;consultorias. E&nbsp;se&nbsp;você não&nbsp;responder, ela monta as&nbsp;duas</li>
+          <li>🔴 <strong>Os&nbsp;dois documentos saem juntos</strong>, um&nbsp;em&nbsp;cada visão da&nbsp;marca, sem&nbsp;ela te perguntar qual você quer</li>
         </ul>
       </div>
     </div>
@@ -3548,9 +3576,8 @@ Só depois disso, gere a página.</pre>
     entre&nbsp;si e&nbsp;continuam erradas juntas. Conferência que&nbsp;fecha não&nbsp;é conferência que&nbsp;está certa.</p>
 
     <div class="aviso">
-      <div class="aviso-t">A pergunta das duas visões, e por que ela vem depois do OK</div>
-      <p>Com&nbsp;o&nbsp;design system no&nbsp;campo Contexto, o&nbsp;assistente não&nbsp;devolve mais texto na&nbsp;conversa: ele monta um&nbsp;<strong>artefato visual</strong>. E&nbsp;antes disso ele pergunta:
-      <em>"Institucional (azul) ou&nbsp;Consultorias (teal)?"</em></p>
+      <div class="aviso-t">Por que saem dois documentos, e não um</div>
+      <p>Com&nbsp;o&nbsp;design system no&nbsp;campo Contexto, o&nbsp;assistente não&nbsp;devolve mais texto na&nbsp;conversa: ele monta <strong>dois artefatos visuais</strong>, um&nbsp;em&nbsp;cada visão da&nbsp;marca, e&nbsp;você escolhe olhando.</p>
       <div class="tabela"><table>
         <thead><tr><th>A visão</th><th>Quando é ela</th><th>O que muda na tela</th></tr></thead>
         <tbody>
@@ -3562,9 +3589,12 @@ Só depois disso, gere a página.</pre>
               <td>cabeçalho em gradiente teal, logo IEL Consultorias, e o texto sobre o teal fica escuro</td></tr>
         </tbody>
       </table></div>
-      <p><strong>Se&nbsp;você não&nbsp;escolher, ela monta as&nbsp;duas e&nbsp;você decide olhando.</strong>
-      Escolher no&nbsp;abstrato, antes de&nbsp;ver, é o&nbsp;que&nbsp;faz a&nbsp;pessoa pedir de&nbsp;novo.</p>
-      <p>🔴 <strong>A&nbsp;pergunta vem depois do&nbsp;OK da&nbsp;conferência, nunca antes.</strong> Se&nbsp;ela te perguntar a&nbsp;cor antes de&nbsp;declarar as&nbsp;422 células que&nbsp;estavam como texto, o&nbsp;papel foi ignorado, e&nbsp;a&nbsp;resposta é <em>"volte ao&nbsp;bloco antes de&nbsp;gerar"</em>.</p>
+      <p><strong>Ela não&nbsp;pergunta qual você quer, e&nbsp;é de&nbsp;propósito.</strong> Escolher no&nbsp;abstrato, antes de&nbsp;ver, é o&nbsp;que&nbsp;faz a&nbsp;pessoa pedir de&nbsp;novo. Quando&nbsp;o&nbsp;seu&nbsp;assistente
+      já&nbsp;souber qual visão é a&nbsp;sua,&nbsp;você tira uma&nbsp;das&nbsp;duas do&nbsp;papel, e&nbsp;ele passa a&nbsp;montar
+      só&nbsp;ela.</p>
+      <p>🔴 <strong>O&nbsp;que&nbsp;continua valendo é a&nbsp;ordem.</strong> Se&nbsp;os&nbsp;documentos aparecerem
+      antes das&nbsp;três linhas de&nbsp;conferência, o&nbsp;papel foi ignorado, e&nbsp;a&nbsp;resposta é
+      <em>"volte ao&nbsp;bloco antes de&nbsp;gerar"</em>. Cor nenhuma passa na&nbsp;frente da&nbsp;conta.</p>
     </div>
 
     <div class="aviso atencao">
