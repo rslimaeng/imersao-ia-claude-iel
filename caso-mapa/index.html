@@ -966,6 +966,35 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    bloco. */
 .arq-acoes{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 
+/* ---------- 18b · SKILL PRONTA, CARTAO QUE LEVA A FONTE -------------------
+   Cartao-link para skill publicada por outra pessoa. O que ele resolve nao e
+   listar: e responder, ANTES do clique, as duas perguntas que decidem se vale
+   a pena para quem esta na sala -- o que a skill faz, e por onde ela entra na
+   conta dela. Skill que so instala por terminal nao serve a quem tem Desktop,
+   e descobrir isso depois do clique e o que faz a pessoa desistir. */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px;margin:22px 0 0}
+.sk{
+  display:flex;flex-direction:column;gap:10px;text-decoration:none;color:inherit;
+  background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--raio);
+  padding:20px;transition:border-color .15s,transform .15s;
+}
+.sk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.sk-topo{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.sk-nome{font-size:17px;font-weight:600;color:var(--text)}
+.sk-quem{
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--text-dim);white-space:nowrap;
+}
+.sk p{margin:0;font-size:14.5px;color:var(--text-muted);flex:1}
+.sk-onde{
+  font-size:13px;padding:9px 12px;border-radius:var(--raio-p);
+  background:var(--accent-soft);color:var(--accent-dark);
+}
+.sk-onde.terminal{background:var(--bg-warm);color:var(--text-muted)}
+.sk-link{font-family:var(--font-mono);font-size:11.5px;color:var(--accent);word-break:break-all}
+.sk:hover .sk-link{color:var(--accent-dark)}
+@media(prefers-reduced-motion:reduce){.sk{transition:none}.sk:hover{transform:none}}
+
 /* ---------- 19 · MATRIZ DE DECISÃO ---------------------------------------- */
 .matriz{
   display:grid;grid-template-columns:auto 1fr 1fr;gap:1px;margin:22px 0;
@@ -3304,6 +3333,74 @@ Na dúvida: liste o que ficou ambíguo no documento e me pergunte. Passo que dep
       esse passo? Se&nbsp;não&nbsp;estiver, tire."</em></p>
       <p>Se&nbsp;tudo virar instrução automática: <em>"quais destes passos exigem julgamento
       de&nbsp;quem responde pela&nbsp;área? Marque esses."</em></p>
+    </div>
+  </section>
+
+  <section class="passo" id="p6">
+    <div class="passo-topo">
+      <div class="passo-n">06</div>
+      <div>
+        <div class="passo-fn">Depois de fazer a sua</div>
+        <h2>Três skills prontas, para&nbsp;ver como os&nbsp;outros escrevem</h2>
+      </div>
+    </div>
+
+    <p>Você acabou de&nbsp;transformar um&nbsp;procedimento da&nbsp;sua&nbsp;casa. <strong>Estas três foram
+    escritas por&nbsp;outras pessoas e&nbsp;estão publicadas</strong>, e&nbsp;servem para&nbsp;a&nbsp;mesma coisa
+    que&nbsp;ler o&nbsp;código de&nbsp;alguém melhor que&nbsp;você: comparar o&nbsp;que&nbsp;você escreveu com&nbsp;o&nbsp;que&nbsp;quem faz isso o&nbsp;dia inteiro escreveu.</p>
+
+    <div class="skills">
+      <a class="sk" href="https://github.com/vercel-labs/skills/tree/main/skills/find-skills"
+         target="_blank" rel="noopener">
+        <div class="sk-topo">
+          <span class="sk-nome">find-skills</span>
+          <span class="sk-quem">Vercel Labs</span>
+        </div>
+        <p>Procura e&nbsp;instala skills que&nbsp;outras pessoas publicaram. O&nbsp;que&nbsp;ela ensina não&nbsp;é
+        procurar: é <strong>desconfiar antes de&nbsp;instalar</strong>. Ela manda conferir
+        quantas instalações a&nbsp;skill tem, de&nbsp;quem é o&nbsp;repositório, e&nbsp;tratar com&nbsp;ceticismo o&nbsp;que&nbsp;tem menos de&nbsp;cem.</p>
+        <div class="sk-onde terminal">Só no terminal. Ela roda por comando
+        (<code>npx</code>), e não se instala pelo Claude Desktop</div>
+        <span class="sk-link">github.com/vercel-labs/skills</span>
+      </a>
+
+      <a class="sk" href="https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md"
+         target="_blank" rel="noopener">
+        <div class="sk-topo">
+          <span class="sk-nome">frontend-design</span>
+          <span class="sk-quem">Anthropic</span>
+        </div>
+        <p>Faz uma&nbsp;tela nascer com&nbsp;cara de&nbsp;decidida, e&nbsp;não&nbsp;de&nbsp;modelo pronto. Ela obriga um&nbsp;plano antes do&nbsp;código, com&nbsp;a&nbsp;paleta em&nbsp;quatro a&nbsp;seis cores nomeadas, e&nbsp;traz a&nbsp;lista
+        do&nbsp;que&nbsp;<strong>denuncia página feita por&nbsp;IA</strong>: o&nbsp;fundo creme com&nbsp;serifada,
+        os&nbsp;cards todos iguais e&nbsp;arredondados, a&nbsp;etiqueta em&nbsp;caixa alta acima de&nbsp;cada
+        título.</p>
+        <div class="sk-onde">Instala pelo Diretório, em "Personalizar"</div>
+        <span class="sk-link">github.com/anthropics/skills</span>
+      </a>
+
+      <a class="sk" href="https://github.com/anthropics/skills/blob/main/skills/canvas-design/SKILL.md"
+         target="_blank" rel="noopener">
+        <div class="sk-topo">
+          <span class="sk-nome">canvas-design</span>
+          <span class="sk-quem">Anthropic</span>
+        </div>
+        <p>Cria peça visual em&nbsp;PNG e&nbsp;PDF: cartaz, capa, arte de&nbsp;evento. Ela trabalha em&nbsp;dois tempos, e&nbsp;é aí que&nbsp;está a&nbsp;ideia: <strong>primeiro escreve a&nbsp;filosofia</strong>
+        daquele visual, com&nbsp;nome de&nbsp;movimento e&nbsp;o&nbsp;que&nbsp;ele defende, e&nbsp;só&nbsp;depois desenha.
+        Noventa por&nbsp;cento imagem, dez por&nbsp;cento texto.</p>
+        <div class="sk-onde">Instala pelo Diretório, em "Personalizar"</div>
+        <span class="sk-link">github.com/anthropics/skills</span>
+      </a>
+    </div>
+
+    <p class="fig-leg"><strong>Repare no&nbsp;que&nbsp;as&nbsp;três têm em&nbsp;comum, e&nbsp;é o&nbsp;que&nbsp;você fez
+    hoje:</strong> nenhuma delas é um&nbsp;pedido. As&nbsp;três são um&nbsp;procedimento escrito por&nbsp;quem
+    já&nbsp;errou naquilo, com&nbsp;o&nbsp;nome do&nbsp;que&nbsp;nunca fazer. É por&nbsp;isso que&nbsp;elas funcionam para&nbsp;quem nunca conversou com&nbsp;quem as&nbsp;escreveu.</p>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Antes de instalar qualquer skill de outra pessoa</div>
+      <p>A&nbsp;própria <code>find-skills</code> dá a&nbsp;régua, e&nbsp;ela vale mesmo quando&nbsp;você
+      instala pelo&nbsp;Diretório: <strong>veja de&nbsp;quem é</strong>. Skill de&nbsp;fonte oficial é uma&nbsp;coisa; skill de&nbsp;autor desconhecido é código que&nbsp;vai ler os&nbsp;seus&nbsp;arquivos.</p>
+      <p>A&nbsp;documentação do&nbsp;Claude é direta nisso: instale só&nbsp;de&nbsp;fonte confiável, e&nbsp;leia o&nbsp;conteúdo antes de&nbsp;ativar, olhando o&nbsp;que&nbsp;ela manda o&nbsp;assistente acessar.</p>
     </div>
   </section>
 

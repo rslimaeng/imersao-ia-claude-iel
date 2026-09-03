@@ -966,6 +966,35 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    bloco. */
 .arq-acoes{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 
+/* ---------- 18b · SKILL PRONTA, CARTAO QUE LEVA A FONTE -------------------
+   Cartao-link para skill publicada por outra pessoa. O que ele resolve nao e
+   listar: e responder, ANTES do clique, as duas perguntas que decidem se vale
+   a pena para quem esta na sala -- o que a skill faz, e por onde ela entra na
+   conta dela. Skill que so instala por terminal nao serve a quem tem Desktop,
+   e descobrir isso depois do clique e o que faz a pessoa desistir. */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px;margin:22px 0 0}
+.sk{
+  display:flex;flex-direction:column;gap:10px;text-decoration:none;color:inherit;
+  background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--raio);
+  padding:20px;transition:border-color .15s,transform .15s;
+}
+.sk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.sk-topo{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.sk-nome{font-size:17px;font-weight:600;color:var(--text)}
+.sk-quem{
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--text-dim);white-space:nowrap;
+}
+.sk p{margin:0;font-size:14.5px;color:var(--text-muted);flex:1}
+.sk-onde{
+  font-size:13px;padding:9px 12px;border-radius:var(--raio-p);
+  background:var(--accent-soft);color:var(--accent-dark);
+}
+.sk-onde.terminal{background:var(--bg-warm);color:var(--text-muted)}
+.sk-link{font-family:var(--font-mono);font-size:11.5px;color:var(--accent);word-break:break-all}
+.sk:hover .sk-link{color:var(--accent-dark)}
+@media(prefers-reduced-motion:reduce){.sk{transition:none}.sk:hover{transform:none}}
+
 /* ---------- 19 · MATRIZ DE DECISÃO ---------------------------------------- */
 .matriz{
   display:grid;grid-template-columns:auto 1fr 1fr;gap:1px;margin:22px 0;
