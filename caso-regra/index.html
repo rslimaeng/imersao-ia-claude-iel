@@ -3160,6 +3160,7 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
           <tr><td>O que só quem trabalha aqui sabe</td><td>quase nunca</td><td>1 &middot; instruções</td><td>texto que você escreve</td></tr>
           <tr><td>O que nunca fazer</td><td>nunca</td><td>1 &middot; instruções</td><td>texto que você escreve</td></tr>
           <tr><td>A norma do convênio, o manual, o glossário</td><td>por ano</td><td>2 &middot; contexto</td><td>arquivo que você sobe</td></tr>
+          <tr><td><strong>O design system, com a paleta e as regras do logo</strong></td><td>por ano</td><td><strong>2 &middot; contexto</strong></td><td>arquivo que você sobe</td></tr>
           <tr><td>A planilha desta semana</td><td>toda semana</td><td>3 &middot; o anexo</td><td>anexo da conversa do dia</td></tr>
         </tbody>
       </table>
@@ -3167,7 +3168,15 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
 
     <p class="fig-leg"><strong>A&nbsp;coluna do&nbsp;meio decide sozinha as&nbsp;outras duas.</strong>
     Quando&nbsp;bater dúvida sobre&nbsp;onde&nbsp;algo vai, não&nbsp;pense na&nbsp;importância: pense na&nbsp;frequência com&nbsp;que&nbsp;aquilo muda.</p>
-  </section>
+
+    <div class="aviso">
+      <div class="aviso-t">A linha nova é a que você tem de decidir sozinho</div>
+      <p>No&nbsp;caso da&nbsp;aula 1.1 o&nbsp;design system já&nbsp;chegava pronto, e&nbsp;a&nbsp;página só&nbsp;dizia onde&nbsp;colar. <strong>Aqui você é quem monta</strong>, e&nbsp;a&nbsp;mesma pergunta da&nbsp;tabela decide:
+      a&nbsp;paleta do&nbsp;IEL muda toda semana? Não.&nbsp;Muda por&nbsp;ano, quando&nbsp;a&nbsp;marca muda. Então
+      <strong>gaveta 2</strong>.</p>
+      <p>🔴 <strong>E&nbsp;repare no&nbsp;que&nbsp;isso significa pela&nbsp;gaveta 1.</strong> Se&nbsp;você colar a&nbsp;paleta dentro das&nbsp;instruções, ela passa a&nbsp;ocupar lugar em&nbsp;toda conversa daquele
+      trabalho, inclusive nas&nbsp;em&nbsp;que&nbsp;você só&nbsp;quer conferir um&nbsp;número. É o&nbsp;mesmo erro de&nbsp;colar a&nbsp;norma inteira, no&nbsp;tamanho de&nbsp;um&nbsp;arquivo de&nbsp;450 KB.</p>
+    </div>
 
   <section class="passo" id="p3">
     <div class="passo-topo">
@@ -3196,6 +3205,44 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
     <p class="fig-leg"><strong>Repare no&nbsp;que&nbsp;este arquivo não&nbsp;é.</strong> Ele não&nbsp;sobe
     como material de&nbsp;consulta: se&nbsp;subisse, na&nbsp;semana que&nbsp;vem haveria duas planilhas
     guardadas, e&nbsp;em&nbsp;um&nbsp;mês ninguém saberia qual é a&nbsp;atual.</p>
+
+    <h3 style="margin:40px 0 14px">E&nbsp;o&nbsp;segundo arquivo, que&nbsp;é o&nbsp;contrário deste</h3>
+
+    <p>A&nbsp;planilha entra e&nbsp;sai. <strong>Este fica.</strong> É o&nbsp;material de&nbsp;consulta da&nbsp;gaveta 2, e&nbsp;é o&nbsp;único arquivo deste caso que&nbsp;você sobe uma&nbsp;vez e&nbsp;não&nbsp;toca mais.</p>
+
+    <div class="arquivo solta">
+      <div>
+        <div class="arq-fn">O design system do IEL</div>
+        <div class="arq-nome">
+          <span class="arq-tipo">html</span>
+          <code>design-system-iel.html</code>
+        </div>
+        <p>Duas visões &middot; os&nbsp;dois logos &middot; paleta em&nbsp;dez tons, com&nbsp;o&nbsp;contraste
+        de&nbsp;cada um&nbsp;medido &middot; tipografia, regras do&nbsp;logo e&nbsp;o&nbsp;mockup do&nbsp;relatório
+        montado nas&nbsp;duas visões. Abre no&nbsp;navegador, sem&nbsp;internet.</p>
+      </div>
+      <a class="btn" href="../_arquivos/design-system-iel.html">Baixar &darr;</a>
+    </div>
+
+    <div class="aviso">
+      <div class="aviso-t">Abra antes de subir, e decida qual visão é a sua</div>
+      <p>O&nbsp;arquivo traz <strong>duas</strong>, e&nbsp;elas não&nbsp;são estilos alternativos: são
+      duas marcas, com&nbsp;o&nbsp;logo e&nbsp;a&nbsp;hierarquia de&nbsp;cor invertidos.</p>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>A visão</th><th>É a sua quando o documento</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Institucional</strong>, azul</td>
+                <td>presta contas, cumpre convênio, responde ofício, vai ao financiador</td></tr>
+            <tr><td><strong>Consultorias</strong>, teal</td>
+                <td>propõe, diagnostica, apresenta comercialmente</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Neste caso é a&nbsp;institucional</strong>, porque&nbsp;o&nbsp;documento vai ao&nbsp;financiador. Mas&nbsp;o&nbsp;arquivo sobe inteiro, com&nbsp;as&nbsp;duas: quem escolhe é o&nbsp;pedido do&nbsp;dia, e&nbsp;não&nbsp;o&nbsp;arquivo.</p>
+    </div>
+
+    <p class="fig-leg"><strong>Os&nbsp;dois arquivos deste passo são o&nbsp;exemplo mais limpo das&nbsp;gavetas 2 e&nbsp;3.</strong> Um&nbsp;muda toda semana e&nbsp;entra pelo&nbsp;anexo; o&nbsp;outro muda por&nbsp;ano e&nbsp;fica guardado. A&nbsp;mesma pergunta separou os&nbsp;dois, e&nbsp;ela é a&nbsp;única deste caso.</p>
   </section>
 
   <section class="passo" id="p4">
@@ -3284,6 +3331,8 @@ Na dúvida: liste e pergunte antes de decidir por mim.</pre>
           <li><strong>Trecho 2:</strong> as&nbsp;atividades sem&nbsp;eixo aparecem separadas, sem&nbsp;você ter pedido</li>
           <li><strong>Trecho 3:</strong> nenhuma conclusão sobre&nbsp;unidade abaixo do&nbsp;previsto vem sem&nbsp;a&nbsp;conta junto</li>
           <li><strong>Trecho 4:</strong> uma&nbsp;página, decisão no&nbsp;topo, sem&nbsp;parágrafo de&nbsp;abertura</li>
+          <li><strong>A&nbsp;gaveta 2:</strong> ela pergunta a&nbsp;visão antes de&nbsp;montar, e&nbsp;o&nbsp;azul
+          que&nbsp;aparece é o&nbsp;<code>#0E4194</code> do&nbsp;logo</li>
         </ul>
       </div>
     </div>
@@ -3291,6 +3340,32 @@ Na dúvida: liste e pergunte antes de decidir por mim.</pre>
     <p class="fig-leg"><strong>O&nbsp;sinal do&nbsp;trecho 2 é o&nbsp;que&nbsp;prova que&nbsp;valeu a&nbsp;pena.</strong>
     Ele é a&nbsp;regra que&nbsp;só&nbsp;existia na&nbsp;cabeça de&nbsp;quem faz, e&nbsp;agora ela vale em&nbsp;toda conversa
     daquele projeto, inclusive nas&nbsp;de&nbsp;outra pessoa.</p>
+
+    <div class="aviso">
+      <div class="aviso-t">O sinal da gaveta 2 é diferente dos outros quatro</div>
+      <p>Os&nbsp;trechos 1 a&nbsp;4 são texto que&nbsp;<strong>você escreveu</strong>: quando&nbsp;um&nbsp;deles
+      falha, você reescreve a&nbsp;linha. A&nbsp;gaveta 2 é arquivo que&nbsp;você <strong>subiu</strong>,
+      e&nbsp;quando&nbsp;ela falha o&nbsp;conserto é outro.</p>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>O que aconteceu</th><th>O que fazer</th></tr></thead>
+          <tbody>
+            <tr><td>Ela não perguntou a visão</td>
+                <td>Falta o bloco da entrega visual na gaveta 1. Ele é o do passo 4</td></tr>
+            <tr><td>Perguntou a visão <strong>antes</strong> da conferência</td>
+                <td>A ordem do papel foi ignorada. <em>"Volte ao bloco antes de gerar"</em></td></tr>
+            <tr><td>Saiu com o azul <code>#0055A5</code></td>
+                <td>É o azul do site, e não o do logo. O arquivo não foi lido: confira se
+                ele está no Contexto e não no anexo</td></tr>
+            <tr><td>Saiu bonito, e o número não tem a conta ao lado</td>
+                <td>Aí não é a gaveta 2: é a gaveta 1, trecho 3</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>🔴 <strong>E&nbsp;a&nbsp;regra que&nbsp;vale para&nbsp;as&nbsp;quatro linhas:</strong> não&nbsp;peça de&nbsp;novo.
+      Regenerar gasta e&nbsp;não&nbsp;conserta a&nbsp;causa. <strong>Corrija na&nbsp;fonte</strong>, que&nbsp;aqui
+      quer dizer a&nbsp;gaveta certa, e&nbsp;a&nbsp;próxima geração já&nbsp;nasce certa.</p>
+    </div>
 
     <div class="aviso atencao">
       <div class="aviso-t">Se a resposta ignorar uma das regras</div>
@@ -3305,6 +3380,8 @@ Na dúvida: liste e pergunte antes de decidir por mim.</pre>
       Na&nbsp;segunda vez que&nbsp;a&nbsp;mesma correção acontecer, ela vira linha das&nbsp;instruções.</p>
       <p>Se&nbsp;as&nbsp;respostas ficarem lentas ou&nbsp;confusas: as&nbsp;instruções cresceram demais.
       Corte o&nbsp;que&nbsp;nunca foi necessário, e&nbsp;volte para&nbsp;o&nbsp;que&nbsp;veio de&nbsp;correção real.</p>
+      <p>Se&nbsp;a&nbsp;cor sair errada: <em>"qual hex você usou no&nbsp;cabeçalho?"</em>. A&nbsp;resposta
+      diz sozinha se&nbsp;ele leu o&nbsp;arquivo da&nbsp;gaveta 2 ou&nbsp;inventou.</p>
     </div>
   </section>
 
