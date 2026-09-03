@@ -81,6 +81,13 @@ section.s{padding-top:56px;scroll-margin-top:20px}
 .palco img{max-width:100%;height:auto;display:block}
 .palco.l1 img{max-height:56px;width:auto}
 .palco.l2 img{max-height:150px;width:auto;border-radius:8px}
+
+/* O logo 1 e azul (#0E4194) sobre transparente, entao sobre fundo escuro
+   ele SOME: medido, 2,00 : 1 sobre o azul 900 e 1,22 : 1 sobre o azul 500
+   do cabecalho do mockup. Sem um arquivo monocromatico do logo, a unica
+   saida honesta e a pastilha branca -- que e o que marca com logo colorido
+   faz. Nao vale para o logo 2, que ja traz o proprio fundo no PNG. */
+.palco.escuro.l1 img{background:#fff;padding:14px 20px;border-radius:8px}
 .cartao-pe{border-top:1px solid var(--cinza-200);padding:14px 18px;display:flex;
   gap:8px;align-items:center;flex-wrap:wrap}
 .cartao-pe strong{font-size:14px;margin-right:auto}
@@ -154,6 +161,10 @@ section.s{padding-top:56px;scroll-margin-top:20px}
   font-size:13px;line-height:1.55}
 .doc-topo{padding:18px 20px;display:flex;gap:14px;align-items:center}
 .doc-topo img{height:30px;width:auto}
+/* Mesma razao do .palco.escuro.l1: o logo 1 sobre o azul do cabecalho da
+   visao 1 dava 1,22 : 1. O logo 2 nao leva pastilha, porque o PNG dele ja
+   e um cartao com fundo proprio. */
+.doc.i .doc-topo img{background:#fff;padding:5px 8px;border-radius:6px}
 .doc.i .doc-topo{background:#0E4194;color:#fff}
 .doc.c .doc-topo{background:linear-gradient(45deg,#23E2C7,#6AC2BA);color:#111111}
 .doc-topo .t{font-weight:700;font-size:15px;line-height:1.25}
@@ -406,9 +417,16 @@ section.s{padding-top:56px;scroll-margin-top:20px}
       <p>Meça a altura da letra do próprio logo e use isso como folga em volta, nos quatro
       lados. É uma medida que acompanha o logo quando ele muda de tamanho.</p></div>
     <div class="regra"><span class="selo-r">Faça</span>
-      <h4>Logo 1 sobre branco, ou sobre o azul 900</h4>
-      <p>Os dois fundos estão nos cartões da seção 1, e os dois têm contraste medido. Fora
-      deles, confira antes.</p></div>
+      <h4>Logo 1 sobre branco, sempre</h4>
+      <p>Sobre branco ele mede <strong>8,83 : 1</strong>. Fora de branco, confira antes, e a
+      conferência é de imagem: mede-se o pixel do logo contra o fundo, não o texto ao
+      lado.</p></div>
+    <div class="regra nao"><span class="selo-r">Nunca</span>
+      <h4>Pôr o logo 1 direto sobre fundo escuro</h4>
+      <p>Ele é azul <code>#0E4194</code> sobre transparente, então some no escuro:
+      <strong>2,00 : 1</strong> sobre o azul 900 e <strong>1,22 : 1</strong> sobre o azul
+      500. Em fundo escuro ele vai <strong>sobre uma pastilha branca</strong>, como nos
+      cartões da seção 1 e no cabeçalho da visão 1.</p></div>
     <div class="regra nao"><span class="selo-r">Nunca</span>
       <h4>Pôr o logo 1 sobre teal</h4>
       <p>O ponto do &ldquo;i&rdquo; é teal. Sobre fundo teal ele desaparece, e o que sobra
