@@ -650,12 +650,20 @@ def g22_matriz_com_os_quatro_quadrantes(rel, html):
 def g23_pergunta_de_grupo_tem_destrave(rel, html):
     """Ou todas as perguntas do bloco têm destrave, ou nenhuma tem.
 
+    # G23 e G44 vieram da trilha IEL em 07/09/2026, por decisao do Rafael.
+    # G23: a regra so enxergava class="destrave" sozinha e dava verde sem olhar
+    #      quando a classe vinha acompanhada. Gate cego, consertado la primeiro.
+    # G44: a janela de tres contava PAGINA e nao AULA, e pagina sem tipo ocupava
+    #      o lugar de uma aula. Defeito latente, revelado quando sete paginas
+    #      entraram no meio da sequencia.
+
     O grupo que recebe destrave numa pergunta e não na seguinte conclui que a
     segunda é mais fácil, e responde mais raso. E toda pergunta com destrave diz
     o que NÃO conta como resposta: sem isso, metade da sala responde "numa pasta
     compartilhada" e acha que respondeu.
     """
     falhas = []
+    _destrave = re.compile(r'class="(?:[^"]* )?destrave(?: [^"]*)?"')
 
     # 🔴 O EXERCICIO TAMBEM. Ate 28/08 este gate so varria .perguntas, e entao
     # um exercicio de quatro passos sem nenhum destrave passava nas 864
@@ -666,7 +674,12 @@ def g23_pergunta_de_grupo_tem_destrave(rel, html):
     # lado do que nao destrava ensina que o segundo e mais facil.
     passos = [c for _, c in blocos_por_classe(html, "passo")]
     if passos:
-        com_d = [c for c in passos if 'class="destrave"' in c]
+        # 🔴 02/09/2026: era 'class="destrave"' em texto puro, e por isso o
+        # gate NAO ENXERGAVA class="cartao destrave". Um destrave que divide o
+        # container com outra classe existia na pagina e o gate acusava falta.
+        # E o mesmo defeito dos meus greps: procurar a string em vez do limite
+        # da palavra. O tem() do G43 ja fazia certo desde sempre.
+        com_d = [c for c in passos if _destrave.search(c)]
         # NAO e "tudo ou nada" aqui: "abra uma conversa nova" nao tem o que
         # destravar. O que nao pode e o exercicio inteiro sem nenhum -- foi
         # assim que as 5 aulas de nivelamento do piloto IEL sairam, 17 passos
@@ -676,7 +689,7 @@ def g23_pergunta_de_grupo_tem_destrave(rel, html):
                           "o aluno a produzir texto proprio precisa de um"
                           .format(rel, len(passos)))
         for corpo in com_d:
-            if 'class="destrave-nao"' not in corpo:
+            if not re.search(r'class="(?:[^"]* )?destrave-nao(?: [^"]*)?"', corpo):
                 falhas.append("{}: um passo com destrave nao diz o que NAO conta "
                               "como resposta".format(rel))
 
@@ -684,13 +697,18 @@ def g23_pergunta_de_grupo_tem_destrave(rel, html):
         perguntas = blocos_por_classe(bloco, "pergunta")
         if not perguntas:
             continue
-        com = [c for _, c in perguntas if 'class="destrave"' in c]
+        # 🔴 07/09/2026: o ramo dos PASSOS ganhou o regex em 02/09 e este
+        # ficou com a busca literal — mesmo defeito, outro ramo da mesma
+        # funcao. Uma pergunta com class="cartao destrave" era invisivel aqui
+        # e o gate acusava falta que nao existia. Consertar um ramo e nao
+        # olhar o irmao ao lado ja custou um dia nesta carteira.
+        com = [c for _, c in perguntas if _destrave.search(c)]
         if com and len(com) != len(perguntas):
             falhas.append("{}: bloco {} tem {} de {} perguntas com destrave: "
                           "ou todas têm, ou o padrão quebrou"
                           .format(rel, i, len(com), len(perguntas)))
         for corpo in com:
-            if 'class="destrave-nao"' not in corpo:
+            if not re.search(r'class="(?:[^"]* )?destrave-nao(?: [^"]*)?"', corpo):
                 falhas.append("{}: bloco {}: uma pergunta não diz o que NÃO conta "
                               "como resposta".format(rel, i))
     return falhas
@@ -1722,19 +1740,33 @@ def g44_o_modulo_mescla_fundamento_com_pratica(rel, html):
     """
     if not _tipo_da_aula(_sem_css_nem_script(html)):
         return []
-    ordem = [r for r in _ordem_das_aulas() if r in [d for d, _ in paginas()]]
-    if rel not in ordem:
+    # 🔴 A JANELA CONTA AULA, E NAO PAGINA, e ate 07/09 contava pagina. O
+    # defeito era latente: a TRILHA tem paginas que nao sao aula, sem tipo=, e
+    # elas entravam na janela de tres ocupando o lugar de uma aula. Enquanto
+    # todas moravam DEPOIS da ultima aula, ninguem via. No dia em que sete
+    # delas entraram ANTES do b3-processo, a janela dele virou tres paginas sem
+    # tipo nenhum e o gate acusou "tres aulas seguidas em que a sala so
+    # escuta" numa sequencia que nao tem tres aulas.
+    #
+    # Pagina sem tipo nao e aula em que a sala escuta: ela nem e aula. Ela sai
+    # da contagem em vez de contar contra.
+    ordem = []
+    for r in _ordem_das_aulas():
+        if r not in [d for d, _ in paginas()]:
+            continue
+        caminho = os.path.join(RAIZ, r)
+        if not os.path.exists(caminho):
+            continue
+        h = html if r == rel else io.open(caminho, encoding="utf-8").read()
+        t = _tipo_da_aula(_sem_css_nem_script(h))
+        if t:
+            ordem.append((r, t))
+    slugs = [r for r, _ in ordem]
+    if rel not in slugs:
         return []
-    i = ordem.index(rel)
-    janela = ordem[max(0, i - 2):i + 1]
-    for r in janela:
-        h = html if r == rel else None
-        if h is None:
-            caminho = os.path.join(RAIZ, r)
-            if not os.path.exists(caminho):
-                continue
-            h = io.open(caminho, encoding="utf-8").read()
-        if _tipo_da_aula(_sem_css_nem_script(h)) in ("pratica", "organizacao"):
+    i = slugs.index(rel)
+    for _, t in ordem[max(0, i - 2):i + 1]:
+        if t in ("pratica", "organizacao"):
             return []
     return ["{}: tres aulas seguidas em que a sala so escuta. Um conjunto de "
             "fundamentos fecha com uma pratica, ou com uma aula de organizacao "
