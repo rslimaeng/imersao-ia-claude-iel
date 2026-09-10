@@ -195,7 +195,7 @@ Toda aula tem as mesmas oito seções, na mesma ordem. O rótulo em cinza diz a
 **função** da seção; o H2 diz o assunto dela. Quem abre a quinta aula já sabe
 onde as coisas estão.
 
-🔴 **O rótulo é CATEGORIA FIXA, e não frase.** `A situação`, `O conceito`,
+🔴 **O rótulo é CATEGORIA FIXA, e não frase.** `Objetivo da aula`, `O conceito`,
 `Como funciona`, `Demonstração`, `Sua vez`, `Confira`, `Pegadinhas`, `A cerca`.
 São sempre essas oito palavras, em todo curso. O que muda de aula para aula é o
 H2, que é o assunto daquela aula.
@@ -265,7 +265,7 @@ lado, *você sabe fazer agora* do outro. Mesmo verbo, tempo diferente.
 
 | # | A função | O que entra | O erro que ela evita |
 |---|---|---|---|
-| 01 | A situação | o problema na voz de quem faz o trabalho, sem conceito nenhum | começar pela definição |
+| 01 | Objetivo da aula | o problema na voz de quem faz o trabalho, sem conceito nenhum | começar pela definição |
 | 02 | O conceito | **um, e só um**, e ele nasce com a analogia junto | a aula que ensina seis coisas e fixa nenhuma · conceito sem imagem |
 | 03 | Como funciona | o mecanismo, com figura. É a seção mais visual | explicar com três parágrafos o que um desenho resolve |
 | 04 | Demonstração | ver acontecer. Leva ao passo a passo, em página própria | mostrar o resultado pronto |
