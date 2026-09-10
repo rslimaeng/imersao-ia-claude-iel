@@ -54,7 +54,12 @@ SEQUENCIA = ["index", "nivelamento",
              "n5-configurar",
              "m1", "m1a1-qual-trabalho", "m1a2-recomecar",
              "m1a3-montar-assistente", "m1a4-onde-a-regra-mora",
-             "m1a5-quando-compensa"]
+             "m1a5-quando-compensa",
+             # 🔴 O M2 entra SEM capa, em 10/09. A capa m2 nao existe: quem
+             # aponta para as duas e o rodape daqui e a TRILHA. Enquanto ela
+             # nao nascer, a migalha das duas para na raiz, senao o link
+             # quebra.
+             "m2a1-onde-as-regras-moram", "m2a2-a-linguagem-muda"]
 
 # ---------------------------------------------------------------------------
 # A TRILHA · o indice do curso, e a unica lista escrita a mao neste arquivo
@@ -97,6 +102,16 @@ TRILHA = [
         ("m1a3-montar-assistente",  "Monte o assistente que já sabe como você trabalha"),
         ("m1a4-onde-a-regra-mora",  "Descubra por que algumas regras não podem ser só texto"),
         ("m1a5-quando-compensa",    "Saiba quando montar assistente compensa, e quando não"),
+    ]),
+    # 🔴 DUAS, e nao cinco. A ementa vendia cinco aulas (skills proprias,
+    # plugins, Excel, tarefa agendada) e o Rafael cortou essa linha em 10/09:
+    # "sao muitos exemplos, nao quero seguir por essa linha". Ficam duas de
+    # fundamento, nesta ordem, que e dele: primeiro onde as regras moram,
+    # depois a linguagem que muda. Os estudos de caso vem depois, e ele
+    # escolhe quais.
+    ("Módulo 2", [
+        ("m2a1-onde-as-regras-moram", "Onde as regras moram"),
+        ("m2a2-a-linguagem-muda",     "A linguagem muda"),
     ]),
 ]
 
@@ -334,6 +349,28 @@ PAGINAS = {
         migalha=[("../", "Imersão em IA com Claude"),
                  ("../m1/", "Módulo 1"),
                  (None, "Saiba quando montar assistente compensa, e quando não")],
+    ),
+    "m2a1-onde-as-regras-moram": dict(
+        tipo="fundamento",
+        titulo="Onde as regras moram",
+        kicker="Módulo 2 · aula 2.1",
+        h1="Onde as regras moram",
+        sub="As quatro camadas onde uma regra pode ficar escrita, os dois arquivos que "
+            "moram na pasta, e a pergunta que separa regra de fato.",
+        selos=["Quatro camadas", "Instruções globais"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 (None, "Onde as regras moram")],
+    ),
+    "m2a2-a-linguagem-muda": dict(
+        tipo="fundamento",
+        titulo="A linguagem muda",
+        kicker="Módulo 2 · aula 2.2",
+        h1="A linguagem muda",
+        sub="No chat você descreve o caminho; no Cowork você descreve a chegada. Os "
+            "quatro campos do pedido de resultado, e o critério que dá para conferir.",
+        selos=["Quatro campos", "Critério conferível"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 (None, "A linguagem muda")],
     ),
     "caso-mapa": dict(
         titulo="A norma da casa vira procedimento",

@@ -1,0 +1,671 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Nesta aula</div>
+    <div class="nesta-aula-sub">Ao final, você será capaz de:</div>
+    <ul>
+      <li>Reconhecer, num pedido seu, se ele descreve o caminho ou a chegada</li>
+      <li>Reescrever um pedido de tarefa para resultado, com quatro campos e um critério que dá para conferir</li>
+    </ul>
+  </div>
+
+  <section class="secao" id="s01">
+    <div class="secao-topo">
+      <div class="secao-n">01</div>
+      <div>
+        <div class="secao-fn">A situação</div>
+        <h2>Você pediu trabalho e recebeu conselho</h2>
+      </div>
+    </div>
+
+    <div class="fr-host">
+      <p>A pasta está criada, o arquivo de regras está escrito, e o Claude lê tudo sozinho.
+      Você faz o primeiro pedido de verdade e recebe de volta um texto bem escrito, com
+      recomendações numeradas.</p>
+
+      <p>O texto está certo. E o trabalho continua na sua mesa.</p>
+    </div>
+
+    <p>Não é falha do arquivo de regras nem da pasta. <strong>É o pedido</strong>, e ele
+    está exatamente do jeito que funcionava até ontem: no chat você descrevia o caminho,
+    porque quem ia percorrer o caminho era você. Aqui quem percorre é ele, e descrever o
+    caminho é justamente o que faz ele parar e te devolver o mapa.</p>
+
+    <div class="aviso">
+      <div class="aviso-t">O sintoma, do jeito que ele aparece</div>
+      <ul class="lista">
+        <li>A resposta é uma lista de recomendações, e você concorda com todas</li>
+        <li>Ela termina com "quer que eu faça isso?" e você responde "sim" três vezes</li>
+        <li>Nenhum arquivo novo apareceu na sua pasta depois da conversa</li>
+        <li>Você copia o resultado da tela e vai formatar em outro lugar</li>
+      </ul>
+      <p>Os quatro são o mesmo defeito: <strong>você descreveu o trabalho, e não o
+      resultado</strong>. Ele fez exatamente o que foi pedido.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="s02">
+    <div class="secao-topo">
+      <div class="secao-n">02</div>
+      <div>
+        <div class="secao-fn">O conceito</div>
+        <h2>O caminho e a chegada</h2>
+      </div>
+    </div>
+
+    <div class="conceito">
+      <div class="conceito-rot">O conceito desta aula</div>
+      <h3>No chat você descreve o caminho; no Cowork você descreve a chegada</h3>
+      <p>Um pedido de tarefa diz <strong>o que fazer</strong>: revise, analise, recomende,
+      sugira. Um pedido de resultado diz <strong>como a coisa pronta se parece</strong>:
+      onde ela está, com que nome, em que formato, e como você vai saber que ficou boa. A
+      diferença não é de educação nem de tamanho: os dois têm o mesmo número de palavras.</p>
+
+      <div class="contraste">
+        <div class="ctr e"><span class="ctr-selo">É</span>
+          <h4>Uma mudança no que você descreve</h4>
+          <p>Você para de narrar as etapas e passa a descrever o estado final. As etapas
+          continuam existindo, só não são mais sua responsabilidade escrever.</p></div>
+        <div class="ctr nao"><span class="ctr-selo">Não é</span>
+          <h4>Um jeito mais educado ou mais detalhado de pedir</h4>
+          <p>Pedido de tarefa comprido continua sendo pedido de tarefa, e volta como
+          recomendação comprida. O que muda a resposta é o tipo da frase, não o
+          capricho dela.</p></div>
+      </div>
+
+      <div class="analogia">
+        <div class="analogia-rot">É como contratar quem vai levantar a parede</div>
+        <p>Você não explica ao pedreiro como assentar cada tijolo. Você diz onde a parede
+        vai, a medida dela, que o material está no fundo do terreno, e que a tubulação da
+        esquerda não pode ser tocada. Ele levanta. <strong>Quem descreve o assentamento
+        tijolo a tijolo recebe de volta um orçamento</strong>, e não uma parede.</p>
+        <ul class="analogia-mapa">
+          <li><strong>A parede em pé, com a medida</strong> é o resultado que você
+          descreve</li>
+          <li><strong>A medida que dá para conferir com a trena</strong> é o critério de
+          sucesso</li>
+          <li><strong>O material no fundo do terreno</strong> são os insumos: a pasta, os
+          arquivos, os aplicativos</li>
+          <li><strong>A tubulação que não pode ser tocada</strong> são as restrições</li>
+        </ul>
+        <p class="analogia-mais">Vale para a encomenda no restaurante, para o briefing que
+        você passa para a agência, e para o pedido de orçamento que você manda para o
+        fornecedor. Sempre que quem executa sabe executar, descrever o processo no lugar do
+        resultado transforma o executor em consultor.</p>
+      </div>
+    </div>
+
+    <div class="demo solta">
+      <div class="demo-faixa">O par literal &middot; a mesma pasta de 15 fotos, dois pedidos</div>
+      <div class="demo-corpo">
+        <div class="demo-entrada">
+          <span class="rot">A situação, nas duas vezes</span>
+          <pre>Uma pasta no computador, com 15 fotos soltas e nome de arquivo automático.</pre>
+        </div>
+        <div class="demo-lados">
+          <div class="demo-lado">
+            <span class="rot">Linguagem de tarefa &middot; o jeito do chat</span>
+            <p><em>"Revise minhas 15 fotos e recomende uma convenção de nomes e uma
+            estrutura de pastas."</em></p>
+            <p>Volta uma <strong>recomendação em texto</strong>: três convenções possíveis,
+            os prós e os contras de cada uma, e uma sugestão de estrutura em três níveis.</p>
+            <p>Boa recomendação. <strong>E o trabalho de renomear as 15 continua
+            seu.</strong></p>
+          </div>
+          <div class="demo-lado">
+            <span class="rot">Linguagem de resultado &middot; o jeito do Cowork</span>
+            <p><em>"Tenho 15 fotos nesta pasta. Preciso delas organizadas em subpastas por
+            tema, com nomes descritivos."</em></p>
+            <p>Volta a <strong>pasta organizada</strong>: as subpastas criadas, as 15 fotos
+            dentro delas, cada uma com um nome que diz o que é.</p>
+            <p><strong>Três minutos depois está feito</strong>, e o que sobra para você é
+            conferir.</p>
+          </div>
+        </div>
+        <div class="demo-pe">Os dois pedidos têm quase o mesmo tamanho. O da esquerda pede
+        uma opinião sobre o trabalho; o da direita descreve o trabalho pronto.</div>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Repare no verbo de cada um.</strong> "Revise e recomende" é
+    um verbo de opinião, e opinião é o que volta. "Preciso delas organizadas" não tem verbo
+    de ação nenhum: tem um estado final descrito, e é isso que dá a ele o que perseguir.</p>
+  </section>
+
+  <section class="secao" id="s03">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como funciona</div>
+        <h2>As três diferenças, e o critério que dá para conferir</h2>
+      </div>
+    </div>
+
+    <p>A mudança de linguagem não é uma preferência de estilo. Ela é <strong>consequência
+    de duas diferenças materiais</strong> entre onde o chat trabalha e onde o Cowork
+    trabalha.</p>
+
+    <div class="grade grade-3 solta">
+      <div class="cartao">
+        <span class="rot">Diferença 1 &middot; o arquivo</span>
+        <h4>Um sobe para a nuvem, o outro lê onde está</h4>
+        <p>No chat, todo arquivo é enviado para dentro da conversa, um por um. No Cowork
+        ele <strong>lê e escreve direto na sua pasta</strong>, sem subir nem baixar. Uma
+        pasta com centenas de arquivos deixa de ser um problema de logística.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Diferença 2 &middot; a entrega</span>
+        <h4>Um devolve texto na tela, o outro deixa o arquivo</h4>
+        <p>No chat, o resultado é uma resposta que você copia e formata em outro lugar. No
+        Cowork, o resultado é <strong>o arquivo pronto na pasta</strong>, com o nome e o
+        formato que você pediu.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Diferença 3 &middot; a linguagem</span>
+        <h4>É consequência das duas de cima</h4>
+        <p>Quando o resultado é um arquivo numa pasta, descrever o arquivo pronto passa a
+        fazer sentido. <strong>Descrever o caminho vira desperdício</strong>, porque o
+        caminho é justamente a parte que ele resolve.</p>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>A terceira não é uma diferença nova.</strong> Ela é a
+    tradução das duas primeiras para o que você digita. É por isso que mudar a linguagem
+    sem entender as duas primeiras parece truque, e não pega.</p>
+
+    <h3 style="margin:40px 0 14px">Os quatro campos de um pedido de resultado</h3>
+
+    <p>O pedido de resultado tem quatro campos, sempre os mesmos. <strong>Nem todo pedido
+    precisa dos quatro escritos</strong>, mas todo pedido que voltou errado deixou um deles
+    em branco.</p>
+
+    <div class="anatomia solta">
+      <div class="anat-cabeca">
+        <span>O pedido de resultado &middot; quatro campos</span>
+        <span>cabe em quatro linhas</span>
+      </div>
+
+      <div class="anat-campo"><code>Objetivo</code><span>como é o resultado pronto</span></div>
+      <div>Uma frase descrevendo o estado final, não a ação. <strong>"Preciso de uma
+      planilha com uma linha por recibo"</strong>, e não "analise os recibos".</div>
+      <div class="anat-quando">Sempre<span>é o campo que não falta</span></div>
+
+      <div class="anat-campo"><code>Critério de sucesso</code><span>o que dá para conferir</span></div>
+      <div>O teste que você aplicaria no resultado. <strong>"Menos de 500 palavras, com
+      três exemplos, salvo como documento"</strong>, e não "deixe bom".</div>
+      <div class="anat-quando">Sempre<span>é o que evita a segunda volta</span></div>
+
+      <div class="anat-campo"><code>Insumos</code><span>o que ele usa</span></div>
+      <div>Quais arquivos, quais pastas, quais aplicativos. Com a pasta apontada e o
+      arquivo de regras escrito, esse campo costuma encolher para uma linha.</div>
+      <div class="anat-quando">Quase sempre<span>some quando já está na pasta</span></div>
+
+      <div class="anat-campo"><code>Restrições</code><span>o que não mexer</span></div>
+      <div>O que incluir, o que pular, o que não pode ser tocado. É o campo que protege o
+      que já estava certo antes de você pedir.</div>
+      <div class="anat-quando raro">Quando houver<span>e aí é obrigatório</span></div>
+
+    </div>
+
+    <p class="fig-leg"><strong>A terceira coluna diz onde cortar quando você tem pressa.</strong>
+    Os dois primeiros campos não saem nunca. Insumos some quando a pasta já responde, e
+    restrições só existe quando existe alguma coisa a proteger.</p>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">A regra que faz o critério de sucesso valer alguma coisa</div>
+      <p><strong>Critério de sucesso é o que você consegue verificar.</strong> "Deixe bom"
+      não é critério, porque não existe conferência possível: qualquer resultado passa.
+      "Menos de 500 palavras, com três exemplos, salvo como documento" é critério, porque
+      você abre o arquivo e confere os três em vinte segundos.</p>
+      <p>O teste é este: <strong>outra pessoa, sem falar com você, consegue dizer se
+      passou ou não?</strong> Se a resposta depende de você olhar e sentir, ainda não é
+      critério.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="s04">
+    <div class="secao-topo">
+      <div class="secao-n">04</div>
+      <div>
+        <div class="secao-fn">Demonstração</div>
+        <h2>O mesmo trabalho, pedido nas duas linguagens</h2>
+      </div>
+    </div>
+
+    <p>Um trabalho de segunda-feira: a pasta da área tem os relatórios das três últimas
+    reuniões de acompanhamento, e alguém precisa consolidar o que ficou pendente. O pedido
+    abaixo foi feito duas vezes, na mesma pasta, com o mesmo arquivo de regras valendo.</p>
+
+    <div class="demo solta">
+      <div class="demo-faixa">Momento-chave &middot; o pedido de tarefa e o pedido de resultado</div>
+      <div class="demo-corpo">
+        <div class="demo-entrada">
+          <span class="rot">O que foi digitado, em cada uma das vezes</span>
+          <pre>1) Analise os três relatórios de acompanhamento e me diga o que fazer com as pendências.
+
+2) Preciso de um documento na pasta chamado pendencias-em-aberto, com uma linha por pendência: o que é, de qual reunião veio, quem responde e a data. Pendência sem responsável fica na tabela, com o campo em branco e marcada. Não altere os três relatórios originais.</pre>
+        </div>
+        <div class="demo-lados">
+          <div class="demo-lado">
+            <span class="rot">O que voltou do pedido 1</span>
+            <p>"Li os três relatórios. Identifiquei três grupos de pendências:</p>
+            <p><strong>1. Prazo</strong> &middot; quatro itens estão sem data definida e
+            precisam de um dono.<br>
+            <strong>2. Dependência</strong> &middot; dois itens travam outros dois.<br>
+            <strong>3. Decisão</strong> &middot; três itens esperam uma decisão da
+            diretoria.</p>
+            <p>Recomendo priorizar o grupo 2, porque ele destrava mais coisa. Quer que eu
+            monte uma tabela com isso?"</p>
+          </div>
+          <div class="demo-lado">
+            <span class="rot">O que voltou do pedido 2</span>
+            <p>"Criei <code>pendencias-em-aberto</code> na pasta da área, com 9 linhas.</p>
+            <p>Três linhas estão com o responsável <strong>em branco e marcadas</strong>,
+            porque nenhum dos três relatórios nomeia quem responde por elas.</p>
+            <p>Duas datas apareciam em formatos diferentes entre a segunda e a terceira
+            reunião; usei a da terceira e anotei isso na última coluna.</p>
+            <p>Os três relatórios originais não foram alterados."</p>
+          </div>
+        </div>
+        <div class="demo-pe">O primeiro pedido tem 15 palavras e o segundo tem 48. A
+        diferença que importa não é o tamanho: é que o segundo descreve um arquivo que
+        passa a existir.</div>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Repare no que a resposta da direita devolve de
+    graça.</strong> Ela declara três buracos e uma decisão que teve que tomar, porque o
+    pedido dizia o que fazer com pendência sem responsável. O pedido da esquerda não tinha
+    critério nenhum, então não tinha o que declarar: qualquer resposta passava.</p>
+  </section>
+
+  <section class="secao" id="s05">
+    <div class="secao-topo">
+      <div class="secao-n">05</div>
+      <div>
+        <div class="secao-fn">Sua vez</div>
+        <h2>Um pedido seu, reescrito</h2>
+      </div>
+    </div>
+
+    <p>Esta aula não pede tarefa nova. Ela pede <strong>um pedido que você já fez</strong>
+    e que voltou como conselho, e devolve ele reescrito em quatro campos.</p>
+
+    <div class="aviso">
+      <div class="aviso-t">Como saber que a sua resposta está pronta</div>
+      <p>A régua é o campo 2: <strong>outra pessoa, sem falar com você, consegue abrir o
+      resultado e dizer se passou?</strong> "Ficou melhor" não passa. "Uma linha por
+      pendência, com quatro colunas, e nenhuma linha sem a coluna de origem preenchida"
+      passa.</p>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">01</div>
+        <div>
+          <div class="passo-fn">Passo 1</div>
+          <h3>Escolha um pedido seu que voltou como conselho</h3>
+        </div>
+      </div>
+      <p>Vale qualquer pedido dos últimos dias em que a resposta estava certa e o trabalho
+      continuou com você. <strong>Copie a frase exata que você digitou</strong>, e não uma
+      versão melhorada dela de memória.</p>
+
+      <div class="destrave">
+        <div class="destrave-rot">Se travar, responda estas três</div>
+        <ul>
+          <li>Qual foi a última resposta que você leu inteira, achou boa, e não usou? Aquele
+          é o pedido.</li>
+          <li>Qual pedido seu terminou com ele perguntando "quer que eu faça?" Esse já se
+          declarou.</li>
+          <li>Não achou nenhum? Use um pedido que você faria hoje, escrito do jeito que
+          você escreveria sem pensar. É o mesmo exercício.</li>
+        </ul>
+        <div class="destrave-nao"><strong>Não conta como resposta:</strong> escrever de
+        novo o pedido "do jeito certo" e chamar isso de pedido original. O exercício
+        precisa dos dois lados, e o lado torto é o que ensina.</div>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">02</div>
+        <div>
+          <div class="passo-fn">Passo 2</div>
+          <h3>Preencha os quatro campos, começando pelo segundo</h3>
+        </div>
+      </div>
+      <p>A ordem de escrita não é a ordem de leitura. <strong>Comece pelo critério de
+      sucesso</strong>, porque é ele que revela o que o objetivo precisa dizer. Quem começa
+      pelo objetivo escreve uma frase bonita e descobre depois que ela não dá para
+      conferir.</p>
+
+      <div class="destrave">
+        <div class="destrave-rot">Se travar, responda estas três</div>
+        <ul>
+          <li>Se o resultado chegasse pronto agora, o que você olharia primeiro para saber
+          se serve? Aquilo é o critério.</li>
+          <li>O resultado é um arquivo? Então diga o nome dele e onde ele fica. Metade dos
+          objetivos vagos vira concreto só com isso.</li>
+          <li>Tem alguma coisa que não pode ser tocada? Se sim, é restrição e é obrigatória.
+          Se não, deixe o campo vazio de propósito.</li>
+        </ul>
+        <div class="destrave-nao"><strong>Não conta como resposta:</strong> "quero que
+        fique bom e completo". Não existe conferência para isso, e um critério que qualquer
+        resultado passa é o mesmo que critério nenhum.</div>
+      </div>
+    </div>
+
+    <div class="canvas solta" data-chave="canvas-m2a2-pedido">
+      <div class="canvas-topo">
+        <div>
+          <span class="rot">Canvas</span>
+          <h3 class="canvas-t">O meu pedido, de tarefa para resultado</h3>
+        </div>
+        <div class="canvas-estado">O rascunho fica salvo neste aparelho</div>
+      </div>
+
+      <div class="canvas-grade">
+        <div class="cv-campo">
+          <div class="cv-n">1</div>
+          <div>
+            <label class="cv-rot" for="cv-m2-objetivo">Objetivo: como é o resultado pronto</label>
+            <div class="cv-ex">Ex: um documento na pasta da área chamado pendencias-em-aberto, com uma linha por pendência</div>
+            <textarea id="cv-m2-objetivo" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">2</div>
+          <div>
+            <label class="cv-rot" for="cv-m2-criterio">Critério de sucesso: o que dá para conferir</label>
+            <div class="cv-ex">Ex: quatro colunas em toda linha, e nenhuma pendência sem a reunião de origem preenchida</div>
+            <textarea id="cv-m2-criterio" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">3</div>
+          <div>
+            <label class="cv-rot" for="cv-m2-insumos">Insumos: quais arquivos, pastas ou aplicativos</label>
+            <div class="cv-ex">Ex: os três relatórios de acompanhamento que estão na pasta da área</div>
+            <textarea id="cv-m2-insumos" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="cv-campo">
+          <div class="cv-n">4</div>
+          <div>
+            <label class="cv-rot" for="cv-m2-restricoes">Restrições: o que pular, o que não mudar</label>
+            <div class="cv-ex">Ex: não alterar os três relatórios originais, e não estimar data que não esteja escrita</div>
+            <textarea id="cv-m2-restricoes" rows="2"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="canvas-rodape">
+        <button class="btn-copiar" type="button" data-acao="linha">Copiar o meu pedido</button>
+        <button class="btn-fantasma" type="button" data-acao="apagar">Apagar o rascunho</button>
+        <p class="cv-nota">Os quatro campos juntos já são o pedido. Copie e cole no Claude
+        sem reescrever: pedido de resultado não precisa de frase de ligação.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-topo">
+        <div class="passo-n">03</div>
+        <div>
+          <div class="passo-fn">Passo 3 &middot; na tela</div>
+          <h3>Cole o pedido novo e confira pelo campo 2</h3>
+        </div>
+      </div>
+      <p>Volte ao Claude, na pasta que você criou na aula passada, e cole os quatro campos.
+      Quando a resposta voltar, <strong>não leia para ver se está boa</strong>: aplique o
+      critério de sucesso que você mesmo escreveu, item por item.</p>
+
+      <div class="destrave">
+        <div class="destrave-rot">Se travar, responda estas três</div>
+        <ul>
+          <li>O arquivo apareceu na pasta? Se não apareceu, o campo 1 ainda descreve uma
+          ação e não um resultado.</li>
+          <li>O critério passou em tudo? Se passou fácil demais, ele provavelmente é vago:
+          aperte um item e rode de novo.</li>
+          <li>Ele declarou algum buraco? Isso é sinal de que a restrição funcionou. Resposta
+          redonda sem nenhuma pendência é o que merece a segunda conferência.</li>
+        </ul>
+        <div class="destrave-nao"><strong>Não conta como resposta:</strong> ler a resposta,
+        achar boa e seguir. Sem aplicar o critério, você voltou a conferir por sensação, que
+        é exatamente o que o campo 2 existe para substituir.</div>
+      </div>
+
+      <div class="passo-ok">
+        <div class="passo-ok-rot">Deu certo se</div>
+        <p>existe um <strong>arquivo novo na sua pasta</strong> que não existia antes, e
+        você conseguiu dizer "passou" ou "não passou" olhando para o critério, sem precisar
+        pensar. Se ficou em dúvida, o critério ainda não é conferível, e é ele que se
+        reescreve, não o pedido inteiro.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="s06">
+    <div class="secao-topo">
+      <div class="secao-n">06</div>
+      <div>
+        <div class="secao-fn">Confira</div>
+        <h2>Uma versão de referência</h2>
+      </div>
+    </div>
+
+    <p><em>O seu vai ser diferente do meu, e tudo bem. Compare a estrutura, não o
+    conteúdo.</em></p>
+
+    <div class="cartao">
+      <span class="rot">O pedido original, do jeito que foi digitado</span>
+      <h4>"Dá uma olhada nos relatórios do trimestre e me diz o que está fora do esperado"</h4>
+      <p>Voltou uma leitura organizada, com quatro observações e uma pergunta no fim. Nada
+      errado, e nada feito: continuei sem o documento que eu precisava levar para a reunião.</p>
+    </div>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">Campos 1 e 2 &middot; objetivo e critério</span>
+        <ul class="lista">
+          <li><strong>Objetivo:</strong> um documento na pasta de indicadores chamado
+          <code>fora-do-esperado</code>, com uma linha por desvio</li>
+          <li><strong>Critério:</strong> cada linha traz o indicador, o valor esperado, o
+          valor apurado e a diferença em porcentagem. Nenhuma linha sem o mês de origem.
+          No máximo uma página</li>
+        </ul>
+      </div>
+      <div class="cartao">
+        <span class="rot">Campos 3 e 4 &middot; insumos e restrições</span>
+        <ul class="lista">
+          <li><strong>Insumos:</strong> as três planilhas de fechamento que estão na pasta
+          de indicadores</li>
+          <li><strong>Restrições:</strong> não alterar as planilhas. Desvio abaixo de 5%
+          fica de fora. Se um valor esperado não estiver na planilha, deixe em branco e
+          marque, sem estimar</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Repare que o campo 4 é o mais longo dos quatro.</strong> É
+    comum, e é bom sinal: restrição é onde mora o que você já aprendeu errando, e é o
+    campo que mais encurta a distância entre a primeira resposta e a resposta que serve.</p>
+
+    <div class="aviso">
+      <div class="aviso-t">O que separa este pedido do original</div>
+      <p>Não é o tamanho, e não é a educação. É que o original pedia <strong>uma
+      opinião</strong> ("me diz o que está fora do esperado") e este descreve <strong>um
+      arquivo</strong> que passa a existir, com um teste que qualquer pessoa aplica sem
+      falar comigo.</p>
+    </div>
+
+    <div class="verifique">
+      <div class="verifique-rot">Verificação de entendimento</div>
+      <p class="verifique-nota">Três perguntas fechadas. A segunda é a que mais gente erra, e errar nela faz a pessoa achar que basta escrever mais.</p>
+
+      <details class="vf">
+        <summary><span class="vf-n">1</span><span class="vf-p">"Deixe o relatório bem escrito e completo." Isso é critério de sucesso?</span></summary>
+        <div class="vf-corpo">
+          <p>Não. <strong>Critério é o que você consegue verificar</strong>, e não existe conferência para "bem escrito": qualquer resultado passa. "No máximo uma página, com uma linha por desvio e o mês de origem em todas" é critério. <em>Seção 03.</em></p>
+        </div>
+      </details>
+
+      <details class="vf">
+        <summary><span class="vf-n">2</span><span class="vf-p">Seu pedido voltou como recomendação. Escrever ele mais detalhado resolve?</span></summary>
+        <div class="vf-corpo">
+          <p>Não. <strong>Pedido de tarefa comprido continua sendo pedido de tarefa</strong>, e volta como recomendação comprida. O que muda a resposta é descrever o resultado pronto no lugar do caminho, e os dois têm quase o mesmo tamanho. <em>Seção 02.</em></p>
+        </div>
+      </details>
+
+      <details class="vf">
+        <summary><span class="vf-n">3</span><span class="vf-p">Por que a linguagem muda? É preferência de quem ensina, ou tem causa?</span></summary>
+        <div class="vf-corpo">
+          <p>Tem causa, e são duas: ele <strong>lê e escreve na sua pasta</strong> em vez de receber arquivo por arquivo, e <strong>entrega o arquivo pronto</strong> em vez de texto na tela. Com essas duas, descrever o arquivo pronto passa a fazer sentido. <em>Seção 03.</em></p>
+        </div>
+      </details>
+    </div>
+
+  </section>
+
+  <div class="ate-aqui">
+    <div class="ate-aqui-rot">A aula acaba aqui</div>
+  </div>
+  <p class="ate-aqui-nota">Você já tem o que precisa para usar isto amanhã: um pedido seu
+  reescrito em quatro campos, com um critério que dá para conferir. O que vem abaixo é
+  <strong>aprofundamento</strong>: leia agora se tiver cinco minutos, ou volte aqui na
+  primeira vez que um pedido seu voltar como conselho.</p>
+
+  <section class="secao" id="s07">
+    <div class="secao-topo">
+      <div class="secao-n">07</div>
+      <div>
+        <div class="secao-fn">Pegadinhas</div>
+        <h2>Onde quase todo mundo tropeça na primeira semana</h2>
+      </div>
+    </div>
+
+    <div class="aviso erro">
+      <div class="aviso-t">Achar que pedido de resultado é pedido comprido</div>
+      <p>O par das 15 fotos tem quase o mesmo número de palavras dos dois lados. Quem
+      conclui que precisa escrever mais acaba escrevendo <strong>um pedido de tarefa mais
+      detalhado</strong>, com as etapas numeradas, e recebe de volta a recomendação mais
+      bem organizada da vida. Os verbos entregam: revisar, analisar e recomendar pedem
+      opinião.</p>
+    </div>
+
+    <div class="aviso erro">
+      <div class="aviso-t">Deixar o critério de sucesso para depois</div>
+      <p>É o campo que todo mundo pula com pressa, e é o único que evita a segunda volta.
+      <strong>Sem ele, a conferência vira sensação</strong>: você lê a resposta, ela parece
+      boa, e o erro aparece na reunião. Com ele, a conferência leva vinte segundos e não
+      depende do seu humor naquele dia.</p>
+    </div>
+
+    <div class="aviso erro">
+      <div class="aviso-t">Conferir menos porque o resultado veio pronto</div>
+      <p>Arquivo pronto na pasta tem cara de trabalho terminado, e é justamente aí que a
+      conferência afrouxa. <strong>Entrega mais completa significa mais coisa para
+      conferir</strong>, e não menos: as quatro perguntas da aula 3 do nivelamento não
+      mudaram de lugar.</p>
+    </div>
+  </section>
+
+  <section class="secao" id="s08">
+    <div class="secao-topo">
+      <div class="secao-n">08</div>
+      <div>
+        <div class="secao-fn">A cerca</div>
+        <h2>Onde a linguagem de resultado vale a pena, e onde ela não alcança</h2>
+      </div>
+    </div>
+
+    <p>Três trabalhos em que o teto do chat aparece na hora, e a linguagem de resultado
+    resolve. Servem como régua para você reconhecer os seus.</p>
+
+    <div class="tabela solta">
+      <table>
+        <thead><tr>
+          <th>O trabalho</th><th>Por que o chat não dá conta</th><th>O que a linguagem de resultado descreve</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td>Mais de cem recibos, misturando arquivo digital e foto</td>
+            <td>São arquivos demais para uma conversa, e o resultado sairia como texto na
+            tela</td>
+            <td>Uma planilha com uma linha por recibo, e <strong>uma coluna marcando o que
+            ficou ilegível</strong></td>
+          </tr>
+          <tr>
+            <td>Um documento longo que precisa virar partes</td>
+            <td>O arquivo inteiro ocupa a conversa, e o recorte volta como sugestão de
+            recorte</td>
+            <td>Um arquivo por capítulo, na pasta, com o nome do capítulo</td>
+          </tr>
+          <tr>
+            <td>Uma apresentação em que tudo virou imagem</td>
+            <td>O chat descreve o que está na imagem, e descrição não se edita</td>
+            <td>A apresentação reconstruída <strong>com caixas de texto editáveis</strong>,
+            no lugar das imagens</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>Os três têm a mesma forma:</strong> muitos arquivos ou um
+    arquivo grande, e um resultado que precisa ser arquivo. Quando o seu trabalho tem essa
+    forma, o pedido de resultado é o que muda o dia. Quando o trabalho cabe numa resposta
+    lida na tela, o chat continua sendo o lugar certo.</p>
+
+    <div class="aviso atencao">
+      <div class="aviso-t">Duas coisas que não funcionam bem, e é melhor saber antes</div>
+      <p><strong>A busca na web não se força.</strong> No chat você liga e desliga a busca
+      quando quiser, inclusive no meio da conversa. No Cowork isso não está na sua mão, e
+      quando o pedido depende de informação de fora, o resultado fica menos previsível.</p>
+      <p><strong>A extensão de navegador ainda não compensa.</strong> Quem usa isso todo
+      dia desaconselha por três motivos medidos na prática: é lenta, para no meio da
+      tarefa, e consome muito do limite de uso.</p>
+      <p>As duas observações vêm de <strong>material de terceiro e de relato de uso</strong>,
+      e não de especificação do produto. Se a sua conta se comportar diferente, a conta
+      manda.</p>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">O que a linguagem não conserta</span>
+      <p><strong>Pedido de resultado com objetivo errado entrega o arquivo errado, mais
+      rápido.</strong> Descrever bem a chegada não ajuda quem escolheu a chegada errada, e
+      escolher é trabalho de gestão, não de ferramenta.</p>
+      <p><strong>Critério conferível não é critério suficiente.</strong> Ele garante que o
+      resultado tem a forma combinada. Se o número dentro dele veio de uma planilha suja,
+      o arquivo passa no critério e continua errado.</p>
+    </div>
+  </section>
+
+  <div class="checagem">
+    <span class="rot">Confira você mesmo</span>
+    <ul>
+      <li>Você escolheu um pedido seu de verdade, e copiou a frase original sem melhorar</li>
+      <li>O campo 1 descreve um resultado, e não uma ação que começa com um verbo de opinião</li>
+      <li>O campo 2 é conferível por outra pessoa, sem falar com você</li>
+      <li>O campo 4 está preenchido, ou está vazio de propósito porque não há o que proteger</li>
+      <li>Você rodou o pedido novo e apareceu um arquivo na sua pasta</li>
+    </ul>
+  </div>
+
+  <div class="fecho">
+    <div class="fecho-rot">Você sabe fazer isto agora</div>
+    <div class="fecho-sub">Confira sozinho: se algum item não estiver de pé, volte na seção que o cobre.</div>
+    <ul>
+      <li><span><strong>Você reconhece</strong> pelo verbo se o seu pedido descreve o caminho ou a chegada</span></li>
+      <li><span><strong>Você sabe</strong> as duas diferenças materiais que fazem a linguagem mudar</span></li>
+      <li><span><strong>Você escreve</strong> um critério de sucesso que outra pessoa consegue conferir</span></li>
+      <li><span><strong>Você reconhece</strong> o trabalho que tem a forma dos três casos, e o que continua sendo do chat</span></li>
+      <li><span><strong>O artefato:</strong> um pedido seu reescrito em quatro campos, e o arquivo que ele produziu</span></li>
+    </ul>
+    <div class="fecho-nota">Com a aula anterior você deu endereço às regras. Com esta, você parou de descrever o caminho que elas já resolvem.</div>
+  </div>
+
+  <div class="gancho">
+    <span class="rot">A trava que esta aula não resolve</span>
+    <p>Você sabe pedir resultado, e o resultado aparece na pasta. <strong>O que você ainda
+    não sabe é quais dos seus trabalhos merecem isso</strong>, e como um trabalho de
+    verdade atravessa do começo ao fim: os arquivos que entram, as regras que pesam, e o
+    que sobra para conferir. É isso que os <strong>estudos de caso</strong> deste módulo
+    mostram, com um trabalho inteiro em vez de um pedido.</p>
+  </div>
