@@ -55,7 +55,10 @@ SEQUENCIA = ["index", "nivelamento",
              "m1", "m1a1-qual-trabalho", "m1a2-recomecar",
              "m1a3-montar-assistente", "m1a4-onde-a-regra-mora",
              "m1a5-quando-compensa",
-             "m2", "m2a1-as-quatro-camadas", "m2a2-a-linguagem-muda"]
+             "m2", "m2a1-as-quatro-camadas", "m2a2-a-linguagem-muda",
+             "m2a3-mao-na-massa",
+             "m2e1-instrucao-e-memoria", "m2e2-organizar-materiais",
+             "m2e3-tom-de-voz", "m2e4-tres-arquivos"]
 
 # ---------------------------------------------------------------------------
 # A TRILHA · o indice do curso, e a unica lista escrita a mao neste arquivo
@@ -108,6 +111,10 @@ TRILHA = [
     ("Módulo 2", [
         ("m2a1-as-quatro-camadas", "Onde as regras moram"),
         ("m2a2-a-linguagem-muda",     "A linguagem muda"),
+        # 🔴 TERCEIRA, e ela nao e de fundamento nem declara tipo. E o INDICE
+        # do bloco de pratica: quatro exercicios que constroem uma pasta so.
+        # Segue a forma das capas (m1, m2), que tambem nao declaram tipo.
+        ("m2a3-mao-na-massa",         "Mão na massa"),
     ]),
 ]
 
@@ -352,7 +359,7 @@ PAGINAS = {
         h1="A regra sai da conversa",
         sub="O que você escreveu dentro do assistente vira arquivo dentro da pasta, e o "
             "pedido passa a descrever a chegada em vez do caminho.",
-        selos=["2 aulas", "Cowork"],
+        selos=["2 aulas de fundamento", "1 bloco de prática", "Cowork"],
         migalha=[("../", "Imersão em IA com Claude"),
                  (None, "Módulo 2")],
     ),
@@ -379,6 +386,73 @@ PAGINAS = {
         migalha=[("../", "Imersão em IA com Claude"),
                  ("../m2/", "Módulo 2"),
                  (None, "A linguagem muda")],
+    ),
+    # 🔴 AS CINCO NAO DECLARAM tipo=, e isso e decisao medida, nao esquecimento.
+    # O contrato de aula-pratica exige .arquivo, .passo e .prompt SEMPRE. A m2a3 e
+    # uma grade de cards e a m2e2 nao tem nada para baixar, por decisao do Rafael
+    # em 10/09. Sem tipo, as cinco seguem as 15 paginas que ja vivem assim aqui:
+    # as tres capas e as nove paginas de caso. O que se perde e a bolinha em
+    # accent no kicker, e a m2a3 compensa com selo no heroi, como as capas fazem.
+    "m2a3-mao-na-massa": dict(
+        titulo="Mão na massa",
+        kicker="Módulo 2 · aula 2.3",
+        h1="Mão na massa",
+        sub="Quatro exercícios que constroem a mesma pasta: as regras que ela guarda, a "
+            "arrumação, o seu jeito de escrever, e o relatório que sai de três formatos.",
+        selos=["4 exercícios", "Uma pasta só", "Cowork"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../m2/", "Módulo 2"),
+                 (None, "Mão na massa")],
+    ),
+    "m2e1-instrucao-e-memoria": dict(
+        titulo="Os dois arquivos que fazem a pasta lembrar",
+        kicker="Exercício 1 de 4 · Módulo 2",
+        h1="Os dois arquivos que fazem a pasta lembrar",
+        sub="Um arquivo guarda o que você quer que ele sempre faça, o outro guarda o que "
+            "ele foi aprendendo sobre você. E a pergunta que decide em qual dos dois cada "
+            "coisa entra.",
+        selos=["Sem conector", "Três arquivos prontos"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../m2/", "Módulo 2"),
+                 ("../m2a3-mao-na-massa/", "Mão na massa"),
+                 (None, "Os dois arquivos que fazem a pasta lembrar")],
+    ),
+    "m2e2-organizar-materiais": dict(
+        titulo="A pasta que ninguém abre há dois anos",
+        kicker="Exercício 2 de 4 · Módulo 2",
+        h1="A pasta que ninguém abre há dois anos",
+        sub="Dezenas de arquivos com nome que não diz nada. O pedido que arruma tudo, e a "
+            "linha dentro dele que impede o estrago.",
+        selos=["Nada para baixar", "Ele propõe antes"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../m2/", "Módulo 2"),
+                 ("../m2a3-mao-na-massa/", "Mão na massa"),
+                 (None, "A pasta que ninguém abre há dois anos")],
+    ),
+    "m2e3-tom-de-voz": dict(
+        titulo="Ele lê como você escreve, e guarda",
+        kicker="Exercício 3 de 4 · Módulo 2",
+        h1="Ele lê como você escreve, e guarda",
+        sub="Os seus e-mails já enviados viram um arquivo com o seu jeito de escrever, e "
+            "os rascunhos seguintes saem nele. Com conector, ou com o arquivo de exemplo.",
+        selos=["Gmail ou Outlook", "Tem plano alternativo"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../m2/", "Módulo 2"),
+                 ("../m2a3-mao-na-massa/", "Mão na massa"),
+                 (None, "Ele lê como você escreve, e guarda")],
+    ),
+    "m2e4-tres-arquivos": dict(
+        titulo="Três formatos entram, dois artefatos saem",
+        kicker="Exercício 4 de 4 · Módulo 2",
+        h1="Três formatos entram, dois artefatos saem",
+        sub="Três times mandam o mesmo update em três formatos. Sai um relatório de uma "
+            "página e uma apresentação de cinco slides, e um número que não bate fica "
+            "marcado em vez de escolhido.",
+        selos=["Três formatos", "Um número não bate"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 ("../m2/", "Módulo 2"),
+                 ("../m2a3-mao-na-massa/", "Mão na massa"),
+                 (None, "Três formatos entram, dois artefatos saem")],
     ),
     "caso-mapa": dict(
         titulo="A norma da casa vira procedimento",

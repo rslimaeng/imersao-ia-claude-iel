@@ -1,0 +1,463 @@
+  <div class="nesta-aula">
+    <div class="nesta-aula-rot">Neste exercício</div>
+    <div class="nesta-aula-sub">Ao final, você será capaz de:</div>
+    <ul>
+      <li>Deixar na sua pasta os dois arquivos que ele lê antes de responder</li>
+      <li>Decidir, com dois testes, em qual dos dois cada coisa entra</li>
+      <li>Ver uma informação que você deu hoje voltar numa conversa de amanhã</li>
+    </ul>
+  </div>
+
+  <section class="passo" id="p1">
+    <div class="passo-topo">
+      <div class="passo-n">01</div>
+      <div>
+        <div class="passo-fn">Passo 1</div>
+        <h2>Aponte o Claude para uma pasta sua</h2>
+      </div>
+    </div>
+
+    <p>Escolha uma pasta do seu computador que já tenha material de um trabalho seu. Não
+    precisa ser a mais importante: <strong>precisa ser uma que você conheça bem</strong>,
+    porque no fim você vai conferir se o que ele escreveu sobre o seu trabalho está certo.</p>
+
+    <p>Se você fez a aula 2.1, essa pasta já existe. Se não fez, crie uma agora com duas
+    ou três subpastas dentro, uma por área do seu trabalho.</p>
+
+    <div class="passo-ok">
+      <div class="passo-ok-rot">Deu certo se</div>
+      <p>ele consegue listar os arquivos que estão lá quando você pergunta o que tem na
+      pasta. Se ele responder de memória, ou pedir para você anexar alguma coisa, a pasta
+      não foi liberada e o resto do exercício não funciona.</p>
+    </div>
+  </section>
+
+  <section class="passo" id="p2">
+    <div class="passo-topo">
+      <div class="passo-n">02</div>
+      <div>
+        <div class="passo-fn">Passo 2</div>
+        <h2>Baixe os três arquivos e largue na raiz da pasta</h2>
+      </div>
+    </div>
+
+    <p>Os dois primeiros são o par que faz a pasta lembrar. O terceiro é uma habilidade
+    que você instala uma vez e chama pelo nome quando quiser.</p>
+
+    <div class="arquivo">
+      <div>
+        <div class="arq-fn">As regras da pasta</div>
+        <div class="arq-nome">
+          <span class="arq-tipo">md</span>
+          <code>CLAUDE.md</code>
+        </div>
+        <p>O que ele lê no começo de toda conversa desta pasta. Vai na raiz, com esse nome
+        exato. É onde mora o que ele deve <strong>sempre</strong> fazer.</p>
+      </div>
+      <div class="arq-acoes">
+        <a class="btn" href="../_arquivos/modelo-claude-md.md" download="CLAUDE.md">Baixar</a>
+      </div>
+    </div>
+
+    <details class="gabarito">
+      <summary>Ver e copiar o conteúdo, sem baixar</summary>
+      <div class="gabarito-corpo">
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">CLAUDE.md</span>
+            <button class="btn-copiar" type="button" data-alvo="arq-m2e1-claude">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="arq-m2e1-claude"># As regras desta pasta
+
+## Memória
+
+No começo de toda sessão, leia o MEMORY.md antes de responder. Use o que achar
+para informar o trabalho. Não anuncie o que leu, só trabalhe informado por isso.
+
+Quando eu disser "lembre disso", escreva a informação no MEMORY.md na hora e me
+confirme que escreveu.
+
+**Onde cada coisa vai.** Aplique dois testes antes de salvar:
+
+- **Teste 1 · isso prescreve um comportamento?** Procure por "sempre", "nunca",
+  "antes de fazer X, faça Y". Se sim, vai neste arquivo, na seção certa.
+- **Teste 2 · isso descreve um fato que pode mudar?** Contato, status de projeto,
+  decisão, coisa que eu mandei você guardar. Se sim, vai no MEMORY.md.
+- **Na dúvida, diga qual dos dois você acha que é e me peça para confirmar.**
+
+## Preferências
+
+- Escreva em tom profissional, mas de conversa. Se ficar com cara de comunicado
+  interno, reescreva.
+- Respostas curtas, menos de 300 palavras, a não ser que eu peça mais detalhe.
+- Lista em tópicos; explicação em parágrafo.
+- Me dê uma recomendação forte. Não me dê três opções, a menos que eu peça.
+
+## Regras
+
+- **Antes de apagar, sobrescrever ou renomear qualquer arquivo, me mostre o que
+  vai mudar e espere eu confirmar.**
+- Faça as perguntas necessárias antes de começar uma tarefa complexa.
+- Se você não tiver certeza de alguma coisa, diga. Não chute.
+- Antes de escrever qualquer texto no meu nome, leia o voice-principles.md.
+
+## Mapa de rotas
+
+Uma linha por área de trabalho que você criar. No começo da tarefa, o Claude
+consulta esta tabela para saber qual pasta carregar.
+
+| Área | Carregue quando eu... |
+|---|---|
+| [Respostas de e-mail] | [...precisar escrever, responder ou revisar e-mail] |
+
+## Materiais de consulta
+
+Arquivos que só são lidos quando a condição acontece. É o que segura o consumo.
+
+| Arquivo | Leia quando... |
+|---|---|
+| voice-principles.md | For escrever qualquer texto no meu nome |</pre>
+        </div>
+      </div>
+    </details>
+
+    <div class="arquivo">
+      <div>
+        <div class="arq-fn">O caderno da pasta</div>
+        <div class="arq-nome">
+          <span class="arq-tipo">md</span>
+          <code>MEMORY.md</code>
+        </div>
+        <p>O que ele foi aprendendo sobre você e sobre o trabalho. Começa quase vazio, e
+        cresce sozinho conforme você disser <strong>lembre disso</strong>.</p>
+      </div>
+      <div class="arq-acoes">
+        <a class="btn" href="../_arquivos/MEMORY.md" download>Baixar</a>
+      </div>
+    </div>
+
+    <details class="gabarito">
+      <summary>Ver e copiar o conteúdo, sem baixar</summary>
+      <div class="gabarito-corpo">
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">MEMORY.md</span>
+            <button class="btn-copiar" type="button" data-alvo="arq-m2e1-memory">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="arq-m2e1-memory"># O caderno desta pasta
+
+Atualizado em: [data]
+
+## Projetos ativos
+
+O que você está tocando agora. Diga "adiciona isso aos projetos ativos" quando
+começar algo, e "arquiva isso" quando terminar.
+
+- [Exemplo: Fechamento mensal de setembro, planilha recebida, falta conferir
+  as três unidades que vieram sem anexo.]
+
+## Memória
+
+O que o Claude foi aprendendo sobre você. Diga "lembre disso" em qualquer
+conversa para entrar aqui. As linhas abaixo são só o formato, troque pelas suas.
+
+- [Exemplo: o relatório mensal sai sempre na primeira terça.]
+- [Exemplo: quem aprova o texto final é a coordenação, não a diretoria.]</pre>
+        </div>
+      </div>
+    </details>
+
+    <div class="arquivo">
+      <div>
+        <div class="arq-fn">A auditoria de fim de sessão</div>
+        <div class="arq-nome">
+          <span class="arq-tipo">skill</span>
+          <code>auditoria-de-sessao.skill</code>
+        </div>
+        <p>Instala com um clique e passa a existir em qualquer pasta. No fim de uma
+        conversa, ela varre o que foi dito e propõe o que ainda não está guardado.</p>
+      </div>
+      <div class="arq-acoes">
+        <a class="btn" href="../_arquivos/auditoria-de-sessao.skill" download>Baixar</a>
+      </div>
+    </div>
+
+    <details class="gabarito">
+      <summary>Ver e copiar o conteúdo, sem baixar</summary>
+      <div class="gabarito-corpo">
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">SKILL.md &middot; o que a habilidade faz</span>
+            <button class="btn-copiar" type="button" data-alvo="arq-m2e1-skill">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="arq-m2e1-skill">---
+name: auditoria-de-sessao
+description: "Auditoria de fim de sessão que varre a conversa atrás de correções, preferências e decisões que ainda não foram salvas, e propõe onde guardar cada uma. Use sempre que a pessoa disser auditoria de sessão, audita essa sessão, o que a gente esqueceu, antes de encerrar, ou fim de sessão. Funciona em qualquer pasta que tenha um CLAUDE.md e um MEMORY.md na raiz."
+---
+
+# Auditoria de sessão
+
+Uma varredura leve no fim de qualquer sessão. Ela pega o que você disse durante a
+conversa e que deveria ficar guardado, para você não precisar dizer de novo.
+
+## O que esta skill faz
+
+Duas coisas, e só estas duas:
+
+1. **Procura o que ficou de fora.** Varre a conversa atrás de correções que você
+   fez, preferências que você declarou e decisões que você tomou e que ainda não
+   estão escritas nos arquivos da pasta.
+2. **Propõe onde salvar cada uma.** Para cada achado, diz em qual arquivo e em
+   qual seção ele entra, e com que texto exato. Você aprova ou pula, um por um.
+
+Só isso. Sem reorganizar pasta, sem limpeza, sem acompanhar progresso. A pergunta
+é uma só: *aprendi alguma coisa hoje que deveria ficar guardada?*
+
+## Passo 1 · Descubra a pasta
+
+Ache a raiz da pasta montada procurando um CLAUDE.md. Leia o que existir:
+
+1. O CLAUDE.md da raiz
+2. O MEMORY.md da raiz
+3. Qualquer CLAUDE.md e MEMORY.md de subpasta usados nesta sessão
+4. Qualquer material de consulta carregado nesta sessão
+
+## Passo 2 · Varra a conversa
+
+Do começo ao fim, procurando quatro sinais:
+
+**A. Correções.** Você mudou uma palavra, reescreveu uma frase, ajustou um formato,
+disse "não, faz assim". Cada correção esconde uma regra.
+*Exemplo: você trocou "Atenciosamente" por "Abraço" num rascunho. A regra é
+"assinar com Abraço para contato interno".*
+
+**B. Preferências declaradas.** "Sempre", "nunca", "prefiro", "de agora em diante",
+"não faz isso".
+
+**C. Decisões.** Escolhas que valem para o trabalho futuro: um prazo, uma regra do
+projeto, uma ambiguidade resolvida, para você não ser perguntado de novo.
+
+**D. Contexto novo.** Um fato sobre você, seu trabalho ou sua rotina que ainda não
+estava escrito em lugar nenhum.
+
+## Passo 3 · Descarte o que já está escrito
+
+Confira cada achado contra os arquivos que você leu no passo 1. Pule o que já está
+lá. Só apresente o que é genuinamente novo.
+
+## Passo 4 · Apresente
+
+Um por vez, neste formato:
+
+```
+**[Número]. [O que aconteceu]**
+
+- **A regra ou o fato:** [o texto exato para salvar]
+- **Onde vai:** [arquivo e seção]
+- **Por quê:** [uma frase sobre por que isso importa da próxima vez]
+```
+
+Separe em dois grupos: **Recomendo** (o caso é claro) e **Sua escolha** (tem
+julgamento no meio, ou o texto pode ser escrito de outro jeito).
+
+Se não achou nada, diga: *"Sessão limpa. Nada novo para guardar."*
+**Não invente achado para ter o que mostrar.**
+
+## Passo 5 · Aplique o que foi aprovado
+
+Depois que a pessoa aprovar (tudo, parte ou nada), escreva nos arquivos e confirme
+o que foi escrito e onde.
+
+**Nunca escreva sem aprovação.** Apresente primeiro e espere.</pre>
+        </div>
+      </div>
+    </details>
+
+    <div class="passo-ok">
+      <div class="passo-ok-rot">Deu certo se</div>
+      <p>os dois arquivos de texto estão na <strong>raiz</strong> da pasta, e não dentro
+      de uma subpasta. Regra que mora um andar abaixo vale só para aquele andar, e foi
+      isso que a aula 2.1 chamou de camada.</p>
+    </div>
+  </section>
+
+  <section class="passo" id="p3">
+    <div class="passo-topo">
+      <div class="passo-n">03</div>
+      <div>
+        <div class="passo-fn">Passo 3</div>
+        <h2>Peça para ele adaptar os dois ao seu trabalho</h2>
+      </div>
+    </div>
+
+    <p>Os arquivos que você baixou são um modelo, com exemplo entre colchetes. Eles não
+    sabem nada sobre você ainda. <strong>Quem preenche não é você, é ele</strong>, com as
+    suas respostas.</p>
+
+    <div class="prompt">
+      <div class="prompt-barra">
+        <span class="prompt-rot">o pedido de adaptação</span>
+        <button class="btn-copiar" type="button" data-alvo="p-m2e1-adaptar">Copiar</button>
+      </div>
+      <pre class="prompt-txt" id="p-m2e1-adaptar">Leia o CLAUDE.md e o MEMORY.md que estão na raiz desta pasta, e olhe o que já existe nas subpastas para entender que trabalho é este.
+
+O que eu preciso: as perguntas necessárias para adaptar os dois arquivos ao meu trabalho. Pergunte primeiro, todas de uma vez, e só depois reescreva os dois com as minhas respostas.
+
+Restrições: não invente nada sobre mim. Onde eu não responder, deixe o campo como está, entre colchetes. Não apague as seções do modelo, mesmo as que ficarem vazias.
+
+Na dúvida: diga em qual dos dois arquivos você acha que a informação entra, e me peça para confirmar antes de escrever.</pre>
+    </div>
+
+    <p class="fig-leg"><strong>O segundo parágrafo é o que muda o resultado.</strong> Sem
+    ele, ele responde adaptando o que conseguir deduzir dos nomes dos arquivos, e o que
+    volta parece certo. Com ele, o que volta é seu.</p>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">Teste 1 &middot; isso prescreve um comportamento?</span>
+        <p>Procure por <strong>sempre</strong>, <strong>nunca</strong>, <strong>antes de
+        fazer X, faça Y</strong>. Se sim, vai no <code>CLAUDE.md</code>, na seção certa.</p>
+        <p style="margin:8px 0 0">Exemplo: <em>respostas com menos de 300 palavras</em>.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Teste 2 &middot; isso descreve um fato que pode mudar?</span>
+        <p>Contato, status de projeto, decisão, coisa que você mandou guardar. Se sim, vai
+        no <code>MEMORY.md</code>.</p>
+        <p style="margin:8px 0 0">Exemplo: <em>o relatório mensal sai na primeira terça</em>.</p>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Na dúvida, os dois testes dão a mesma resposta: pergunte.</strong>
+    O modelo já traz essa terceira linha escrita, e é ela que impede o arquivo de regras de
+    virar um depósito de fatos que envelhecem.</p>
+
+    <div class="passo-ok">
+      <div class="passo-ok-rot">Deu certo se</div>
+      <p>ele fez perguntas <strong>antes</strong> de reescrever, e se o
+      <code>CLAUDE.md</code> que voltou não tem nenhuma data, nenhum nome e nenhum status
+      dentro. Se tiver, aquilo era do <code>MEMORY.md</code> e o teste 2 não foi aplicado.</p>
+    </div>
+  </section>
+
+  <section class="passo" id="p4">
+    <div class="passo-topo">
+      <div class="passo-n">04</div>
+      <div>
+        <div class="passo-fn">Passo 4</div>
+        <h2>Teste a memória, e é aqui que a moeda cai</h2>
+      </div>
+    </div>
+
+    <p>Leva menos de um minuto e é a única prova que vale. Três movimentos:</p>
+
+    <div class="escada solta">
+      <div class="degrau">
+        <div class="degrau-rot">
+          <span class="quando">Agora</span>
+          <span class="detalhe">na conversa que já está aberta</span>
+        </div>
+        <div class="degrau-corpo">
+          <p>Diga: <strong>lembre disso: o relatório mensal sai sempre na primeira
+          terça</strong>. Troque pela informação que for verdade no seu trabalho.</p>
+        </div>
+      </div>
+      <div class="degrau">
+        <div class="degrau-rot">
+          <span class="quando">Em seguida</span>
+          <span class="detalhe">antes de fechar</span>
+        </div>
+        <div class="degrau-corpo">
+          <p>Abra o <code>MEMORY.md</code> no seu computador. A linha está lá, escrita, na
+          seção de memória. Não é uma promessa de lembrar: é um arquivo que mudou.</p>
+        </div>
+      </div>
+      <div class="degrau">
+        <div class="degrau-rot">
+          <span class="quando">Depois</span>
+          <span class="detalhe">em uma conversa nova</span>
+        </div>
+        <div class="degrau-corpo">
+          <p>Feche a conversa, abra outra na mesma pasta e pergunte quando sai o relatório
+          mensal. Ele responde sem você ter contado de novo.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>O que faz a diferença é o segundo degrau, não o
+    terceiro.</strong> Ver o arquivo mudar é o que mostra onde a memória mora. Sem abrir o
+    arquivo, o terceiro degrau parece mágica, e mágica ninguém consegue consertar quando
+    dá errado.</p>
+
+    <div class="passo-ok">
+      <div class="passo-ok-rot">Deu certo se</div>
+      <p>a linha apareceu no <code>MEMORY.md</code> e a conversa nova respondeu certo. Se
+      a conversa nova errou e o arquivo estava certo, a pasta liberada não é a mesma: veja
+      se a segunda conversa está apontando para o mesmo lugar.</p>
+    </div>
+  </section>
+
+  <section class="passo" id="p5">
+    <div class="passo-topo">
+      <div class="passo-n">05</div>
+      <div>
+        <div class="passo-fn">Passo 5</div>
+        <h2>Feche a sessão com a auditoria</h2>
+      </div>
+    </div>
+
+    <p>Durante uma conversa você corrige, escolhe e decide dezenas de coisas, e quase
+    nenhuma vira arquivo. A auditoria existe para isso: no fim, chame
+    <strong>auditoria de sessão</strong> e ela varre a conversa atrás de quatro sinais.</p>
+
+    <div class="grade grade-2 solta">
+      <div class="cartao">
+        <span class="rot">Correções</span>
+        <p>Você trocou uma palavra ou disse "não, faz assim". Cada correção esconde uma regra.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Preferências</span>
+        <p>Sempre, nunca, prefiro, de agora em diante, não faz isso.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Decisões</span>
+        <p>Escolhas que valem para o trabalho futuro, para você não ser perguntado de novo.</p>
+      </div>
+      <div class="cartao">
+        <span class="rot">Contexto novo</span>
+        <p>Um fato sobre você ou sobre a sua rotina que não estava escrito em lugar nenhum.</p>
+      </div>
+    </div>
+
+    <p class="fig-leg"><strong>Ela propõe, e nunca escreve sozinha.</strong> Cada achado
+    vem com o texto exato, o arquivo e a seção, e você aprova ou pula um por um. Quando
+    não achou nada, ela diz que a sessão está limpa em vez de inventar achado.</p>
+
+    <div class="passo-ok">
+      <div class="passo-ok-rot">Deu certo se</div>
+      <p>ela apresentou os achados separados em <strong>recomendo</strong> e <strong>sua
+      escolha</strong>, e esperou você aprovar antes de tocar em qualquer arquivo. Se ela
+      já escreveu, a habilidade não foi instalada e ele improvisou uma parecida.</p>
+    </div>
+  </section>
+
+  <div class="aviso atencao">
+    <div class="aviso-t">A linha que impede o estrago, e ela vale a partir de agora</div>
+    <p>O modelo de regras traz esta, literal: <strong>antes de apagar, sobrescrever ou
+    renomear qualquer arquivo, me mostre o que vai mudar e espere eu confirmar.</strong></p>
+    <p>É a rodinha de bicicleta desta pasta. Ela custa um clique a mais em cada operação e
+    devolve isso na primeira vez que a proposta dele estiver errada. <strong>O exercício 2
+    é o primeiro lugar onde ela vale dinheiro</strong>, porque lá dezenas de arquivos se
+    movem de uma vez. Tire quando pegar prática, e não antes.</p>
+  </div>
+
+  <div class="fecho">
+    <div class="fecho-rot">Você sabe fazer isto agora</div>
+    <div class="fecho-sub">Confira sozinho: se algum item não estiver de pé, volte no passo que o cobre.</div>
+    <ul>
+      <li><span><strong>Você tem</strong> o arquivo de regras e o caderno na raiz de uma pasta sua</span></li>
+      <li><span><strong>Você decide</strong>, com dois testes, em qual dos dois cada coisa entra</span></li>
+      <li><span><strong>Você viu</strong> uma linha entrar no caderno e voltar numa conversa nova</span></li>
+      <li><span><strong>Você fecha</strong> a sessão com a auditoria, e ela propõe antes de escrever</span></li>
+      <li><span><strong>O artefato:</strong> uma pasta que sabe as suas regras e guarda o que você já disse</span></li>
+    </ul>
+  </div>
