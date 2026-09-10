@@ -3246,54 +3246,37 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       </div>
     </div>
 
-    <div class="escada solta">
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">Camada 1</div>
-          <div class="detalhe">vale em tudo</div>
-        </div>
-        <div class="degrau-corpo">
-          <h4>Instruções globais</h4>
-          <p>Em&nbsp;<strong>Configurações &rsaquo; Cowork &rsaquo; Instruções globais</strong>.
-          Valem em&nbsp;todo trabalho, em&nbsp;toda pasta, sempre. É onde&nbsp;entra como você quer ser
-          tratado, e&nbsp;não&nbsp;o&nbsp;que&nbsp;você faz.</p>
-        </div>
-      </div>
-      <div class="escada-seta" aria-hidden="true">&darr;</div>
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">Camada 2</div>
-          <div class="detalhe">vale na pasta de cima</div>
-        </div>
-        <div class="degrau-corpo">
+    <div class="aninhado solta">
+      <div class="an">
+        <span class="an-rot">Camada 1 &middot; vale em tudo</span>
+        <h4>Instruções globais</h4>
+        <p>Em&nbsp;<strong>Configurações &rsaquo; Cowork &rsaquo; Instruções globais</strong>.
+        Valem em&nbsp;todo trabalho, em&nbsp;toda pasta, sempre. É onde&nbsp;entra como você quer ser
+        tratado, e&nbsp;não&nbsp;o&nbsp;que&nbsp;você faz.</p>
+
+        <div class="an">
+          <span class="an-rot">Camada 2 &middot; vale na pasta de cima</span>
           <h4>O&nbsp;arquivo de&nbsp;regras da&nbsp;pasta de&nbsp;cima</h4>
           <p>Um&nbsp;<code>CLAUDE.md</code> na&nbsp;pasta que&nbsp;contém as&nbsp;outras. Vale em&nbsp;tudo que&nbsp;está
           dentro dela. É onde&nbsp;mora o&nbsp;que&nbsp;é comum às&nbsp;suas&nbsp;áreas: como você escreve, o&nbsp;que&nbsp;você nunca faz, onde&nbsp;as&nbsp;coisas ficam.</p>
+
+          <div class="an">
+            <span class="an-rot">Camada 3 &middot; vale numa área só</span>
+            <h4>O&nbsp;arquivo de&nbsp;regras daquele trabalho</h4>
+            <p>Outro <code>CLAUDE.md</code>, dentro da&nbsp;pasta de&nbsp;uma&nbsp;área só.&nbsp;Vale ali. É onde&nbsp;mora o&nbsp;que&nbsp;só&nbsp;faz sentido naquele trabalho, e&nbsp;é a&nbsp;camada que&nbsp;mais cresce com&nbsp;o&nbsp;tempo.</p>
+          </div>
         </div>
       </div>
-      <div class="escada-seta" aria-hidden="true">&darr;</div>
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">Camada 3</div>
-          <div class="detalhe">vale numa área só</div>
-        </div>
-        <div class="degrau-corpo">
-          <h4>O&nbsp;arquivo de&nbsp;regras daquele trabalho</h4>
-          <p>Outro <code>CLAUDE.md</code>, dentro da&nbsp;pasta de&nbsp;uma&nbsp;área só.&nbsp;Vale ali. É onde&nbsp;mora o&nbsp;que&nbsp;só&nbsp;faz sentido naquele trabalho, e&nbsp;é a&nbsp;camada que&nbsp;mais cresce com&nbsp;o&nbsp;tempo.</p>
-        </div>
-      </div>
-      <div class="escada-seta" aria-hidden="true">&darr;</div>
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">Camada 4</div>
-          <div class="detalhe">vale uma vez só</div>
-        </div>
-        <div class="degrau-corpo">
-          <h4>O&nbsp;que&nbsp;você digita no&nbsp;pedido</h4>
-          <p>Vale naquela vez, e&nbsp;some quando&nbsp;a&nbsp;conversa fecha. É a&nbsp;camada que&nbsp;você já&nbsp;usa
-          desde&nbsp;o&nbsp;nivelamento, e&nbsp;a&nbsp;única que&nbsp;exige você presente.</p>
-        </div>
-      </div>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Camada 4 &middot; vale uma vez só, e por isso ela fica fora da caixa</span>
+      <h4>O&nbsp;que&nbsp;você digita no&nbsp;pedido</h4>
+      <p>Vale naquela vez, e&nbsp;some quando&nbsp;a&nbsp;conversa fecha. É a&nbsp;camada que&nbsp;você já&nbsp;usa
+      desde&nbsp;o&nbsp;nivelamento, e&nbsp;a&nbsp;única que&nbsp;exige você presente.</p>
+      <p><strong>Ela não&nbsp;aparece no&nbsp;desenho acima de&nbsp;propósito:</strong> as&nbsp;três caixas são
+      lugares onde&nbsp;texto fica guardado, e&nbsp;esta não&nbsp;guarda nada. Desenhar ela como uma&nbsp;quarta
+      caixa seria dizer que&nbsp;alguma coisa mora lá.</p>
     </div>
 
     <p class="fig-leg"><strong>Repare que&nbsp;a&nbsp;camada 4 é a&nbsp;única que&nbsp;some.</strong> As&nbsp;três
@@ -3496,14 +3479,36 @@ Quando eu disser "lembre disso", escreva no MEMORY.md imediatamente e confirme.<
     <p><strong>Mapa em&nbsp;uma&nbsp;frase:</strong> quando&nbsp;você digita a&nbsp;linha, ele junta o&nbsp;que&nbsp;precisa (o&nbsp;calendário e&nbsp;a&nbsp;transcrição da&nbsp;reunião), carrega as&nbsp;regras que&nbsp;já&nbsp;estão
     escritas naquela pasta, e&nbsp;entrega o&nbsp;e-mail escrito.</p>
 
-    <div class="cadeia solta">
-      <span class="no entrada">Uma linha digitada</span>
-      <span class="no-seta" aria-hidden="true">&rarr;</span>
-      <span class="no">Junta: calendário e transcrição</span>
-      <span class="no-seta" aria-hidden="true">&rarr;</span>
-      <span class="no">Carrega: as regras da pasta</span>
-      <span class="no-seta" aria-hidden="true">&rarr;</span>
-      <span class="no saida">Entrega: o e-mail pronto</span>
+    <div class="fluxo solta">
+      <div class="fl">
+        <span class="fl-quem">É seu</span>
+        <div class="fl-n">01 &middot; o pedido</div>
+        <h4>A&nbsp;linha digitada</h4>
+        <p>Uma&nbsp;frase, e&nbsp;é tudo que&nbsp;você escreve. Nenhum arquivo anexado, nenhuma regra
+        recolada.</p>
+      </div>
+      <div class="fl-seta" aria-hidden="true">&rarr;</div>
+      <div class="fl">
+        <span class="fl-quem">Ele junta</span>
+        <div class="fl-n">02 &middot; os insumos</div>
+        <h4>Calendário e&nbsp;transcrição</h4>
+        <p>A&nbsp;reunião das&nbsp;14h, no&nbsp;seu&nbsp;calendário, e&nbsp;o&nbsp;arquivo da&nbsp;transcrição que&nbsp;já&nbsp;está na&nbsp;pasta daquele trabalho.</p>
+      </div>
+      <div class="fl-seta" aria-hidden="true">&rarr;</div>
+      <div class="fl">
+        <span class="fl-quem">Já estava escrito</span>
+        <div class="fl-n">03 &middot; o contexto</div>
+        <h4>As&nbsp;regras das&nbsp;camadas</h4>
+        <p>As&nbsp;instruções globais e&nbsp;os&nbsp;dois <code>CLAUDE.md</code>, lidos sem&nbsp;você pedir.
+        É o&nbsp;que&nbsp;você montou na&nbsp;seção anterior.</p>
+      </div>
+      <div class="fl-seta" aria-hidden="true">&rarr;</div>
+      <div class="fl">
+        <span class="fl-quem">É seu</span>
+        <div class="fl-n">04 &middot; a entrega</div>
+        <h4>O&nbsp;e-mail</h4>
+        <p>Escrito e&nbsp;pronto, no&nbsp;tom das&nbsp;suas&nbsp;preferências, para&nbsp;você conferir antes de&nbsp;mandar.</p>
+      </div>
     </div>
 
     <p class="fig-leg"><strong>Só&nbsp;o&nbsp;primeiro e&nbsp;o&nbsp;último quadro são seus.</strong>&nbsp;Os&nbsp;dois

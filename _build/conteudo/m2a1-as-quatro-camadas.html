@@ -82,57 +82,40 @@
       </div>
     </div>
 
-    <div class="escada solta">
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">Camada 1</div>
-          <div class="detalhe">vale em tudo</div>
-        </div>
-        <div class="degrau-corpo">
-          <h4>Instruções globais</h4>
-          <p>Em <strong>Configurações &rsaquo; Cowork &rsaquo; Instruções globais</strong>.
-          Valem em todo trabalho, em toda pasta, sempre. É onde entra como você quer ser
-          tratado, e não o que você faz.</p>
-        </div>
-      </div>
-      <div class="escada-seta" aria-hidden="true">&darr;</div>
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">Camada 2</div>
-          <div class="detalhe">vale na pasta de cima</div>
-        </div>
-        <div class="degrau-corpo">
+    <div class="aninhado solta">
+      <div class="an">
+        <span class="an-rot">Camada 1 &middot; vale em tudo</span>
+        <h4>Instruções globais</h4>
+        <p>Em <strong>Configurações &rsaquo; Cowork &rsaquo; Instruções globais</strong>.
+        Valem em todo trabalho, em toda pasta, sempre. É onde entra como você quer ser
+        tratado, e não o que você faz.</p>
+
+        <div class="an">
+          <span class="an-rot">Camada 2 &middot; vale na pasta de cima</span>
           <h4>O arquivo de regras da pasta de cima</h4>
           <p>Um <code>CLAUDE.md</code> na pasta que contém as outras. Vale em tudo que está
           dentro dela. É onde mora o que é comum às suas áreas: como você escreve, o que
           você nunca faz, onde as coisas ficam.</p>
+
+          <div class="an">
+            <span class="an-rot">Camada 3 &middot; vale numa área só</span>
+            <h4>O arquivo de regras daquele trabalho</h4>
+            <p>Outro <code>CLAUDE.md</code>, dentro da pasta de uma área só. Vale ali. É onde
+            mora o que só faz sentido naquele trabalho, e é a camada que mais cresce com o
+            tempo.</p>
+          </div>
         </div>
       </div>
-      <div class="escada-seta" aria-hidden="true">&darr;</div>
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">Camada 3</div>
-          <div class="detalhe">vale numa área só</div>
-        </div>
-        <div class="degrau-corpo">
-          <h4>O arquivo de regras daquele trabalho</h4>
-          <p>Outro <code>CLAUDE.md</code>, dentro da pasta de uma área só. Vale ali. É onde
-          mora o que só faz sentido naquele trabalho, e é a camada que mais cresce com o
-          tempo.</p>
-        </div>
-      </div>
-      <div class="escada-seta" aria-hidden="true">&darr;</div>
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">Camada 4</div>
-          <div class="detalhe">vale uma vez só</div>
-        </div>
-        <div class="degrau-corpo">
-          <h4>O que você digita no pedido</h4>
-          <p>Vale naquela vez, e some quando a conversa fecha. É a camada que você já usa
-          desde o nivelamento, e a única que exige você presente.</p>
-        </div>
-      </div>
+    </div>
+
+    <div class="cartao">
+      <span class="rot">Camada 4 &middot; vale uma vez só, e por isso ela fica fora da caixa</span>
+      <h4>O que você digita no pedido</h4>
+      <p>Vale naquela vez, e some quando a conversa fecha. É a camada que você já usa
+      desde o nivelamento, e a única que exige você presente.</p>
+      <p><strong>Ela não aparece no desenho acima de propósito:</strong> as três caixas são
+      lugares onde texto fica guardado, e esta não guarda nada. Desenhar ela como uma quarta
+      caixa seria dizer que alguma coisa mora lá.</p>
     </div>
 
     <p class="fig-leg"><strong>Repare que a camada 4 é a única que some.</strong> As três
@@ -349,14 +332,38 @@ Quando eu disser "lembre disso", escreva no MEMORY.md imediatamente e confirme.<
     precisa (o calendário e a transcrição da reunião), carrega as regras que já estão
     escritas naquela pasta, e entrega o e-mail escrito.</p>
 
-    <div class="cadeia solta">
-      <span class="no entrada">Uma linha digitada</span>
-      <span class="no-seta" aria-hidden="true">&rarr;</span>
-      <span class="no">Junta: calendário e transcrição</span>
-      <span class="no-seta" aria-hidden="true">&rarr;</span>
-      <span class="no">Carrega: as regras da pasta</span>
-      <span class="no-seta" aria-hidden="true">&rarr;</span>
-      <span class="no saida">Entrega: o e-mail pronto</span>
+    <div class="fluxo solta">
+      <div class="fl">
+        <span class="fl-quem">É seu</span>
+        <div class="fl-n">01 &middot; o pedido</div>
+        <h4>A linha digitada</h4>
+        <p>Uma frase, e é tudo que você escreve. Nenhum arquivo anexado, nenhuma regra
+        recolada.</p>
+      </div>
+      <div class="fl-seta" aria-hidden="true">&rarr;</div>
+      <div class="fl">
+        <span class="fl-quem">Ele junta</span>
+        <div class="fl-n">02 &middot; os insumos</div>
+        <h4>Calendário e transcrição</h4>
+        <p>A reunião das 14h, no seu calendário, e o arquivo da transcrição que já está na
+        pasta daquele trabalho.</p>
+      </div>
+      <div class="fl-seta" aria-hidden="true">&rarr;</div>
+      <div class="fl">
+        <span class="fl-quem">Já estava escrito</span>
+        <div class="fl-n">03 &middot; o contexto</div>
+        <h4>As regras das camadas</h4>
+        <p>As instruções globais e os dois <code>CLAUDE.md</code>, lidos sem você pedir.
+        É o que você montou na seção anterior.</p>
+      </div>
+      <div class="fl-seta" aria-hidden="true">&rarr;</div>
+      <div class="fl">
+        <span class="fl-quem">É seu</span>
+        <div class="fl-n">04 &middot; a entrega</div>
+        <h4>O e-mail</h4>
+        <p>Escrito e pronto, no tom das suas preferências, para você conferir antes de
+        mandar.</p>
+      </div>
     </div>
 
     <p class="fig-leg"><strong>Só o primeiro e o último quadro são seus.</strong> Os dois
