@@ -55,11 +55,7 @@ SEQUENCIA = ["index", "nivelamento",
              "m1", "m1a1-qual-trabalho", "m1a2-recomecar",
              "m1a3-montar-assistente", "m1a4-onde-a-regra-mora",
              "m1a5-quando-compensa",
-             # 🔴 O M2 entra SEM capa, em 10/09. A capa m2 nao existe: quem
-             # aponta para as duas e o rodape daqui e a TRILHA. Enquanto ela
-             # nao nascer, a migalha das duas para na raiz, senao o link
-             # quebra.
-             "m2a1-onde-as-regras-moram", "m2a2-a-linguagem-muda"]
+             "m2", "m2a1-as-quatro-camadas", "m2a2-a-linguagem-muda"]
 
 # ---------------------------------------------------------------------------
 # A TRILHA · o indice do curso, e a unica lista escrita a mao neste arquivo
@@ -110,7 +106,7 @@ TRILHA = [
     # depois a linguagem que muda. Os estudos de caso vem depois, e ele
     # escolhe quais.
     ("Módulo 2", [
-        ("m2a1-onde-as-regras-moram", "Onde as regras moram"),
+        ("m2a1-as-quatro-camadas", "Onde as regras moram"),
         ("m2a2-a-linguagem-muda",     "A linguagem muda"),
     ]),
 ]
@@ -350,7 +346,17 @@ PAGINAS = {
                  ("../m1/", "Módulo 1"),
                  (None, "Saiba quando montar assistente compensa, e quando não")],
     ),
-    "m2a1-onde-as-regras-moram": dict(
+    "m2": dict(
+        titulo="Módulo 2",
+        kicker="Encontro 3 de 4 · 10 de setembro",
+        h1="A regra sai da conversa",
+        sub="O que você escreveu dentro do assistente vira arquivo dentro da pasta, e o "
+            "pedido passa a descrever a chegada em vez do caminho.",
+        selos=["2 aulas", "Cowork"],
+        migalha=[("../", "Imersão em IA com Claude"),
+                 (None, "Módulo 2")],
+    ),
+    "m2a1-as-quatro-camadas": dict(
         tipo="fundamento",
         titulo="Onde as regras moram",
         kicker="Módulo 2 · aula 2.1",
@@ -359,6 +365,7 @@ PAGINAS = {
             "moram na pasta, e a pergunta que separa regra de fato.",
         selos=["Quatro camadas", "Instruções globais"],
         migalha=[("../", "Imersão em IA com Claude"),
+                 ("../m2/", "Módulo 2"),
                  (None, "Onde as regras moram")],
     ),
     "m2a2-a-linguagem-muda": dict(
@@ -370,6 +377,7 @@ PAGINAS = {
             "quatro campos do pedido de resultado, e o critério que dá para conferir.",
         selos=["Quatro campos", "Critério conferível"],
         migalha=[("../", "Imersão em IA com Claude"),
+                 ("../m2/", "Módulo 2"),
                  (None, "A linguagem muda")],
     ),
     "caso-mapa": dict(

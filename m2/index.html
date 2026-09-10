@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Onde as regras moram</title>
+<title>Módulo 2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -3139,819 +3139,187 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
   </div>
 </header>
 
-<nav class="migalha"><a href="../">Imersão em IA com Claude</a> &rsaquo; Onde as regras moram</nav>
+<nav class="migalha"><a href="../">Imersão em IA com Claude</a> &rsaquo; Módulo 2</nav>
 
 
-<main class="folha aula-fundamento">
+<main class="folha ">
   <div class="heroi">
-    <div class="heroi-kicker">Módulo 2 · aula 2.1</div>
-    <h1>Onde&nbsp;as&nbsp;regras moram</h1>
-    <p class="heroi-sub">As&nbsp;quatro camadas onde&nbsp;uma&nbsp;regra pode ficar escrita, os&nbsp;dois arquivos que&nbsp;moram na&nbsp;pasta, e&nbsp;a&nbsp;pergunta que&nbsp;separa regra de&nbsp;fato.</p>
-    <div><span class="selo">Quatro camadas</span><span class="selo">Instruções globais</span></div>
+    <div class="heroi-kicker">Encontro 3 de 4 · 10 de setembro</div>
+    <h1>A&nbsp;regra sai da&nbsp;conversa</h1>
+    <p class="heroi-sub">O&nbsp;que&nbsp;você escreveu dentro do&nbsp;assistente vira arquivo dentro da&nbsp;pasta, e&nbsp;o&nbsp;pedido passa a&nbsp;descrever a&nbsp;chegada em&nbsp;vez do&nbsp;caminho.</p>
+    <div><span class="selo">2 aulas</span><span class="selo">Cowork</span></div>
   </div>
 
-  <div class="nesta-aula">
-    <div class="nesta-aula-rot">Nesta aula</div>
-    <div class="nesta-aula-sub">Ao final, você será capaz de:</div>
-    <ul>
-      <li>Escrever as&nbsp;suas&nbsp;instruções globais em&nbsp;Configurações &rsaquo; Cowork &rsaquo; Instruções globais, e&nbsp;saber o&nbsp;que&nbsp;vale nelas</li>
-      <li>Separar, com&nbsp;uma&nbsp;pergunta, o&nbsp;que&nbsp;vai no&nbsp;arquivo de&nbsp;regras e&nbsp;o&nbsp;que&nbsp;vai no&nbsp;arquivo de&nbsp;memória</li>
-    </ul>
-  </div>
-
-  <section class="secao" id="s01">
+  <section class="secao" id="onde">
     <div class="secao-topo">
       <div class="secao-n">01</div>
       <div>
-        <div class="secao-fn">A situação</div>
-        <h2>O&nbsp;assistente do&nbsp;Módulo 1 não&nbsp;sai da&nbsp;conversa</h2>
+        <div class="secao-fn">Onde este módulo acontece</div>
+        <h2>O&nbsp;mesmo botão, e&nbsp;o&nbsp;trabalho muda de&nbsp;lugar</h2>
       </div>
     </div>
 
-    <div class="fr-host">
-      <p><span class="fr">No&nbsp;Módulo 1 você montou um&nbsp;assistente para&nbsp;um&nbsp;trabalho seu,&nbsp;e&nbsp;escreveu nele as&nbsp;regras que&nbsp;você repetia em&nbsp;todo pedido.</span> <span class="fr">Aquilo funcionou, e&nbsp;resolveu um&nbsp;trabalho.</span></p>
+    <p>O&nbsp;Módulo 1 tirou a&nbsp;regra do&nbsp;teclado e&nbsp;a&nbsp;colocou dentro de&nbsp;um&nbsp;assistente: você
+    escrevia uma&nbsp;vez, e&nbsp;ele lia no&nbsp;começo de&nbsp;toda conversa daquele trabalho. Funcionou, e&nbsp;resolveu <strong>um</strong>&nbsp;trabalho de&nbsp;cada vez.</p>
 
-      <p><span class="fr">Agora abra a&nbsp;pasta onde&nbsp;os&nbsp;arquivos desse trabalho realmente estão, no&nbsp;seu&nbsp;computador.</span> <span class="fr">Eles não&nbsp;estão dentro do&nbsp;assistente.</span> <span class="fr">Estão ali, e&nbsp;são muitos.</span></p>
-    </div>
-
-    <p>O&nbsp;problema volta maior, e&nbsp;por&nbsp;dois motivos ao&nbsp;mesmo tempo. <strong>Os&nbsp;arquivos estão
-    numa&nbsp;pasta e&nbsp;o&nbsp;assistente está num&nbsp;navegador</strong>, então alguém anexa um&nbsp;por&nbsp;um.&nbsp;E&nbsp;você não&nbsp;tem um&nbsp;trabalho, tem cinco: se&nbsp;cada um&nbsp;vira um&nbsp;assistente com&nbsp;as&nbsp;regras
-    escritas de&nbsp;novo, você acabou de&nbsp;criar cinco lugares para&nbsp;manter atualizados.</p>
-
-    <div class="aviso">
-      <div class="aviso-t">O sintoma, do jeito que ele aparece</div>
-      <ul class="lista">
-        <li>Você escreve "sempre em&nbsp;preço por&nbsp;unidade" em&nbsp;dois assistentes diferentes</li>
-        <li>Você muda uma&nbsp;regra num&nbsp;deles e&nbsp;esquece do&nbsp;outro, e&nbsp;os&nbsp;dois passam a&nbsp;discordar</li>
-        <li>Você anexa o&nbsp;mesmo arquivo de&nbsp;referência toda semana, no&nbsp;mesmo lugar</li>
-        <li>Você abre o&nbsp;assistente certo, mas&nbsp;o&nbsp;arquivo que&nbsp;ele precisa ler está na&nbsp;sua&nbsp;pasta</li>
-      </ul>
-      <p>Os&nbsp;quatro são o&nbsp;mesmo problema: <strong>a&nbsp;regra e&nbsp;o&nbsp;arquivo moram em&nbsp;lugares
-      diferentes</strong>, e&nbsp;você é a&nbsp;ponte entre&nbsp;os&nbsp;dois.</p>
-    </div>
-
-    <p>É isso que&nbsp;o&nbsp;Cowork muda, e&nbsp;a&nbsp;mudança é de&nbsp;endereço, não&nbsp;de&nbsp;inteligência.
-    <strong>Ele lê a&nbsp;pasta do&nbsp;seu&nbsp;computador direto</strong>, sem&nbsp;você subir nem baixar
-    nada, e&nbsp;lê também os&nbsp;arquivos de&nbsp;regra que&nbsp;estiverem dentro dela. Onde&nbsp;o&nbsp;assistente do&nbsp;Módulo 1 lia um&nbsp;campo de&nbsp;texto, aqui ele lê a&nbsp;pasta inteira.</p>
-
-    <div class="tela solta">
-      <div class="tela-barra">
-        <div class="tela-pontos"><i></i><i></i><i></i></div>
-        <div class="tela-onde">Claude Desktop &middot; os dois lugares onde regra se escreve</div>
-      </div>
-      <div class="grade grade-2" style="margin:0">
-        <div class="tela-campo dele">
-          <span class="rot">Configurações &rsaquo; Cowork</span>
-          <h4>Instruções globais</h4>
-          <p>Um&nbsp;campo de&nbsp;texto só,&nbsp;com&nbsp;um&nbsp;botão <strong>"Editar"</strong> ao&nbsp;lado. O&nbsp;que&nbsp;você escreve aqui vale em&nbsp;<strong>todo trabalho seu</strong>, em&nbsp;qualquer pasta,
-          para&nbsp;sempre. É o&nbsp;lugar mais amplo que&nbsp;existe.</p>
-          <div class="tela-quem">vale em tudo</div>
-        </div>
-        <div class="tela-campo">
-          <span class="rot">Dentro da pasta do trabalho</span>
-          <h4>Um&nbsp;arquivo de&nbsp;texto chamado <code>CLAUDE.md</code></h4>
-          <p>Não&nbsp;tem botão nem tela: é um&nbsp;arquivo comum, que&nbsp;fica na&nbsp;pasta junto com&nbsp;os&nbsp;outros. O&nbsp;que&nbsp;está escrito nele vale <strong>só&nbsp;quando&nbsp;o&nbsp;trabalho é ali</strong>.</p>
-          <div class="tela-quem">vale naquela pasta</div>
-        </div>
-      </div>
-    </div>
-
-    <p class="fig-leg"><strong>Repare que&nbsp;o&nbsp;segundo não&nbsp;tem tela.</strong> Regra de&nbsp;pasta é
-    arquivo de&nbsp;texto, e&nbsp;essa é a&nbsp;parte que&nbsp;costuma assustar sem&nbsp;motivo: você escreve nele
-    como escreveria num&nbsp;bloco de&nbsp;notas, e&nbsp;quem lê é o&nbsp;Claude.</p>
-  </section>
-
-  <section class="secao" id="s02">
-    <div class="secao-topo">
-      <div class="secao-n">02</div>
-      <div>
-        <div class="secao-fn">O conceito</div>
-        <h2>Quatro camadas, da&nbsp;mais ampla à&nbsp;mais estreita</h2>
-      </div>
-    </div>
-
-    <div class="conceito">
-      <div class="conceito-rot">O conceito desta aula</div>
-      <h3>Ele lembra porque&nbsp;a&nbsp;regra está escrita num&nbsp;lugar que&nbsp;ele lê sozinho, e&nbsp;cada lugar tem um&nbsp;alcance diferente</h3>
-      <p>Nada aqui é memória no&nbsp;sentido de&nbsp;aprender com&nbsp;você. São <strong>quatro lugares
-      onde&nbsp;texto pode ficar guardado</strong>, e&nbsp;a&nbsp;única coisa que&nbsp;os&nbsp;separa é o&nbsp;alcance:
-      até&nbsp;onde&nbsp;aquela regra vale. O&nbsp;mais amplo vale em&nbsp;tudo; o&nbsp;mais estreito vale numa&nbsp;conversa só.&nbsp;<strong>E&nbsp;eles empilham</strong>: quando&nbsp;você trabalha dentro de&nbsp;uma&nbsp;pasta, valem ao&nbsp;mesmo tempo o&nbsp;que&nbsp;está escrito nela e&nbsp;tudo que&nbsp;veio de&nbsp;cima.</p>
-
-      <div class="contraste">
-        <div class="ctr e"><span class="ctr-selo">É</span>
-          <h4>Um&nbsp;empilhamento de&nbsp;alcances</h4>
-          <p>Você decide onde&nbsp;escrever cada regra pela&nbsp;pergunta "isto vale em&nbsp;todo lugar
-          ou&nbsp;só&nbsp;aqui?". A&nbsp;resposta escolhe a&nbsp;camada, e&nbsp;a&nbsp;camada de&nbsp;baixo soma com&nbsp;a&nbsp;de&nbsp;cima em&nbsp;vez de&nbsp;substituir.</p></div>
-        <div class="ctr nao"><span class="ctr-selo">Não é</span>
-          <h4>Uma&nbsp;memória que&nbsp;aprende com&nbsp;você</h4>
-          <p>Ele não&nbsp;guarda nada por&nbsp;conta própria a&nbsp;partir das&nbsp;suas&nbsp;conversas nessas
-          camadas. O&nbsp;que&nbsp;ele lê sozinho é <strong>o&nbsp;que&nbsp;alguém escreveu</strong>, e&nbsp;por&nbsp;isso a&nbsp;qualidade do&nbsp;resultado é a&nbsp;qualidade do&nbsp;que&nbsp;está escrito.</p></div>
-      </div>
-
-      <div class="analogia">
-        <div class="analogia-rot">É como a constituição e a lei do estado</div>
-        <p>Uma&nbsp;empresa na&nbsp;Califórnia obedece à&nbsp;constituição do&nbsp;país e&nbsp;à&nbsp;lei da&nbsp;Califórnia
-        ao&nbsp;mesmo tempo. A&nbsp;lei estadual não&nbsp;revoga a&nbsp;federal: ela <strong>empilha por&nbsp;cima</strong>, e&nbsp;trata do&nbsp;que&nbsp;é daquele estado. Ninguém precisa reescrever a&nbsp;constituição dentro da&nbsp;lei estadual para&nbsp;ela continuar valendo.</p>
-        <ul class="analogia-mapa">
-          <li><strong>A&nbsp;constituição</strong> são as&nbsp;instruções globais, que&nbsp;valem em&nbsp;qualquer trabalho seu</li>
-          <li><strong>A&nbsp;lei do&nbsp;estado</strong> é o&nbsp;arquivo de&nbsp;regras da&nbsp;pasta, que&nbsp;vale só&nbsp;naquele trabalho</li>
-          <li><strong>A&nbsp;empresa que&nbsp;obedece às&nbsp;duas</strong> é o&nbsp;pedido que&nbsp;você faz de&nbsp;dentro daquela pasta</li>
-          <li><strong>Não&nbsp;reescrever a&nbsp;constituição na&nbsp;lei estadual</strong> é a&nbsp;regra de&nbsp;nunca repetir a&nbsp;mesma linha em&nbsp;dois arquivos</li>
-        </ul>
-        <p class="analogia-mais">Vale para&nbsp;a&nbsp;política da&nbsp;matriz e&nbsp;o&nbsp;procedimento da&nbsp;filial, para&nbsp;o&nbsp;regimento do&nbsp;condomínio e&nbsp;a&nbsp;regra do&nbsp;seu&nbsp;andar, para&nbsp;o&nbsp;manual da&nbsp;empresa e&nbsp;o&nbsp;combinado da&nbsp;sua&nbsp;equipe. Sempre que&nbsp;existe uma&nbsp;regra ampla e&nbsp;uma&nbsp;específica, a&nbsp;específica trata do&nbsp;caso e&nbsp;cala sobre&nbsp;o&nbsp;resto.</p>
-      </div>
-    </div>
-
-    <div class="escada solta">
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">Camada 1</div>
-          <div class="detalhe">vale em tudo</div>
-        </div>
-        <div class="degrau-corpo">
-          <h4>Instruções globais</h4>
-          <p>Em&nbsp;<strong>Configurações &rsaquo; Cowork &rsaquo; Instruções globais</strong>.
-          Valem em&nbsp;todo trabalho, em&nbsp;toda pasta, sempre. É onde&nbsp;entra como você quer ser
-          tratado, e&nbsp;não&nbsp;o&nbsp;que&nbsp;você faz.</p>
-        </div>
-      </div>
-      <div class="escada-seta" aria-hidden="true">&darr;</div>
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">Camada 2</div>
-          <div class="detalhe">vale na pasta de cima</div>
-        </div>
-        <div class="degrau-corpo">
-          <h4>O&nbsp;arquivo de&nbsp;regras da&nbsp;pasta de&nbsp;cima</h4>
-          <p>Um&nbsp;<code>CLAUDE.md</code> na&nbsp;pasta que&nbsp;contém as&nbsp;outras. Vale em&nbsp;tudo que&nbsp;está
-          dentro dela. É onde&nbsp;mora o&nbsp;que&nbsp;é comum às&nbsp;suas&nbsp;áreas: como você escreve, o&nbsp;que&nbsp;você nunca faz, onde&nbsp;as&nbsp;coisas ficam.</p>
-        </div>
-      </div>
-      <div class="escada-seta" aria-hidden="true">&darr;</div>
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">Camada 3</div>
-          <div class="detalhe">vale numa área só</div>
-        </div>
-        <div class="degrau-corpo">
-          <h4>O&nbsp;arquivo de&nbsp;regras daquele trabalho</h4>
-          <p>Outro <code>CLAUDE.md</code>, dentro da&nbsp;pasta de&nbsp;uma&nbsp;área só.&nbsp;Vale ali. É onde&nbsp;mora o&nbsp;que&nbsp;só&nbsp;faz sentido naquele trabalho, e&nbsp;é a&nbsp;camada que&nbsp;mais cresce com&nbsp;o&nbsp;tempo.</p>
-        </div>
-      </div>
-      <div class="escada-seta" aria-hidden="true">&darr;</div>
-      <div class="degrau">
-        <div class="degrau-rot">
-          <div class="quando">Camada 4</div>
-          <div class="detalhe">vale uma vez só</div>
-        </div>
-        <div class="degrau-corpo">
-          <h4>O&nbsp;que&nbsp;você digita no&nbsp;pedido</h4>
-          <p>Vale naquela vez, e&nbsp;some quando&nbsp;a&nbsp;conversa fecha. É a&nbsp;camada que&nbsp;você já&nbsp;usa
-          desde&nbsp;o&nbsp;nivelamento, e&nbsp;a&nbsp;única que&nbsp;exige você presente.</p>
-        </div>
-      </div>
-    </div>
-
-    <p class="fig-leg"><strong>Repare que&nbsp;a&nbsp;camada 4 é a&nbsp;única que&nbsp;some.</strong> As&nbsp;três
-    de&nbsp;cima continuam escritas depois que&nbsp;você fecha o&nbsp;computador, e&nbsp;é exatamente por&nbsp;isso
-    que&nbsp;subir uma&nbsp;regra de&nbsp;camada é o&nbsp;que&nbsp;tira ela do&nbsp;seu&nbsp;teclado.</p>
-
-    <p>As&nbsp;três primeiras camadas precisam de&nbsp;um&nbsp;lugar físico, e&nbsp;esse lugar é uma&nbsp;pasta no&nbsp;seu&nbsp;computador. <strong>A&nbsp;estrutura importa menos do&nbsp;que&nbsp;parece</strong>, e&nbsp;o&nbsp;erro mais
-    comum é começar grande.</p>
-
-    <div class="arvore solta">
-      <div class="av-raiz">
-        <h4>A&nbsp;pasta do&nbsp;seu&nbsp;trabalho</h4>
-        <p>uma&nbsp;só,&nbsp;com&nbsp;o&nbsp;arquivo de&nbsp;regras da&nbsp;camada 2 dentro dela</p>
-      </div>
-      <div class="av-tronco" aria-hidden="true"></div>
-      <div class="av-filhos" style="--n:3">
-        <div class="av-f">
-          <div class="av-fn">Área 1</div>
-          <h4>Prestação de&nbsp;contas</h4>
-          <p>As&nbsp;planilhas, os&nbsp;relatórios entregues, e&nbsp;o&nbsp;arquivo de&nbsp;regras com&nbsp;o&nbsp;jeito de&nbsp;fechar o&nbsp;mês.</p>
-        </div>
-        <div class="av-f">
-          <div class="av-fn">Área 2</div>
-          <h4>Comunicação</h4>
-          <p>Os&nbsp;textos que&nbsp;saem com&nbsp;o&nbsp;seu&nbsp;nome, e&nbsp;o&nbsp;arquivo de&nbsp;regras com&nbsp;o&nbsp;tom que&nbsp;você
-          usa.</p>
-        </div>
-        <div class="av-f">
-          <div class="av-fn">Área 3</div>
-          <h4>Indicadores</h4>
-          <p>Os&nbsp;números da&nbsp;área, e&nbsp;o&nbsp;arquivo de&nbsp;regras com&nbsp;o&nbsp;que&nbsp;nunca pode ser
-          estimado.</p>
-        </div>
-      </div>
-    </div>
-
-    <p class="fig-leg"><strong>Três filhos, e&nbsp;não&nbsp;trinta.</strong> A&nbsp;recomendação de&nbsp;quem
-    já&nbsp;usa isso todo dia é começar com&nbsp;duas ou&nbsp;três áreas e&nbsp;deixar as&nbsp;outras nascerem
-    quando&nbsp;doerem. Estrutura grande demais no&nbsp;primeiro dia vira pasta vazia, e&nbsp;pasta vazia
-    é lugar onde&nbsp;ninguém procura.</p>
-  </section>
-
-  <section class="secao" id="s03">
-    <div class="secao-topo">
-      <div class="secao-n">03</div>
-      <div>
-        <div class="secao-fn">Como funciona</div>
-        <h2>Os&nbsp;dois arquivos, e&nbsp;a&nbsp;pergunta que&nbsp;decide entre&nbsp;eles</h2>
-      </div>
-    </div>
-
-    <p>Dentro de&nbsp;uma&nbsp;pasta existem dois arquivos de&nbsp;texto com&nbsp;funções diferentes, e&nbsp;confundir os&nbsp;dois é o&nbsp;que&nbsp;faz o&nbsp;sistema envelhecer mal. <strong>Um&nbsp;guarda o&nbsp;que&nbsp;não&nbsp;muda. O&nbsp;outro guarda o&nbsp;que&nbsp;muda.</strong></p>
-
-    <p>O&nbsp;primeiro é o&nbsp;arquivo de&nbsp;regras. Ele tem cinco partes, e&nbsp;todas cabem em&nbsp;texto
-    comum:</p>
-
-    <div class="anatomia solta">
-      <div class="anat-cabeca">
-        <span><code>CLAUDE.md</code> &middot; o arquivo de regras da pasta de cima</span>
-        <span>até 300 linhas</span>
-      </div>
-
-      <div class="anat-campo"><code>Sistema de memória</code><span>onde ele anota o que muda</span></div>
-      <div>Duas linhas dizendo que existe um segundo arquivo, e quando ele deve ser lido e
-      escrito. <strong>É a parte que liga a memória</strong>, e sem ela o segundo arquivo
-      existe e ninguém abre.</div>
-      <div class="anat-quando">Sempre<span>lido no começo</span></div>
-
-      <div class="anat-campo"><code>Preferências</code><span>como você gosta que fique</span></div>
-      <div>O tom, o formato, o tamanho. "Frase curta", "sem jargão", "tabela em vez de
-      lista quando houver número".</div>
-      <div class="anat-quando">Sempre<span>lido no começo</span></div>
-
-      <div class="anat-campo"><code>Regras</code><span>o que ele nunca pode fazer</span></div>
-      <div>As linhas com "sempre", "nunca" e "antes de X, faça Y". É a parte que evita o
-      erro caro, e a única que vale a pena escrever com aspereza.</div>
-      <div class="anat-quando">Sempre<span>lido no começo</span></div>
-
-      <div class="anat-campo"><code>Mapa de rotas</code><span>qual pasta serve para quê</span></div>
-      <div>Uma linha por área, dizendo o que mora em cada uma. É o que evita ele procurar
-      no lugar errado, e o que faz a estrutura da figura acima valer alguma coisa.</div>
-      <div class="anat-quando">Sempre<span>lido no começo</span></div>
-
-      <div class="anat-campo"><code>Referências</code><span>onde está o detalhe</span></div>
-      <div>Ponteiro para os arquivos longos: o manual, a planilha de apoio, o modelo
-      antigo. <strong>Ponteiro, não o conteúdo</strong>, porque é isso que segura o
-      arquivo dentro do limite.</div>
-      <div class="anat-quando raro">Só quando entra<span>na tarefa daquele dia</span></div>
-
-    </div>
-
-    <p class="fig-leg"><strong>A&nbsp;terceira coluna é a&nbsp;que&nbsp;ensina.</strong> Quatro partes são
-    lidas em&nbsp;toda sessão e&nbsp;por&nbsp;isso pesam sempre; a&nbsp;quinta só&nbsp;é aberta quando&nbsp;a&nbsp;tarefa pede.
-    É a&nbsp;diferença entre&nbsp;um&nbsp;arquivo que&nbsp;orienta e&nbsp;um&nbsp;arquivo que&nbsp;ocupa espaço à&nbsp;toa.</p>
-
-    <h3 style="margin:40px 0 14px">O&nbsp;segundo arquivo, e&nbsp;as&nbsp;duas linhas que&nbsp;o&nbsp;ligam</h3>
-
-    <p>O&nbsp;segundo é o&nbsp;arquivo de&nbsp;memória. Ele guarda <strong>fato, não&nbsp;regra</strong>: em&nbsp;que&nbsp;pé está cada projeto, quem é o&nbsp;contato de&nbsp;cada área, o&nbsp;que&nbsp;ficou decidido na&nbsp;semana passada. Ele muda toda semana, e&nbsp;é isso que&nbsp;o&nbsp;separa do&nbsp;primeiro.</p>
-
-    <p>Ele não&nbsp;se&nbsp;liga sozinho. <strong>Duas linhas dentro do&nbsp;arquivo de&nbsp;regras</strong>,
-    na&nbsp;parte "Sistema de&nbsp;memória", é o&nbsp;que&nbsp;faz ele existir na&nbsp;prática:</p>
-
-    <div class="prompt">
-      <div class="prompt-barra">
-        <span class="prompt-rot">as duas linhas que ligam a memória &middot; vão no arquivo de regras</span>
-        <button class="btn-copiar" data-alvo="p-memoria-liga">copiar</button>
-      </div>
-      <pre class="prompt-txt config" id="p-memoria-liga">No início de toda sessão, leia o MEMORY.md antes de responder.
-
-Quando eu disser "lembre disso", escreva no MEMORY.md imediatamente e confirme.</pre>
-    </div>
-
-    <p class="fig-leg"><strong>São duas frases, e&nbsp;é literalmente isso.</strong> A&nbsp;primeira
-    faz ele abrir o&nbsp;arquivo sem&nbsp;você pedir; a&nbsp;segunda te dá um&nbsp;comando de&nbsp;duas palavras
-    para&nbsp;guardar qualquer coisa. Sem&nbsp;a&nbsp;segunda, você acaba editando o&nbsp;arquivo na&nbsp;mão, e&nbsp;ninguém mantém o&nbsp;que&nbsp;precisa ser mantido na&nbsp;mão.</p>
-
-    <p>Com&nbsp;os&nbsp;dois arquivos existindo, sobra uma&nbsp;decisão por&nbsp;vez: <strong>cada coisa que&nbsp;você quer guardar vai em&nbsp;qual dos&nbsp;dois?</strong></p>
-
-    <div class="decide solta">
-      <div class="decide-h">A pergunta</div>
-      <div class="decide-h">Se sim &rarr; arquivo de regras</div>
-      <div class="decide-h">Se não &rarr; arquivo de memória</div>
-
-      <div class="decide-p">Ela prescreve comportamento? Tem "sempre", "nunca", ou "antes
-      de X, faça Y"?</div>
-      <div class="decide-r"><strong>Sim.</strong> É regra. Vai no arquivo de regras, na
-      parte que trata daquilo, e fica lá até você mudar de ideia.</div>
-      <div class="decide-r"><strong>Não.</strong> Se não manda fazer nada, não é regra.
-      Passe para a pergunta de baixo.</div>
-
-      <div class="decide-p">Ela descreve um fato que pode mudar? Um contato, um status,
-      uma decisão tomada?</div>
-      <div class="decide-r"><strong>Não.</strong> Fato não vira regra. Guardar fato no
-      arquivo de regras é o que faz ele passar de 300 linhas em um mês.</div>
-      <div class="decide-r"><strong>Sim.</strong> Vai no arquivo de memória, e você
-      escreve lá dizendo "lembre disso".</div>
-
-      <div class="decide-p">Você não consegue dizer qual das duas? Ela parece as duas
-      coisas ao mesmo tempo?</div>
-      <div class="decide-r"><strong>Então não escreva ainda.</strong> Peça a ele para
-      sugerir em qual dos dois aquilo mora, com o motivo escrito.</div>
-      <div class="decide-r"><strong>E confirme antes.</strong> Ele escreve depois do seu
-      sim, nunca antes. É a resposta mais honesta das três, e a que mais aparece nas
-      primeiras semanas.</div>
-
-    </div>
-
-    <p class="fig-leg"><strong>A&nbsp;primeira pergunta resolve quase tudo.</strong> Se&nbsp;a&nbsp;frase
-    manda fazer alguma coisa, é regra; se&nbsp;ela conta alguma coisa, é fato. A&nbsp;confusão só&nbsp;aparece em&nbsp;frases que&nbsp;fazem as&nbsp;duas, e&nbsp;a&nbsp;terceira linha é a&nbsp;única que&nbsp;não&nbsp;escolhe
-    coluna: ela devolve a&nbsp;decisão para&nbsp;você, depois de&nbsp;ele sugerir.</p>
-
-    <h3>O&nbsp;que&nbsp;isso custa, e&nbsp;os&nbsp;três controles</h3>
-
-    <p>Tudo que&nbsp;está escrito nas&nbsp;camadas 1, 2 e&nbsp;3 é lido em&nbsp;toda sessão, e&nbsp;leitura consome
-    o&nbsp;seu&nbsp;limite de&nbsp;uso. Três controles seguram esse custo sem&nbsp;tirar qualidade:</p>
-
-    <div class="grade grade-3 solta">
-      <div class="cartao">
-        <span class="rot">Controle 1 &middot; tamanho</span>
-        <h4>O&nbsp;arquivo da&nbsp;raiz fica em&nbsp;até&nbsp;300 linhas</h4>
-        <p>Ele é lido por&nbsp;inteiro em&nbsp;toda sessão. O&nbsp;que&nbsp;não&nbsp;couber vira arquivo de&nbsp;referência, apontado pelo&nbsp;mapa de&nbsp;rotas e&nbsp;aberto só&nbsp;quando&nbsp;a&nbsp;tarefa pede.</p>
-      </div>
-      <div class="cartao">
-        <span class="rot">Controle 2 &middot; repetição</span>
-        <h4>A&nbsp;mesma regra nunca aparece em&nbsp;dois arquivos</h4>
-        <p>Se&nbsp;ela já&nbsp;está na&nbsp;camada de&nbsp;cima, ela vale embaixo sem&nbsp;ser reescrita. Repetir
-        cobra duas vezes e,&nbsp;pior, cria duas versões que&nbsp;um&nbsp;dia vão discordar.</p>
-      </div>
-      <div class="cartao">
-        <span class="rot">Controle 3 &middot; modelo</span>
-        <h4>Sonnet por&nbsp;padrão, Opus por&nbsp;exceção</h4>
-        <p>Na&nbsp;maior parte do&nbsp;dia o&nbsp;Sonnet dá conta e&nbsp;custa uma&nbsp;fração. Troque para&nbsp;o&nbsp;Opus
-        quando&nbsp;a&nbsp;tarefa tiver três ou&nbsp;mais passos que&nbsp;dependem uns&nbsp;dos&nbsp;outros.</p>
-      </div>
-    </div>
-
-    <p class="fig-leg"><strong>Os&nbsp;três atacam a&nbsp;mesma conta por&nbsp;lados diferentes:</strong>
-    quanto é lido, quantas vezes, e&nbsp;com&nbsp;qual modelo. O&nbsp;primeiro é o&nbsp;que&nbsp;mais devolve, e&nbsp;é
-    o&nbsp;único que&nbsp;exige disciplina toda semana.</p>
-
-    <div class="aviso atencao">
-      <div class="aviso-t">De onde vêm estes três, e o que isso muda</div>
-      <p>O&nbsp;caminho <strong>Configurações &rsaquo; Cowork &rsaquo; Instruções globais</strong>
-      e&nbsp;o&nbsp;comportamento das&nbsp;camadas estão na&nbsp;documentação oficial do&nbsp;Claude. <strong>Os&nbsp;três
-      controles acima não</strong>: são a&nbsp;prática de&nbsp;quem usa isso todo dia, publicada em&nbsp;material de&nbsp;terceiro, e&nbsp;valem como recomendação testada, não&nbsp;como especificação do&nbsp;produto. Se&nbsp;a&nbsp;sua&nbsp;conta se&nbsp;comportar diferente, a&nbsp;conta manda.</p>
-    </div>
-  </section>
-
-  <section class="secao" id="s04">
-    <div class="secao-topo">
-      <div class="secao-n">04</div>
-      <div>
-        <div class="secao-fn">Demonstração</div>
-        <h2>Uma&nbsp;linha digitada, e&nbsp;o&nbsp;que&nbsp;acontece antes da&nbsp;resposta</h2>
-      </div>
-    </div>
-
-    <p>O&nbsp;teste de&nbsp;que&nbsp;as&nbsp;camadas existem é o&nbsp;tamanho do&nbsp;pedido. Abaixo, um&nbsp;pedido de&nbsp;uma&nbsp;linha só,&nbsp;feito de&nbsp;dentro da&nbsp;pasta de&nbsp;trabalho.</p>
-
-    <p><strong>Mapa em&nbsp;uma&nbsp;frase:</strong> quando&nbsp;você digita a&nbsp;linha, ele junta o&nbsp;que&nbsp;precisa (o&nbsp;calendário e&nbsp;a&nbsp;transcrição da&nbsp;reunião), carrega as&nbsp;regras que&nbsp;já&nbsp;estão
-    escritas naquela pasta, e&nbsp;entrega o&nbsp;e-mail escrito.</p>
-
-    <div class="cadeia solta">
-      <span class="no entrada">Uma linha digitada</span>
-      <span class="no-seta" aria-hidden="true">&rarr;</span>
-      <span class="no">Junta: calendário e transcrição</span>
-      <span class="no-seta" aria-hidden="true">&rarr;</span>
-      <span class="no">Carrega: as regras da pasta</span>
-      <span class="no-seta" aria-hidden="true">&rarr;</span>
-      <span class="no saida">Entrega: o e-mail pronto</span>
-    </div>
-
-    <p class="fig-leg"><strong>Só&nbsp;o&nbsp;primeiro e&nbsp;o&nbsp;último quadro são seus.</strong>&nbsp;Os&nbsp;dois
-    do&nbsp;meio acontecem porque&nbsp;as&nbsp;camadas já&nbsp;estão escritas. Sem&nbsp;elas, os&nbsp;dois viram trabalho
-    seu:&nbsp;você anexa a&nbsp;transcrição e&nbsp;recola as&nbsp;regras de&nbsp;escrita, toda vez.</p>
-
-    <div class="demo solta">
-      <div class="demo-faixa">Momento-chave &middot; a mesma linha, com e sem as camadas</div>
-      <div class="demo-corpo">
-        <div class="demo-entrada">
-          <span class="rot">O que foi digitado, nas duas vezes</span>
-          <pre>Acabei de sair de uma reunião. Escreva o e-mail de retorno para os participantes.</pre>
-        </div>
-        <div class="demo-lados">
-          <div class="demo-lado">
-            <span class="rot">Sem as camadas &middot; pasta sem arquivo de regras</span>
-            <p>Claro! Para&nbsp;escrever esse e-mail, preciso de&nbsp;algumas informações:</p>
-            <p>1. Qual foi o&nbsp;assunto da&nbsp;reunião?<br>
-            2. Quem participou?<br>
-            3. Quais foram os&nbsp;pontos decididos?<br>
-            4. Qual tom você prefere para&nbsp;o&nbsp;e-mail?</p>
-            <p>Com&nbsp;essas quatro respostas em&nbsp;mãos, a&nbsp;proposta sai para&nbsp;você revisar.</p>
-          </div>
-          <div class="demo-lado">
-            <span class="rot">Com as camadas &middot; a mesma pasta, com os dois arquivos</span>
-            <p>Peguei a&nbsp;reunião das&nbsp;14h no&nbsp;seu&nbsp;calendário e&nbsp;a&nbsp;transcrição na&nbsp;pasta da&nbsp;área. Segue o&nbsp;e-mail, no&nbsp;tom que&nbsp;está nas&nbsp;suas&nbsp;preferências:</p>
-            <p><strong>Assunto:</strong> Fechamento do&nbsp;convênio &middot; o&nbsp;que&nbsp;ficou
-            decidido e&nbsp;o&nbsp;que&nbsp;falta</p>
-            <p>"Pessoal, seguem os&nbsp;três pontos que&nbsp;fechamos hoje e&nbsp;as&nbsp;duas pendências,
-            com&nbsp;responsável e&nbsp;data. [...]"</p>
-            <p><strong>Duas coisas para&nbsp;você conferir:</strong> o&nbsp;prazo da&nbsp;pendência 2 não&nbsp;ficou claro na&nbsp;transcrição, e&nbsp;deixei em&nbsp;branco. E&nbsp;o&nbsp;Carlos entrou depois do&nbsp;começo, então confirme se&nbsp;ele precisa do&nbsp;trecho inicial.</p>
-          </div>
-        </div>
-        <div class="demo-pe">A linha digitada é a mesma, com o mesmo número de palavras. O
-        que mudou foi o que já estava escrito na pasta antes de você digitar.</div>
-      </div>
-    </div>
-
-    <p class="fig-leg"><strong>Repare que&nbsp;a&nbsp;resposta da&nbsp;esquerda não&nbsp;está errada.</strong>
-    Ela é educada, organizada e&nbsp;devolve quatro perguntas justas. O&nbsp;problema é que&nbsp;essas
-    quatro perguntas são exatamente o&nbsp;que&nbsp;as&nbsp;camadas respondem uma&nbsp;vez e&nbsp;param de&nbsp;perguntar,
-    e&nbsp;responder as&nbsp;quatro toda segunda-feira é o&nbsp;trabalho que&nbsp;você queria tirar da&nbsp;mesa.</p>
-  </section>
-
-  <section class="secao" id="s05">
-    <div class="secao-topo">
-      <div class="secao-n">05</div>
-      <div>
-        <div class="secao-fn">Sua vez</div>
-        <h2>A&nbsp;camada 1 e&nbsp;a&nbsp;camada 2, escritas hoje</h2>
-      </div>
-    </div>
-
-    <p>Quatro passos, e&nbsp;os&nbsp;quatro acontecem na&nbsp;tela. No&nbsp;fim deles as&nbsp;camadas 1 e&nbsp;2 existem
-    de&nbsp;verdade, e&nbsp;a&nbsp;camada 3 nasce sozinha na&nbsp;primeira vez que&nbsp;você precisar dela.</p>
-
-    <div class="aviso">
-      <div class="aviso-t">Como saber que a sua resposta está pronta</div>
-      <p>A&nbsp;régua é uma&nbsp;só:&nbsp;<strong>outra pessoa consegue ler o&nbsp;que&nbsp;você escreveu e&nbsp;conferir se&nbsp;ele obedeceu?</strong> "Escreva bem" não&nbsp;passa. "Frase de&nbsp;no&nbsp;máximo
-      duas linhas, sem&nbsp;jargão, e&nbsp;liste no&nbsp;fim os&nbsp;arquivos que&nbsp;você mexeu" passa.</p>
-    </div>
-
-    <div class="passo">
-      <div class="passo-topo">
-        <div class="passo-n">01</div>
-        <div>
-          <div class="passo-fn">Passo 1 &middot; na tela</div>
-          <h3>Cole as&nbsp;instruções globais, que&nbsp;são a&nbsp;camada 1</h3>
-        </div>
-      </div>
-      <p>No&nbsp;Claude Desktop, vá em&nbsp;<strong>Configurações &rsaquo; Cowork &rsaquo; Instruções
-      globais</strong> e&nbsp;clique em&nbsp;<strong>"Editar"</strong>. Cole o&nbsp;texto abaixo, que&nbsp;são
-      as&nbsp;instruções que&nbsp;já&nbsp;estão em&nbsp;uso e&nbsp;cobrem os&nbsp;três riscos que&nbsp;aparecem primeiro:
-      apagar o&nbsp;que&nbsp;não&nbsp;devia, espalhar arquivo sem&nbsp;padrão, e&nbsp;sair executando sem&nbsp;combinar.</p>
-
-      <div class="prompt">
-        <div class="prompt-barra">
-          <span class="prompt-rot">instruções globais &middot; cola em Configurações &rsaquo; Cowork &rsaquo; Instruções globais</span>
-          <button class="btn-copiar" data-alvo="p-globais">copiar</button>
-        </div>
-        <pre class="prompt-txt config" id="p-globais">## Evitar danos acidentais
-- Antes de excluir, sobrescrever ou renomear qualquer arquivo existente, mostre-me o que
-  mudará e aguarde a confirmação.
-- Nunca modifique arquivos fora da pasta de trabalho atual, a menos que eu solicite
-  explicitamente.
-
-## Manter as coisas organizadas
-Ao criar novos arquivos, use o formato de nomenclatura AAAA-MM-DD-nome-descritivo.
-No final de uma tarefa, liste todos os arquivos que você criou ou modificou com seus
-respectivos locais.
-
-## Controlar o ritmo do trabalho autônomo
-Para tarefas de várias etapas, esboce seu plano primeiro e aguarde minha aprovação antes de
-executar. Após cada etapa principal, resuma brevemente o que você fez e o que vem a seguir.</pre>
-      </div>
-
-      <p class="fig-leg"><strong>Repare que&nbsp;nenhuma das&nbsp;três trata do&nbsp;seu&nbsp;trabalho.</strong>
-      Elas tratam de&nbsp;como ele se&nbsp;comporta com&nbsp;os&nbsp;seus&nbsp;arquivos e&nbsp;com&nbsp;o&nbsp;seu&nbsp;tempo. Regra de&nbsp;conteúdo desce para&nbsp;a&nbsp;camada 2; a&nbsp;camada 1 é sobre&nbsp;conduta.</p>
-
-      <div class="destrave">
-        <div class="destrave-rot">Se travar, responda estas três</div>
-        <ul>
-          <li>Já&nbsp;tem texto no&nbsp;campo? Some as&nbsp;três seções no&nbsp;fim, sem&nbsp;apagar o&nbsp;que&nbsp;estava.
-          Elas não&nbsp;conflitam com&nbsp;regra de&nbsp;conteúdo.</li>
-          <li>Quer mudar alguma coisa? Mude depois. Comece com&nbsp;as&nbsp;três exatamente como
-          estão e&nbsp;ajuste na&nbsp;primeira vez que&nbsp;uma&nbsp;delas te atrapalhar.</li>
-          <li>Não&nbsp;achou o&nbsp;menu? Ele fica em&nbsp;Configurações, e&nbsp;não&nbsp;no&nbsp;"Personalizar" do&nbsp;menu
-          da&nbsp;esquerda, que&nbsp;é onde&nbsp;ficam as&nbsp;habilidades e&nbsp;os&nbsp;conectores.</li>
-        </ul>
-        <div class="destrave-nao"><strong>Não conta como resposta:</strong> escrever "seja
-        cuidadoso com meus arquivos". Não dá para conferir se ele foi cuidadoso, e é
-        justamente por isso que as três de cima dizem o que mostrar e o que esperar.</div>
-      </div>
-
-      <div class="passo-ok">
-        <div class="passo-ok-rot">Deu certo se</div>
-        <p>o&nbsp;campo <strong>"Instruções globais"</strong> fechou com&nbsp;o&nbsp;texto salvo, e&nbsp;ele
-        aparece resumido na&nbsp;tela de&nbsp;Configurações. A&nbsp;partir daí ele vale em&nbsp;toda pasta,
-        inclusive nas&nbsp;que&nbsp;você ainda não&nbsp;criou.</p>
-      </div>
-    </div>
-
-    <div class="passo">
-      <div class="passo-topo">
-        <div class="passo-n">02</div>
-        <div>
-          <div class="passo-fn">Passo 2 &middot; na tela</div>
-          <h3>Crie a&nbsp;pasta de&nbsp;trabalho, com&nbsp;duas ou&nbsp;três áreas dentro</h3>
-        </div>
-      </div>
-      <p>No&nbsp;seu&nbsp;computador, e&nbsp;não&nbsp;no&nbsp;Claude. Crie uma&nbsp;pasta com&nbsp;um&nbsp;nome que&nbsp;seja seu,&nbsp;e&nbsp;dentro dela duas ou&nbsp;três subpastas com&nbsp;o&nbsp;nome das&nbsp;suas&nbsp;áreas. <strong>Use as&nbsp;áreas do&nbsp;trabalho que&nbsp;você escolheu no&nbsp;Módulo 1</strong>, e&nbsp;não&nbsp;uma&nbsp;estrutura ideal.</p>
-
-      <div class="destrave">
-        <div class="destrave-rot">Se travar, responda estas três</div>
-        <ul>
-          <li>Quais são as&nbsp;duas tarefas que&nbsp;você escolheu na&nbsp;aula 1.5 por&nbsp;repetição? Elas
-          são as&nbsp;duas primeiras subpastas.</li>
-          <li>Tem arquivo desse trabalho espalhado em&nbsp;três lugares? Escolha um,&nbsp;e&nbsp;mova o&nbsp;resto depois. Pasta certa com&nbsp;metade dos&nbsp;arquivos vale mais que&nbsp;pasta perfeita
-          vazia.</li>
-          <li>Não&nbsp;sabe se&nbsp;cria uma&nbsp;terceira? Não&nbsp;crie. Três é o&nbsp;teto de&nbsp;hoje, e&nbsp;a&nbsp;terceira
-          nasce sozinha na&nbsp;semana que&nbsp;ela fizer falta.</li>
-        </ul>
-        <div class="destrave-nao"><strong>Não conta como resposta:</strong> criar uma
-        pasta por assunto que já existe no seu computador, dez ao todo. O que faz a
-        estrutura funcionar é ela ser pequena o bastante para você lembrar dela sem
-        olhar.</div>
-      </div>
-
-      <div class="passo-ok">
-        <div class="passo-ok-rot">Deu certo se</div>
-        <p>você tem uma&nbsp;pasta com&nbsp;<strong>duas ou&nbsp;três subpastas</strong>, e&nbsp;consegue dizer
-        em&nbsp;voz alta o&nbsp;que&nbsp;vai em&nbsp;cada uma&nbsp;sem&nbsp;hesitar. Se&nbsp;hesitou numa,&nbsp;ela ainda não&nbsp;é uma&nbsp;área: é um&nbsp;arquivo procurando lugar.</p>
-      </div>
-    </div>
-
-    <div class="passo">
-      <div class="passo-topo">
-        <div class="passo-n">03</div>
-        <div>
-          <div class="passo-fn">Passo 3</div>
-          <h3>Escreva o&nbsp;arquivo de&nbsp;regras da&nbsp;pasta de&nbsp;cima, que&nbsp;é a&nbsp;camada 2</h3>
-        </div>
-      </div>
-      <p>Ainda no&nbsp;seu&nbsp;computador: dentro da&nbsp;pasta de&nbsp;cima, crie um&nbsp;arquivo de&nbsp;texto chamado
-      <strong><code>CLAUDE.md</code></strong> e&nbsp;escreva as&nbsp;cinco partes. O&nbsp;esqueleto abaixo
-      já&nbsp;vem com&nbsp;as&nbsp;duas linhas que&nbsp;ligam a&nbsp;memória, e&nbsp;com&nbsp;os&nbsp;comentários dizendo o&nbsp;que&nbsp;cada parte pede.</p>
-
-      <div class="prompt">
-        <div class="prompt-barra">
-          <span class="prompt-rot">esqueleto do arquivo de regras &middot; salve como CLAUDE.md na pasta de cima</span>
-          <button class="btn-copiar" data-alvo="p-esqueleto">copiar</button>
-        </div>
-        <pre class="prompt-txt config" id="p-esqueleto"># Como se trabalha aqui
-
-## Sistema de memória
-No início de toda sessão, leia o MEMORY.md antes de responder.
-Quando eu disser "lembre disso", escreva no MEMORY.md imediatamente e confirme.
-
-## Preferências
-(tom, formato e tamanho. Ex: frase curta, sem jargão, tabela quando houver número)
-
-## Regras
-(as linhas com sempre, nunca, e antes de X faça Y. Ex: valor faltando fica em branco e
-declarado, nunca estimado)
-
-## Mapa de rotas
-(uma linha por subpasta, dizendo o que mora em cada uma)
-
-## Referências
-(os arquivos longos que existem, e quando abrir cada um. Ponteiro, não o conteúdo)</pre>
-      </div>
-
-      <p class="fig-leg"><strong>O&nbsp;esqueleto vale mais que&nbsp;o&nbsp;conteúdo, hoje.</strong> Com&nbsp;as&nbsp;cinco partes no&nbsp;lugar, cada regra que&nbsp;aparecer na&nbsp;sua&nbsp;semana já&nbsp;tem endereço. Sem&nbsp;elas, a&nbsp;regra vira mais uma&nbsp;linha solta no&nbsp;fim do&nbsp;arquivo, e&nbsp;em&nbsp;um&nbsp;mês ninguém acha
-      nada.</p>
-
-      <div class="destrave">
-        <div class="destrave-rot">Se travar, responda estas três</div>
-        <ul>
-          <li>O&nbsp;que&nbsp;você corrigiu duas vezes no&nbsp;assistente do&nbsp;Módulo 1? Aquilo é
-          "Preferências" ou&nbsp;"Regras", e&nbsp;já&nbsp;dá para&nbsp;escrever agora.</li>
-          <li>Não&nbsp;sabe criar um&nbsp;arquivo com&nbsp;essa extensão? Crie um&nbsp;arquivo de&nbsp;texto comum e&nbsp;salve com&nbsp;o&nbsp;nome <code>CLAUDE.md</code>, incluindo o&nbsp;ponto. É texto puro, e&nbsp;abre
-          em&nbsp;qualquer editor.</li>
-          <li>Parte sem&nbsp;conteúdo incomoda? Deixe o&nbsp;título e&nbsp;o&nbsp;parêntese. Parte vazia
-          declarada é melhor que&nbsp;parte ausente, porque&nbsp;ela lembra você de&nbsp;preencher.</li>
-        </ul>
-        <div class="destrave-nao"><strong>Não conta como resposta:</strong> colar o manual
-        da sua área inteiro dentro do arquivo. Ele é lido em toda sessão, e manual inteiro
-        é exatamente o que a parte "Referências" existe para apontar de fora.</div>
-      </div>
-
-      <div class="passo-ok">
-        <div class="passo-ok-rot">Deu certo se</div>
-        <p>o&nbsp;arquivo existe na&nbsp;pasta de&nbsp;cima, com&nbsp;<strong>as&nbsp;cinco partes</strong>, e&nbsp;as&nbsp;duas linhas da&nbsp;memória estão escritas exatamente como no&nbsp;esqueleto. Se&nbsp;você mudou a&nbsp;palavra <code>MEMORY.md</code>, mude também o&nbsp;nome do&nbsp;arquivo do&nbsp;próximo passo.</p>
-      </div>
-    </div>
-
-    <div class="passo">
-      <div class="passo-topo">
-        <div class="passo-n">04</div>
-        <div>
-          <div class="passo-fn">Passo 4 &middot; na tela</div>
-          <h3>Aponte o&nbsp;Claude para&nbsp;a&nbsp;pasta e&nbsp;teste as&nbsp;camadas</h3>
-        </div>
-      </div>
-      <p>Volte ao&nbsp;Claude Desktop, no&nbsp;botão <strong>"Chat e&nbsp;Cowork"</strong>, e&nbsp;aponte a&nbsp;sessão para&nbsp;a&nbsp;pasta que&nbsp;você criou. Depois faça um&nbsp;pedido curto de&nbsp;dentro dela e&nbsp;veja
-      se&nbsp;ele obedece ao&nbsp;que&nbsp;está escrito, sem&nbsp;você recolar nada.</p>
-
-      <div class="destrave">
-        <div class="destrave-rot">Se travar, responda estas três</div>
-        <ul>
-          <li>Não&nbsp;sabe o&nbsp;que&nbsp;pedir? Peça o&nbsp;que&nbsp;você faria na&nbsp;segunda-feira, na&nbsp;linguagem
-          mais curta que&nbsp;conseguir. Uma&nbsp;linha basta, e&nbsp;é justamente isso que&nbsp;se&nbsp;testa.</li>
-          <li>Ele não&nbsp;seguiu uma&nbsp;regra? Confira se&nbsp;ela está no&nbsp;arquivo da&nbsp;pasta certa. Regra
-          na&nbsp;subpasta errada não&nbsp;alcança o&nbsp;trabalho que&nbsp;está na&nbsp;de&nbsp;cima.</li>
-          <li>Ele pediu confirmação antes de&nbsp;mexer em&nbsp;arquivo? Então a&nbsp;camada 1 está
-          funcionando, e&nbsp;isso já&nbsp;é metade do&nbsp;teste.</li>
-        </ul>
-        <div class="destrave-nao"><strong>Não conta como resposta:</strong> perguntar a ele
-        "você leu meu arquivo de regras?". Ele responde que sim, e você não fica sabendo de
-        nada. O teste é pedir alguma coisa e conferir se o resultado obedece.</div>
-      </div>
-
-      <div class="passo-ok">
-        <div class="passo-ok-rot">Deu certo se</div>
-        <p>a&nbsp;resposta saiu <strong>no&nbsp;formato que&nbsp;você escreveu em&nbsp;Preferências</strong>,
-        sem&nbsp;você ter pedido o&nbsp;formato, e&nbsp;ele avisou antes de&nbsp;mexer em&nbsp;qualquer arquivo. Se&nbsp;as&nbsp;duas coisas aconteceram, as&nbsp;camadas 1 e&nbsp;2 estão de&nbsp;pé.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="secao" id="s06">
-    <div class="secao-topo">
-      <div class="secao-n">06</div>
-      <div>
-        <div class="secao-fn">Confira</div>
-        <h2>Uma&nbsp;versão de&nbsp;referência</h2>
-      </div>
-    </div>
-
-    <p><em>O&nbsp;seu&nbsp;vai ser diferente do&nbsp;meu,&nbsp;e&nbsp;tudo bem. Compare a&nbsp;estrutura, não&nbsp;o&nbsp;conteúdo.</em></p>
+    <p>Aqui a&nbsp;regra sai também da&nbsp;conversa. <strong>Ela passa a&nbsp;ser um&nbsp;arquivo dentro da&nbsp;pasta onde&nbsp;os&nbsp;seus&nbsp;arquivos já&nbsp;estão</strong>, e&nbsp;quem lê a&nbsp;pasta lê a&nbsp;regra junto. É o&nbsp;mesmo aplicativo e&nbsp;o&nbsp;mesmo botão <strong>"Chat e&nbsp;Cowork"</strong> do&nbsp;módulo passado: o&nbsp;que&nbsp;muda é de&nbsp;onde&nbsp;ele lê e&nbsp;onde&nbsp;ele entrega.</p>
 
     <div class="grade grade-2 solta">
       <div class="cartao">
-        <span class="rot">Camada 2 &middot; Preferências e Regras</span>
+        <span class="rot">O que o Módulo 1 deixou pronto</span>
         <ul class="lista">
-          <li>Frase de&nbsp;no&nbsp;máximo duas linhas, sem&nbsp;jargão de&nbsp;gestão</li>
-          <li>Quando&nbsp;houver número, tabela em&nbsp;vez de&nbsp;lista</li>
-          <li>Valor faltando fica em&nbsp;branco e&nbsp;declarado, nunca estimado</li>
-          <li>Antes de&nbsp;mandar qualquer coisa para&nbsp;fora, me mostre primeiro</li>
+          <li>Um&nbsp;assistente montado para&nbsp;um&nbsp;trabalho seu,&nbsp;com&nbsp;as&nbsp;regras escritas</li>
+          <li>O&nbsp;teste que&nbsp;diz quando&nbsp;recomeçar a&nbsp;conversa</li>
+          <li>A&nbsp;conta que&nbsp;separa o&nbsp;que&nbsp;merece assistente do&nbsp;que&nbsp;não&nbsp;merece</li>
         </ul>
+        <p>Tudo isso vive <strong>dentro do&nbsp;navegador</strong>, e&nbsp;os&nbsp;arquivos entram um&nbsp;a&nbsp;um,&nbsp;anexados por&nbsp;você.</p>
       </div>
       <div class="cartao">
-        <span class="rot">Camada 2 &middot; Mapa de rotas</span>
+        <span class="rot">O que muda neste módulo</span>
         <ul class="lista">
-          <li><code>prestacao-de-contas/</code> planilhas e&nbsp;relatórios entregues</li>
-          <li><code>comunicacao/</code> textos que&nbsp;saem com&nbsp;o&nbsp;meu&nbsp;nome</li>
-          <li><code>indicadores/</code> os&nbsp;números da&nbsp;área, por&nbsp;mês</li>
+          <li>A&nbsp;regra vira arquivo de&nbsp;texto, na&nbsp;pasta do&nbsp;seu&nbsp;computador</li>
+          <li>Ele lê a&nbsp;pasta inteira, sem&nbsp;você anexar nada</li>
+          <li>O&nbsp;resultado volta como arquivo salvo, e&nbsp;não&nbsp;como texto na&nbsp;tela</li>
         </ul>
+        <p>E&nbsp;porque&nbsp;o&nbsp;resultado é um&nbsp;arquivo, <strong>o&nbsp;jeito de&nbsp;pedir muda também</strong>.
+        É a&nbsp;segunda aula.</p>
       </div>
     </div>
 
-    <p class="fig-leg"><strong>Repare no&nbsp;tamanho.</strong> Quatro linhas de&nbsp;regra e&nbsp;três de&nbsp;rota resolvem a&nbsp;primeira semana inteira. Se&nbsp;o&nbsp;seu&nbsp;arquivo nasceu com&nbsp;quarenta linhas,
-    provavelmente ele tem fato dentro, e&nbsp;fato mora no&nbsp;outro arquivo.</p>
+    <p class="fig-leg"><strong>A&nbsp;coluna da&nbsp;direita não&nbsp;substitui a&nbsp;da&nbsp;esquerda.</strong> O&nbsp;assistente do&nbsp;Módulo 1 continua sendo o&nbsp;lugar certo para&nbsp;o&nbsp;trabalho que&nbsp;cabe numa&nbsp;conversa. Este módulo trata do&nbsp;trabalho que&nbsp;mora numa&nbsp;pasta, e&nbsp;são coisas
+    diferentes.</p>
 
     <div class="cartao">
-      <span class="rot">O arquivo de memória, na mesma semana</span>
-      <h4>Três linhas, e&nbsp;todas são fato</h4>
-      <p>"O&nbsp;fechamento do&nbsp;convênio está com&nbsp;duas pendências abertas." &middot; "O&nbsp;contato
-      da&nbsp;área de&nbsp;comunicação mudou, agora é a&nbsp;Renata." &middot; "Ficou decidido que&nbsp;o&nbsp;relatório mensal sai na&nbsp;primeira terça, e&nbsp;não&nbsp;na&nbsp;última sexta."</p>
-      <p>Nenhuma das&nbsp;três manda fazer nada, e&nbsp;todas as&nbsp;três vão mudar. É esse o&nbsp;teste.</p>
+      <span class="rot">Uma palavra que atravessa as duas aulas</span>
+      <p>Quando&nbsp;este módulo diz <strong>Cowork</strong>, ele está falando do&nbsp;mesmo botão
+      que&nbsp;você já&nbsp;usa, apontado para&nbsp;uma&nbsp;pasta do&nbsp;seu&nbsp;computador. Não&nbsp;é outro produto nem
+      outro aplicativo, e&nbsp;não&nbsp;tem nada para&nbsp;instalar além do&nbsp;que&nbsp;você já&nbsp;instalou no&nbsp;encontro passado.</p>
     </div>
 
     <div class="aviso">
-      <div class="aviso-t">O erro que aparece na segunda semana</div>
-      <p>A&nbsp;tentação é escrever no&nbsp;arquivo de&nbsp;regras a&nbsp;frase "o&nbsp;relatório sai na&nbsp;primeira
-      terça". <strong>Ela parece regra e&nbsp;é fato:</strong> ela descreve uma&nbsp;decisão que&nbsp;pode
-      mudar na&nbsp;reunião seguinte. Regra seria "sempre confirme a&nbsp;data de&nbsp;entrega no&nbsp;arquivo
-      de&nbsp;memória antes de&nbsp;prometer prazo".</p>
-    </div>
-
-    <div class="verifique">
-      <div class="verifique-rot">Verificação de entendimento</div>
-      <p class="verifique-nota">Três perguntas fechadas. A&nbsp;primeira é a&nbsp;que&nbsp;mais gente erra, e&nbsp;errar nela faz a&nbsp;pessoa reescrever as&nbsp;mesmas regras em&nbsp;cinco lugares.</p>
-
-      <details class="vf">
-        <summary><span class="vf-n">1</span><span class="vf-p">Uma regra está escrita nas instruções globais. Você precisa repetir ela no arquivo da pasta?</span></summary>
-        <div class="vf-corpo">
-          <p>Não.&nbsp;As&nbsp;camadas <strong>empilham</strong>: o&nbsp;que&nbsp;vale na&nbsp;camada de&nbsp;cima continua valendo embaixo sem&nbsp;ser reescrito. Repetir cobra duas vezes e&nbsp;cria duas versões que&nbsp;um&nbsp;dia vão discordar. <em>Seção 02.</em></p>
-        </div>
-      </details>
-
-      <details class="vf">
-        <summary><span class="vf-n">2</span><span class="vf-p">"O contato da área agora é a Renata." Isso vai no arquivo de regras ou no de memória?</span></summary>
-        <div class="vf-corpo">
-          <p>No&nbsp;de&nbsp;memória. Ela não&nbsp;prescreve comportamento nenhum, e&nbsp;descreve um&nbsp;fato que&nbsp;pode mudar. <strong>Fato guardado no&nbsp;arquivo de&nbsp;regras</strong> é o&nbsp;que&nbsp;faz ele passar de&nbsp;300 linhas em&nbsp;um&nbsp;mês. <em>Seção 03.</em></p>
-        </div>
-      </details>
-
-      <details class="vf">
-        <summary><span class="vf-n">3</span><span class="vf-p">O seu arquivo de regras precisa do manual de 40 páginas da sua área. Você cola o manual dentro dele?</span></summary>
-        <div class="vf-corpo">
-          <p>Não.&nbsp;Vai um&nbsp;<strong>ponteiro</strong> na&nbsp;parte "Referências", dizendo onde&nbsp;o&nbsp;manual está e&nbsp;quando&nbsp;abrir. O&nbsp;arquivo de&nbsp;regras é lido em&nbsp;toda sessão, e&nbsp;o&nbsp;manual só&nbsp;quando&nbsp;a&nbsp;tarefa pede. <em>Seção 03.</em></p>
-        </div>
-      </details>
-    </div>
-
-  </section>
-
-  <div class="ate-aqui">
-    <div class="ate-aqui-rot">A aula acaba aqui</div>
-  </div>
-  <p class="ate-aqui-nota">Você já&nbsp;tem o&nbsp;que&nbsp;precisa para&nbsp;usar isto amanhã: as&nbsp;instruções
-  globais escritas, a&nbsp;pasta criada e&nbsp;o&nbsp;arquivo de&nbsp;regras com&nbsp;as&nbsp;cinco partes. O&nbsp;que&nbsp;vem
-  abaixo é <strong>aprofundamento</strong>: leia agora se&nbsp;tiver cinco minutos, ou&nbsp;volte
-  aqui na&nbsp;primeira vez que&nbsp;uma&nbsp;regra sua&nbsp;não&nbsp;for obedecida.</p>
-
-  <section class="secao" id="s07">
-    <div class="secao-topo">
-      <div class="secao-n">07</div>
-      <div>
-        <div class="secao-fn">Pegadinhas</div>
-        <h2>Onde&nbsp;quase todo mundo tropeça na&nbsp;primeira semana</h2>
-      </div>
-    </div>
-
-    <div class="aviso erro">
-      <div class="aviso-t">Escrever tudo na camada mais ampla</div>
-      <p>É o&nbsp;erro mais confortável, porque&nbsp;parece garantir que&nbsp;a&nbsp;regra vale sempre. O&nbsp;preço
-      é que&nbsp;ela é lida em&nbsp;toda sessão, inclusive nas&nbsp;dez em&nbsp;que&nbsp;não&nbsp;tem nada a&nbsp;ver, e&nbsp;<strong>regra fora de&nbsp;contexto atrapalha tanto quanto regra faltando</strong>. Se&nbsp;ela
-      só&nbsp;vale numa&nbsp;área, ela mora na&nbsp;pasta daquela área.</p>
-    </div>
-
-    <div class="aviso erro">
-      <div class="aviso-t">Montar trinta pastas antes de usar</div>
-      <p>A&nbsp;estrutura perfeita no&nbsp;primeiro dia é a&nbsp;que&nbsp;ninguém mantém no&nbsp;décimo. Comece com&nbsp;duas ou&nbsp;três, e&nbsp;deixe a&nbsp;quarta nascer na&nbsp;semana em&nbsp;que&nbsp;a&nbsp;falta dela incomodar.
-      <strong>Pasta vazia é lugar onde&nbsp;ninguém procura</strong>, e&nbsp;um&nbsp;mapa de&nbsp;rotas que&nbsp;aponta para&nbsp;pasta vazia ensina ele a&nbsp;procurar onde&nbsp;não&nbsp;tem.</p>
-    </div>
-
-    <div class="aviso erro">
-      <div class="aviso-t">Guardar fato no arquivo de regras</div>
-      <p>Nome de&nbsp;contato, status de&nbsp;projeto, decisão da&nbsp;última reunião. Todos parecem
-      importantes e&nbsp;nenhum é regra. <strong>O&nbsp;arquivo de&nbsp;regras engorda, passa do&nbsp;limite, e&nbsp;aí você corta a&nbsp;parte errada</strong>, porque&nbsp;o&nbsp;que&nbsp;salta aos&nbsp;olhos é sempre a&nbsp;regra
-      antiga, e&nbsp;não&nbsp;o&nbsp;fato que&nbsp;já&nbsp;venceu.</p>
+      <div class="aviso-t">O que este módulo não traz, e é decisão de recorte</div>
+      <p>A&nbsp;ementa listava cinco frentes para&nbsp;o&nbsp;Cowork. <strong>Este módulo fica nas&nbsp;duas
+      que&nbsp;sustentam todas as&nbsp;outras</strong>: onde&nbsp;a&nbsp;regra mora, e&nbsp;como se&nbsp;pede. Sem&nbsp;essas
+      duas, qualquer automação em&nbsp;cima nasce apoiada em&nbsp;nada.</p>
     </div>
   </section>
 
-  <section class="secao" id="s08">
+  <section class="secao" id="aulas">
     <div class="secao-topo">
-      <div class="secao-n">08</div>
+      <div class="secao-n">02</div>
       <div>
-        <div class="secao-fn">A cerca</div>
-        <h2>O&nbsp;que&nbsp;as&nbsp;camadas não&nbsp;resolvem</h2>
+        <div class="secao-fn">O que tem dentro</div>
+        <h2>As&nbsp;duas aulas do&nbsp;Módulo 2</h2>
       </div>
     </div>
 
-    <p>Com&nbsp;as&nbsp;camadas escritas, você para&nbsp;de&nbsp;recolar regra e&nbsp;passa a&nbsp;ter um&nbsp;lugar para&nbsp;cada
-    coisa. Três coisas continuam de&nbsp;pé.</p>
+    <p><strong>São duas aulas, e&nbsp;cada uma&nbsp;tem um&nbsp;conceito só.</strong>&nbsp;As&nbsp;duas são de&nbsp;fundamento: elas mostram como a&nbsp;coisa funciona antes de&nbsp;qualquer automação, e&nbsp;o&nbsp;que&nbsp;você leva de&nbsp;cada uma&nbsp;é uma&nbsp;coisa montada no&nbsp;seu&nbsp;computador, não&nbsp;um&nbsp;exercício.</p>
+
+    <div class="aulas-lista solta">
+
+      <a class="aula-card ready" href="../m2a1-as-quatro-camadas/">
+        <div class="aula-top">
+          <span class="aula-num">Aula 2.1</span>
+          <span class="chip chip-ementa">Ementa &middot; O ambiente Cowork</span>
+          <span class="rec">Traga o assistente que você montou no Módulo 1</span>
+          <span class="aula-status ok">Pronta</span>
+        </div>
+        <div class="aula-title">Onde as regras moram</div>
+        <div class="aula-body">
+          <div class="aula-bloco">
+            <div class="aula-bloco-label">O que você faz</div>
+            <ul>
+              <li>Escreve as&nbsp;suas&nbsp;instruções globais, em&nbsp;Configurações &rsaquo; Cowork</li>
+              <li>Cria a&nbsp;pasta do&nbsp;trabalho, com&nbsp;duas ou&nbsp;três áreas dentro</li>
+              <li>Escreve o&nbsp;arquivo de&nbsp;regras da&nbsp;pasta, com&nbsp;as&nbsp;cinco partes</li>
+            </ul>
+          </div>
+          <div class="aula-bloco">
+            <div class="aula-bloco-label">O que você leva</div>
+            <p>A&nbsp;pasta criada, com&nbsp;o&nbsp;arquivo de&nbsp;regras dentro dela, e&nbsp;a&nbsp;pergunta que&nbsp;separa
+            o&nbsp;que&nbsp;é regra do&nbsp;que&nbsp;é fato.</p>
+          </div>
+        </div>
+        <div class="aula-hook">A lei do estado não revoga a do país. Ela empilha por cima, e trata do que é dali.</div>
+        <div class="aula-cta">Abrir a aula</div>
+      </a>
+
+      <a class="aula-card ready" href="../m2a2-a-linguagem-muda/">
+        <div class="aula-top">
+          <span class="aula-num">Aula 2.2</span>
+          <span class="chip chip-ementa">Ementa &middot; O ambiente Cowork</span>
+          <span class="rec">Traga um pedido seu que voltou como conselho</span>
+          <span class="aula-status ok">Pronta</span>
+        </div>
+        <div class="aula-title">A linguagem muda</div>
+        <div class="aula-body">
+          <div class="aula-bloco">
+            <div class="aula-bloco-label">O que você faz</div>
+            <ul>
+              <li>Reconhece, num&nbsp;pedido seu,&nbsp;se&nbsp;ele descreve o&nbsp;caminho ou&nbsp;a&nbsp;chegada</li>
+              <li>Reescreve esse pedido nos&nbsp;quatro campos do&nbsp;pedido de&nbsp;resultado</li>
+              <li>Escreve um&nbsp;critério de&nbsp;sucesso que&nbsp;outra pessoa consegue conferir</li>
+            </ul>
+          </div>
+          <div class="aula-bloco">
+            <div class="aula-bloco-label">O que você leva</div>
+            <p>Um&nbsp;pedido seu&nbsp;reescrito em&nbsp;quatro campos, e&nbsp;o&nbsp;arquivo que&nbsp;ele produziu na&nbsp;sua&nbsp;pasta.</p>
+          </div>
+        </div>
+        <div class="aula-hook">Você não explica ao pedreiro como assentar o tijolo. Você diz onde a parede vai, e a medida.</div>
+        <div class="aula-cta">Abrir a aula</div>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="secao" id="ordem">
+    <div class="secao-topo">
+      <div class="secao-n">03</div>
+      <div>
+        <div class="secao-fn">Como as aulas se encadeiam</div>
+        <h2>Por&nbsp;que&nbsp;esta ordem</h2>
+      </div>
+    </div>
+
+    <p>Uma&nbsp;frase por&nbsp;aula, dizendo o&nbsp;que&nbsp;ela deixa pronto para&nbsp;a&nbsp;seguinte.</p>
+
+    <div class="tabela">
+      <table>
+        <thead><tr>
+          <th></th><th>O que ela deixa pronto</th><th>O que fica travado sem ela</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>2.1</strong></td>
+            <td>A pasta existe, e o que você repetia toda semana está escrito dentro
+            dela</td>
+            <td>Sem lugar onde a regra mora, o pedido de resultado precisa carregar tudo
+            junto e volta a ser um pedido comprido</td>
+          </tr>
+          <tr>
+            <td><strong>2.2</strong></td>
+            <td>O pedido descreve a chegada, e o resultado aparece como arquivo na
+            pasta</td>
+            <td>Com a pasta pronta e o pedido do jeito antigo, você recebe conselho bem
+            escrito em cima de um material que ele já lia sozinho</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="fig-leg"><strong>A&nbsp;ordem inversa não&nbsp;funciona, e&nbsp;o&nbsp;motivo é prático.</strong>
+    Quem aprende a&nbsp;pedir resultado antes de&nbsp;ter onde&nbsp;guardar regra escreve o&nbsp;pedido
+    perfeito uma&nbsp;vez, e&nbsp;reescreve ele inteiro na&nbsp;segunda-feira seguinte.</p>
 
     <div class="cartao">
-      <span class="rot">O que estar escrito não garante</span>
-      <p><strong>Regra escrita não&nbsp;é regra obedecida.</strong> Ela é lida e&nbsp;pesa, e&nbsp;continua
-      sendo uma&nbsp;instrução em&nbsp;texto, não&nbsp;um&nbsp;travamento. As&nbsp;quatro perguntas de&nbsp;conferência da&nbsp;aula 3 do&nbsp;nivelamento continuam valendo, e&nbsp;continuam sendo suas.</p>
-      <p><strong>Ler a&nbsp;pasta inteira não&nbsp;é ler bem.</strong> Mais material lido significa
-      mais material para&nbsp;você conferir, e&nbsp;é por&nbsp;isso que&nbsp;o&nbsp;mapa de&nbsp;rotas existe: para&nbsp;ele
-      procurar no&nbsp;lugar certo em&nbsp;vez de&nbsp;procurar em&nbsp;tudo.</p>
-    </div>
-
-    <div class="aviso atencao">
-      <div class="aviso-t">A camada que não existe</div>
-      <p>Nada disso vale para&nbsp;o&nbsp;que&nbsp;está fora da&nbsp;pasta. Documento no&nbsp;e-mail, planilha na&nbsp;nuvem da&nbsp;empresa, sistema interno: nenhum deles é alcançado por&nbsp;um&nbsp;arquivo de&nbsp;regras
-      numa&nbsp;pasta local. <strong>O&nbsp;que&nbsp;não&nbsp;está na&nbsp;pasta continua sendo trabalho seu&nbsp;de&nbsp;levar até&nbsp;lá</strong>, e&nbsp;decidir o&nbsp;que&nbsp;merece ser levado é decisão de&nbsp;rotina, não&nbsp;de&nbsp;ferramenta.</p>
-    </div>
-
-    <div class="aviso">
-      <div class="aviso-t">E o que não entra em pasta nenhuma</div>
-      <p>A&nbsp;aula 4 do&nbsp;nivelamento separou o&nbsp;material em&nbsp;três caixas, e&nbsp;a&nbsp;caixa do&nbsp;que&nbsp;não&nbsp;entra num&nbsp;chat continua fechada aqui. <strong>Pasta local não&nbsp;muda a&nbsp;classificação do&nbsp;dado</strong>: o&nbsp;que&nbsp;não&nbsp;podia ser colado numa&nbsp;conversa também não&nbsp;deve ser copiado
-      para&nbsp;uma&nbsp;pasta que&nbsp;uma&nbsp;ferramenta lê inteira.</p>
+      <span class="rot">A regra do encadeamento</span>
+      <p>Toda aula abre com&nbsp;algo que&nbsp;a&nbsp;anterior deixou pronto. <strong>A&nbsp;2.1 abre com&nbsp;o&nbsp;assistente que&nbsp;você montou no&nbsp;Módulo 1</strong>, e&nbsp;a&nbsp;2.2 abre com&nbsp;a&nbsp;pasta que&nbsp;a&nbsp;2.1
+      criou. O&nbsp;módulo é uma&nbsp;corrente, e&nbsp;não&nbsp;duas páginas soltas sobre&nbsp;o&nbsp;mesmo assunto.</p>
     </div>
   </section>
 
-  <div class="checagem">
-    <span class="rot">Confira você mesmo</span>
-    <ul>
-      <li>As&nbsp;instruções globais estão salvas, e&nbsp;você sabe dizer o&nbsp;que&nbsp;cada uma&nbsp;das&nbsp;três seções evita</li>
-      <li>A&nbsp;sua&nbsp;pasta tem duas ou&nbsp;três subpastas, e&nbsp;você diz o&nbsp;que&nbsp;vai em&nbsp;cada uma&nbsp;sem&nbsp;hesitar</li>
-      <li>O&nbsp;arquivo de&nbsp;regras tem as&nbsp;cinco partes, mesmo que&nbsp;duas ainda estejam vazias</li>
-      <li>As&nbsp;duas linhas que&nbsp;ligam a&nbsp;memória estão escritas, com&nbsp;o&nbsp;nome do&nbsp;arquivo batendo</li>
-      <li>Você consegue olhar uma&nbsp;frase sua&nbsp;e&nbsp;dizer, com&nbsp;a&nbsp;pergunta, se&nbsp;ela é regra ou&nbsp;fato</li>
-    </ul>
-  </div>
-
-  <div class="fecho">
-    <div class="fecho-rot">Você sabe fazer isto agora</div>
-    <div class="fecho-sub">Confira sozinho: se algum item não estiver de pé, volte na seção que o cobre.</div>
-    <ul>
-      <li><span><strong>Você reconhece</strong> as&nbsp;quatro camadas pelo&nbsp;alcance, e&nbsp;sabe qual delas some quando&nbsp;a&nbsp;conversa fecha</span></li>
-      <li><span><strong>Você escreve</strong> as&nbsp;instruções globais, e&nbsp;sabe que&nbsp;elas tratam de&nbsp;conduta e&nbsp;não&nbsp;de&nbsp;conteúdo</span></li>
-      <li><span><strong>Você separa</strong> regra de&nbsp;fato com&nbsp;uma&nbsp;pergunta, e&nbsp;sabe o&nbsp;que&nbsp;fazer quando&nbsp;a&nbsp;resposta é as&nbsp;duas</span></li>
-      <li><span><strong>Você segura</strong> o&nbsp;custo com&nbsp;os&nbsp;três controles, sem&nbsp;perder qualidade</span></li>
-      <li><span><strong>O&nbsp;artefato:</strong> a&nbsp;pasta criada, com&nbsp;o&nbsp;arquivo de&nbsp;regras de&nbsp;cinco partes dentro dela</span></li>
-    </ul>
-    <div class="fecho-nota">O assistente que você montou no Módulo 1 acabou de ganhar endereço. O que era campo de texto num navegador agora é arquivo numa pasta sua.</div>
-  </div>
-
-  <div class="gancho">
-    <span class="rot">A trava que esta aula não resolve</span>
-    <p>As&nbsp;regras estão guardadas e&nbsp;ele lê a&nbsp;pasta sozinho. <strong>Só&nbsp;que&nbsp;você continua
-    pedindo do&nbsp;jeito que&nbsp;pedia no&nbsp;chat</strong>, e&nbsp;por&nbsp;isso recebe conselho bem escrito em&nbsp;vez de&nbsp;trabalho feito. O&nbsp;que&nbsp;muda não&nbsp;é o&nbsp;tamanho do&nbsp;pedido, é o&nbsp;que&nbsp;ele descreve, e&nbsp;é
-    isso que&nbsp;a&nbsp;<strong>próxima aula</strong> resolve.</p>
-  </div>
-
-<nav class="rodape-nav"><a href="../m1a5-quando-compensa/">&larr; Saiba quando montar assistente compensa, e quando não</a><a href="../m2a2-a-linguagem-muda/">A linguagem muda &rarr;</a></nav>
+<nav class="rodape-nav"><a href="../m1a5-quando-compensa/">&larr; Saiba quando montar assistente compensa, e quando não</a><a href="../m2a1-as-quatro-camadas/">Onde as regras moram &rarr;</a></nav>
 </main>
 
 
