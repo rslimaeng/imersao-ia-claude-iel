@@ -3218,8 +3218,8 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
       </div>
     </div>
 
-    <p>Os&nbsp;dois primeiros são o&nbsp;par que&nbsp;faz a&nbsp;pasta lembrar. O&nbsp;terceiro é uma&nbsp;habilidade
-    que&nbsp;você instala uma&nbsp;vez e&nbsp;chama pelo&nbsp;nome quando&nbsp;quiser.</p>
+    <p>Os&nbsp;dois primeiros são o&nbsp;par que&nbsp;faz a&nbsp;pasta lembrar. Depois deles vêm duas
+    habilidades, que&nbsp;você instala uma&nbsp;vez e&nbsp;chama pelo&nbsp;nome quando&nbsp;quiser.</p>
 
     <div class="arquivo">
       <div>
@@ -3333,6 +3333,11 @@ O que o Claude foi aprendendo sobre você. Diga "lembre disso" em qualquer conve
       </div>
     </details>
 
+    <p><strong>As&nbsp;duas habilidades abaixo são dois caminhos, e&nbsp;você escolhe um.</strong>&nbsp;A&nbsp;primeira fecha a&nbsp;conversa guardando o&nbsp;que&nbsp;apareceu nela. A&nbsp;segunda faz o&nbsp;trabalho
+    desta página por&nbsp;outro lado: em&nbsp;vez de&nbsp;você baixar os&nbsp;dois arquivos prontos e&nbsp;pedir
+    para&nbsp;adaptar, ela entrevista você e&nbsp;escreve os&nbsp;dois do&nbsp;zero. <strong>Chega no&nbsp;mesmo
+    lugar</strong>, e&nbsp;não&nbsp;precisa das&nbsp;duas.</p>
+
     <div class="arquivo">
       <div>
         <div class="arq-fn">A auditoria de fim de sessão</div>
@@ -3356,7 +3361,8 @@ O que o Claude foi aprendendo sobre você. Diga "lembre disso" em qualquer conve
             <button class="btn-copiar" type="button" data-alvo="arq-m2e1-skill">Copiar</button>
           </div>
           <pre class="prompt-txt config" id="arq-m2e1-skill">---
-name: auditoria-de-sessao description: "Auditoria de fim de sessão que varre a conversa atrás de correções, preferências e decisões que ainda não foram salvas, e propõe onde guardar cada uma. Use sempre que a pessoa disser auditoria de sessão, audita essa sessão, o que a gente esqueceu, antes de encerrar, ou fim de sessão. Funciona em qualquer pasta que tenha um CLAUDE.md e um MEMORY.md na raiz."
+name: auditoria-de-sessao
+description: "Auditoria de fim de sessão que varre a conversa atrás de correções, preferências e decisões que ainda não foram salvas, e propõe onde guardar cada uma. Use sempre que a pessoa disser auditoria de sessão, audita essa sessão, o que a gente esqueceu, antes de encerrar, ou fim de sessão. Funciona em qualquer pasta que tenha um CLAUDE.md e um MEMORY.md na raiz."
 ---
 
 # Auditoria de sessão
@@ -3421,6 +3427,162 @@ Depois que a pessoa aprovar (tudo, parte ou nada), escreva nos arquivos e confir
         </div>
       </div>
     </details>
+
+    <div class="arquivo">
+      <div>
+        <div class="arq-fn">A entrevista que escreve os dois</div>
+        <div class="arq-nome">
+          <span class="arq-tipo">skill</span>
+          <code>montar-instrucao-e-memoria.skill</code>
+        </div>
+        <p>O&nbsp;outro caminho. Em&nbsp;vez de&nbsp;baixar os&nbsp;dois arquivos prontos, você instala esta e&nbsp;diz que&nbsp;quer montar a&nbsp;pasta: ela olha o&nbsp;que&nbsp;já&nbsp;está lá dentro, pergunta o&nbsp;que&nbsp;a&nbsp;pasta não&nbsp;respondeu, e&nbsp;escreve os&nbsp;dois com&nbsp;as&nbsp;suas&nbsp;palavras.</p>
+      </div>
+      <div class="arq-acoes">
+        <a class="btn" href="../_arquivos/montar-instrucao-e-memoria.skill" download>Baixar</a>
+      </div>
+    </div>
+
+    <details class="gabarito">
+      <summary>Ver e copiar o conteúdo, sem baixar</summary>
+      <div class="gabarito-corpo">
+        <div class="prompt">
+          <div class="prompt-barra">
+            <span class="prompt-rot">SKILL.md &middot; as cinco etapas da entrevista</span>
+            <button class="btn-copiar" type="button" data-alvo="arq-m2e1-entrevista">Copiar</button>
+          </div>
+          <pre class="prompt-txt config" id="arq-m2e1-entrevista">---
+name: montar-instrucao-e-memoria
+description: "Entrevista você e escreve os dois arquivos que fazem uma pasta lembrar: o de regras e o de memória. Olha a pasta primeiro e só pergunta o que a pasta não respondeu. Use quando a pessoa disser monta os arquivos desta pasta, quero começar esta pasta, cria as regras daqui, não sei o que escrever no arquivo de regras, me entrevista, ou quando ela abrir uma pasta nova de trabalho e não souber por onde começar."
+---
+
+# Montar a instrução e a memória da pasta
+
+Você vai entrevistar a pessoa e escrever dois arquivos na raiz da pasta: `CLAUDE.md`, que são as regras, e `MEMORY.md`, que é o caderno. Depois disso, toda conversa nessa pasta começa lendo os dois.
+
+Este é o caminho da conversa. Existe outro, que é baixar os dois arquivos prontos e adaptar. Os dois chegam no mesmo lugar, e este demora mais e sai mais parecido com a pessoa.
+
+## O que faz esta skill ser diferente de um questionário
+
+**Olhe a pasta antes de abrir a boca.** Metade do que você precisa saber está lá dentro: o nome das subpastas, os tipos de arquivo, quantos são, como estão nomeados, o que foi mexido por último. Uma pasta com `2024-relatorio-v3-FINAL-2.docx` já contou uma história sobre como essa pessoa trabalha.
+
+Pergunte só o que a pasta não respondeu. Cada pergunta que a pessoa não precisa responder é uma chance a menos de ela desistir no meio.
+
+## Passo 1 · Leia a pasta
+
+Liste o que existe, incluindo subpastas. Abra o que for texto e couber. Anote em silêncio:
+
+- que tipo de trabalho mora aqui (nome de arquivo e de pasta contam mais que qualquer coisa)
+- que formatos aparecem, e quantos de cada
+- se já existe um `CLAUDE.md` ou um `MEMORY.md`. Se existir, **leia e não sobrescreva**: você vai completar, não recomeçar
+- o que a nomeação revela sobre a rotina: data no nome, versão no nome, sigla repetida, pasta por cliente, pasta por mês
+
+**Se a pasta estiver vazia, diga isso em uma frase** e vá para o passo 2 com todas as perguntas, porque não há o que deduzir.
+
+Comece dizendo, em três ou quatro linhas, o que você entendeu da pasta. A pessoa corrige na hora se você errou, e essa correção já é a primeira regra.
+
+## Passo 2 · Entreviste, em três blocos
+
+Pergunte **um bloco por vez** e espere a resposta. Não despeje as onze perguntas de uma vez: quem está começando trava.
+
+Adapte a redação ao que você leu no passo 1. Se a pasta já disse a resposta, **pule a pergunta e confirme em vez de perguntar**: "vi que aqui só entra planilha de fechamento, é isso?" vale mais que "que tipo de arquivo entra aqui?".
+
+### Bloco A · que trabalho é este
+
+1. Que trabalho acontece nesta pasta, em uma frase?
+2. Qual é o seu papel nele: você executa, revisa, aprova, coordena?
+3. Quem lê o que sai daqui? Uma pessoa? Um setor? Alguém de fora?
+
+### Bloco B · o que você já faz sem ter escrito
+
+Este é o bloco que importa. **São as regras que a pessoa já cumpre e nunca escreveu em lugar nenhum**, e é exatamente isso que o arquivo de regras existe para guardar.
+
+4. O que você faz aqui toda semana e refaz do zero toda vez?
+5. Tem alguma coisa que você **sempre** confere antes de entregar? E alguma que você **nunca** faz?
+6. Como você quer que o texto saia: mais formal ou mais de conversa? Curto ou detalhado?
+7. Tem palavra ou jeito de escrever que te incomoda e você não quer ver?
+8. Tem arquivo aqui que é consulta, e que só deve ser lido quando o assunto for aquele?
+
+### Bloco C · o que muda com o tempo
+
+Isto não é regra: é fato que muda, e por isso vai no outro arquivo.
+
+9. Em que você está trabalhando agora, aqui dentro?
+10. Tem nome, prazo ou número que eu deveria guardar para não te perguntar de novo?
+11. Tem alguma decisão já tomada que eu preciso respeitar sem discutir?
+
+## Passo 3 · Separe antes de escrever
+
+Cada resposta vai para um dos dois arquivos, e o teste é o mesmo que o arquivo de regras ensina:
+
+- **Prescreve um comportamento?** "sempre", "nunca", "antes de X faça Y", um jeito de escrever, um formato de entrega. Vai no `CLAUDE.md`.
+- **Descreve um fato que pode mudar?** Nome, prazo, status, decisão tomada. Vai no `MEMORY.md`.
+
+Na dúvida, **diga em qual dos dois você acha que entra e peça para a pessoa confirmar.** Não decida sozinho.
+
+## Passo 4 · Escreva os dois arquivos
+
+Use exatamente esta estrutura, porque é a mesma dos modelos do curso e a mesma que a skill de auditoria de sessão espera encontrar depois.
+
+`CLAUDE.md` na raiz:
+
+```
+# As regras desta pasta
+
+## Memória
+(a instrução de ler o MEMORY.md no começo da sessão, o gatilho "lembre disso", e os dois testes de onde cada coisa vai: copie do modelo, não reescreva)
+
+## Preferências
+(as respostas 6 e 7, em tópicos, uma por linha)
+
+## Regras
+(as respostas 4, 5 e 8, e mantenha sempre a primeira: antes de apagar, sobrescrever ou renomear qualquer arquivo, me mostre o que vai mudar e espere eu confirmar)
+
+## Mapa de rotas
+(tabela vazia com o cabeçalho, para quando a pessoa criar áreas separadas)
+
+## Materiais de consulta
+(tabela "arquivo · leia quando", com o que apareceu na resposta 8)
+```
+
+`MEMORY.md` na raiz:
+
+```
+# O caderno desta pasta
+
+Atualizado em: (data de hoje)
+
+## Projetos ativos
+(a resposta 9)
+
+## Memória
+(as respostas 10 e 11, uma por linha)
+```
+
+Regras de escrita, e elas não são decoração:
+
+- **Um parágrafo é uma linha.** Não quebre o texto no meio para caber em 80 colunas: a quebra é de quem lê, não do arquivo.
+- **Não invente nada.** O que a pessoa não respondeu fica entre colchetes, como lacuna visível.
+- **Não apague seção**, mesmo que fique vazia. A seção vazia mostra o que ainda dá para preencher depois.
+- **Só o que a pessoa disse.** Se você deduziu da pasta, marque como dedução e peça confirmação antes de escrever como se fosse dela.
+
+## Passo 5 · Prove que funcionou
+
+Depois de escrever, mostre onde os dois arquivos ficaram e proponha o teste que leva vinte segundos:
+
+&gt; Diga "lembre disso: (qualquer coisa)". Feche esta conversa, abra outra nesta mesma pasta e pergunte o que você acabou de mandar guardar.
+
+Se voltar, a pasta lembra. É essa a prova.
+
+## Quando não usar
+
+Se a pasta já tem um `CLAUDE.md` cheio e a pessoa quer só acrescentar o que apareceu numa conversa, isto aqui é grande demais. O trabalho é da auditoria de fim de sessão, que varre a conversa e propõe o que faltou. Diga isso e pare.</pre>
+        </div>
+      </div>
+    </details>
+
+    <p class="fig-leg"><strong>Quem tem pressa baixa, quem quer o&nbsp;arquivo com&nbsp;a&nbsp;cara dele
+    conversa.</strong> A&nbsp;diferença aparece no&nbsp;resultado: o&nbsp;modelo pronto traz as&nbsp;seções
+    certas com&nbsp;exemplo entre&nbsp;colchetes, e&nbsp;a&nbsp;entrevista traz as&nbsp;mesmas seções já&nbsp;preenchidas com&nbsp;o&nbsp;que&nbsp;você respondeu.</p>
 
     <div class="passo-ok">
       <div class="passo-ok-rot">Deu certo se</div>
