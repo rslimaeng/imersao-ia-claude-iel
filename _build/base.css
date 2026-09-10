@@ -327,6 +327,33 @@ body:has(.com-trilha) .migalha{max-width:var(--col)}
    um print do Rafael. Mesma correcao que a trilha IA para Negocios recebeu em
    02/09; este curso tem base.css proprio e nao herdou. */
 .cartao + .cartao{margin-top:18px}
+
+/* 🔴 O CARTAO NUNCA TEVE MARGEM PROPRIA, e o de cima so resolveu o caso de
+   dois seguidos. Cartao seguido de PARAGRAFO continuava com folga ZERO,
+   medida no ar em 10/09 na secao 01 das duas aulas do M2: 22px acima, 0
+   abaixo. O Rafael mandou o print. O padrao-mae ja declara isto dentro da
+   propria regra do .cartao, e a trilha recebeu em 02/09 com a frase dele:
+   "o defeito e do componente". Este curso tem base.css proprio e ficou
+   para tras nos dois.
+
+   LONGHAND, e nao `margin:22px 0`. O shorthand zera o margin-left, e o
+   breakout do .solta e margin-left:50% mais transform. Aqui a regra vem
+   ANTES do .solta no arquivo, entao o .solta ainda venceria por ordem e o
+   G35 nem acusaria -- mas a mensagem do proprio G35 manda usar margin-top
+   e margin-bottom, e duas classes deste site andam com `cartao solta`.
+
+   Margem de irmaos adjacentes COLAPSA, entao onde ja havia 22px vindo do
+   bloco anterior o valor nao soma: continua 22. */
+.cartao{margin-top:22px;margin-bottom:22px}
+
+/* 🔴 EM GRADE A MARGEM NAO COLAPSA, E AINDA SOMA COM O gap. Medido nas 12
+   paginas que tem cartao: os unicos containers de grade que carregam
+   .cartao dentro sao a .grade (gap 16px, 41 cartoes) e um
+   style="display:grid" inline (gap 18px, 4 cartoes). Sem esta linha eles
+   ficariam com 16+22 e 18+22 em vez do gap. */
+.grade > .cartao,
+[style*="display:grid"] > .cartao{margin-top:0;margin-bottom:0}
+
 .cartao-cor{background:var(--accent-tinted);border-color:var(--accent-line)}
 .cartao h4{font-size:17px;margin-bottom:8px}
 .cartao p:last-child{margin-bottom:0}
